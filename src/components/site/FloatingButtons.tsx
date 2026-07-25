@@ -31,6 +31,22 @@ export function FloatingButtons() {
         Zalo
       </a>
       <a
+        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Xem bản đồ Google Maps"
+        className="flex size-13 items-center justify-center rounded-full border border-border bg-card text-primary shadow-[var(--shadow-card)] transition-transform hover:scale-110"
+      >
+        <MapPin className="size-5" />
+      </a>
+      <a
+        href={`mailto:${EMAIL}`}
+        aria-label="Gửi email"
+        className="flex size-13 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-[var(--shadow-card)] transition-transform hover:scale-110"
+      >
+        <Mail className="size-5" />
+      </a>
+      <a
         href="#lien-he"
         aria-label="Gửi yêu cầu"
         className="flex size-13 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-[var(--shadow-card)] transition-transform hover:scale-110"
