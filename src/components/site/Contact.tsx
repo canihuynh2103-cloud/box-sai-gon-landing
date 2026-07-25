@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { CheckCircle2, Clock, Loader2, Mail, MapPin, Phone, AlertCircle } from "lucide-react";
 import { z } from "zod";
-import { ADDRESS, EMAIL, HOTLINE, HOTLINE_TEL, SERVICES, WORK_HOURS } from "@/data/site";
+import { ADDRESS, BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, SERVICES, WORK_HOURS } from "@/data/site";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Vui lòng nhập họ tên").max(100),
@@ -148,11 +148,24 @@ export function Contact() {
             <div className="overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)]">
               <iframe
                 title="Bản đồ Bốc Xếp Sài Gòn"
-                src="https://www.google.com/maps?q=123%20Nguy%E1%BB%85n%20V%C4%83n%20Linh,%20Qu%E1%BA%ADn%207,%20TP.HCM&output=embed"
+                src={`https://www.google.com/maps?q=${encodeURIComponent(ADDRESS)}&output=embed`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="h-[300px] w-full border-0"
               />
+            </div>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {BRANCHES.map((b) => (
+                <div key={b.name} className="rounded-xl border border-border bg-card p-5">
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary">
+                    {b.name}
+                  </p>
+                  <p className="mt-2 font-semibold leading-snug">{b.address}</p>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                    Phụ trách khu vực: {b.area}
+                  </p>
+                </div>
+              ))}
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {INFO.map((i) => (
