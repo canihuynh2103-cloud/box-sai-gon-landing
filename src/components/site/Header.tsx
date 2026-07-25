@@ -22,16 +22,16 @@ export function Header() {
         scrolled && "shadow-[var(--shadow-card)]",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:h-20 sm:gap-4 sm:px-6 lg:gap-6 lg:px-8">
-        <a href="#top" className="flex shrink-0 items-center gap-3">
-          <span className="gradient-primary flex size-11 items-center justify-center rounded-lg font-display text-xl font-bold text-primary-foreground shadow-[var(--shadow-glow)]">
+      <div className="mx-auto grid h-16 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 sm:h-20 sm:gap-4 sm:px-6 lg:flex lg:gap-6 lg:px-8">
+        <a href="#top" className="flex min-w-0 items-center gap-2 sm:gap-3 lg:shrink-0">
+          <span className="gradient-primary flex size-9 shrink-0 items-center justify-center rounded-lg font-display text-base font-bold text-primary-foreground shadow-[var(--shadow-glow)] sm:size-11 sm:text-xl">
             BX
           </span>
-          <span className="leading-tight">
-            <span className="block font-display text-lg font-bold tracking-wide text-secondary-foreground">
+          <span className="min-w-0 leading-tight">
+            <span className="block truncate font-display text-base font-bold tracking-wide text-secondary-foreground sm:text-lg">
               Bốc Xếp Sài Gòn
             </span>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.16em] text-secondary-foreground/70">
+            <span className="hidden truncate text-[10px] font-semibold uppercase tracking-[0.16em] text-secondary-foreground/70 sm:block">
               Chuyên Nghiệp - Minh Bạch - Tin Cậy
             </span>
           </span>
@@ -49,7 +49,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-3 lg:ml-0">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:ml-0">
           <a href={`tel:${HOTLINE_TEL}`} className="hidden items-center gap-2 xl:flex">
             <span className="flex size-9 items-center justify-center rounded-full bg-primary/20 text-primary-foreground">
               <Phone className="size-4" />
@@ -65,7 +65,7 @@ export function Header() {
           </a>
           <a
             href="#lien-he"
-            className="gradient-primary hidden shrink-0 animate-wiggle sm:inline-flex whitespace-nowrap rounded-md px-3 py-2 text-[11px] font-bold uppercase text-primary-foreground shadow-[var(--shadow-glow)] sm:px-5 sm:py-2.5 sm:text-sm"
+            className="gradient-primary inline-flex shrink-0 animate-wiggle whitespace-nowrap rounded-md px-2.5 py-2 text-[10px] font-bold uppercase leading-none text-primary-foreground shadow-[var(--shadow-glow)] sm:px-5 sm:py-2.5 sm:text-sm"
           >
             Nhận Báo Giá
           </a>
@@ -92,12 +92,6 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <a
-            href="#lien-he"
-            className="gradient-primary shrink-0 animate-wiggle whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-bold uppercase text-primary-foreground sm:hidden"
-          >
-            Nhận Báo Giá
-          </a>
         </div>
         <form
           onSubmit={(e) => {

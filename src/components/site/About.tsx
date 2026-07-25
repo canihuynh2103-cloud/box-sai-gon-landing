@@ -94,7 +94,7 @@ export function About() {
                 className="aspect-[4/5] w-full object-cover"
               />
             </div>
-            <div className="gradient-primary absolute -bottom-6 -right-4 rounded-xl px-6 py-4 text-primary-foreground shadow-[var(--shadow-glow)] sm:right-8">
+            <div className="gradient-primary absolute -bottom-6 right-0 rounded-xl px-5 py-3 text-primary-foreground shadow-[var(--shadow-glow)] sm:right-8 sm:px-6 sm:py-4">
               <p className="font-display text-3xl font-bold leading-none">10+</p>
               <p className="mt-1 text-xs font-semibold uppercase tracking-widest">
                 Năm Kinh Nghiệm
