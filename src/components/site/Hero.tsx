@@ -77,7 +77,7 @@ export function Hero() {
             </a>
           </div>
 
-          <dl className="mt-14 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/15 bg-white/15 backdrop-blur lg:grid-cols-4">
+          <dl className="mt-14 grid max-w-3xl grid-cols-4 gap-px overflow-hidden rounded-xl border border-white/15 bg-white/15 backdrop-blur lg:grid-cols-4">
             {STATS.map((s) => (
               <div key={s.label} className="bg-secondary/60 px-5 py-5">
                 <dt className="font-display text-3xl font-bold text-primary sm:text-4xl">

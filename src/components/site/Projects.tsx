@@ -60,7 +60,7 @@ export function Projects() {
                   height={600}
                   className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <span className="absolute left-4 top-4 rounded-full bg-secondary/85 px-3 py-1 text-xs font-bold text-secondary-foreground backdrop-blur">
+                <span className="absolute left-2 top-2 rounded-full bg-secondary/85 px-2 py-0.5 text-[10px] sm:left-4 sm:top-4 sm:px-3 sm:py-1 sm:text-xs font-bold text-secondary-foreground backdrop-blur">
                   {p.year}
                 </span>
               </div>
@@ -68,12 +68,12 @@ export function Projects() {
                 <p className="text-[10px] font-bold uppercase tracking-widest text-primary sm:text-xs">
                   {p.category}
                 </p>
-                <h3 className="mt-2 font-display text-lg font-bold leading-snug">{p.name}</h3>
-                <p className="mt-3 flex items-center gap-1.5 text-sm text-muted-foreground">
-                  <MapPin className="size-4 shrink-0" /> {p.location}
+                <h3 className="mt-1.5 font-display text-sm font-bold leading-snug sm:mt-2 sm:text-lg">{p.name}</h3>
+                <p className="mt-2 flex items-center gap-1.5 text-[11px] text-muted-foreground sm:mt-3 sm:text-sm">
+                  <MapPin className="size-3 shrink-0 sm:size-4" /> {p.location}
                 </p>
-                <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
-                  <Clock className="size-4 shrink-0" /> {p.duration}
+                <p className="mt-1 flex items-center gap-1.5 text-[11px] text-muted-foreground sm:text-sm">
+                  <Clock className="size-3 shrink-0 sm:size-4" /> {p.duration}
                 </p>
               </div>
             </button>

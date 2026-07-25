@@ -82,7 +82,7 @@ export function About() {
   return (
     <section id="gioi-thieu" className="py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-center gap-12 md:grid-cols-2">
           <div className="relative">
             <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-lift)]">
               <img

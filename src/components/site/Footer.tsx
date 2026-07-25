@@ -15,7 +15,7 @@ export function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
               <span className="gradient-primary flex size-11 items-center justify-center rounded-lg font-display text-xl font-bold text-primary-foreground">
