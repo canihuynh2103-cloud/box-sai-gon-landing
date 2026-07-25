@@ -9,9 +9,30 @@ import svcPacking from "@/assets/svc-packing.jpg";
 
 export const HOTLINE = "0888.977.822";
 export const HOTLINE_TEL = "0888977822";
-export const EMAIL = "lienhe@bocxepsaigon.vn";
-export const ADDRESS = "123 Nguyễn Văn Linh, Quận 7, TP.HCM";
+export const EMAIL = "info@bocxepsaigon.vn";
+export const ADDRESS = "234 Tô Ngọc Vân, Thủ Đức, TP.HCM";
 export const WORK_HOURS = "T2 - CN: 6h00 - 22h00";
+
+export const BRANCHES = [
+  {
+    name: "Trụ sở chính",
+    address: "234 Tô Ngọc Vân, Thủ Đức, TP.HCM",
+    phone: "0888.977.822",
+    area: "TP. Thủ Đức, Quận 2, Quận 9, Đồng Nai, Bình Dương",
+  },
+  {
+    name: "Chi nhánh Tân Bình",
+    address: "78 Cộng Hòa, Phường 4, Tân Bình, TP.HCM",
+    phone: "0888.977.822",
+    area: "Tân Bình, Tân Phú, Gò Vấp, Sân bay Tân Sơn Nhất",
+  },
+  {
+    name: "Chi nhánh Bình Tân",
+    address: "45 Kinh Dương Vương, Bình Tân, TP.HCM",
+    phone: "0888.977.822",
+    area: "Bình Tân, Bình Chánh, Quận 6, Long An",
+  },
+];
 
 export const NAV_ITEMS = [
   { label: "Dịch Vụ", href: "#dich-vu" },
@@ -27,6 +48,7 @@ export type Service = {
   desc: string;
   icon: string;
   image: string;
+  posts?: { title: string; excerpt: string }[];
 };
 
 export const SERVICES: Service[] = [
