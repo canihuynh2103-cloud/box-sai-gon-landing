@@ -22,7 +22,7 @@ export function Header() {
         scrolled && "shadow-[var(--shadow-card)]",
       )}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:gap-6 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:h-20 sm:gap-4 sm:px-6 lg:gap-6 lg:px-8">
         <a href="#top" className="flex shrink-0 items-center gap-3">
           <span className="gradient-primary flex size-11 items-center justify-center rounded-lg font-display text-xl font-bold text-primary-foreground shadow-[var(--shadow-glow)]">
             BX
@@ -65,7 +65,7 @@ export function Header() {
           </a>
           <a
             href="#lien-he"
-            className="gradient-primary inline-flex animate-wiggle rounded-md px-3 py-2 text-xs font-bold text-primary-foreground shadow-[var(--shadow-glow)] sm:px-5 sm:py-2.5 sm:text-sm"
+            className="gradient-primary inline-flex shrink-0 animate-wiggle whitespace-nowrap rounded-md px-3 py-2 text-[11px] font-bold uppercase text-primary-foreground shadow-[var(--shadow-glow)] sm:px-5 sm:py-2.5 sm:text-sm"
           >
             Nhận Báo Giá
           </a>
@@ -73,7 +73,7 @@ export function Header() {
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label="Mở menu"
-            className="flex size-10 items-center justify-center rounded-md border border-white/25 text-secondary-foreground lg:hidden"
+            className="hidden size-10 items-center justify-center rounded-md border border-white/25 text-secondary-foreground"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
