@@ -77,16 +77,17 @@ export function Hero() {
             </a>
           </div>
 
-          <dl className="mt-14 grid max-w-3xl grid-cols-4 gap-px overflow-hidden rounded-xl border border-white/15 bg-white/15 backdrop-blur lg:grid-cols-4">
+          <dl className="mt-14 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/15 bg-white/15 backdrop-blur sm:grid-cols-4 lg:grid-cols-4">
             {STATS.map((s) => (
-              <div key={s.label} className="bg-secondary/60 px-5 py-5">
-                <dt className="font-display text-3xl font-bold text-primary sm:text-4xl">
+              <div key={s.label} className="min-w-0 bg-secondary/60 px-3 py-4 sm:px-5 sm:py-5">
+                <dt className="font-display text-2xl font-bold text-primary sm:text-4xl">
                   {s.value}
                   {s.suffix}
                 </dt>
-                <dd className="mt-1 text-xs font-semibold uppercase tracking-widest text-secondary-foreground/75">
+                <dd className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-secondary-foreground/75 sm:text-xs">
                   {s.label}
                 </dd>
+
               </div>
             ))}
           </dl>
