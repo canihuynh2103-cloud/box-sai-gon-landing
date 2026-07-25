@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { ArrowUp, MessageCircle, Phone } from "lucide-react";
-import { HOTLINE_TEL } from "@/data/site";
+import { ArrowUp, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ADDRESS, EMAIL, HOTLINE_TEL } from "@/data/site";
 
 export function FloatingButtons() {
   const [show, setShow] = useState(false);
@@ -29,6 +29,22 @@ export function FloatingButtons() {
         className="flex size-13 items-center justify-center rounded-full bg-secondary font-display text-sm font-bold text-secondary-foreground shadow-[var(--shadow-lift)] transition-transform hover:scale-110"
       >
         Zalo
+      </a>
+      <a
+        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Xem bản đồ Google Maps"
+        className="flex size-13 items-center justify-center rounded-full border border-border bg-card text-primary shadow-[var(--shadow-card)] transition-transform hover:scale-110"
+      >
+        <MapPin className="size-5" />
+      </a>
+      <a
+        href={`mailto:${EMAIL}`}
+        aria-label="Gửi email"
+        className="flex size-13 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-[var(--shadow-card)] transition-transform hover:scale-110"
+      >
+        <Mail className="size-5" />
       </a>
       <a
         href="#lien-he"

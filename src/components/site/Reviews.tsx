@@ -53,7 +53,7 @@ export function Reviews() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {visible.map((r) => (
             <figure
               key={r.name}

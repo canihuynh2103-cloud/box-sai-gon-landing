@@ -67,7 +67,7 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
           <form
             onSubmit={onSubmit}
             className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] sm:p-8"
