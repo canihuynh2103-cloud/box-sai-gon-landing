@@ -65,7 +65,7 @@ export function Header() {
           </a>
           <a
             href="#lien-he"
-            className="gradient-primary inline-flex shrink-0 animate-wiggle whitespace-nowrap rounded-md px-3 py-2 text-[11px] font-bold uppercase text-primary-foreground shadow-[var(--shadow-glow)] sm:px-5 sm:py-2.5 sm:text-sm"
+            className="gradient-primary hidden shrink-0 animate-wiggle sm:inline-flex whitespace-nowrap rounded-md px-3 py-2 text-[11px] font-bold uppercase text-primary-foreground shadow-[var(--shadow-glow)] sm:px-5 sm:py-2.5 sm:text-sm"
           >
             Nhận Báo Giá
           </a>
@@ -92,6 +92,12 @@ export function Header() {
               {item.label}
             </a>
           ))}
+          <a
+            href="#lien-he"
+            className="gradient-primary shrink-0 animate-wiggle whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-bold uppercase text-primary-foreground sm:hidden"
+          >
+            Nhận Báo Giá
+          </a>
         </div>
         <form
           onSubmit={(e) => {
