@@ -106,7 +106,7 @@ export function Footer() {
               </li>
               <li className="flex min-w-0 gap-2.5">
                 <Mail className="mt-0.5 size-4 shrink-0 text-primary" />
-                <a href={`mailto:${EMAIL}`} className="hover:text-primary">
+                <a href={`mailto:${EMAIL}`} className="min-w-0 break-all hover:text-primary">
                   {EMAIL}
                 </a>
               </li>
