@@ -97,21 +97,21 @@ export function Footer() {
 
           <div>
             <h3 className="font-display text-lg font-bold uppercase">Thông Tin Liên Hệ</h3>
-            <ul className="mt-4 space-y-3 text-sm text-secondary-foreground/70">
-              <li className="flex gap-2.5">
+            <ul className="mt-4 space-y-3 break-words text-sm text-secondary-foreground/70">
+              <li className="flex min-w-0 gap-2.5">
                 <Phone className="mt-0.5 size-4 shrink-0 text-primary" />
                 <a href={`tel:${HOTLINE_TEL}`} className="hover:text-primary">
                   {HOTLINE}
                 </a>
               </li>
-              <li className="flex gap-2.5">
+              <li className="flex min-w-0 gap-2.5">
                 <Mail className="mt-0.5 size-4 shrink-0 text-primary" />
                 <a href={`mailto:${EMAIL}`} className="hover:text-primary">
                   {EMAIL}
                 </a>
               </li>
               {BRANCHES.map((b) => (
-                <li key={b.name} className="flex gap-2.5">
+                <li key={b.name} className="flex min-w-0 gap-2.5">
                   <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
                   <span>
                     <span className="block text-xs font-bold uppercase tracking-wider text-secondary-foreground/50">
@@ -121,7 +121,7 @@ export function Footer() {
                   </span>
                 </li>
               ))}
-              <li className="flex gap-2.5">
+              <li className="flex min-w-0 gap-2.5">
                 <Clock className="mt-0.5 size-4 shrink-0 text-primary" />
                 {WORK_HOURS}
               </li>
