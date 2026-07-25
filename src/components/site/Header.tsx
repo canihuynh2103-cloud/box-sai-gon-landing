@@ -64,7 +64,7 @@ export function Header() {
           </a>
           <a
             href="#lien-he"
-            className="gradient-primary hidden rounded-md px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.03] sm:inline-flex"
+            className="gradient-primary inline-flex animate-wiggle rounded-md px-3 py-2 text-xs font-bold text-primary-foreground shadow-[var(--shadow-glow)] sm:px-5 sm:py-2.5 sm:text-sm"
           >
             Nhận Báo Giá
           </a>
@@ -77,6 +77,42 @@ export function Header() {
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
         </div>
+      </div>
+
+      {/* Mobile: thanh danh mục gọn + tìm kiếm dịch vụ */}
+      <div className="border-t border-white/10 lg:hidden">
+        <div className="flex gap-1.5 overflow-x-auto px-3 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {NAV_ITEMS.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="shrink-0 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-secondary-foreground/85"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            window.dispatchEvent(new CustomEvent("service-search", { detail: query }));
+            document.getElementById("dich-vu")?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="relative px-3 pb-2.5"
+        >
+          <Search className="pointer-events-none absolute left-6 top-1/2 size-4 -translate-y-1/2 text-secondary-foreground/50" />
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              window.dispatchEvent(new CustomEvent("service-search", { detail: e.target.value }));
+            }}
+            placeholder="Tìm dịch vụ: kho, container, chuyển nhà..."
+            aria-label="Tìm dịch vụ"
+            className="w-full rounded-full border border-white/15 bg-white/5 py-2 pl-9 pr-4 text-sm text-secondary-foreground outline-none placeholder:text-secondary-foreground/45 focus:border-primary"
+          />
+        </form>
       </div>
 
       {open && (
