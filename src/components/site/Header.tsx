@@ -17,32 +17,20 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-background/95 shadow-[var(--shadow-card)] backdrop-blur"
-          : "bg-transparent",
+        "fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-secondary text-secondary-foreground transition-shadow duration-300",
+        scrolled && "shadow-[var(--shadow-card)]",
       )}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center gap-6 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-20 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:gap-6 lg:px-8">
         <a href="#top" className="flex shrink-0 items-center gap-3">
           <span className="gradient-primary flex size-11 items-center justify-center rounded-lg font-display text-xl font-bold text-primary-foreground shadow-[var(--shadow-glow)]">
             BX
           </span>
           <span className="leading-tight">
-            <span
-              className={cn(
-                "block font-display text-lg font-bold tracking-wide transition-colors",
-                scrolled ? "text-foreground" : "text-secondary-foreground",
-              )}
-            >
+            <span className="block font-display text-lg font-bold tracking-wide text-secondary-foreground">
               Bốc Xếp Sài Gòn
             </span>
-            <span
-              className={cn(
-                "block text-[10px] font-semibold uppercase tracking-[0.16em] transition-colors",
-                scrolled ? "text-muted-foreground" : "text-secondary-foreground/75",
-              )}
-            >
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.16em] text-secondary-foreground/70">
               Chuyên Nghiệp - Minh Bạch - Tin Cậy
             </span>
           </span>
@@ -53,12 +41,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className={cn(
-                "rounded-md px-3 py-2 text-sm font-semibold transition-colors",
-                scrolled
-                  ? "text-foreground/80 hover:bg-accent hover:text-accent-foreground"
-                  : "text-secondary-foreground/90 hover:bg-white/10 hover:text-secondary-foreground",
-              )}
+              className="rounded-md px-3 py-2 text-sm font-semibold text-secondary-foreground/85 transition-colors hover:bg-white/10 hover:text-secondary-foreground"
             >
               {item.label}
             </a>
@@ -66,28 +49,15 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-3 lg:ml-0">
-          <a
-            href={`tel:${HOTLINE_TEL}`}
-            className="hidden items-center gap-2 xl:flex"
-          >
-            <span className="flex size-9 items-center justify-center rounded-full bg-primary/15 text-primary">
+          <a href={`tel:${HOTLINE_TEL}`} className="hidden items-center gap-2 xl:flex">
+            <span className="flex size-9 items-center justify-center rounded-full bg-primary/20 text-primary-foreground">
               <Phone className="size-4" />
             </span>
             <span className="leading-tight">
-              <span
-                className={cn(
-                  "block text-[10px] font-semibold uppercase tracking-widest",
-                  scrolled ? "text-muted-foreground" : "text-secondary-foreground/70",
-                )}
-              >
+              <span className="block text-[10px] font-semibold uppercase tracking-widest text-secondary-foreground/70">
                 Hotline 24/7
               </span>
-              <span
-                className={cn(
-                  "block font-display text-base font-bold",
-                  scrolled ? "text-foreground" : "text-secondary-foreground",
-                )}
-              >
+              <span className="block font-display text-base font-bold text-secondary-foreground">
                 {HOTLINE}
               </span>
             </span>
@@ -102,12 +72,7 @@ export function Header() {
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label="Mở menu"
-            className={cn(
-              "flex size-10 items-center justify-center rounded-md border lg:hidden",
-              scrolled
-                ? "border-border text-foreground"
-                : "border-white/25 text-secondary-foreground",
-            )}
+            className="flex size-10 items-center justify-center rounded-md border border-white/25 text-secondary-foreground lg:hidden"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -115,14 +80,14 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-border bg-background px-4 pb-4 lg:hidden">
+        <div className="border-t border-white/10 bg-secondary px-4 pb-4 lg:hidden">
           <nav className="grid gap-1 py-2">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2.5 text-sm font-semibold text-foreground hover:bg-accent hover:text-accent-foreground"
+                className="rounded-md px-3 py-2.5 text-sm font-semibold text-secondary-foreground/90 hover:bg-white/10"
               >
                 {item.label}
               </a>
