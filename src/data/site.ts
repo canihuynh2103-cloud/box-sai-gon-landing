@@ -9,9 +9,30 @@ import svcPacking from "@/assets/svc-packing.jpg";
 
 export const HOTLINE = "0888.977.822";
 export const HOTLINE_TEL = "0888977822";
-export const EMAIL = "lienhe@bocxepsaigon.vn";
-export const ADDRESS = "123 Nguyễn Văn Linh, Quận 7, TP.HCM";
+export const EMAIL = "info@bocxepsaigon.vn";
+export const ADDRESS = "234 Tô Ngọc Vân, Thủ Đức, TP.HCM";
 export const WORK_HOURS = "T2 - CN: 6h00 - 22h00";
+
+export const BRANCHES = [
+  {
+    name: "Trụ sở chính",
+    address: "234 Tô Ngọc Vân, Thủ Đức, TP.HCM",
+    phone: "0888.977.822",
+    area: "TP. Thủ Đức, Quận 2, Quận 9, Đồng Nai, Bình Dương",
+  },
+  {
+    name: "Chi nhánh Tân Bình",
+    address: "78 Cộng Hòa, Phường 4, Tân Bình, TP.HCM",
+    phone: "0888.977.822",
+    area: "Tân Bình, Tân Phú, Gò Vấp, Sân bay Tân Sơn Nhất",
+  },
+  {
+    name: "Chi nhánh Bình Tân",
+    address: "45 Kinh Dương Vương, Bình Tân, TP.HCM",
+    phone: "0888.977.822",
+    area: "Bình Tân, Bình Chánh, Quận 6, Long An",
+  },
+];
 
 export const NAV_ITEMS = [
   { label: "Dịch Vụ", href: "#dich-vu" },
@@ -27,6 +48,7 @@ export type Service = {
   desc: string;
   icon: string;
   image: string;
+  posts?: { title: string; excerpt: string }[];
 };
 
 export const SERVICES: Service[] = [
@@ -116,18 +138,83 @@ export const SERVICES: Service[] = [
   },
 ];
 
-export const PARTNERS = [
-  "Tân Cảng Sài Gòn",
-  "Cảng Cát Lái",
-  "VinGroup",
-  "Samsung",
-  "Unilever",
-  "P&G",
-  "DHL",
-  "Gemalink",
-  "SPCT",
-  "Nestlé",
+export type Partner = { name: string; logo?: string };
+
+export const PARTNERS: Partner[] = [
+  { name: "Samsung", logo: "https://cdn.simpleicons.org/samsung/ffffff" },
+  { name: "Unilever", logo: "https://cdn.simpleicons.org/unilever/ffffff" },
+  { name: "Nestlé", logo: "https://cdn.simpleicons.org/nestle/ffffff" },
+  { name: "DHL", logo: "https://cdn.simpleicons.org/dhl/ffffff" },
+  { name: "Maersk", logo: "https://cdn.simpleicons.org/maersk/ffffff" },
+  { name: "FedEx", logo: "https://cdn.simpleicons.org/fedex/ffffff" },
+  { name: "Panasonic", logo: "https://cdn.simpleicons.org/panasonic/ffffff" },
+  { name: "Toyota", logo: "https://cdn.simpleicons.org/toyota/ffffff" },
+  { name: "LG", logo: "https://cdn.simpleicons.org/lg/ffffff" },
+  { name: "Honda", logo: "https://cdn.simpleicons.org/honda/ffffff" },
+  { name: "Tân Cảng Sài Gòn" },
+  { name: "Cảng Cát Lái" },
+  { name: "VinGroup" },
+  { name: "Gemalink" },
 ];
+
+export const SERVICE_POSTS: Record<string, { title: string; excerpt: string }[]> = {
+  "Bốc Xếp Kho Hàng": [
+    { title: "Quy trình nhập - xuất kho chuẩn 5 bước", excerpt: "Kiểm đếm hai lớp, dán nhãn vị trí và ký biên bản bàn giao ngay tại kho." },
+    { title: "Cách sắp xếp pallet tối ưu diện tích kho", excerpt: "Bố trí theo tần suất xuất hàng giúp rút ngắn 30% thời gian lấy hàng." },
+  ],
+  "Bốc Xếp Container": [
+    { title: "Rút ruột container: tránh phí lưu cont thế nào?", excerpt: "Lên kế hoạch nhân sự theo lịch tàu để giải phóng cont đúng hạn." },
+    { title: "Kinh nghiệm đóng hàng lên cont an toàn", excerpt: "Chèn lót, ràng dây và phân bố tải trọng đều tránh xô hàng khi vận chuyển." },
+  ],
+  "Bốc Xếp Nhà Máy": [
+    { title: "Checklist di dời máy móc trong nhà máy", excerpt: "Phối hợp kỹ sư, đóng kiện gỗ và nghiệm thu chạy thử sau lắp đặt." },
+    { title: "An toàn lao động khi bốc xếp trong KCN", excerpt: "Trang bị bảo hộ, phân luồng di chuyển và giám sát đội tại hiện trường." },
+  ],
+  "Bốc Xếp Cảng": [
+    { title: "Thủ tục ra vào cảng Cát Lái cho nhân công", excerpt: "Nhân sự có thẻ cảng và chứng nhận an toàn, sẵn sàng làm việc 24/7." },
+    { title: "Bốc xếp hàng bao kiện tại cảng hiệu quả", excerpt: "Tổ chức đội 10-15 người theo dây chuyền giúp tăng năng suất theo ca." },
+  ],
+  "Bốc Xếp Sân Bay": [
+    { title: "Quy trình build-up pallet hàng air", excerpt: "Tuân thủ quy định an ninh hàng không và tiêu chuẩn ULD của hãng bay." },
+    { title: "Xử lý hàng air cargo nhanh tại Tân Sơn Nhất", excerpt: "Đội trực theo ca đêm bảo đảm kịp giờ cắt máng của forwarder." },
+  ],
+  "Thuê Nhân Công": [
+    { title: "Nên thuê nhân công theo giờ hay theo tháng?", excerpt: "So sánh chi phí và tính ổn định để chọn phương án phù hợp mùa cao điểm." },
+    { title: "Cách quản lý nhân công thời vụ hiệu quả", excerpt: "Có đội trưởng giám sát, chấm công điện tử và báo cáo sản lượng hằng ngày." },
+  ],
+  "Đóng Gói Hàng Hóa": [
+    { title: "Tiêu chuẩn đóng gói hàng xuất khẩu EU", excerpt: "Thùng carton 5 lớp, quấn màng PE và dán nhãn barcode đúng quy cách." },
+    { title: "Đóng gói hàng dễ vỡ: 6 lưu ý quan trọng", excerpt: "Chèn lót nhiều lớp, cố định góc và ghi rõ ký hiệu cảnh báo." },
+  ],
+  "Chuyển Kho": [
+    { title: "Lập kế hoạch chuyển kho không gián đoạn", excerpt: "Chia ca luân phiên để hoạt động xuất nhập vẫn diễn ra bình thường." },
+    { title: "Sơ đồ bố trí kho mới theo nhóm hàng", excerpt: "Sắp xếp lại đúng sơ đồ khách cung cấp, bàn giao kèm danh sách vị trí." },
+  ],
+  "Chuyển Văn Phòng": [
+    { title: "Chuyển văn phòng ngoài giờ hành chính", excerpt: "Thi công từ 20h đến 5h sáng để nhân sự làm việc bình thường hôm sau." },
+    { title: "Cách đóng gói thiết bị IT và hồ sơ", excerpt: "Đánh số theo phòng ban, bọc chống sốc cho máy chủ và màn hình." },
+  ],
+  "Chuyển Nhà": [
+    { title: "Chuyển nhà trọn gói cần chuẩn bị gì?", excerpt: "Danh sách đồ đạc, lịch thang máy và phương án bảo hiểm hàng giá trị cao." },
+    { title: "Bảo vệ nội thất gỗ khi vận chuyển", excerpt: "Bọc lót nhiều lớp, tháo lắp đúng kỹ thuật và lắp đặt lại tận nơi." },
+  ],
+  "Xếp Dỡ Hàng Hóa": [
+    { title: "Xếp dỡ xe tải nhanh và an toàn", excerpt: "Dùng xe đẩy, ván trượt và bố trí đội hình theo dây chuyền." },
+    { title: "Lưu ý khi xếp dỡ hàng rời, hàng bao", excerpt: "Kiểm soát tải trọng, chống rơi vãi và vệ sinh mặt bằng sau ca." },
+  ],
+  "Bốc Hàng Theo Giờ": [
+    { title: "Điều động nhân công trong 60 phút", excerpt: "Tổng đài trực 24/7, điều phối đội gần nhất tới hiện trường." },
+    { title: "Cách tính phí bốc hàng theo giờ", excerpt: "Tính theo giờ thực tế, tối thiểu 3 giờ, không phát sinh ngoài thỏa thuận." },
+  ],
+  "Bốc Xếp Theo Tháng": [
+    { title: "Lợi ích của đội cố định trực tại kho", excerpt: "Nhân sự quen quy trình, giảm sai sót và ổn định năng suất." },
+    { title: "Báo cáo sản lượng hằng tuần gồm những gì?", excerpt: "Số ca, khối lượng xử lý, sự cố và đề xuất cải tiến vận hành." },
+  ],
+  "Bốc Xếp Hợp Đồng": [
+    { title: "Những điều khoản SLA nên có trong hợp đồng", excerpt: "Thời gian điều động, năng suất tối thiểu và mức bồi thường rõ ràng." },
+    { title: "Xuất hóa đơn VAT cho khách doanh nghiệp", excerpt: "Thanh toán theo kỳ, chứng từ đầy đủ phục vụ quyết toán." },
+  ],
+};
 
 export const PROJECT_FILTERS = [
   "Tất Cả",
@@ -363,5 +450,5 @@ export const STATS = [
   { value: 10, suffix: "+", label: "Năm Kinh Nghiệm" },
   { value: 1200, suffix: "+", label: "Dự Án" },
   { value: 850, suffix: "+", label: "Khách Hàng" },
-  { value: 80, suffix: "+", label: "Nhân Công" },
+  { value: 100, suffix: "+", label: "Nhân Công" },
 ];

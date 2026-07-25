@@ -1,10 +1,16 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import * as Icons from "lucide-react";
 import { ArrowRight, Search } from "lucide-react";
-import { SERVICES } from "@/data/site";
+import { SERVICES, SERVICE_POSTS } from "@/data/site";
 
 export function Services() {
   const [q, setQ] = useState("");
+
+  useEffect(() => {
+    const onSearch = (e: Event) => setQ((e as CustomEvent<string>).detail ?? "");
+    window.addEventListener("service-search", onSearch);
+    return () => window.removeEventListener("service-search", onSearch);
+  }, []);
 
   const filtered = useMemo(() => {
     const kw = q.trim().toLowerCase();
@@ -76,6 +82,20 @@ export function Services() {
                     <p className="mt-2 flex-1 text-[11px] leading-relaxed text-muted-foreground sm:text-sm">
                       {s.desc}
                     </p>
+                    {(SERVICE_POSTS[s.title] ?? []).length > 0 && (
+                      <ul className="mt-3 hidden space-y-2 border-t border-border pt-3 sm:block">
+                        {SERVICE_POSTS[s.title].map((post) => (
+                          <li key={post.title}>
+                            <p className="text-xs font-bold leading-snug text-foreground">
+                              {post.title}
+                            </p>
+                            <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+                              {post.excerpt}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                     <a
                       href="#lien-he"
                       className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-bold text-primary transition-colors hover:text-primary-dark sm:mt-4 sm:text-sm"

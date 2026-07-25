@@ -69,9 +69,9 @@
   --card-foreground: oklch(0.21 0.03 258);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.21 0.03 258);
-  --primary: oklch(0.52 0.24 25);
+  --primary: oklch(0.44 0.235 27);
   --primary-foreground: oklch(1 0 0);
-  --primary-dark: oklch(0.38 0.2 25);
+  --primary-dark: oklch(0.31 0.19 27);
   --secondary: oklch(0.14 0.005 20);
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.97 0.003 20);
@@ -82,7 +82,7 @@
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.9 0.005 20);
   --input: oklch(0.9 0.005 20);
-  --ring: oklch(0.52 0.24 25);
+  --ring: oklch(0.44 0.235 27);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -100,7 +100,7 @@
   --font-display: "Barlow Condensed", "Barlow", system-ui, sans-serif;
   --font-body: "Be Vietnam Pro", system-ui, sans-serif;
 
-  --gradient-primary: linear-gradient(135deg, oklch(0.42 0.22 25), oklch(0.6 0.25 25));
+  --gradient-primary: linear-gradient(135deg, oklch(0.34 0.2 27), oklch(0.5 0.245 27));
   --gradient-dark: linear-gradient(
     180deg,
     oklch(0.08 0.005 20 / 0.95),
@@ -108,7 +108,7 @@
   );
   --shadow-card: 0 1px 2px oklch(0.1 0.005 20 / 0.08), 0 12px 28px -14px oklch(0.1 0.005 20 / 0.28);
   --shadow-lift: 0 24px 48px -20px oklch(0.1 0.005 20 / 0.45);
-  --shadow-glow: 0 16px 40px -14px oklch(0.52 0.24 25 / 0.55);
+  --shadow-glow: 0 16px 40px -14px oklch(0.44 0.235 27 / 0.6);
 }
 
 @theme inline {
@@ -116,6 +116,28 @@
   --font-display: var(--font-display);
   --font-sans: var(--font-body);
   --animate-marquee: marquee 38s linear infinite;
+  --animate-wiggle: wiggle 1.8s ease-in-out infinite;
+
+  @keyframes wiggle {
+    0%, 62%, 100% {
+      transform: rotate(0deg) scale(1);
+    }
+    66% {
+      transform: rotate(-3deg) scale(1.04);
+    }
+    72% {
+      transform: rotate(3deg) scale(1.04);
+    }
+    78% {
+      transform: rotate(-2.5deg) scale(1.03);
+    }
+    84% {
+      transform: rotate(2.5deg) scale(1.03);
+    }
+    90% {
+      transform: rotate(-1.5deg) scale(1.01);
+    }
+  }
 
   @keyframes marquee {
     from {
@@ -149,7 +171,13 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 12rem;
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      scroll-padding-top: 5rem;
+    }
   }
 }
 

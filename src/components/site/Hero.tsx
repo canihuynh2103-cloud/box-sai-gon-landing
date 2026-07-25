@@ -56,7 +56,7 @@ export function Hero() {
             Chuyên Nghiệp - Nhanh Chóng - An Toàn
           </p>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-secondary-foreground/80 sm:text-lg">
-            Hơn 10 năm kinh nghiệm trong ngành bốc xếp và di dời hàng hóa. Đội ngũ 80+ nhân
+            Hơn 10 năm kinh nghiệm trong ngành bốc xếp và di dời hàng hóa. Đội ngũ 100+ nhân
             công được huấn luyện an toàn lao động, sẵn sàng phục vụ 24/7 tại TP.HCM và các
             tỉnh lân cận.
           </p>

@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Clock, Facebook, Mail, MapPin, Phone, Send, Youtube, Music2 } from "lucide-react";
-import { ADDRESS, EMAIL, HOTLINE, HOTLINE_TEL, NAV_ITEMS, SERVICES, WORK_HOURS } from "@/data/site";
+import { BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, NAV_ITEMS, SERVICES, WORK_HOURS } from "@/data/site";
 
 export function Footer() {
   const [sent, setSent] = useState(false);
@@ -110,10 +110,17 @@ export function Footer() {
                   {EMAIL}
                 </a>
               </li>
-              <li className="flex gap-2.5">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
-                {ADDRESS}
-              </li>
+              {BRANCHES.map((b) => (
+                <li key={b.name} className="flex gap-2.5">
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
+                  <span>
+                    <span className="block text-xs font-bold uppercase tracking-wider text-secondary-foreground/50">
+                      {b.name}
+                    </span>
+                    {b.address}
+                  </span>
+                </li>
+              ))}
               <li className="flex gap-2.5">
                 <Clock className="mt-0.5 size-4 shrink-0 text-primary" />
                 {WORK_HOURS}
