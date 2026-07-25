@@ -109,7 +109,8 @@ export function About() {
             </h2>
             <p className="mt-5 leading-relaxed text-muted-foreground">
               Bốc Xếp Sài Gòn được thành lập năm 2010, khởi đầu từ một tổ đội nhỏ tại khu vực
-              Quận 7. Đến nay chúng tôi có hơn 80 nhân công chính thức, phục vụ hàng trăm kho
+              Thủ Đức. Đến nay chúng tôi có hơn 100 nhân công chính thức, trụ sở chính tại 234
+              Tô Ngọc Vân (Thủ Đức) cùng chi nhánh Tân Bình và Bình Tân, phục vụ hàng trăm kho
               bãi, nhà máy và doanh nghiệp logistics trên khắp TP.HCM.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
