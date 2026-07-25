@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { ArrowUp, MessageCircle, Phone } from "lucide-react";
-import { HOTLINE_TEL } from "@/data/site";
+import { ArrowUp, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ADDRESS, EMAIL, HOTLINE_TEL } from "@/data/site";
 
 export function FloatingButtons() {
   const [show, setShow] = useState(false);
