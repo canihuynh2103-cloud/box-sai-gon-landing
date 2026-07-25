@@ -43,7 +43,7 @@ export function Projects() {
           ))}
         </div>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-3 gap-2.5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {list.map((p) => (
             <button
               key={p.id}
@@ -64,8 +64,8 @@ export function Projects() {
                   {p.year}
                 </span>
               </div>
-              <div className="p-5">
-                <p className="text-xs font-bold uppercase tracking-widest text-primary">
+              <div className="p-3 sm:p-5">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-primary sm:text-xs">
                   {p.category}
                 </p>
                 <h3 className="mt-2 font-display text-lg font-bold leading-snug">{p.name}</h3>

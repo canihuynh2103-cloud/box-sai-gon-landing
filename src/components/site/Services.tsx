@@ -17,7 +17,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-12 grid grid-cols-3 gap-2.5 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
           {SERVICES.map((s) => {
             const Icon =
               (Icons as unknown as Record<string, Icons.LucideIcon>)[s.icon] ?? Icons.Box;
@@ -35,18 +35,18 @@ export function Services() {
                     height={600}
                     className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="gradient-primary absolute bottom-0 left-5 flex size-11 translate-y-1/2 items-center justify-center rounded-lg text-primary-foreground shadow-[var(--shadow-glow)]">
-                    <Icon className="size-5" />
+                  <span className="gradient-primary absolute bottom-0 left-3 flex size-8 sm:left-5 sm:size-11 translate-y-1/2 items-center justify-center rounded-lg text-primary-foreground shadow-[var(--shadow-glow)]">
+                    <Icon className="size-4 sm:size-5" />
                   </span>
                 </div>
-                <div className="flex flex-1 flex-col p-5 pt-8">
-                  <h3 className="font-display text-xl font-bold">{s.title}</h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                <div className="flex flex-1 flex-col p-3 pt-7 sm:p-5 sm:pt-8">
+                  <h3 className="font-display text-sm font-bold leading-snug sm:text-xl">{s.title}</h3>
+                  <p className="mt-2 flex-1 text-[11px] leading-relaxed text-muted-foreground sm:text-sm">
                     {s.desc}
                   </p>
                   <a
                     href="#lien-he"
-                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary transition-colors hover:text-primary-dark"
+                    className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-bold text-primary transition-colors hover:text-primary-dark sm:mt-4 sm:text-sm"
                   >
                     Báo giá ngay
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
