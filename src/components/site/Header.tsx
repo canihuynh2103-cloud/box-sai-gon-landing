@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, Phone, X } from "lucide-react";
+import { Menu, Phone, Search, X } from "lucide-react";
 import { HOTLINE, HOTLINE_TEL, NAV_ITEMS } from "@/data/site";
 import { cn } from "@/lib/utils";
 
