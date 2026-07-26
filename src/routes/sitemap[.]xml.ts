@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { SERVICE_PAGES } from "@/data/service-pages";
 
-// TODO: replace with your project URL once a project name or custom domain is set.
-const BASE_URL = "";
+const BASE_URL = "https://bocxepsaigon.vn";
 
 interface SitemapEntry {
   path: string;
@@ -15,7 +15,41 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const entries: SitemapEntry[] = [{ path: "/", changefreq: "weekly", priority: "1.0" }];
+        const entries: SitemapEntry[] = [
+          { path: "/", changefreq: "weekly", priority: "1.0" },
+          { path: "/dich-vu", changefreq: "weekly", priority: "0.9" },
+          ...SERVICE_PAGES.map((s) => ({
+            path: `/dich-vu/${s.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.8",
+          })),
+          { path: "/blog", changefreq: "daily", priority: "0.8" },
+        ];
+
+        try {
+          const url = process.env.VITE_SUPABASE_URL ?? process.env.SUPABASE_URL;
+          const key =
+            process.env.VITE_SUPABASE_PUBLISHABLE_KEY ?? process.env.SUPABASE_PUBLISHABLE_KEY;
+          if (url && key) {
+            const res = await fetch(
+              `${url}/rest/v1/posts?select=slug,updated_at&status=eq.published&order=updated_at.desc`,
+              { headers: { apikey: key } },
+            );
+            if (res.ok) {
+              const posts = (await res.json()) as { slug: string; updated_at: string | null }[];
+              for (const post of posts) {
+                entries.push({
+                  path: `/blog/${post.slug}`,
+                  lastmod: post.updated_at ? post.updated_at.slice(0, 10) : undefined,
+                  changefreq: "monthly",
+                  priority: "0.7",
+                });
+              }
+            }
+          }
+        } catch {
+          // sitemap vẫn trả về các route tĩnh nếu không lấy được bài viết
+        }
 
         const urls = entries.map((e) =>
           [

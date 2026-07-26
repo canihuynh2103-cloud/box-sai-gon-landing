@@ -84,6 +84,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Dịch vụ bốc xếp hàng hóa chuyên nghiệp tại TP.HCM." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:site_name", content: "Bốc Xếp Sài Gòn" },
+      { property: "og:locale", content: "vi_VN" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Bốc Xếp Sài Gòn",
+          url: "https://bocxepsaigon.vn",
+          telephone: "+84888977822",
+          email: "info@bocxepsaigon.vn",
+          image: "https://bocxepsaigon.vn/favicon.ico",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "234 Tô Ngọc Vân",
+            addressLocality: "Thủ Đức",
+            addressRegion: "TP.HCM",
+            addressCountry: "VN",
+          },
+          areaServed: ["Thành phố Hồ Chí Minh", "Bình Dương", "Đồng Nai", "Long An"],
+          openingHours: "Mo-Su 06:00-22:00",
+          priceRange: "$$",
+        }),
+      },
     ],
     links: [
       {
@@ -108,7 +135,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="vi">
       <head>
         <HeadContent />
       </head>

@@ -14,7 +14,9 @@ import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DichVuIndexRouteImport } from './routes/dich-vu/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as DichVuSlugRouteImport } from './routes/dich-vu/$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as AuthenticatedAdminRouteRouteImport } from './routes/_authenticated/admin/route'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin/index'
@@ -51,9 +53,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DichVuIndexRoute = DichVuIndexRouteImport.update({
+  id: '/dich-vu/',
+  path: '/dich-vu/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DichVuSlugRoute = DichVuSlugRouteImport.update({
+  id: '/dich-vu/$slug',
+  path: '/dich-vu/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
@@ -124,7 +136,9 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin': typeof AuthenticatedAdminRouteRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
+  '/dich-vu/$slug': typeof DichVuSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/dich-vu/': typeof DichVuIndexRoute
   '/admin/banners': typeof AuthenticatedAdminBannersRoute
   '/admin/faqs': typeof AuthenticatedAdminFaqsRoute
   '/admin/posts': typeof AuthenticatedAdminPostsRoute
@@ -141,7 +155,9 @@ export interface FileRoutesByTo {
   '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/dich-vu/$slug': typeof DichVuSlugRoute
   '/blog': typeof BlogIndexRoute
+  '/dich-vu': typeof DichVuIndexRoute
   '/admin/banners': typeof AuthenticatedAdminBannersRoute
   '/admin/faqs': typeof AuthenticatedAdminFaqsRoute
   '/admin/posts': typeof AuthenticatedAdminPostsRoute
@@ -161,7 +177,9 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
+  '/dich-vu/$slug': typeof DichVuSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/dich-vu/': typeof DichVuIndexRoute
   '/_authenticated/admin/banners': typeof AuthenticatedAdminBannersRoute
   '/_authenticated/admin/faqs': typeof AuthenticatedAdminFaqsRoute
   '/_authenticated/admin/posts': typeof AuthenticatedAdminPostsRoute
@@ -181,7 +199,9 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/admin'
     | '/blog/$slug'
+    | '/dich-vu/$slug'
     | '/blog/'
+    | '/dich-vu/'
     | '/admin/banners'
     | '/admin/faqs'
     | '/admin/posts'
@@ -198,7 +218,9 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/sitemap.xml'
     | '/blog/$slug'
+    | '/dich-vu/$slug'
     | '/blog'
+    | '/dich-vu'
     | '/admin/banners'
     | '/admin/faqs'
     | '/admin/posts'
@@ -217,7 +239,9 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/_authenticated/admin'
     | '/blog/$slug'
+    | '/dich-vu/$slug'
     | '/blog/'
+    | '/dich-vu/'
     | '/_authenticated/admin/banners'
     | '/_authenticated/admin/faqs'
     | '/_authenticated/admin/posts'
@@ -236,7 +260,9 @@ export interface RootRouteChildren {
   ResetPasswordRoute: typeof ResetPasswordRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  DichVuSlugRoute: typeof DichVuSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  DichVuIndexRoute: typeof DichVuIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -276,11 +302,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dich-vu/': {
+      id: '/dich-vu/'
+      path: '/dich-vu'
+      fullPath: '/dich-vu/'
+      preLoaderRoute: typeof DichVuIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/': {
       id: '/blog/'
       path: '/blog'
       fullPath: '/blog/'
       preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu/$slug': {
+      id: '/dich-vu/$slug'
+      path: '/dich-vu/$slug'
+      fullPath: '/dich-vu/$slug'
+      preLoaderRoute: typeof DichVuSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/$slug': {
@@ -411,18 +451,10 @@ const rootRouteChildren: RootRouteChildren = {
   ResetPasswordRoute: ResetPasswordRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogSlugRoute: BlogSlugRoute,
+  DichVuSlugRoute: DichVuSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
+  DichVuIndexRoute: DichVuIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
