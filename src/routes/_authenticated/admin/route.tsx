@@ -50,7 +50,12 @@ function AdminLayout() {
       const { data: userData } = await supabase.auth.getUser();
       const uid = userData.user?.id;
       if (!uid) return { isAdmin: false, email: "" };
-      const { data } = await supabase.rpc("has_role", { _user_id: uid, _role: "admin" });
+      const { data } = await supabase
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", uid)
+        .eq("role", "admin")
+        .maybeSingle();
       return { isAdmin: Boolean(data), email: userData.user?.email ?? "" };
     },
   });
