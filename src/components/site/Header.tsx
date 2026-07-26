@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Phone, Search } from "lucide-react";
 import { HOTLINE, HOTLINE_TEL, NAV_ITEMS } from "@/data/site";
 import { NavLink } from "@/components/site/NavLink";
+import { QuoteButton } from "@/components/site/QuoteButton";
 import { cn } from "@/lib/utils";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [query, setQuery] = useState("");
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -16,14 +18,32 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Đo chiều cao header thật để các section bên dưới không bị che / dư khoảng trắng
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const apply = () =>
+      document.documentElement.style.setProperty("--header-h", `${el.offsetHeight}px`);
+    apply();
+    const ro = new ResizeObserver(apply);
+    ro.observe(el);
+    window.addEventListener("resize", apply);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", apply);
+    };
+  }, []);
+
   return (
     <header
+      ref={ref}
       className={cn(
         "fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-secondary text-secondary-foreground transition-shadow duration-300",
         scrolled && "shadow-[var(--shadow-card)]",
       )}
     >
       <div className="mx-auto grid min-h-16 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 py-2 sm:min-h-20 sm:gap-4 sm:px-6 lg:flex lg:gap-6 lg:px-8">
+
         <Link
           to="/"
           aria-label="Bốc Xếp Sài Gòn - Trang chủ"
