@@ -2,9 +2,16 @@ import { useEffect, useMemo, useState } from "react";
 import * as Icons from "lucide-react";
 import { ArrowRight, Search } from "lucide-react";
 import { SERVICES, SERVICE_POSTS } from "@/data/site";
+import { usePostsByCategory, useServices } from "@/hooks/use-content";
+
+const IMAGE_BY_TITLE: Record<string, string> = Object.fromEntries(
+  SERVICES.map((s) => [s.title, s.image]),
+);
 
 export function Services() {
   const [q, setQ] = useState("");
+  const { data: dbServices = [] } = useServices();
+  const postsByCategory = usePostsByCategory();
 
   useEffect(() => {
     const onSearch = (e: Event) => setQ((e as CustomEvent<string>).detail ?? "");
@@ -12,15 +19,26 @@ export function Services() {
     return () => window.removeEventListener("service-search", onSearch);
   }, []);
 
+  const items = useMemo(() => {
+    if (dbServices.length === 0) {
+      return SERVICES.map((s) => ({ title: s.title, desc: s.desc, icon: s.icon, image: s.image }));
+    }
+    return dbServices.map((s) => ({
+      title: s.title,
+      desc: s.description ?? "",
+      icon: s.icon ?? "Box",
+      image: s.image || IMAGE_BY_TITLE[s.title] || SERVICES[0].image,
+    }));
+  }, [dbServices]);
+
   const filtered = useMemo(() => {
     const kw = q.trim().toLowerCase();
-    if (!kw) return SERVICES;
-    return SERVICES.filter(
-      (s) =>
-        s.title.toLowerCase().includes(kw) ||
-        s.desc.toLowerCase().includes(kw),
+    if (!kw) return items;
+    return items.filter(
+      (s) => s.title.toLowerCase().includes(kw) || s.desc.toLowerCase().includes(kw),
     );
-  }, [q]);
+  }, [q, items]);
+
 
   return (
     <section id="dich-vu" className="bg-muted/40 py-24">
@@ -59,6 +77,21 @@ export function Services() {
             {filtered.map((s) => {
               const Icon =
                 (Icons as unknown as Record<string, Icons.LucideIcon>)[s.icon] ?? Icons.Box;
+              const dbPosts = (postsByCategory[s.title] ?? []).map((p) => ({
+                key: p.id,
+                slug: p.slug,
+                title: p.title,
+                excerpt: p.excerpt ?? "",
+              }));
+              const posts =
+                dbPosts.length > 0
+                  ? dbPosts
+                  : (SERVICE_POSTS[s.title] ?? []).map((p) => ({
+                      key: p.title,
+                      slug: null,
+                      title: p.title,
+                      excerpt: p.excerpt,
+                    }));
               return (
                 <article
                   key={s.title}
@@ -82,13 +115,22 @@ export function Services() {
                     <p className="mt-2 flex-1 text-[11px] leading-relaxed text-muted-foreground sm:text-sm">
                       {s.desc}
                     </p>
-                    {(SERVICE_POSTS[s.title] ?? []).length > 0 && (
+                    {posts.length > 0 && (
                       <ul className="mt-3 hidden space-y-2 border-t border-border pt-3 sm:block">
-                        {SERVICE_POSTS[s.title].map((post) => (
-                          <li key={post.title}>
-                            <p className="text-xs font-bold leading-snug text-foreground">
-                              {post.title}
-                            </p>
+                        {posts.map((post) => (
+                          <li key={post.key}>
+                            {post.slug ? (
+                              <a
+                                href={`/blog/${post.slug}`}
+                                className="text-xs font-bold leading-snug text-foreground hover:text-primary"
+                              >
+                                {post.title}
+                              </a>
+                            ) : (
+                              <p className="text-xs font-bold leading-snug text-foreground">
+                                {post.title}
+                              </p>
+                            )}
                             <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
                               {post.excerpt}
                             </p>
@@ -96,6 +138,7 @@ export function Services() {
                         ))}
                       </ul>
                     )}
+
                     <a
                       href="#lien-he"
                       className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-bold text-primary transition-colors hover:text-primary-dark sm:mt-4 sm:text-sm"

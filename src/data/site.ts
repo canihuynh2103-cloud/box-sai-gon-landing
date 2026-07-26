@@ -39,9 +39,11 @@ export const NAV_ITEMS = [
   { label: "Giới Thiệu", href: "#gioi-thieu" },
   { label: "Dự Án", href: "#du-an" },
   { label: "Bảng Giá", href: "#bang-gia" },
+  { label: "Bài Viết", href: "/blog" },
   { label: "FAQ", href: "#faq" },
   { label: "Liên Hệ", href: "#lien-he" },
 ];
+
 
 export type Service = {
   title: string;

@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { ChevronDown, Phone, ShieldCheck } from "lucide-react";
 import heroImage from "@/assets/hero-warehouse.jpg";
 import { HOTLINE, HOTLINE_TEL, NAV_ITEMS, STATS } from "@/data/site";
+import { useHeroBanner } from "@/hooks/use-content";
 
 export function Hero() {
   const [offset, setOffset] = useState(0);
+  const { data: banner } = useHeroBanner();
 
   useEffect(() => {
     const onScroll = () => setOffset(window.scrollY);
@@ -19,7 +21,7 @@ export function Hero() {
         style={{ transform: `translateY(${offset * 0.35}px)` }}
       >
         <img
-          src={heroImage}
+          src={banner?.image || heroImage}
           alt="Đội bốc xếp hàng hóa tại kho bãi container ở TP.HCM"
           width={1920}
           height={1088}
@@ -56,17 +58,16 @@ export function Hero() {
             Chuyên Nghiệp - Nhanh Chóng - An Toàn
           </p>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-secondary-foreground/80 sm:text-lg">
-            Hơn 10 năm kinh nghiệm trong ngành bốc xếp và di dời hàng hóa. Đội ngũ 100+ nhân
-            công được huấn luyện an toàn lao động, sẵn sàng phục vụ 24/7 tại TP.HCM và các
-            tỉnh lân cận.
+            {banner?.subtitle ??
+              "Hơn 10 năm kinh nghiệm trong ngành bốc xếp và di dời hàng hóa. Đội ngũ 100+ nhân công được huấn luyện an toàn lao động, sẵn sàng phục vụ 24/7 tại TP.HCM và các tỉnh lân cận."}
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
             <a
-              href="#lien-he"
+              href={banner?.cta_href || "#lien-he"}
               className="gradient-primary inline-flex items-center rounded-md px-7 py-3.5 font-display text-lg font-bold uppercase tracking-wide text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.03]"
             >
-              Nhận Báo Giá
+              {banner?.cta_label || "Nhận Báo Giá"}
             </a>
             <a
               href={`tel:${HOTLINE_TEL}`}

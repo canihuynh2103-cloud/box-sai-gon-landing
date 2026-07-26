@@ -5,8 +5,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { FAQS } from "@/data/site";
+import { useFaqs } from "@/hooks/use-content";
 
 export function Faq() {
+  const { data: dbFaqs = [] } = useFaqs();
+  const items =
+    dbFaqs.length > 0 ? dbFaqs.map((f) => ({ q: f.question, a: f.answer })) : FAQS;
+
   return (
     <section id="faq" className="py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -18,7 +23,8 @@ export function Faq() {
         </div>
 
         <Accordion type="single" collapsible className="mt-10 space-y-3">
-          {FAQS.map((f, i) => (
+          {items.map((f, i) => (
+
             <AccordionItem
               key={f.q}
               value={`item-${i}`}

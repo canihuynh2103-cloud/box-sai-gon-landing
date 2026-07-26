@@ -1,15 +1,39 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { CalendarDays, Clock, MapPin } from "lucide-react";
-import { PROJECTS, PROJECT_FILTERS, type Project } from "@/data/site";
+import { PROJECTS, type Project } from "@/data/site";
+import { useProjects } from "@/hooks/use-content";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+
+const IMAGE_BY_CATEGORY: Record<string, string> = Object.fromEntries(
+  PROJECTS.map((p) => [p.category, p.image]),
+);
 
 export function Projects() {
   const [filter, setFilter] = useState("Tất Cả");
   const [active, setActive] = useState<Project | null>(null);
+  const { data: dbProjects = [] } = useProjects();
 
-  const list =
-    filter === "Tất Cả" ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
+  const projects: Project[] = useMemo(() => {
+    if (dbProjects.length === 0) return PROJECTS;
+    return dbProjects.map((p, index) => ({
+      id: index + 1,
+      name: p.name,
+      category: p.category,
+      year: p.year ?? "",
+      location: p.location ?? "",
+      duration: p.duration ?? "",
+      image: p.image || IMAGE_BY_CATEGORY[p.category] || PROJECTS[0].image,
+      description: p.description ?? "",
+    }));
+  }, [dbProjects]);
+
+  const filters = useMemo(
+    () => ["Tất Cả", ...Array.from(new Set(projects.map((p) => p.category)))],
+    [projects],
+  );
+
+  const list = filter === "Tất Cả" ? projects : projects.filter((p) => p.category === filter);
 
   return (
     <section id="du-an" className="bg-muted/40 py-24">
@@ -26,7 +50,7 @@ export function Projects() {
         </div>
 
         <div className="mt-8 flex flex-wrap gap-2">
-          {PROJECT_FILTERS.map((f) => (
+          {filters.map((f) => (
             <button
               key={f}
               type="button"
@@ -42,6 +66,7 @@ export function Projects() {
             </button>
           ))}
         </div>
+
 
         <div className="mt-10 grid grid-cols-3 gap-2.5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {list.map((p) => (
