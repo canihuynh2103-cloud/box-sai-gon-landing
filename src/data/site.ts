@@ -36,6 +36,7 @@ export const BRANCHES = [
 
 export const NAV_ITEMS = [
   { label: "Dịch Vụ", href: "#dich-vu" },
+  { label: "Trang Dịch Vụ", href: "/dich-vu" },
   { label: "Giới Thiệu", href: "#gioi-thieu" },
   { label: "Dự Án", href: "#du-an" },
   { label: "Bảng Giá", href: "#bang-gia" },

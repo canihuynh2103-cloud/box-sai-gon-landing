@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { FAQS } from "@/data/site";
+import { absUrl } from "@/lib/seo";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { Services } from "@/components/site/Services";
@@ -25,6 +27,23 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: absUrl("/") },
+      { property: "og:site_name", content: "Bốc Xếp Sài Gòn" },
+    ],
+    links: [{ rel: "canonical", href: absUrl("/") }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FAQS.map((f: { q: string; a: string }) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
     ],
   }),
   component: Index,
