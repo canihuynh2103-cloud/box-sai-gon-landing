@@ -149,12 +149,24 @@ function PostPage() {
       ) : null}
 
       <main className="container mx-auto max-w-3xl px-4 pb-16 pt-28 md:pt-36">
+        <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">
+          <Link to="/" className="hover:text-primary">
+            Trang chủ
+          </Link>
+          <span className="mx-1.5">/</span>
+          <Link to="/blog" className="hover:text-primary">
+            Bài viết
+          </Link>
+          <span className="mx-1.5">/</span>
+          <span className="text-foreground">{data?.title ?? slug.replace(/-/g, " ")}</span>
+        </nav>
         <Link
           to="/blog"
-          className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground"
+          className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary"
         >
           <ArrowLeft className="h-4 w-4" /> Tất cả bài viết
         </Link>
+
 
         {isLoading ? (
           <div className="space-y-3">
