@@ -1,8 +1,23 @@
 import { Check } from "lucide-react";
 import { PRICING } from "@/data/site";
+import { usePricing } from "@/hooks/use-content";
 import { cn } from "@/lib/utils";
 
 export function Pricing() {
+  const { data: dbPlans = [] } = usePricing();
+  const plans =
+    dbPlans.length > 0
+      ? dbPlans.map((p) => ({
+          name: p.name,
+          price: p.price,
+          unit: p.unit ?? "",
+          note: p.note ?? "",
+          popular: p.popular,
+          features: p.features ?? [],
+          cta: p.cta ?? "Nhận Báo Giá",
+        }))
+      : PRICING;
+
   return (
     <section id="bang-gia" className="bg-secondary py-24 text-secondary-foreground">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -17,7 +32,8 @@ export function Pricing() {
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {PRICING.map((p) => (
+          {plans.map((p) => (
+
             <div
               key={p.name}
               className={cn(

@@ -1,15 +1,22 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import { REVIEWS } from "@/data/site";
+import { useReviews } from "@/hooks/use-content";
 import { cn } from "@/lib/utils";
 
 const PER_PAGE = 3;
 
 export function Reviews() {
-  const pages = Math.ceil(REVIEWS.length / PER_PAGE);
+  const { data: dbReviews = [] } = useReviews();
+  const items =
+    dbReviews.length > 0
+      ? dbReviews.map((r) => ({ name: r.name, role: r.role ?? "", content: r.content }))
+      : REVIEWS;
+  const pages = Math.max(1, Math.ceil(items.length / PER_PAGE));
   const [page, setPage] = useState(0);
 
-  const visible = REVIEWS.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
+  const visible = items.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
+
 
   return (
     <section className="py-24">
