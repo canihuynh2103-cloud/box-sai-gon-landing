@@ -9,6 +9,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { absUrl, breadcrumbLd, SITE_NAME } from "@/lib/seo";
 
 export const Route = createFileRoute("/blog/$slug")({
   head: ({ params }) => {
