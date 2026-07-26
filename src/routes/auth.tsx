@@ -47,7 +47,25 @@ function AuthPage() {
     navigate({ to: "/admin", replace: true });
   };
 
+  const resetPassword = async () => {
+    if (!email) {
+      toast.error("Nhập email của bạn trước khi đặt lại mật khẩu.");
+      return;
+    }
+    setLoading(true);
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/reset-password`,
+    });
+    setLoading(false);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+    toast.success("Đã gửi email đặt lại mật khẩu. Kiểm tra hộp thư (cả mục Spam).");
+  };
+
   const signUp = async () => {
+
     setLoading(true);
     const { error } = await supabase.auth.signUp({
       email,
