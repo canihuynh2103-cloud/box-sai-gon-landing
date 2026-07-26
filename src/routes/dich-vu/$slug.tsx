@@ -12,12 +12,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { SERVICE_PAGES, findServicePage } from "@/data/service-pages";
+import { SERVICE_PAGES, findServicePage, type ServicePage } from "@/data/service-pages";
 import { HOTLINE, HOTLINE_TEL, ADDRESS, EMAIL } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor, SITE_NAME } from "@/lib/seo";
 
 export const Route = createFileRoute("/dich-vu/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { page: ServicePage } => {
     const page = findServicePage(params.slug);
     if (!page) throw notFound();
     return { page };
@@ -85,7 +85,7 @@ export const Route = createFileRoute("/dich-vu/$slug")({
 });
 
 function ServiceDetail() {
-  const { page } = Route.useLoaderData();
+  const { page } = Route.useLoaderData() as { page: ServicePage };
   const related = page.related
     .map((slug) => SERVICE_PAGES.find((s) => s.slug === slug))
     .filter(Boolean);
