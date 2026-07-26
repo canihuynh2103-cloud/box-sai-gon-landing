@@ -271,7 +271,7 @@ export function PostEditor({ post, onClose }: Props) {
         <div className="space-y-4">
           <div className="rounded-lg border bg-card p-4 md:p-6">
             <Textarea
-              value={values.title ?? ""}
+              value={str(values.title)}
               onChange={(e) => set("title", e.target.value)}
               rows={1}
               placeholder="Thêm tiêu đề"
@@ -310,7 +310,7 @@ export function PostEditor({ post, onClose }: Props) {
             <Label>Mô tả ngắn (excerpt)</Label>
             <Textarea
               rows={3}
-              value={values.excerpt ?? ""}
+              value={str(values.excerpt)}
               onChange={(e) => set("excerpt", e.target.value)}
               placeholder="Tóm tắt ngắn hiển thị ở danh sách bài viết"
             />
@@ -346,7 +346,7 @@ export function PostEditor({ post, onClose }: Props) {
                 <div className="space-y-2">
                   <Label>Tác giả</Label>
                   <Input
-                    value={values.author ?? ""}
+                    value={str(values.author)}
                     onChange={(e) => set("author", e.target.value)}
                     placeholder="Bốc Xếp Sài Gòn"
                   />
@@ -390,7 +390,7 @@ export function PostEditor({ post, onClose }: Props) {
                 <div className="space-y-2">
                   <Label>Danh mục</Label>
                   <Input
-                    value={values.category ?? ""}
+                    value={str(values.category)}
                     onChange={(e) => set("category", e.target.value)}
                     placeholder="Bốc Xếp Kho Hàng"
                   />
@@ -400,7 +400,7 @@ export function PostEditor({ post, onClose }: Props) {
                     <Tag className="h-3.5 w-3.5" /> Thẻ (tags)
                   </Label>
                   <Input
-                    value={values.tags ?? ""}
+                    value={str(values.tags)}
                     onChange={(e) => set("tags", e.target.value)}
                     placeholder="bốc xếp, kho hàng, logistics"
                   />
@@ -420,7 +420,7 @@ export function PostEditor({ post, onClose }: Props) {
                   <Label>Thứ tự</Label>
                   <Input
                     type="number"
-                    value={values.sort_order ?? 0}
+                    value={Number(values.sort_order ?? 0)}
                     onChange={(e) => set("sort_order", e.target.value)}
                   />
                 </div>
@@ -428,11 +428,11 @@ export function PostEditor({ post, onClose }: Props) {
 
               <div className="space-y-3 rounded-lg border bg-card p-4">
                 <Label>Ảnh bìa</Label>
-                <ImageUpload value={values.cover_image} onChange={(url) => set("cover_image", url)} />
+                <ImageUpload value={typeof values.cover_image === "string" ? values.cover_image : null} onChange={(url) => set("cover_image", url)} />
                 <div className="space-y-2">
                   <Label>Alt text của ảnh</Label>
                   <Input
-                    value={values.cover_image_alt ?? ""}
+                    value={str(values.cover_image_alt)}
                     onChange={(e) => set("cover_image_alt", e.target.value)}
                     placeholder="Công nhân bốc xếp hàng trong kho"
                   />
