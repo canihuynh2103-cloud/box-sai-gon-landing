@@ -39,7 +39,7 @@ export function Hero() {
         className="relative mx-auto flex max-w-7xl flex-col px-4 pb-14 sm:px-6 lg:px-8"
         style={{ minHeight: "100svh", paddingTop: "calc(var(--header-h, 4rem) + 0.75rem)" }}
       >
-        <div className="flex flex-1 flex-col justify-center py-4 sm:py-8">
+        <div className="flex flex-1 flex-col justify-start py-4 sm:justify-center sm:py-8">
 
           <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-primary-foreground backdrop-blur">
             <ShieldCheck className="size-4" />
