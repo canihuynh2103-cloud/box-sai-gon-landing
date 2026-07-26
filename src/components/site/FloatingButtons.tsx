@@ -27,7 +27,7 @@ export function FloatingButtons() {
         <Phone className="relative size-5" />
       </a>
       <a
-        href="https://zalo.me/0888977822"
+        href="https://zaloapp.com/qr/p/8nkmbua5ktom?src=qr"
         target="_blank"
         rel="noreferrer"
         aria-label="Chat Zalo"

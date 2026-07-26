@@ -140,7 +140,7 @@ function ServiceDetail() {
                 </a>
               </Button>
               <Button asChild size="lg" variant="secondary">
-                <a href="https://zalo.me/0888977822" target="_blank" rel="noreferrer">
+                <a href="https://zaloapp.com/qr/p/8nkmbua5ktom?src=qr" target="_blank" rel="noreferrer">
                   Chat Zalo
                 </a>
               </Button>
@@ -294,7 +294,7 @@ function ServiceDetail() {
                     </a>
                   </Button>
                   <Button asChild size="lg" variant="secondary">
-                    <a href="https://zalo.me/0888977822" target="_blank" rel="noreferrer">
+                    <a href="https://zaloapp.com/qr/p/8nkmbua5ktom?src=qr" target="_blank" rel="noreferrer">
                       Chat Zalo
                     </a>
                   </Button>
