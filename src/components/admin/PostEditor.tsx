@@ -31,6 +31,7 @@ import {
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
 import { ImageUpload } from "@/components/admin/ImageUpload";
+import { EditorErrorBoundary } from "@/components/admin/EditorErrorBoundary";
 import { saveRowReturning, slugify, type Row } from "@/lib/admin-db";
 import { cn } from "@/lib/utils";
 
