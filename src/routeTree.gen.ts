@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as HoSoNangLucRouteImport } from './routes/ho-so-nang-luc'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
@@ -37,6 +38,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
   id: '/reset-password',
   path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HoSoNangLucRoute = HoSoNangLucRouteImport.update({
+  id: '/ho-so-nang-luc',
+  path: '/ho-so-nang-luc',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -132,6 +138,7 @@ const AuthenticatedAdminBannersRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/ho-so-nang-luc': typeof HoSoNangLucRoute
   '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin': typeof AuthenticatedAdminRouteRouteWithChildren
@@ -152,6 +159,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/ho-so-nang-luc': typeof HoSoNangLucRoute
   '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -173,6 +181,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/ho-so-nang-luc': typeof HoSoNangLucRoute
   '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteRouteWithChildren
@@ -195,6 +204,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/auth'
+    | '/ho-so-nang-luc'
     | '/reset-password'
     | '/sitemap.xml'
     | '/admin'
@@ -215,6 +225,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth'
+    | '/ho-so-nang-luc'
     | '/reset-password'
     | '/sitemap.xml'
     | '/blog/$slug'
@@ -235,6 +246,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/auth'
+    | '/ho-so-nang-luc'
     | '/reset-password'
     | '/sitemap.xml'
     | '/_authenticated/admin'
@@ -257,6 +269,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
+  HoSoNangLucRoute: typeof HoSoNangLucRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -279,6 +292,13 @@ declare module '@tanstack/react-router' {
       path: '/reset-password'
       fullPath: '/reset-password'
       preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ho-so-nang-luc': {
+      id: '/ho-so-nang-luc'
+      path: '/ho-so-nang-luc'
+      fullPath: '/ho-so-nang-luc'
+      preLoaderRoute: typeof HoSoNangLucRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -448,6 +468,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
+  HoSoNangLucRoute: HoSoNangLucRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogSlugRoute: BlogSlugRoute,
@@ -458,3 +479,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
