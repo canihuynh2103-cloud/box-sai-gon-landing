@@ -84,6 +84,44 @@ function PostPage() {
 
   const content = useMemo(() => withHeadingIds(data?.content ?? ""), [data?.content]);
 
+  const jsonLd = useMemo(() => {
+    if (!data) return null;
+    const url = absUrl(`/blog/${slug}`);
+    const image = data.og_image || data.cover_image || undefined;
+    return JSON.stringify([
+      breadcrumbLd([
+        { name: "Trang chủ", path: "/" },
+        { name: "Kiến thức", path: "/blog" },
+        { name: data.title, path: `/blog/${slug}` },
+      ]),
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: data.seo_title || data.title,
+        description: data.seo_description || data.excerpt || undefined,
+        inLanguage: "vi-VN",
+        mainEntityOfPage: { "@type": "WebPage", "@id": url },
+        url,
+        ...(image?.startsWith("http") ? { image: [image] } : {}),
+        datePublished: data.published_at || undefined,
+        dateModified: data.updated_at || data.published_at || undefined,
+        articleSection: data.category || undefined,
+        keywords: data.tags?.join(", ") || undefined,
+        author: {
+          "@type": "Person",
+          name: data.author || `Đội ngũ ${SITE_NAME}`,
+          jobTitle: "Chuyên gia vận hành bốc xếp & logistics",
+          worksFor: { "@type": "Organization", name: SITE_NAME, url: absUrl("/") },
+        },
+        publisher: {
+          "@type": "Organization",
+          name: SITE_NAME,
+          url: absUrl("/"),
+        },
+      },
+    ]);
+  }, [data, slug]);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
