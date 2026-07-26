@@ -47,7 +47,7 @@ export function Header() {
             <NavLink
               key={item.href}
               href={item.href}
-              className="rounded-md px-3 py-2 text-sm font-semibold text-secondary-foreground/85 transition-colors hover:bg-white/10 hover:text-secondary-foreground"
+              className="whitespace-nowrap rounded-md px-2.5 py-2 text-[13px] font-semibold text-secondary-foreground/85 xl:px-3 xl:text-sm transition-colors hover:bg-white/10 hover:text-secondary-foreground"
               activeClassName="bg-primary/20 text-secondary-foreground"
             >
               {item.label}
@@ -75,7 +75,7 @@ export function Header() {
           <Link
             to="/"
             hash="lien-he"
-            className="gradient-primary inline-flex shrink-0 animate-wiggle whitespace-nowrap rounded-md px-2.5 py-2 text-[10px] font-bold uppercase leading-none text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary motion-reduce:animate-none sm:px-5 sm:py-2.5 sm:text-sm"
+            className="gradient-primary inline-flex shrink-0 animate-wiggle whitespace-nowrap rounded-md px-2.5 py-2 text-[10px] font-bold uppercase leading-none tracking-wide text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary motion-reduce:animate-none sm:px-5 sm:py-2.5 sm:text-sm"
           >
             Nhận Báo Giá
           </Link>
@@ -92,7 +92,7 @@ export function Header() {
             <NavLink
               key={item.href}
               href={item.href}
-              className="shrink-0 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-secondary-foreground/85 transition-colors hover:bg-white/15"
+              className="shrink-0 whitespace-nowrap rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-secondary-foreground/85 transition-colors hover:bg-white/15"
               activeClassName="border-primary bg-primary/25 text-secondary-foreground"
             >
               {item.label}
