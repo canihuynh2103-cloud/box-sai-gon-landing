@@ -440,98 +440,117 @@ export function PostEditor({ post, onClose }: Props) {
             </TabsContent>
 
             <TabsContent value="seo" className="space-y-4">
-              <div className="space-y-3 rounded-lg border bg-card p-4">
-                <p className="text-xs font-semibold uppercase text-muted-foreground">
-                  Xem trước trên Google
-                </p>
-                <div className="rounded-md border bg-background p-3">
-                  <p className="text-xs text-muted-foreground">
-                    bocxepsaigon.vn › blog › {slug || "duong-dan"}
-                  </p>
-                  <p className="mt-0.5 line-clamp-1 text-base text-[#1a0dab]">
-                    {seoTitle || "Tiêu đề SEO của bài viết"}
-                  </p>
-                  <p className="line-clamp-2 text-xs text-muted-foreground">
-                    {seoDesc || "Mô tả meta sẽ hiển thị ở đây."}
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-4 rounded-lg border bg-card p-4">
-                <div className="space-y-2">
-                  <Label>SEO title</Label>
-                  <Input
-                    value={values.seo_title ?? ""}
-                    onChange={(e) => set("seo_title", e.target.value)}
-                  />
-                  <Counter value={seoTitle} min={30} max={60} />
-                </div>
-                <div className="space-y-2">
-                  <Label>Meta description</Label>
-                  <Textarea
-                    rows={3}
-                    value={values.seo_description ?? ""}
-                    onChange={(e) => set("seo_description", e.target.value)}
-                  />
-                  <Counter value={seoDesc} min={70} max={160} />
-                </div>
-                <div className="space-y-2">
-                  <Label>Focus keyword</Label>
-                  <Input
-                    value={values.focus_keyword ?? ""}
-                    onChange={(e) => set("focus_keyword", e.target.value)}
-                    placeholder="bốc xếp kho hàng"
-                  />
-                  <div className="space-y-1">
-                    {focusChecks.map((c) => (
-                      <p
-                        key={c.label}
-                        className={cn(
-                          "flex items-center gap-1.5 text-xs",
-                          c.ok ? "text-emerald-600" : "text-muted-foreground",
-                        )}
-                      >
-                        <Check className="h-3 w-3" /> {c.label}
+              <EditorErrorBoundary label="PostEditor.seo">
+                <div className="space-y-4">
+                  <div className="space-y-3 rounded-lg border bg-card p-4">
+                    <p className="text-xs font-semibold uppercase text-muted-foreground">
+                      Xem trước trên Google
+                    </p>
+                    <div className="rounded-md border bg-background p-3">
+                      <p className="text-xs text-muted-foreground">
+                        bocxepsaigon.vn › blog › {slug || "duong-dan"}
                       </p>
-                    ))}
+                      <p className="mt-0.5 line-clamp-1 text-base text-[#1a0dab]">
+                        {seoTitle || "Tiêu đề SEO của bài viết"}
+                      </p>
+                      <p className="line-clamp-2 text-xs text-muted-foreground">
+                        {seoDesc || "Mô tả meta sẽ hiển thị ở đây."}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4 rounded-lg border bg-card p-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="seo-title">SEO title</Label>
+                      <Input
+                        id="seo-title"
+                        value={str(values.seo_title)}
+                        onChange={(e) => set("seo_title", e.target.value)}
+                      />
+                      <Counter value={seoTitle} min={30} max={60} />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="seo-description">Meta description</Label>
+                      <Textarea
+                        id="seo-description"
+                        rows={3}
+                        value={str(values.seo_description)}
+                        onChange={(e) => set("seo_description", e.target.value)}
+                      />
+                      <Counter value={seoDesc} min={70} max={160} />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="focus-keyword">Focus keyword</Label>
+                      <Input
+                        id="focus-keyword"
+                        value={str(values.focus_keyword)}
+                        onChange={(e) => set("focus_keyword", e.target.value)}
+                        placeholder="bốc xếp kho hàng"
+                      />
+                      <div className="space-y-1">
+                        {focusChecks.map((c) => (
+                          <p
+                            key={c.label}
+                            className={cn(
+                              "flex items-center gap-1.5 text-xs",
+                              c.ok ? "text-emerald-600" : "text-muted-foreground",
+                            )}
+                          >
+                            <Check className="h-3 w-3" /> {c.label}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="seo-keywords">SEO keywords</Label>
+                      <Input
+                        id="seo-keywords"
+                        value={str(values.seo_keywords)}
+                        onChange={(e) => set("seo_keywords", e.target.value)}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="canonical-url">Canonical URL</Label>
+                      <Input
+                        id="canonical-url"
+                        value={str(values.canonical_url)}
+                        onChange={(e) => set("canonical_url", e.target.value)}
+                        placeholder="/blog/duong-dan-bai-viet"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-4 rounded-lg border bg-card p-4">
+                    <p className="text-xs font-semibold uppercase text-muted-foreground">
+                      Open Graph
+                    </p>
+                    <div className="space-y-2">
+                      <Label htmlFor="og-title">OG title</Label>
+                      <Input
+                        id="og-title"
+                        value={str(values.og_title)}
+                        onChange={(e) => set("og_title", e.target.value)}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="og-description">OG description</Label>
+                      <Textarea
+                        id="og-description"
+                        rows={3}
+                        value={str(values.og_description)}
+                        onChange={(e) => set("og_description", e.target.value)}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>OG image</Label>
+                      <ImageUpload
+                        value={typeof values.og_image === "string" ? values.og_image : null}
+                        onChange={(url) => set("og_image", url)}
+                      />
+                    </div>
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <Label>SEO keywords</Label>
-                  <Input
-                    value={values.seo_keywords ?? ""}
-                    onChange={(e) => set("seo_keywords", e.target.value)}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Canonical URL</Label>
-                  <Input
-                    value={values.canonical_url ?? ""}
-                    onChange={(e) => set("canonical_url", e.target.value)}
-                    placeholder="/blog/duong-dan-bai-viet"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-4 rounded-lg border bg-card p-4">
-                <p className="text-xs font-semibold uppercase text-muted-foreground">Open Graph</p>
-                <div className="space-y-2">
-                  <Label>OG title</Label>
-                  <Input value={values.og_title ?? ""} onChange={(e) => set("og_title", e.target.value)} />
-                </div>
-                <div className="space-y-2">
-                  <Label>OG description</Label>
-                  <Textarea
-                    rows={3}
-                    value={values.og_description ?? ""}
-                    onChange={(e) => set("og_description", e.target.value)}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>OG image</Label>
-                  <ImageUpload value={values.og_image} onChange={(url) => set("og_image", url)} />
-                </div>
-              </div>
+              </EditorErrorBoundary>
             </TabsContent>
           </Tabs>
         </div>
