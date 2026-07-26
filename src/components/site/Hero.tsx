@@ -57,20 +57,27 @@ export function Hero() {
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
-            <a
-              href={banner?.cta_href || "#lien-he"}
-              className="gradient-primary inline-flex items-center rounded-md px-7 py-3.5 font-display text-lg font-bold uppercase tracking-wide text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.03]"
-            >
-              {banner?.cta_label || "Nhận Báo Giá"}
-            </a>
+            {banner?.cta_href && !banner.cta_href.startsWith("#") ? (
+              <a
+                href={banner.cta_href}
+                className="gradient-primary cta-press inline-flex items-center rounded-md px-7 py-3.5 font-display text-lg font-bold uppercase tracking-wide text-primary-foreground shadow-[var(--shadow-glow)]"
+              >
+                {banner.cta_label || "Nhận Báo Giá"}
+              </a>
+            ) : (
+              <QuoteButton className="gradient-primary inline-flex items-center rounded-md px-7 py-3.5 font-display text-lg font-bold uppercase tracking-wide text-primary-foreground shadow-[var(--shadow-glow)]">
+                {banner?.cta_label || "Nhận Báo Giá"}
+              </QuoteButton>
+            )}
             <a
               href={`tel:${HOTLINE_TEL}`}
-              className="inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/10 px-7 py-3.5 font-display text-lg font-bold uppercase tracking-wide text-secondary-foreground backdrop-blur transition-colors hover:bg-white/20"
+              className="cta-press inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/10 px-7 py-3.5 font-display text-lg font-bold uppercase tracking-wide text-secondary-foreground backdrop-blur hover:bg-white/20"
             >
               <Phone className="size-5" />
               {HOTLINE}
             </a>
           </div>
+
 
           <dl className="mt-14 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/15 bg-white/15 backdrop-blur sm:grid-cols-4 lg:grid-cols-4">
             {STATS.map((s) => (
