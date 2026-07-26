@@ -13,6 +13,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SERVICE_PAGES, findServicePage, type ServicePage } from "@/data/service-pages";
+import { topicSlugsForPillar } from "@/data/content-plan";
+import { usePosts } from "@/hooks/use-content";
 import { HOTLINE, HOTLINE_TEL, ADDRESS, EMAIL } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor, SITE_NAME } from "@/lib/seo";
 
@@ -89,6 +91,10 @@ function ServiceDetail() {
   const related = page.related
     .map((slug) => SERVICE_PAGES.find((s) => s.slug === slug))
     .filter(Boolean);
+
+  const { data: posts = [] } = usePosts();
+  const clusterSlugs = topicSlugsForPillar(page.slug);
+  const clusterPosts = posts.filter((p) => clusterSlugs.includes(p.slug)).slice(0, 4);
 
   return (
     <div className="min-h-screen bg-background">
@@ -194,7 +200,43 @@ function ServiceDetail() {
                 ))}
               </Accordion>
             </section>
+
+            {clusterPosts.length > 0 && (
+              <section className="mt-10">
+                <h2 className="font-heading text-2xl font-bold uppercase">
+                  Bài viết chuyên sâu về {page.name}
+                </h2>
+                <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                  {clusterPosts.map((post) => (
+                    <Card key={post.id} className="h-full transition-colors hover:border-primary">
+                      <CardContent className="flex h-full flex-col p-5">
+                        <h3 className="font-heading text-base font-bold uppercase leading-snug">
+                          <Link
+                            to="/blog/$slug"
+                            params={{ slug: post.slug }}
+                            className="hover:text-primary"
+                          >
+                            {post.title}
+                          </Link>
+                        </h3>
+                        {post.excerpt && (
+                          <p className="mt-2 flex-1 text-sm text-muted-foreground">{post.excerpt}</p>
+                        )}
+                        <Link
+                          to="/blog/$slug"
+                          params={{ slug: post.slug }}
+                          className="mt-3 text-sm font-semibold text-primary hover:underline"
+                        >
+                          Đọc bài viết
+                        </Link>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+            )}
           </article>
+
 
           <aside className="space-y-5 lg:sticky lg:top-28 lg:self-start">
             <Card className="border-primary">
