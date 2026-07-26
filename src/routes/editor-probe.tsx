@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PostEditor } from "@/components/admin/PostEditor";
 
+// Temporary probe used to test the editor without an admin session.
 const fake = {
   id: "11111111-1111-1111-1111-111111111111",
   title: "Bài viết mẫu",
@@ -11,17 +12,17 @@ const fake = {
   cover_image: null,
   cover_image_alt: null,
   status: "published",
-  sort_order: 0,
+  sort_order: null,
   seo_title: null,
   seo_description: null,
-  seo_keywords: null,
+  seo_keywords: ["a", "b"],
   focus_keyword: null,
   canonical_url: null,
-  og_title: null,
+  og_title: 123,
   og_description: null,
   og_image: null,
   author: null,
-  tags: null,
+  tags: ["bốc xếp", "kho hàng"],
   reading_time: 1,
   published_at: new Date().toISOString(),
   scheduled_at: null,
