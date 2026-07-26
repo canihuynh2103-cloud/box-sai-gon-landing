@@ -13,6 +13,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SERVICE_PAGES, findServicePage, type ServicePage } from "@/data/service-pages";
+import { topicSlugsForPillar } from "@/data/content-plan";
+import { usePosts } from "@/hooks/use-content";
 import { HOTLINE, HOTLINE_TEL, ADDRESS, EMAIL } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor, SITE_NAME } from "@/lib/seo";
 
