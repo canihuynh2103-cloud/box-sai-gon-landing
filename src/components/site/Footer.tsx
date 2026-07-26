@@ -86,12 +86,21 @@ export function Footer() {
               ))}
               <li>
                 <a
+                  href="/ho-so-nang-luc"
+                  className="text-sm text-secondary-foreground/70 transition-colors hover:text-primary"
+                >
+                  Hồ sơ năng lực
+                </a>
+              </li>
+              <li>
+                <a
                   href="#lien-he"
                   className="text-sm text-secondary-foreground/70 transition-colors hover:text-primary"
                 >
                   Tuyển dụng
                 </a>
               </li>
+
             </ul>
           </div>
 
