@@ -231,8 +231,12 @@ function PostPage() {
             ) : null}
           </article>
         )}
+
+        <RelatedPosts slug={slug} category={data?.category ?? null} />
       </main>
       <Footer />
+      <FloatingButtons />
+
     </div>
   );
 }
