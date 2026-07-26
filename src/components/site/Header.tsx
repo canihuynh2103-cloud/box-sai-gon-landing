@@ -37,7 +37,8 @@ export function Header() {
               Bốc Xếp Sài Gòn
             </span>
             <span className="block pt-0.5 text-[8px] font-semibold uppercase leading-[1.7] tracking-[0.02em] text-secondary-foreground/70 sm:text-[10px] sm:tracking-[0.12em]">
-              Chuyên Nghiệp - Minh Bạch - Tin Cậy
+              <span className="sm:hidden">Chuyên Nghiệp - Tin Cậy</span>
+              <span className="hidden sm:inline">Chuyên Nghiệp - Minh Bạch - Tin Cậy</span>
             </span>
           </span>
         </Link>
