@@ -98,15 +98,16 @@ export function Services() {
                       title: p.title,
                       excerpt: p.excerpt,
                     }));
+              const slug = SLUG_BY_NAME[s.title.trim().toLowerCase()];
               return (
                 <article
                   key={s.title}
-                  className="card-lift group flex flex-col overflow-hidden rounded-xl border border-border bg-card"
+                  className="card-lift group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img
                       src={s.image}
-                      alt={s.title}
+                      alt={`Dịch vụ ${s.title} tại TP.HCM`}
                       loading="lazy"
                       width={800}
                       height={600}
@@ -117,21 +118,34 @@ export function Services() {
                     </span>
                   </div>
                   <div className="flex flex-1 flex-col p-3 pt-7 sm:p-5 sm:pt-8">
-                    <h3 className="font-display text-sm font-bold leading-snug sm:text-xl">{s.title}</h3>
+                    <h3 className="font-display text-sm font-bold leading-snug sm:text-xl">
+                      {slug ? (
+                        <Link
+                          to="/dich-vu/$slug"
+                          params={{ slug }}
+                          className="after:absolute after:inset-0 after:content-[''] hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                        >
+                          {s.title}
+                        </Link>
+                      ) : (
+                        s.title
+                      )}
+                    </h3>
                     <p className="mt-2 flex-1 text-[11px] leading-relaxed text-muted-foreground sm:text-sm">
                       {s.desc}
                     </p>
                     {posts.length > 0 && (
-                      <ul className="mt-3 hidden space-y-2 border-t border-border pt-3 sm:block">
+                      <ul className="relative z-10 mt-3 hidden space-y-2 border-t border-border pt-3 sm:block">
                         {posts.map((post) => (
                           <li key={post.key}>
                             {post.slug ? (
-                              <a
-                                href={`/blog/${post.slug}`}
+                              <Link
+                                to="/blog/$slug"
+                                params={{ slug: post.slug }}
                                 className="text-xs font-bold leading-snug text-foreground hover:text-primary"
                               >
                                 {post.title}
-                              </a>
+                              </Link>
                             ) : (
                               <p className="text-xs font-bold leading-snug text-foreground">
                                 {post.title}
@@ -145,13 +159,10 @@ export function Services() {
                       </ul>
                     )}
 
-                    <a
-                      href="#lien-he"
-                      className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-bold text-primary transition-colors hover:text-primary-dark sm:mt-4 sm:text-sm"
-                    >
-                      Báo giá ngay
+                    <span className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-bold text-primary sm:mt-4 sm:text-sm">
+                      {slug ? "Xem chi tiết" : "Báo giá ngay"}
                       <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                    </a>
+                    </span>
                   </div>
                 </article>
               );
