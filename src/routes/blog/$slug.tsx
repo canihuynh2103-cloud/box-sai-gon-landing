@@ -7,6 +7,8 @@ import { ArrowLeft, CalendarDays, Clock, User } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { FloatingButtons } from "@/components/site/FloatingButtons";
+import { usePosts } from "@/hooks/use-content";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { absUrl, breadcrumbLd, SITE_NAME } from "@/lib/seo";
@@ -238,5 +240,41 @@ function PostPage() {
       <FloatingButtons />
 
     </div>
+  );
+}
+
+function RelatedPosts({ slug, category }: { slug: string; category: string | null }) {
+  const { data = [] } = usePosts();
+  const related = data
+    .filter((p) => p.slug !== slug)
+    .sort((a, b) => {
+      const sa = a.category && a.category === category ? 1 : 0;
+      const sb = b.category && b.category === category ? 1 : 0;
+      return sb - sa;
+    })
+    .slice(0, 3);
+
+  if (related.length === 0) return null;
+
+  return (
+    <section aria-labelledby="bai-viet-lien-quan" className="mt-14 border-t pt-8">
+      <h2 id="bai-viet-lien-quan" className="font-heading text-2xl font-bold uppercase">
+        Bài viết liên quan
+      </h2>
+      <ul className="mt-5 grid gap-4 sm:grid-cols-3">
+        {related.map((p) => (
+          <li key={p.id}>
+            <Link
+              to="/blog/$slug"
+              params={{ slug: p.slug }}
+              className="block h-full rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+              <h3 className="font-heading text-base font-bold leading-snug">{p.title}</h3>
+              <p className="mt-2 line-clamp-3 text-sm text-muted-foreground">{p.excerpt}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
