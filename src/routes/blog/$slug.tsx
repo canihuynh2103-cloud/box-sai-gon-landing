@@ -139,6 +139,12 @@ function PostPage() {
             <meta property="og:image" content={(data.og_image || data.cover_image) as string} />
           ) : null}
           <link rel="canonical" href={data.canonical_url || `/blog/${slug}`} />
+          {jsonLd ? (
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: jsonLd }}
+            />
+          ) : null}
         </>
       ) : null}
 
