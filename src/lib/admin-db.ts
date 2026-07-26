@@ -37,6 +37,29 @@ export async function saveRow(table: TableName, values: Row, id?: string) {
   if (error) throw error;
 }
 
+/** Same as saveRow but returns the row id (needed for auto-save of new posts). */
+export async function saveRowReturning(
+  table: TableName,
+  values: Row,
+  id?: string,
+): Promise<string> {
+  if (id) {
+    const { error } = await db.from(table).update(values).eq("id", id);
+    if (error) throw error;
+    return id;
+  }
+  const { data, error } = await db.from(table).insert(values).select("id").single();
+  if (error) throw error;
+  return data.id as string;
+}
+
+export async function getRow(table: TableName, id: string): Promise<Row | null> {
+  const { data, error } = await db.from(table).select("*").eq("id", id).maybeSingle();
+  if (error) throw error;
+  return (data ?? null) as Row | null;
+}
+
+
 export async function deleteRow(table: TableName, id: string) {
   const { error } = await db.from(table).delete().eq("id", id);
   if (error) throw error;

@@ -88,53 +88,83 @@ export type Database = {
       }
       posts: {
         Row: {
+          author: string | null
+          canonical_url: string | null
           category: string | null
           content: string | null
           cover_image: string | null
+          cover_image_alt: string | null
           created_at: string
           excerpt: string | null
+          focus_keyword: string | null
           id: string
+          og_description: string | null
+          og_image: string | null
+          og_title: string | null
           published_at: string | null
+          reading_time: number
+          scheduled_at: string | null
           seo_description: string | null
           seo_keywords: string | null
           seo_title: string | null
           slug: string
           sort_order: number
           status: string
+          tags: string[]
           title: string
           updated_at: string
         }
         Insert: {
+          author?: string | null
+          canonical_url?: string | null
           category?: string | null
           content?: string | null
           cover_image?: string | null
+          cover_image_alt?: string | null
           created_at?: string
           excerpt?: string | null
+          focus_keyword?: string | null
           id?: string
+          og_description?: string | null
+          og_image?: string | null
+          og_title?: string | null
           published_at?: string | null
+          reading_time?: number
+          scheduled_at?: string | null
           seo_description?: string | null
           seo_keywords?: string | null
           seo_title?: string | null
           slug: string
           sort_order?: number
           status?: string
+          tags?: string[]
           title: string
           updated_at?: string
         }
         Update: {
+          author?: string | null
+          canonical_url?: string | null
           category?: string | null
           content?: string | null
           cover_image?: string | null
+          cover_image_alt?: string | null
           created_at?: string
           excerpt?: string | null
+          focus_keyword?: string | null
           id?: string
+          og_description?: string | null
+          og_image?: string | null
+          og_title?: string | null
           published_at?: string | null
+          reading_time?: number
+          scheduled_at?: string | null
           seo_description?: string | null
           seo_keywords?: string | null
           seo_title?: string | null
           slug?: string
           sort_order?: number
           status?: string
+          tags?: string[]
           title?: string
           updated_at?: string
         }
