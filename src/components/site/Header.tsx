@@ -32,11 +32,11 @@ export function Header() {
           <span className="gradient-primary flex size-9 shrink-0 items-center justify-center rounded-lg font-display text-base font-bold text-primary-foreground shadow-[var(--shadow-glow)] sm:size-11 sm:text-xl">
             BX
           </span>
-          <span className="flex min-w-0 flex-col justify-center">
-            <span className="block truncate font-display text-base font-bold leading-[1.35] tracking-wide text-secondary-foreground sm:text-lg">
+          <span className="flex min-w-0 flex-col justify-center py-0.5">
+            <span className="block truncate font-display text-base font-bold leading-[1.4] tracking-wide text-secondary-foreground sm:text-lg">
               Bốc Xếp Sài Gòn
             </span>
-            <span className="hidden text-[10px] font-semibold uppercase leading-[1.6] tracking-[0.14em] text-secondary-foreground/70 sm:block">
+            <span className="block truncate pt-0.5 text-[9px] font-semibold uppercase leading-[1.7] tracking-[0.12em] text-secondary-foreground/70 sm:text-[10px]">
               Chuyên Nghiệp - Minh Bạch - Tin Cậy
             </span>
           </span>
