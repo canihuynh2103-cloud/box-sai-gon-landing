@@ -92,6 +92,10 @@ function ServiceDetail() {
     .map((slug) => SERVICE_PAGES.find((s) => s.slug === slug))
     .filter(Boolean);
 
+  const { data: posts = [] } = usePosts();
+  const clusterSlugs = topicSlugsForPillar(page.slug);
+  const clusterPosts = posts.filter((p) => clusterSlugs.includes(p.slug)).slice(0, 4);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
