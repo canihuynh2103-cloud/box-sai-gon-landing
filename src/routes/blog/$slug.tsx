@@ -150,7 +150,7 @@ function PostPage() {
         </>
       ) : null}
 
-      <main className="container mx-auto max-w-3xl px-4 pb-16 pt-28 md:pt-36">
+      <main className="container mx-auto max-w-3xl px-4 pb-16 pt-44 lg:pt-32">
         <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">
           <Link to="/" className="hover:text-primary">
             Trang chủ

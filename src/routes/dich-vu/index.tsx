@@ -53,7 +53,7 @@ function ServiceHub() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="container mx-auto px-4 pb-16 pt-28 md:pt-36">
+      <main className="container mx-auto px-4 pb-16 pt-44 lg:pt-32">
         <nav aria-label="Breadcrumb" className="mb-4 text-sm text-muted-foreground">
           <Link to="/" className="hover:text-primary">
             Trang chủ
