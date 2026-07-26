@@ -44,14 +44,23 @@ const toLocalInput = (value?: string | null) => {
 
 const fromLocalInput = (value: string) => (value ? new Date(value).toISOString() : null);
 
-export const readingTimeOf = (html: string) => {
-  const text = html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+/** Any DB value (null, number, array, object) coerced to a safe controlled-input string. */
+const str = (value: unknown): string => {
+  if (value == null) return "";
+  if (typeof value === "string") return value;
+  if (Array.isArray(value)) return value.filter(Boolean).map(String).join(", ");
+  if (typeof value === "object") return "";
+  return String(value);
+};
+
+export const readingTimeOf = (html: unknown) => {
+  const text = str(html).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
   const words = text ? text.split(" ").length : 0;
   return Math.max(1, Math.round(words / 200));
 };
 
-function Counter({ value, min, max }: { value: string; min: number; max: number }) {
-  const n = value.length;
+function Counter({ value, min, max }: { value?: string | null; min: number; max: number }) {
+  const n = str(value).length;
   const ok = n >= min && n <= max;
   return (
     <p className={cn("text-xs", n === 0 ? "text-muted-foreground" : ok ? "text-emerald-600" : "text-destructive")}>
@@ -59,6 +68,24 @@ function Counter({ value, min, max }: { value: string; min: number; max: number 
     </p>
   );
 }
+
+const TEXT_FIELDS = [
+  "title",
+  "slug",
+  "category",
+  "excerpt",
+  "content",
+  "cover_image_alt",
+  "seo_title",
+  "seo_description",
+  "seo_keywords",
+  "focus_keyword",
+  "canonical_url",
+  "og_title",
+  "og_description",
+  "author",
+  "tags",
+] as const;
 
 type Props = { post: Row | null; onClose: () => void };
 
