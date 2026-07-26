@@ -303,3 +303,60 @@
   padding-left: 1.15rem;
   list-style: decimal;
 }
+
+/* ---- CTA interactions ---- */
+@utility cta-press {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s ease,
+    filter 0.2s ease;
+
+  &:hover {
+    transform: scale(1.04);
+    filter: brightness(1.05);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, currentColor 12%, transparent 12.5%);
+    opacity: 0;
+    transform: scale(0.2);
+    pointer-events: none;
+  }
+
+  &:active::after {
+    opacity: 0.18;
+    transform: scale(2.4);
+    transition:
+      transform 0.5s ease-out,
+      opacity 0.6s ease-out;
+  }
+}
+
+@utility cta-float {
+  animation: cta-float 3.2s ease-in-out infinite;
+}
+
+@keyframes cta-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-float {
+    animation: none;
+  }
+}
