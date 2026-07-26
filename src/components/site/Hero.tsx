@@ -15,7 +15,11 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="top" className="relative isolate min-h-[100svh] overflow-hidden">
+    <section
+      id="top"
+      className="relative isolate overflow-hidden"
+      style={{ minHeight: "calc(100svh - var(--header-h, 4rem))" }}
+    >
       <div
         className="absolute inset-x-0 -top-24 h-[130%] will-change-transform"
         style={{ transform: `translateY(${offset * 0.35}px)` }}
@@ -30,26 +34,16 @@ export function Hero() {
       </div>
       <div className="absolute inset-0 bg-[linear-gradient(105deg,oklch(0.2_0.04_258/0.92)_0%,oklch(0.2_0.04_258/0.72)_45%,oklch(0.2_0.04_258/0.35)_100%)]" />
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col px-4 pt-28 pb-16 sm:px-6 lg:px-8">
-        <div className="-mx-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="flex w-max gap-2 rounded-full border border-white/15 bg-white/10 p-1.5 backdrop-blur">
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold text-secondary-foreground/85 transition-colors hover:bg-primary hover:text-primary-foreground"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div className="flex flex-1 flex-col justify-center py-12">
+      <div
+        className="relative mx-auto flex max-w-7xl flex-col px-4 pb-14 pt-6 sm:px-6 sm:pt-10 lg:px-8"
+        style={{ minHeight: "calc(100svh - var(--header-h, 4rem))" }}
+      >
+        <div className="flex flex-1 flex-col justify-center py-6 sm:py-10">
           <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-primary-foreground backdrop-blur">
             <ShieldCheck className="size-4" />
             Dịch vụ bốc xếp chuyên nghiệp tại TP.HCM
           </span>
+
 
           <h1 className="mt-6 max-w-3xl font-display text-5xl font-bold leading-[0.95] text-secondary-foreground sm:text-7xl lg:text-8xl">
             Bốc Xếp Sài Gòn
