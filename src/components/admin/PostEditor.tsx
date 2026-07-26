@@ -112,12 +112,14 @@ export function PostEditor({ post, onClose }: Props) {
     og_image: null,
     author: "",
     tags: "",
-    ...(post
-      ? {
-          ...post,
-          tags: Array.isArray(post.tags) ? post.tags.join(", ") : (post.tags ?? ""),
-        }
-      : {}),
+    ...(post ? post : {}),
+    // Normalize every text field so nulls/arrays/numbers from the DB never reach
+    // a controlled input as a non-string value.
+    ...Object.fromEntries(TEXT_FIELDS.map((key) => [key, str(post?.[key])])),
+    status: str(post?.status) || "draft",
+    sort_order: Number(post?.sort_order ?? 0) || 0,
+    cover_image: typeof post?.cover_image === "string" ? post.cover_image : null,
+    og_image: typeof post?.og_image === "string" ? post.og_image : null,
   }));
   const [publishedAt, setPublishedAt] = useState(toLocalInput(post?.published_at));
   const [scheduledAt, setScheduledAt] = useState(toLocalInput(post?.scheduled_at));
