@@ -93,26 +93,7 @@ export function PostEditor({ post, onClose }: Props) {
   const qc = useQueryClient();
   const [id, setId] = useState<string | undefined>(post?.id);
   const [values, setValues] = useState<Row>(() => ({
-    title: "",
-    slug: "",
-    category: "",
-    excerpt: "",
-    content: "",
-    cover_image: null,
-    cover_image_alt: "",
-    status: "draft",
-    sort_order: 0,
-    seo_title: "",
-    seo_description: "",
-    seo_keywords: "",
-    focus_keyword: "",
-    canonical_url: "",
-    og_title: "",
-    og_description: "",
-    og_image: null,
-    author: "",
-    tags: "",
-    ...(post ? post : {}),
+    ...(post ?? {}),
     // Normalize every text field so nulls/arrays/numbers from the DB never reach
     // a controlled input as a non-string value.
     ...Object.fromEntries(TEXT_FIELDS.map((key) => [key, str(post?.[key])])),
