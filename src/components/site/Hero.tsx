@@ -3,6 +3,7 @@ import { ChevronDown, Phone, ShieldCheck } from "lucide-react";
 import heroImage from "@/assets/hero-warehouse.jpg";
 import { HOTLINE, HOTLINE_TEL, NAV_ITEMS, STATS } from "@/data/site";
 import { useHeroBanner } from "@/hooks/use-content";
+import { QuoteButton } from "@/components/site/QuoteButton";
 
 export function Hero() {
   const [offset, setOffset] = useState(0);
