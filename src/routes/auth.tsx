@@ -47,7 +47,25 @@ function AuthPage() {
     navigate({ to: "/admin", replace: true });
   };
 
+  const resetPassword = async () => {
+    if (!email) {
+      toast.error("Nhập email của bạn trước khi đặt lại mật khẩu.");
+      return;
+    }
+    setLoading(true);
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/reset-password`,
+    });
+    setLoading(false);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+    toast.success("Đã gửi email đặt lại mật khẩu. Kiểm tra hộp thư (cả mục Spam).");
+  };
+
   const signUp = async () => {
+
     setLoading(true);
     const { error } = await supabase.auth.signUp({
       email,
@@ -113,6 +131,14 @@ function AuthPage() {
                 {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
                 Đăng nhập
               </Button>
+              <button
+                type="button"
+                onClick={resetPassword}
+                className="w-full text-center text-xs text-muted-foreground underline hover:text-foreground"
+              >
+                Quên mật khẩu?
+              </button>
+
             </TabsContent>
 
             <TabsContent value="signup" className="mt-4 space-y-3">
