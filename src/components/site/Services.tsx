@@ -1,11 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import * as Icons from "lucide-react";
 import { ArrowRight, Search } from "lucide-react";
 import { SERVICES, SERVICE_POSTS } from "@/data/site";
+import { SERVICE_PAGES } from "@/data/service-pages";
 import { usePostsByCategory, useServices } from "@/hooks/use-content";
 
 const IMAGE_BY_TITLE: Record<string, string> = Object.fromEntries(
   SERVICES.map((s) => [s.title, s.image]),
+);
+
+const SLUG_BY_NAME: Record<string, string> = Object.fromEntries(
+  SERVICE_PAGES.map((s) => [s.name.toLowerCase(), s.slug]),
 );
 
 export function Services() {
