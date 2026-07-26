@@ -131,6 +131,14 @@ function AuthPage() {
                 {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
                 Đăng nhập
               </Button>
+              <button
+                type="button"
+                onClick={resetPassword}
+                className="w-full text-center text-xs text-muted-foreground underline hover:text-foreground"
+              >
+                Quên mật khẩu?
+              </button>
+
             </TabsContent>
 
             <TabsContent value="signup" className="mt-4 space-y-3">
