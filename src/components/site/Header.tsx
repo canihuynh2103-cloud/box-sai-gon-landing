@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Menu, Phone, Search, X } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { Phone, Search } from "lucide-react";
 import { HOTLINE, HOTLINE_TEL, NAV_ITEMS } from "@/data/site";
+import { NavLink } from "@/components/site/NavLink";
 import { cn } from "@/lib/utils";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -22,35 +23,43 @@ export function Header() {
         scrolled && "shadow-[var(--shadow-card)]",
       )}
     >
-      <div className="mx-auto grid h-16 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 sm:h-20 sm:gap-4 sm:px-6 lg:flex lg:gap-6 lg:px-8">
-        <a href="#top" className="flex min-w-0 items-center gap-2 sm:gap-3 lg:shrink-0">
+      <div className="mx-auto grid min-h-16 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 py-2 sm:min-h-20 sm:gap-4 sm:px-6 lg:flex lg:gap-6 lg:px-8">
+        <Link
+          to="/"
+          aria-label="Bốc Xếp Sài Gòn - Trang chủ"
+          className="flex min-w-0 items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:gap-3 lg:shrink-0"
+        >
           <span className="gradient-primary flex size-9 shrink-0 items-center justify-center rounded-lg font-display text-base font-bold text-primary-foreground shadow-[var(--shadow-glow)] sm:size-11 sm:text-xl">
             BX
           </span>
-          <span className="min-w-0 leading-tight">
-            <span className="block truncate font-display text-base font-bold tracking-wide text-secondary-foreground sm:text-lg">
+          <span className="flex min-w-0 flex-col justify-center">
+            <span className="block truncate font-display text-base font-bold leading-[1.35] tracking-wide text-secondary-foreground sm:text-lg">
               Bốc Xếp Sài Gòn
             </span>
-            <span className="hidden truncate text-[10px] font-semibold uppercase tracking-[0.16em] text-secondary-foreground/70 sm:block">
+            <span className="hidden text-[10px] font-semibold uppercase leading-[1.6] tracking-[0.14em] text-secondary-foreground/70 sm:block">
               Chuyên Nghiệp - Minh Bạch - Tin Cậy
             </span>
           </span>
-        </a>
+        </Link>
 
-        <nav className="ml-auto hidden items-center gap-1 lg:flex">
+        <nav aria-label="Điều hướng chính" className="ml-auto hidden items-center gap-1 lg:flex">
           {NAV_ITEMS.map((item) => (
-            <a
+            <NavLink
               key={item.href}
               href={item.href}
-              className="rounded-md px-3 py-2 text-sm font-semibold text-secondary-foreground/85 transition-colors hover:bg-white/10 hover:text-secondary-foreground"
+              className="whitespace-nowrap rounded-md px-2.5 py-2 text-[13px] font-semibold text-secondary-foreground/85 xl:px-3 xl:text-sm transition-colors hover:bg-white/10 hover:text-secondary-foreground"
+              activeClassName="bg-primary/20 text-secondary-foreground"
             >
               {item.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
         <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:ml-0">
-          <a href={`tel:${HOTLINE_TEL}`} className="hidden items-center gap-2 xl:flex">
+          <a
+            href={`tel:${HOTLINE_TEL}`}
+            className="hidden items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary xl:flex"
+          >
             <span className="flex size-9 items-center justify-center rounded-full bg-primary/20 text-primary-foreground">
               <Phone className="size-4" />
             </span>
@@ -58,41 +67,38 @@ export function Header() {
               <span className="block text-[10px] font-semibold uppercase tracking-widest text-secondary-foreground/70">
                 Hotline 24/7
               </span>
-              <span className="block font-display text-base font-bold text-secondary-foreground">
+              <span className="block font-display text-base font-bold leading-[1.4] text-secondary-foreground">
                 {HOTLINE}
               </span>
             </span>
           </a>
-          <a
-            href="#lien-he"
-            className="gradient-primary inline-flex shrink-0 animate-wiggle whitespace-nowrap rounded-md px-2.5 py-2 text-[10px] font-bold uppercase leading-none text-primary-foreground shadow-[var(--shadow-glow)] sm:px-5 sm:py-2.5 sm:text-sm"
+          <Link
+            to="/"
+            hash="lien-he"
+            className="gradient-primary inline-flex shrink-0 animate-wiggle whitespace-nowrap rounded-md px-2.5 py-2 text-[10px] font-bold uppercase leading-none tracking-wide text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary motion-reduce:animate-none sm:px-5 sm:py-2.5 sm:text-sm"
           >
             Nhận Báo Giá
-          </a>
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-label="Mở menu"
-            className="hidden size-10 items-center justify-center rounded-md border border-white/25 text-secondary-foreground"
-          >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
+          </Link>
         </div>
       </div>
 
       {/* Mobile: thanh danh mục gọn + tìm kiếm dịch vụ */}
       <div className="border-t border-white/10 lg:hidden">
-        <div className="flex gap-1.5 overflow-x-auto px-3 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <nav
+          aria-label="Điều hướng nhanh"
+          className="flex gap-1.5 overflow-x-auto px-3 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
           {NAV_ITEMS.map((item) => (
-            <a
+            <NavLink
               key={item.href}
               href={item.href}
-              className="shrink-0 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-secondary-foreground/85"
+              className="shrink-0 whitespace-nowrap rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-secondary-foreground/85 transition-colors hover:bg-white/15"
+              activeClassName="border-primary bg-primary/25 text-secondary-foreground"
             >
               {item.label}
-            </a>
+            </NavLink>
           ))}
-        </div>
+        </nav>
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -115,29 +121,6 @@ export function Header() {
           />
         </form>
       </div>
-
-      {open && (
-        <div className="border-t border-white/10 bg-secondary px-4 pb-4 lg:hidden">
-          <nav className="grid gap-1 py-2">
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2.5 text-sm font-semibold text-secondary-foreground/90 hover:bg-white/10"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <a
-            href={`tel:${HOTLINE_TEL}`}
-            className="gradient-primary flex items-center justify-center gap-2 rounded-md px-4 py-3 text-sm font-bold text-primary-foreground"
-          >
-            <Phone className="size-4" /> {HOTLINE}
-          </a>
-        </div>
-      )}
     </header>
   );
 }

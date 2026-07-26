@@ -1,6 +1,14 @@
 import { useState, type FormEvent } from "react";
+import { Link } from "@tanstack/react-router";
 import { Clock, Facebook, Mail, MapPin, Phone, Send, Youtube, Music2 } from "lucide-react";
 import { BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, NAV_ITEMS, SERVICES, WORK_HOURS } from "@/data/site";
+import { NavLink } from "@/components/site/NavLink";
+
+const SOCIALS = [
+  { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/" },
+  { icon: Youtube, label: "YouTube", href: "https://www.youtube.com/" },
+  { icon: Music2, label: "TikTok", href: "https://www.tiktok.com/" },
+];
 
 export function Footer() {
   const [sent, setSent] = useState(false);
@@ -12,27 +20,34 @@ export function Footer() {
     setTimeout(() => setSent(false), 4000);
   }
 
+  const linkCls =
+    "text-sm text-secondary-foreground/70 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm";
+
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <span className="gradient-primary flex size-11 items-center justify-center rounded-lg font-display text-xl font-bold text-primary-foreground">
+              <span className="gradient-primary flex size-11 shrink-0 items-center justify-center rounded-lg font-display text-xl font-bold text-primary-foreground">
                 BX
               </span>
-              <span className="font-display text-lg font-bold">Bốc Xếp Sài Gòn</span>
+              <span className="font-display text-lg font-bold leading-[1.4]">Bốc Xếp Sài Gòn</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-secondary-foreground/70">
               Đơn vị cung cấp nhân công bốc xếp và di dời hàng hóa chuyên nghiệp tại TP.HCM
               từ năm 2010. Chuyên nghiệp - Minh bạch - Tin cậy.
             </p>
             <form onSubmit={onSubscribe} className="mt-5">
-              <p className="text-xs font-bold uppercase tracking-widest text-secondary-foreground/60">
+              <label
+                htmlFor="footer-email"
+                className="text-xs font-bold uppercase tracking-widest text-secondary-foreground/60"
+              >
                 Đăng ký nhận tin
-              </p>
+              </label>
               <div className="mt-2 flex gap-2">
                 <input
+                  id="footer-email"
                   type="email"
                   required
                   name="email"
@@ -41,14 +56,14 @@ export function Footer() {
                 />
                 <button
                   type="submit"
-                  aria-label="Đăng ký"
-                  className="gradient-primary flex size-11 shrink-0 items-center justify-center rounded-md text-primary-foreground"
+                  aria-label="Đăng ký nhận tin"
+                  className="gradient-primary flex size-11 shrink-0 items-center justify-center rounded-md text-primary-foreground transition-transform hover:scale-105"
                 >
                   <Send className="size-4" />
                 </button>
               </div>
               {sent && (
-                <p className="mt-2 text-xs font-semibold text-primary">
+                <p role="status" className="mt-2 text-xs font-semibold text-primary">
                   Cảm ơn bạn đã đăng ký!
                 </p>
               )}
@@ -60,12 +75,9 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               {SERVICES.slice(0, 8).map((s) => (
                 <li key={s.title}>
-                  <a
-                    href="#dich-vu"
-                    className="text-sm text-secondary-foreground/70 transition-colors hover:text-primary"
-                  >
+                  <Link to="/dich-vu" className={linkCls}>
                     {s.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -76,31 +88,21 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               {NAV_ITEMS.map((n) => (
                 <li key={n.href}>
-                  <a
-                    href={n.href}
-                    className="text-sm text-secondary-foreground/70 transition-colors hover:text-primary"
-                  >
+                  <NavLink href={n.href} className={linkCls} activeClassName="text-primary">
                     {n.label}
-                  </a>
+                  </NavLink>
                 </li>
               ))}
               <li>
-                <a
-                  href="/ho-so-nang-luc"
-                  className="text-sm text-secondary-foreground/70 transition-colors hover:text-primary"
-                >
+                <Link to="/ho-so-nang-luc" className={linkCls}>
                   Hồ sơ năng lực
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#lien-he"
-                  className="text-sm text-secondary-foreground/70 transition-colors hover:text-primary"
-                >
+                <Link to="/" hash="lien-he" className={linkCls}>
                   Tuyển dụng
-                </a>
+                </Link>
               </li>
-
             </ul>
           </div>
 
@@ -122,12 +124,17 @@ export function Footer() {
               {BRANCHES.map((b) => (
                 <li key={b.name} className="flex min-w-0 gap-2.5">
                   <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
-                  <span>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(b.address)}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="min-w-0 hover:text-primary"
+                  >
                     <span className="block text-xs font-bold uppercase tracking-wider text-secondary-foreground/50">
                       {b.name}
                     </span>
                     {b.address}
-                  </span>
+                  </a>
                 </li>
               ))}
               <li className="flex min-w-0 gap-2.5">
@@ -136,16 +143,14 @@ export function Footer() {
               </li>
             </ul>
             <div className="mt-5 flex gap-2">
-              {[
-                { icon: Facebook, label: "Facebook" },
-                { icon: Youtube, label: "YouTube" },
-                { icon: Music2, label: "TikTok" },
-              ].map((s) => (
+              {SOCIALS.map((s) => (
                 <a
                   key={s.label}
-                  href="#top"
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
                   aria-label={s.label}
-                  className="flex size-10 items-center justify-center rounded-lg border border-white/15 bg-white/5 text-secondary-foreground/80 transition-colors hover:bg-primary hover:text-primary-foreground"
+                  className="flex size-11 items-center justify-center rounded-lg border border-white/15 bg-white/5 text-secondary-foreground/80 transition-colors hover:bg-primary hover:text-primary-foreground"
                 >
                   <s.icon className="size-4" />
                 </a>
@@ -157,12 +162,12 @@ export function Footer() {
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-secondary-foreground/55 sm:flex-row">
           <p>© {new Date().getFullYear()} Bốc Xếp Sài Gòn. Bảo lưu mọi quyền.</p>
           <div className="flex gap-5">
-            <a href="#top" className="hover:text-primary">
-              Chính sách bảo mật
-            </a>
-            <a href="#top" className="hover:text-primary">
-              Điều khoản sử dụng
-            </a>
+            <Link to="/ho-so-nang-luc" className="hover:text-primary">
+              Hồ sơ năng lực
+            </Link>
+            <Link to="/" hash="lien-he" className="hover:text-primary">
+              Liên hệ
+            </Link>
           </div>
         </div>
       </div>
