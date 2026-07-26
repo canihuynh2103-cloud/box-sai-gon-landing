@@ -93,13 +93,8 @@ export function Header() {
               </span>
             </span>
           </a>
-          <Link
-            to="/"
-            hash="lien-he"
-            className="gradient-primary inline-flex shrink-0 animate-wiggle whitespace-nowrap rounded-md px-2.5 py-2 text-[10px] font-bold uppercase leading-none tracking-tight sm:tracking-wide text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary motion-reduce:animate-none sm:px-5 sm:py-2.5 sm:text-sm"
-          >
-            Nhận Báo Giá
-          </Link>
+          <QuoteButton className="gradient-primary inline-flex shrink-0 animate-wiggle whitespace-nowrap rounded-md px-2.5 py-2 text-[10px] font-bold uppercase leading-none tracking-tight sm:tracking-wide text-primary-foreground shadow-[var(--shadow-glow)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary motion-reduce:animate-none sm:px-5 sm:py-2.5 sm:text-sm" />
+
         </div>
       </div>
 
