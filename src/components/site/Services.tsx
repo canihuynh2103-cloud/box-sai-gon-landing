@@ -2,9 +2,16 @@ import { useEffect, useMemo, useState } from "react";
 import * as Icons from "lucide-react";
 import { ArrowRight, Search } from "lucide-react";
 import { SERVICES, SERVICE_POSTS } from "@/data/site";
+import { usePostsByCategory, useServices } from "@/hooks/use-content";
+
+const IMAGE_BY_TITLE: Record<string, string> = Object.fromEntries(
+  SERVICES.map((s) => [s.title, s.image]),
+);
 
 export function Services() {
   const [q, setQ] = useState("");
+  const { data: dbServices = [] } = useServices();
+  const postsByCategory = usePostsByCategory();
 
   useEffect(() => {
     const onSearch = (e: Event) => setQ((e as CustomEvent<string>).detail ?? "");
@@ -12,15 +19,26 @@ export function Services() {
     return () => window.removeEventListener("service-search", onSearch);
   }, []);
 
+  const items = useMemo(() => {
+    if (dbServices.length === 0) {
+      return SERVICES.map((s) => ({ title: s.title, desc: s.desc, icon: s.icon, image: s.image }));
+    }
+    return dbServices.map((s) => ({
+      title: s.title,
+      desc: s.description ?? "",
+      icon: s.icon ?? "Box",
+      image: s.image || IMAGE_BY_TITLE[s.title] || SERVICES[0].image,
+    }));
+  }, [dbServices]);
+
   const filtered = useMemo(() => {
     const kw = q.trim().toLowerCase();
-    if (!kw) return SERVICES;
-    return SERVICES.filter(
-      (s) =>
-        s.title.toLowerCase().includes(kw) ||
-        s.desc.toLowerCase().includes(kw),
+    if (!kw) return items;
+    return items.filter(
+      (s) => s.title.toLowerCase().includes(kw) || s.desc.toLowerCase().includes(kw),
     );
-  }, [q]);
+  }, [q, items]);
+
 
   return (
     <section id="dich-vu" className="bg-muted/40 py-24">
