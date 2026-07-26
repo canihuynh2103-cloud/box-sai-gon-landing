@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { CheckCircle2, Phone, MessageCircle, AlertTriangle } from "lucide-react";
 
 import { Header } from "@/components/site/Header";
+import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
 import { Button } from "@/components/ui/button";
@@ -15,7 +16,7 @@ import {
 import { SERVICE_PAGES, findServicePage, type ServicePage } from "@/data/service-pages";
 import { topicSlugsForPillar } from "@/data/content-plan";
 import { usePosts } from "@/hooks/use-content";
-import { HOTLINE, HOTLINE_TEL, ADDRESS, EMAIL } from "@/data/site";
+import { HOTLINE, HOTLINE_TEL, ADDRESS, EMAIL, SERVICES } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor, SITE_NAME } from "@/lib/seo";
 
 export const Route = createFileRoute("/dich-vu/$slug")({
@@ -92,6 +93,10 @@ function ServiceDetail() {
     .map((slug) => SERVICE_PAGES.find((s) => s.slug === slug))
     .filter(Boolean);
 
+  const banner =
+    SERVICES.find((s) => s.title.trim().toLowerCase() === page.name.trim().toLowerCase())?.image ??
+    SERVICES[0].image;
+
   const { data: posts = [] } = usePosts();
   const clusterSlugs = topicSlugsForPillar(page.slug);
   const clusterPosts = posts.filter((p) => clusterSlugs.includes(p.slug)).slice(0, 4);
@@ -114,10 +119,35 @@ function ServiceDetail() {
 
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
           <article className="max-w-3xl">
-            <h1 className="font-heading text-3xl font-bold uppercase tracking-tight md:text-4xl">
+            <div className="overflow-hidden rounded-2xl border border-border">
+              <img
+                src={banner}
+                alt={`${page.name} - hình ảnh thực tế đội bốc xếp tại TP.HCM`}
+                width={1200}
+                height={630}
+                className="aspect-[16/9] w-full object-cover"
+              />
+            </div>
+            <h1 className="mt-6 font-heading text-3xl font-bold uppercase tracking-tight md:text-4xl">
               {page.h1}
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">{page.intro}</p>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button asChild size="lg">
+                <a href={`tel:${HOTLINE_TEL}`}>
+                  <Phone className="mr-2 h-4 w-4" /> Gọi {HOTLINE}
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="secondary">
+                <a href="https://zalo.me/0888977822" target="_blank" rel="noreferrer">
+                  Chat Zalo
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <a href="#lien-he">Nhận báo giá</a>
+              </Button>
+            </div>
 
             <section className="mt-10">
               <h2 className="font-heading text-2xl font-bold uppercase">Dịch vụ này phù hợp với ai?</h2>
@@ -235,6 +265,17 @@ function ServiceDetail() {
                 </div>
               </section>
             )}
+            <p className="mt-10 text-sm text-muted-foreground">
+              Xem thêm{" "}
+              <Link to="/dich-vu" className="font-semibold text-primary hover:underline">
+                toàn bộ dịch vụ bốc xếp
+              </Link>{" "}
+              hoặc{" "}
+              <Link to="/blog" className="font-semibold text-primary hover:underline">
+                kiến thức bốc xếp &amp; logistics
+              </Link>
+              .
+            </p>
           </article>
 
 
@@ -252,10 +293,15 @@ function ServiceDetail() {
                       <Phone className="mr-2 h-4 w-4" /> {HOTLINE}
                     </a>
                   </Button>
+                  <Button asChild size="lg" variant="secondary">
+                    <a href="https://zalo.me/0888977822" target="_blank" rel="noreferrer">
+                      Chat Zalo
+                    </a>
+                  </Button>
                   <Button asChild size="lg" variant="outline">
-                    <Link to="/" hash="lien-he">
+                    <a href="#lien-he">
                       <MessageCircle className="mr-2 h-4 w-4" /> Gửi yêu cầu
-                    </Link>
+                    </a>
                   </Button>
                 </div>
                 <p className="mt-3 text-xs text-muted-foreground">Trụ sở: {ADDRESS}</p>
@@ -290,6 +336,7 @@ function ServiceDetail() {
           </aside>
         </div>
       </main>
+      <Contact />
       <Footer />
       <FloatingButtons />
     </div>
