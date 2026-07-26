@@ -333,7 +333,7 @@ export function PostEditor({ post, onClose }: Props) {
               <div className="space-y-4 rounded-lg border bg-card p-4">
                 <div className="space-y-2">
                   <Label>Trạng thái</Label>
-                  <Select value={values.status ?? "draft"} onValueChange={(v) => set("status", v)}>
+                  <Select value={str(values.status) || "draft"} onValueChange={(v) => set("status", v)}>
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
