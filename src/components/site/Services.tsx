@@ -128,7 +128,12 @@ export function Services() {
                           {s.title}
                         </Link>
                       ) : (
-                        s.title
+                        <a
+                          href="#lien-he"
+                          className="after:absolute after:inset-0 after:content-[''] hover:text-primary"
+                        >
+                          {s.title}
+                        </a>
                       )}
                     </h3>
                     <p className="mt-2 flex-1 text-[11px] leading-relaxed text-muted-foreground sm:text-sm">
