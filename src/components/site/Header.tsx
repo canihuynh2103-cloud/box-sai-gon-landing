@@ -36,7 +36,7 @@ export function Header() {
             <span className="block truncate font-display text-base font-bold leading-[1.4] tracking-wide text-secondary-foreground sm:text-lg">
               Bốc Xếp Sài Gòn
             </span>
-            <span className="block truncate pt-0.5 text-[9px] font-semibold uppercase leading-[1.7] tracking-[0.12em] text-secondary-foreground/70 sm:text-[10px]">
+            <span className="block pt-0.5 text-[8px] font-semibold uppercase leading-[1.7] tracking-[0.02em] text-secondary-foreground/70 sm:text-[10px] sm:tracking-[0.12em]">
               Chuyên Nghiệp - Minh Bạch - Tin Cậy
             </span>
           </span>
@@ -75,7 +75,7 @@ export function Header() {
           <Link
             to="/"
             hash="lien-he"
-            className="gradient-primary inline-flex shrink-0 animate-wiggle whitespace-nowrap rounded-md px-2.5 py-2 text-[10px] font-bold uppercase leading-none tracking-wide text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary motion-reduce:animate-none sm:px-5 sm:py-2.5 sm:text-sm"
+            className="gradient-primary inline-flex shrink-0 animate-wiggle whitespace-nowrap rounded-md px-2.5 py-2 text-[10px] font-bold uppercase leading-none tracking-tight sm:tracking-wide text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-secondary motion-reduce:animate-none sm:px-5 sm:py-2.5 sm:text-sm"
           >
             Nhận Báo Giá
           </Link>
