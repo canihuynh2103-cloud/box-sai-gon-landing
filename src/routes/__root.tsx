@@ -23,7 +23,7 @@ function NotFoundComponent() {
         <h2 className="mt-4 text-xl font-semibold text-foreground">Không tìm thấy trang</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           Trang bạn tìm không tồn tại hoặc đã được chuyển. Vui lòng quay lại trang chủ hoặc gọi
-          hotline 0888.977.822 để được hỗ trợ.
+          hotline 0888.997.822 để được hỗ trợ.
         </p>
         <div className="mt-6">
           <Link
@@ -98,8 +98,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "LocalBusiness",
           name: "Bốc Xếp Sài Gòn",
           url: "https://bocxepsaigon.vn",
-          telephone: "+84888977822",
-          email: "info@bocxepsaigon.vn",
+          telephone: "+84888997822",
+          email: "saigonhandling@gmail.com",
           image: "https://bocxepsaigon.vn/favicon.ico",
           address: {
             "@type": "PostalAddress",

@@ -27,7 +27,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Dịch Vụ Bốc Xếp Kho Hàng Tại TP.HCM",
     seoTitle: "Bốc Xếp Kho Hàng TP.HCM — Nhân Công Theo Ca 24/7",
     seoDescription:
-      "Dịch vụ bốc xếp kho hàng tại TP.HCM: nhập xuất kho, sắp xếp pallet, kiểm đếm hàng hóa theo ca. Điều động nhanh, báo giá minh bạch, hotline 0888.977.822.",
+      "Dịch vụ bốc xếp kho hàng tại TP.HCM: nhập xuất kho, sắp xếp pallet, kiểm đếm hàng hóa theo ca. Điều động nhanh, báo giá minh bạch, hotline 0888.997.822.",
     keyword: "bốc xếp kho hàng",
     subKeywords: ["nhân công bốc xếp kho", "bốc xếp kho hàng tphcm", "thuê nhân công nhập xuất kho"],
     intro:
@@ -77,7 +77,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Dịch Vụ Bốc Xếp Container — Rút Ruột & Đóng Hàng",
     seoTitle: "Bốc Xếp Container TP.HCM — Rút Ruột, Đóng Cont Nhanh",
     seoDescription:
-      "Rút ruột container, đóng hàng lên cont tại depot, cảng và kho riêng ở TP.HCM. Đội bốc xếp container theo lịch tàu, tránh phí lưu cont. Gọi 0888.977.822.",
+      "Rút ruột container, đóng hàng lên cont tại depot, cảng và kho riêng ở TP.HCM. Đội bốc xếp container theo lịch tàu, tránh phí lưu cont. Gọi 0888.997.822.",
     keyword: "bốc xếp container",
     subKeywords: ["rút ruột container", "đóng hàng lên container", "bốc xếp cont tphcm"],
     intro:
@@ -173,7 +173,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Bốc Xếp Tại Cảng & Depot Khu Vực TP.HCM",
     seoTitle: "Bốc Xếp Cảng TP.HCM — Nhân Công Ra Vào Cảng, Depot",
     seoDescription:
-      "Nhân công bốc xếp tại cảng và depot khu vực TP.HCM: xếp dỡ hàng bao kiện, hàng rời, đảo hàng theo lịch tàu. Trực 24/7, hotline 0888.977.822.",
+      "Nhân công bốc xếp tại cảng và depot khu vực TP.HCM: xếp dỡ hàng bao kiện, hàng rời, đảo hàng theo lịch tàu. Trực 24/7, hotline 0888.997.822.",
     keyword: "bốc xếp cảng",
     subKeywords: ["nhân công bốc xếp cảng cát lái", "bốc xếp depot", "xếp dỡ hàng tại cảng"],
     intro:
@@ -220,7 +220,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Bốc Xếp Hàng Air Cargo Khu Vực Tân Sơn Nhất",
     seoTitle: "Bốc Xếp Sân Bay Tân Sơn Nhất — Hàng Air Cargo",
     seoDescription:
-      "Nhân công xử lý hàng air cargo khu vực sân bay Tân Sơn Nhất: build-up pallet, đóng gói, sang xe, làm theo ca kịp giờ cắt máng. Gọi 0888.977.822.",
+      "Nhân công xử lý hàng air cargo khu vực sân bay Tân Sơn Nhất: build-up pallet, đóng gói, sang xe, làm theo ca kịp giờ cắt máng. Gọi 0888.997.822.",
     keyword: "bốc xếp sân bay",
     subKeywords: ["bốc xếp hàng air cargo", "nhân công sân bay tân sơn nhất", "xử lý hàng hàng không"],
     intro:
@@ -267,7 +267,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Cho Thuê Nhân Công Bốc Xếp Theo Giờ, Ngày, Tháng",
     seoTitle: "Thuê Nhân Công Bốc Xếp TP.HCM Theo Giờ, Ngày, Tháng",
     seoDescription:
-      "Cho thuê nhân công bốc xếp tại TP.HCM theo giờ, theo ngày, theo tháng. Có đội trưởng giám sát, hợp đồng và hóa đơn. Hotline 0888.977.822.",
+      "Cho thuê nhân công bốc xếp tại TP.HCM theo giờ, theo ngày, theo tháng. Có đội trưởng giám sát, hợp đồng và hóa đơn. Hotline 0888.997.822.",
     keyword: "thuê nhân công bốc xếp",
     subKeywords: ["cho thuê nhân công thời vụ", "nhân công bốc xếp theo giờ", "cung ứng lao động bốc xếp"],
     intro:
@@ -313,7 +313,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Dịch Vụ Đóng Gói Hàng Hóa Tại TP.HCM",
     seoTitle: "Đóng Gói Hàng Hóa TP.HCM — Thùng Gỗ, Màng PE, Pallet",
     seoDescription:
-      "Dịch vụ đóng gói hàng hóa tại TP.HCM: quấn màng PE, đóng thùng gỗ, chèn lót hàng dễ vỡ, lên pallet chuẩn vận chuyển. Gọi 0888.977.822.",
+      "Dịch vụ đóng gói hàng hóa tại TP.HCM: quấn màng PE, đóng thùng gỗ, chèn lót hàng dễ vỡ, lên pallet chuẩn vận chuyển. Gọi 0888.997.822.",
     keyword: "đóng gói hàng hóa",
     subKeywords: ["đóng thùng gỗ", "quấn màng pe pallet", "đóng gói hàng dễ vỡ"],
     intro:
@@ -360,7 +360,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Dịch Vụ Chuyển Kho Trọn Gói Tại TP.HCM",
     seoTitle: "Chuyển Kho Trọn Gói TP.HCM — Không Gián Đoạn Vận Hành",
     seoDescription:
-      "Chuyển kho trọn gói tại TP.HCM: lập kế hoạch, tháo dỡ, vận chuyển và sắp xếp lại kho mới theo sơ đồ. Làm theo giai đoạn, hotline 0888.977.822.",
+      "Chuyển kho trọn gói tại TP.HCM: lập kế hoạch, tháo dỡ, vận chuyển và sắp xếp lại kho mới theo sơ đồ. Làm theo giai đoạn, hotline 0888.997.822.",
     keyword: "chuyển kho",
     subKeywords: ["dịch vụ chuyển kho trọn gói", "di dời kho hàng", "chuyển kho tphcm"],
     intro:
@@ -455,7 +455,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Chuyển Nhà Trọn Gói Tại TP.HCM",
     seoTitle: "Chuyển Nhà Trọn Gói TP.HCM — Bọc Lót, Lắp Đặt Lại",
     seoDescription:
-      "Chuyển nhà trọn gói tại TP.HCM: đóng gói, bọc lót nội thất, tháo lắp giường tủ, lắp đặt lại tận nơi. Báo giá rõ ràng, hotline 0888.977.822.",
+      "Chuyển nhà trọn gói tại TP.HCM: đóng gói, bọc lót nội thất, tháo lắp giường tủ, lắp đặt lại tận nơi. Báo giá rõ ràng, hotline 0888.997.822.",
     keyword: "chuyển nhà trọn gói",
     subKeywords: ["chuyển nhà tphcm", "dịch vụ chuyển nhà", "chuyển nhà chung cư"],
     intro:
@@ -503,7 +503,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Dịch Vụ Xếp Dỡ Hàng Hóa Lên Xuống Xe",
     seoTitle: "Xếp Dỡ Hàng Hóa TP.HCM — Xe Tải, Container, Hàng Rời",
     seoDescription:
-      "Dịch vụ xếp dỡ hàng hóa tại TP.HCM: lên xuống xe tải, container, hàng bao kiện và hàng rời. Đội bốc xếp theo dây chuyền, gọi 0888.977.822.",
+      "Dịch vụ xếp dỡ hàng hóa tại TP.HCM: lên xuống xe tải, container, hàng bao kiện và hàng rời. Đội bốc xếp theo dây chuyền, gọi 0888.997.822.",
     keyword: "xếp dỡ hàng hóa",
     subKeywords: ["bốc xếp lên xe tải", "xếp dỡ hàng rời", "bốc hàng xuống xe"],
     intro:
@@ -550,7 +550,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Bốc Hàng Theo Giờ — Điều Động Nhanh Tại TP.HCM",
     seoTitle: "Bốc Hàng Theo Giờ TP.HCM — Thuê Nhanh, Giá Theo Giờ",
     seoDescription:
-      "Bốc hàng theo giờ tại TP.HCM, điều động nhanh, tính phí theo giờ thực tế, tối thiểu 3 giờ. Trực tổng đài 24/7, gọi 0888.977.822.",
+      "Bốc hàng theo giờ tại TP.HCM, điều động nhanh, tính phí theo giờ thực tế, tối thiểu 3 giờ. Trực tổng đài 24/7, gọi 0888.997.822.",
     keyword: "bốc hàng theo giờ",
     subKeywords: ["thuê bốc xếp theo giờ", "bốc xếp gấp tphcm", "giá bốc xếp theo giờ"],
     intro:
@@ -643,7 +643,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Bốc Xếp Theo Hợp Đồng Dài Hạn, Hóa Đơn VAT",
     seoTitle: "Bốc Xếp Hợp Đồng Dài Hạn — SLA Rõ Ràng, Hóa Đơn VAT",
     seoDescription:
-      "Hợp đồng bốc xếp dài hạn cho doanh nghiệp tại TP.HCM: cam kết SLA, định biên nhân sự, báo cáo định kỳ và hóa đơn VAT. Gọi 0888.977.822.",
+      "Hợp đồng bốc xếp dài hạn cho doanh nghiệp tại TP.HCM: cam kết SLA, định biên nhân sự, báo cáo định kỳ và hóa đơn VAT. Gọi 0888.997.822.",
     keyword: "bốc xếp hợp đồng",
     subKeywords: ["hợp đồng bốc xếp dài hạn", "thuê ngoài nhân công bốc xếp", "dịch vụ bốc xếp doanh nghiệp"],
     intro:

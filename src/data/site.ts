@@ -7,9 +7,9 @@ import svcOffice from "@/assets/svc-office.jpg";
 import svcHouse from "@/assets/svc-house.jpg";
 import svcPacking from "@/assets/svc-packing.jpg";
 
-export const HOTLINE = "0888.977.822";
-export const HOTLINE_TEL = "0888977822";
-export const EMAIL = "info@bocxepsaigon.vn";
+export const HOTLINE = "0888.997.822";
+export const HOTLINE_TEL = "0888997822";
+export const EMAIL = "saigonhandling@gmail.com";
 export const ADDRESS = "234 Tô Ngọc Vân, Thủ Đức, TP.HCM";
 export const ZALO_LINK = "https://zaloapp.com/qr/p/8nkmbua5ktom?src=qr";
 export const MAPS_LINK =
@@ -21,19 +21,19 @@ export const BRANCHES = [
   {
     name: "Trụ sở chính",
     address: "234 Tô Ngọc Vân, Thủ Đức, TP.HCM",
-    phone: "0888.977.822",
+    phone: "0888.997.822",
     area: "TP. Thủ Đức, Quận 2, Quận 9, Đồng Nai, Bình Dương",
   },
   {
     name: "Chi nhánh Tân Bình",
     address: "78 Cộng Hòa, Phường 4, Tân Bình, TP.HCM",
-    phone: "0888.977.822",
+    phone: "0888.997.822",
     area: "Tân Bình, Tân Phú, Gò Vấp, Sân bay Tân Sơn Nhất",
   },
   {
     name: "Chi nhánh Bình Tân",
     address: "45 Kinh Dương Vương, Bình Tân, TP.HCM",
-    phone: "0888.977.822",
+    phone: "0888.997.822",
     area: "Bình Tân, Bình Chánh, Quận 6, Long An",
   },
 ];

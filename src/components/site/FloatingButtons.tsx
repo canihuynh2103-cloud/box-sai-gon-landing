@@ -20,7 +20,7 @@ export function FloatingButtons() {
     <div className="fixed bottom-5 right-4 z-40 flex flex-col gap-3 sm:right-5">
       <a
         href={`tel:${HOTLINE_TEL}`}
-        aria-label="Gọi hotline 0888.977.822"
+        aria-label="Gọi hotline 0888.997.822"
         className={`gradient-primary cta-float relative text-primary-foreground shadow-[var(--shadow-glow)] ${base}`}
       >
         <span className="absolute inset-0 animate-ping rounded-full bg-primary/40 motion-reduce:animate-none" />
