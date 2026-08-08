@@ -5,7 +5,7 @@ import { HOTLINE, HOTLINE_TEL, NAV_ITEMS } from "@/data/site";
 import { NavLink } from "@/components/site/NavLink";
 import { QuoteButton } from "@/components/site/QuoteButton";
 import { cn } from "@/lib/utils";
-
+import logo from "@/assets/logo-sai-gon-cargo-handling.png";
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [query, setQuery] = useState("");
@@ -49,9 +49,11 @@ export function Header() {
           aria-label="Bốc Xếp Sài Gòn - Trang chủ"
           className="flex min-w-0 items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:gap-3 lg:shrink-0"
         >
-          <span className="gradient-primary flex size-9 shrink-0 items-center justify-center rounded-lg font-display text-base font-bold text-primary-foreground shadow-[var(--shadow-glow)] sm:size-11 sm:text-xl">
-            BX
-          </span>
+          <img
+  src={logo}
+  alt="Sài Gòn Cargo Handling"
+  className="h-12 w-auto object-contain"
+/>
           <span className="flex min-w-0 flex-col justify-center py-0.5">
             <span className="block truncate font-display text-base font-bold leading-[1.4] tracking-wide text-secondary-foreground sm:text-lg">
               Bốc Xếp Sài Gòn
