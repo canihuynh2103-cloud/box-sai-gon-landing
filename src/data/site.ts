@@ -236,6 +236,7 @@ export const PROJECT_FILTERS = [
 
 export type Project = {
   id: number;
+  slug: string;
   name: string;
   category: string;
   year: string;
@@ -248,6 +249,7 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     id: 1,
+    slug: "chuyen-kho-tong-unilever-vsip-1",
     name: "Chuyển kho tổng 6.000m² Unilever",
     category: "Chuyển Kho",
     year: "2024",
@@ -259,6 +261,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 2,
+    slug: "rut-ruot-container-cat-lai",
     name: "Rút ruột 120 container tại Cát Lái",
     category: "Container",
     year: "2024",
@@ -270,6 +273,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 3,
+    slug: "chuyen-van-phong-deutsches-haus",
     name: "Chuyển văn phòng 14 tầng Deutsches Haus",
     category: "Văn Phòng",
     year: "2023",
@@ -281,6 +285,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 4,
+    slug: "di-doi-day-chuyen-samsung",
     name: "Di dời dây chuyền sản xuất Samsung",
     category: "Nhà Máy",
     year: "2023",
@@ -292,6 +297,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 5,
+    slug: "chuyen-nha-tron-goi-thao-dien",
     name: "Chuyển nhà trọn gói khu Thảo Điền",
     category: "Chuyển Nhà",
     year: "2024",
@@ -303,6 +309,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 6,
+    slug: "dong-goi-hang-xuat-khau-tan-binh",
     name: "Đóng gói xuất khẩu 4.000 kiện hàng",
     category: "Đóng Gói",
     year: "2022",
@@ -314,6 +321,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 7,
+    slug: "xep-do-hang-roi-hiep-phuoc",
     name: "Xếp dỡ hàng rời cho Nestlé",
     category: "Xếp Dỡ",
     year: "2023",
@@ -325,6 +333,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 8,
+    slug: "hang-air-cargo-tan-son-nhat",
     name: "Xử lý hàng air cargo Tân Sơn Nhất",
     category: "Sân Bay",
     year: "2024",
