@@ -52,7 +52,7 @@ export function Header() {
           <img
   src={logo}
   alt="Sài Gòn Cargo Handling"
-  className="h-12 w-auto object-contain"
+  className="h-14 w-auto object-contain bg-white"
 />
           <span className="flex min-w-0 flex-col justify-center py-0.5">
             <span className="block truncate font-display text-base font-bold leading-[1.4] tracking-wide text-secondary-foreground sm:text-lg">
