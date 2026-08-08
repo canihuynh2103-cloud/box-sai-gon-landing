@@ -100,7 +100,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           url: "https://bocxepsaigon.vn",
           telephone: "+84888997822",
           email: "saigonhandling@gmail.com",
-          image: "https://bocxepsaigon.vn/favicon.ico",
+          image: "https://bocxepsaigon.vn/favicon.png",
           address: {
             "@type": "PostalAddress",
             streetAddress: "234 Tô Ngọc Vân",
@@ -125,7 +125,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
 
