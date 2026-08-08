@@ -1,13 +1,17 @@
 import { useMemo, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { CalendarDays, Clock, MapPin } from "lucide-react";
 import { PROJECTS, type Project } from "@/data/site";
 import { useProjects } from "@/hooks/use-content";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { slugify } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 const IMAGE_BY_CATEGORY: Record<string, string> = Object.fromEntries(
   PROJECTS.map((p) => [p.category, p.image]),
 );
+
+const DETAIL_SLUGS = new Set(PROJECTS.map((p) => p.slug));
 
 export function Projects() {
   const [filter, setFilter] = useState("Tất Cả");
@@ -18,6 +22,7 @@ export function Projects() {
     if (dbProjects.length === 0) return PROJECTS;
     return dbProjects.map((p, index) => ({
       id: index + 1,
+      slug: slugify(p.name),
       name: p.name,
       category: p.category,
       year: p.year ?? "",
@@ -34,6 +39,7 @@ export function Projects() {
   );
 
   const list = filter === "Tất Cả" ? projects : projects.filter((p) => p.category === filter);
+
 
   return (
     <section id="du-an" className="bg-muted/40 py-24">
@@ -69,41 +75,57 @@ export function Projects() {
 
 
         <div className="mt-10 grid grid-cols-3 gap-2.5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {list.map((p) => (
-            <button
-              key={p.id}
-              type="button"
-              onClick={() => setActive(p)}
-              className="card-lift group overflow-hidden rounded-xl border border-border bg-card text-left"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={p.image}
-                  alt={p.name}
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                  className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <span className="absolute left-2 top-2 rounded-full bg-secondary/85 px-2 py-0.5 text-[10px] sm:left-4 sm:top-4 sm:px-3 sm:py-1 sm:text-xs font-bold text-secondary-foreground backdrop-blur">
-                  {p.year}
-                </span>
-              </div>
-              <div className="p-3 sm:p-5">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-primary sm:text-xs">
-                  {p.category}
-                </p>
-                <h3 className="mt-1.5 font-display text-sm font-bold leading-snug sm:mt-2 sm:text-lg">{p.name}</h3>
-                <p className="mt-2 flex items-center gap-1.5 text-[11px] text-muted-foreground sm:mt-3 sm:text-sm">
-                  <MapPin className="size-3 shrink-0 sm:size-4" /> {p.location}
-                </p>
-                <p className="mt-1 flex items-center gap-1.5 text-[11px] text-muted-foreground sm:text-sm">
-                  <Clock className="size-3 shrink-0 sm:size-4" /> {p.duration}
-                </p>
-              </div>
-            </button>
-          ))}
+          {list.map((p) => {
+            const hasDetail = DETAIL_SLUGS.has(p.slug);
+            const inner = (
+              <>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={`${p.name} - ${p.category} tại ${p.location || "TP.HCM"}`}
+                    loading="lazy"
+                    width={800}
+                    height={600}
+                    className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span className="absolute left-2 top-2 rounded-full bg-secondary/85 px-2 py-0.5 text-[10px] sm:left-4 sm:top-4 sm:px-3 sm:py-1 sm:text-xs font-bold text-secondary-foreground backdrop-blur">
+                    {p.year}
+                  </span>
+                </div>
+                <div className="p-3 sm:p-5">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-primary sm:text-xs">
+                    {p.category}
+                  </p>
+                  <h3 className="mt-1.5 font-display text-sm font-bold leading-snug sm:mt-2 sm:text-lg">{p.name}</h3>
+                  <p className="mt-2 flex items-center gap-1.5 text-[11px] text-muted-foreground sm:mt-3 sm:text-sm">
+                    <MapPin className="size-3 shrink-0 sm:size-4" /> {p.location}
+                  </p>
+                  <p className="mt-1 flex items-center gap-1.5 text-[11px] text-muted-foreground sm:text-sm">
+                    <Clock className="size-3 shrink-0 sm:size-4" /> {p.duration}
+                  </p>
+                  {hasDetail && (
+                    <span className="mt-2 inline-block text-[11px] font-bold uppercase tracking-wider text-primary sm:text-xs">
+                      Xem chi tiết →
+                    </span>
+                  )}
+                </div>
+              </>
+            );
+
+            const cls = "card-lift group block overflow-hidden rounded-xl border border-border bg-card text-left";
+
+            return hasDetail ? (
+              <Link key={p.id} to="/du-an/$slug" params={{ slug: p.slug }} className={cls}>
+                {inner}
+              </Link>
+            ) : (
+              <button key={p.id} type="button" onClick={() => setActive(p)} className={cls}>
+                {inner}
+              </button>
+            );
+          })}
         </div>
+
       </div>
 
       <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>

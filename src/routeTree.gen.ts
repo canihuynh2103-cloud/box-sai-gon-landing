@@ -17,6 +17,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DichVuIndexRouteImport } from './routes/dich-vu/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as DuAnSlugRouteImport } from './routes/du-an/$slug'
 import { Route as DichVuSlugRouteImport } from './routes/dich-vu/$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as AuthenticatedAdminRouteRouteImport } from './routes/_authenticated/admin/route'
@@ -67,6 +68,11 @@ const DichVuIndexRoute = DichVuIndexRouteImport.update({
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DuAnSlugRoute = DuAnSlugRouteImport.update({
+  id: '/du-an/$slug',
+  path: '/du-an/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DichVuSlugRoute = DichVuSlugRouteImport.update({
@@ -144,6 +150,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AuthenticatedAdminRouteRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/dich-vu/$slug': typeof DichVuSlugRoute
+  '/du-an/$slug': typeof DuAnSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/dich-vu/': typeof DichVuIndexRoute
   '/admin/banners': typeof AuthenticatedAdminBannersRoute
@@ -164,6 +171,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/dich-vu/$slug': typeof DichVuSlugRoute
+  '/du-an/$slug': typeof DuAnSlugRoute
   '/blog': typeof BlogIndexRoute
   '/dich-vu': typeof DichVuIndexRoute
   '/admin/banners': typeof AuthenticatedAdminBannersRoute
@@ -187,6 +195,7 @@ export interface FileRoutesById {
   '/_authenticated/admin': typeof AuthenticatedAdminRouteRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/dich-vu/$slug': typeof DichVuSlugRoute
+  '/du-an/$slug': typeof DuAnSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/dich-vu/': typeof DichVuIndexRoute
   '/_authenticated/admin/banners': typeof AuthenticatedAdminBannersRoute
@@ -210,6 +219,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/blog/$slug'
     | '/dich-vu/$slug'
+    | '/du-an/$slug'
     | '/blog/'
     | '/dich-vu/'
     | '/admin/banners'
@@ -230,6 +240,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/dich-vu/$slug'
+    | '/du-an/$slug'
     | '/blog'
     | '/dich-vu'
     | '/admin/banners'
@@ -252,6 +263,7 @@ export interface FileRouteTypes {
     | '/_authenticated/admin'
     | '/blog/$slug'
     | '/dich-vu/$slug'
+    | '/du-an/$slug'
     | '/blog/'
     | '/dich-vu/'
     | '/_authenticated/admin/banners'
@@ -274,6 +286,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogSlugRoute: typeof BlogSlugRoute
   DichVuSlugRoute: typeof DichVuSlugRoute
+  DuAnSlugRoute: typeof DuAnSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   DichVuIndexRoute: typeof DichVuIndexRoute
 }
@@ -334,6 +347,13 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog/'
       preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/du-an/$slug': {
+      id: '/du-an/$slug'
+      path: '/du-an/$slug'
+      fullPath: '/du-an/$slug'
+      preLoaderRoute: typeof DuAnSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dich-vu/$slug': {
@@ -473,6 +493,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogSlugRoute: BlogSlugRoute,
   DichVuSlugRoute: DichVuSlugRoute,
+  DuAnSlugRoute: DuAnSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   DichVuIndexRoute: DichVuIndexRoute,
 }

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { SERVICE_PAGES } from "@/data/service-pages";
+import { PROJECTS } from "@/data/site";
 
 const BASE_URL = "https://bocxepsaigon.vn";
 
@@ -23,6 +24,11 @@ export const Route = createFileRoute("/sitemap.xml")({
             path: `/dich-vu/${s.slug}`,
             changefreq: "monthly" as const,
             priority: "0.8",
+          })),
+          ...PROJECTS.map((p) => ({
+            path: `/du-an/${p.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.7",
           })),
           { path: "/blog", changefreq: "daily", priority: "0.8" },
         ];
