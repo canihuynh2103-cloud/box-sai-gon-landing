@@ -1,13 +1,17 @@
 import { useMemo, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { CalendarDays, Clock, MapPin } from "lucide-react";
 import { PROJECTS, type Project } from "@/data/site";
 import { useProjects } from "@/hooks/use-content";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { slugify } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 const IMAGE_BY_CATEGORY: Record<string, string> = Object.fromEntries(
   PROJECTS.map((p) => [p.category, p.image]),
 );
+
+const DETAIL_SLUGS = new Set(PROJECTS.map((p) => p.slug));
 
 export function Projects() {
   const [filter, setFilter] = useState("Tất Cả");
@@ -18,6 +22,7 @@ export function Projects() {
     if (dbProjects.length === 0) return PROJECTS;
     return dbProjects.map((p, index) => ({
       id: index + 1,
+      slug: slugify(p.name),
       name: p.name,
       category: p.category,
       year: p.year ?? "",
@@ -34,6 +39,7 @@ export function Projects() {
   );
 
   const list = filter === "Tất Cả" ? projects : projects.filter((p) => p.category === filter);
+
 
   return (
     <section id="du-an" className="bg-muted/40 py-24">
