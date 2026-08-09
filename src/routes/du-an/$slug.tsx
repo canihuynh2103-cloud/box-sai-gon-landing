@@ -31,17 +31,21 @@ export const Route = createFileRoute("/du-an/$slug")({
   },
   head: ({ loaderData }) => {
     const project = loaderData?.project;
+    const detail = loaderData?.detail;
     if (!project) {
       return { meta: [{ title: "Không tìm thấy dự án" }, { name: "robots", content: "noindex" }] };
     }
-    const title = `${project.name} | Dự án Bốc Xếp Sài Gòn`;
-    const description = `${project.name} - ${project.category} tại ${project.location}, thời gian thực hiện ${project.duration}. Xem chi tiết phạm vi công việc và quy trình thực hiện.`;
+    const title = detail?.seoTitle ?? `${project.name} | Dự án Bốc Xếp Sài Gòn`;
+    const description =
+      detail?.seoDescription ??
+      `${project.name} - ${project.category} tại ${project.location}, thời gian thực hiện ${project.duration}. Xem chi tiết phạm vi công việc và quy trình thực hiện.`;
     const base = metaFor({
       title,
       description,
       path: `/du-an/${project.slug}`,
       type: "article",
     });
+    const faqs = detail?.faqs ?? [];
     return {
       ...base,
       scripts: [
@@ -62,6 +66,7 @@ export const Route = createFileRoute("/du-an/$slug")({
             "@type": "CreativeWork",
             name: project.name,
             about: project.category,
+            description,
             url: absUrl(`/du-an/${project.slug}`),
             locationCreated: { "@type": "Place", name: project.location },
             provider: {
@@ -74,9 +79,26 @@ export const Route = createFileRoute("/du-an/$slug")({
             },
           }),
         },
+        ...(faqs.length
+          ? [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  mainEntity: faqs.map((f) => ({
+                    "@type": "Question",
+                    name: f.q,
+                    acceptedAnswer: { "@type": "Answer", text: f.a },
+                  })),
+                }),
+              },
+            ]
+          : []),
       ],
     };
   },
+
   component: ProjectDetailPage,
   notFoundComponent: () => (
     <div className="p-16 text-center text-muted-foreground">Không tìm thấy dự án.</div>
@@ -140,7 +162,13 @@ function ProjectDetailPage() {
               <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
                 {project.description}
               </p>
+              {detail.overview?.map((p) => (
+                <p key={p} className="mt-4 leading-relaxed text-muted-foreground">
+                  {p}
+                </p>
+              ))}
             </section>
+
 
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild size="lg">
@@ -185,6 +213,20 @@ function ProjectDetailPage() {
               {detail.scope?.length ? <Bullets items={detail.scope} /> : <Pending />}
             </Section>
 
+            {detail.deliverables?.length ? (
+              <Section title="Các hạng mục đã thực hiện">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {detail.deliverables.map((d) => (
+                    <div key={d.title} className="rounded-xl border border-border bg-card p-4">
+                      <h3 className="font-display text-base font-bold">{d.title}</h3>
+                      <p className="mt-1.5 text-sm text-muted-foreground">{d.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </Section>
+            ) : null}
+
+
             <Section title="Quy trình thực hiện">
               {detail.process?.length ? (
                 <ol className="space-y-4">
@@ -205,6 +247,20 @@ function ProjectDetailPage() {
               )}
             </Section>
 
+            {detail.execution?.length ? (
+              <Section title="Cách chúng tôi triển khai tại hiện trường">
+                <div className="space-y-4">
+                  {detail.execution.map((p) => (
+                    <p key={p} className="leading-relaxed text-muted-foreground">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              </Section>
+            ) : null}
+
+
+
             <Section title="Nhân sự tham gia">
               {detail.personnel ? (
                 <p className="text-muted-foreground">{detail.personnel}</p>
@@ -224,6 +280,22 @@ function ProjectDetailPage() {
             <Section title="Điểm nổi bật của dự án">
               {detail.highlights?.length ? <Bullets items={detail.highlights} /> : <Pending />}
             </Section>
+
+            {detail.notes?.length ? (
+              <Section title="Lưu ý rút ra từ dự án">
+                <div className="rounded-xl border border-border bg-muted/40 p-5">
+                  <ul className="space-y-3">
+                    {detail.notes.map((n) => (
+                      <li key={n} className="flex gap-2 text-sm text-muted-foreground">
+                        <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
+                        <span>{n}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Section>
+            ) : null}
+
 
             <Section title="Dịch vụ chúng tôi đã thực hiện">
               <div className="rounded-xl border border-border bg-card p-5">
@@ -273,10 +345,10 @@ function ProjectDetailPage() {
               </p>
             </Section>
 
-            {service?.faqs?.length ? (
-              <Section title="Câu hỏi thường gặp">
+            {(detail.faqs?.length ? detail.faqs : service?.faqs?.slice(0, 4) ?? []).length ? (
+              <Section title="Câu hỏi thường gặp về dự án này">
                 <Accordion type="single" collapsible>
-                  {service.faqs.slice(0, 4).map((f) => (
+                  {(detail.faqs?.length ? detail.faqs : service!.faqs.slice(0, 4)).map((f) => (
                     <AccordionItem key={f.q} value={f.q}>
                       <AccordionTrigger className="text-left">{f.q}</AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
@@ -285,6 +357,7 @@ function ProjectDetailPage() {
                 </Accordion>
               </Section>
             ) : null}
+
 
             {service && (
               <p className="mt-8 text-muted-foreground">
