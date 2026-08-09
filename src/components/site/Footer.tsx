@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Clock, Facebook, Mail, MapPin, Phone, Send, Youtube, Music2 } from "lucide-react";
 import { BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, NAV_ITEMS, SERVICES, WORK_HOURS } from "@/data/site";
 import { NavLink } from "@/components/site/NavLink";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 const SOCIALS = [
   { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/" },
@@ -29,8 +30,15 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <span className="gradient-primary flex size-11 shrink-0 items-center justify-center rounded-lg font-display text-xl font-bold text-primary-foreground">
-                BX
+              <span className="flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-1">
+                <img
+                  src={logoAsset.url}
+                  alt="Logo Sai Gon Cargo Handling - Bốc Xếp Sài Gòn"
+                  width={96}
+                  height={96}
+                  loading="lazy"
+                  className="size-full object-contain"
+                />
               </span>
               <span className="font-display text-lg font-bold leading-[1.4]">Bốc Xếp Sài Gòn</span>
             </div>

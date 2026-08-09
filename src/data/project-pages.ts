@@ -4,6 +4,8 @@ export type ProjectDetail = {
   slug: string;
   /** Trang dịch vụ tương ứng để liên kết nội bộ */
   serviceSlug: string;
+  /** Bối cảnh và nhu cầu của khách hàng */
+  context?: string;
   /** Loại hàng hóa xử lý trong dự án */
   cargo?: string;
   /** Quy mô công việc (chỉ ghi dữ liệu đã có) */
@@ -30,6 +32,7 @@ export type ProjectDetail = {
 export const PROJECT_DETAILS: ProjectDetail[] = [
   {
     slug: "chuyen-kho-tong-unilever-vsip-1",
+    context: "Khách hàng cần chuyển toàn bộ hàng hóa của một kho tổng sang kho mới trong khi hoạt động xuất nhập vẫn phải tiếp tục. Yêu cầu quan trọng nhất là hàng không bị thất lạc, số liệu tồn kho khớp sau khi di dời và thời gian kho ngừng hoạt động càng ngắn càng tốt.",
     serviceSlug: "chuyen-kho",
     cargo: "Hàng tiêu dùng nhanh (FMCG) đóng thùng, xếp trên pallet",
     scale: ["Kho tổng khoảng 6.000m²", "Hơn 9.000 pallet hàng", "Thời gian thực hiện 12 ngày"],
@@ -59,6 +62,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   },
   {
     slug: "rut-ruot-container-cat-lai",
+    context: "Khách hàng có lượng container hàng bao kiện về liên tục theo lịch tàu. Nếu không rút hàng đúng tiến độ, chi phí lưu cont và lưu bãi sẽ phát sinh, vì vậy cần đội nhân công đủ điều kiện ra vào cảng và làm việc ổn định theo ngày.",
     serviceSlug: "boc-xep-container",
     cargo: "Hàng bao kiện trong container",
     scale: ["120 container", "Trung bình 7 container/ngày", "Thời gian thực hiện 18 ngày"],
@@ -82,6 +86,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   },
   {
     slug: "chuyen-van-phong-deutsches-haus",
+    context: "Khách hàng cần di dời văn phòng nhiều tầng nhưng không được ảnh hưởng đến công việc trong giờ hành chính. Toàn bộ tài liệu, thiết bị và hệ thống máy chủ phải được di chuyển an toàn và sẵn sàng sử dụng ngay sáng hôm sau.",
     serviceSlug: "chuyen-van-phong",
     cargo: "Bàn ghế, tài liệu, thiết bị IT và hệ thống máy chủ",
     scale: ["Toà nhà 14 tầng", "320 bộ bàn ghế", "Thi công 3 đêm"],
@@ -105,6 +110,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   },
   {
     slug: "di-doi-day-chuyen-samsung",
+    context: "Khách hàng cần di dời dây chuyền sản xuất gồm nhiều cụm máy nặng. Yêu cầu là bảo vệ máy móc trong suốt quá trình tháo dỡ, vận chuyển, lắp đặt lại và phối hợp chặt với bộ phận kỹ thuật của nhà máy.",
     serviceSlug: "boc-xep-nha-may",
     cargo: "Máy móc, dây chuyền sản xuất nặng",
     scale: ["14 cụm máy nặng", "Thời gian thực hiện 21 ngày"],
@@ -126,6 +132,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   },
   {
     slug: "chuyen-nha-tron-goi-thao-dien",
+    context: "Gia chủ cần chuyển toàn bộ nội thất của một căn biệt thự, trong đó có nhiều món giá trị cao và dễ hư hỏng. Yêu cầu là đóng gói kỹ, vận chuyển an toàn và lắp đặt lại gọn gàng tại nơi ở mới.",
     serviceSlug: "chuyen-nha",
     cargo: "Nội thất biệt thự, piano, tranh nghệ thuật, tủ rượu",
     scale: ["Biệt thự 3 tầng", "Thời gian thực hiện 2 ngày"],
@@ -145,6 +152,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   },
   {
     slug: "dong-goi-hang-xuat-khau-tan-binh",
+    context: "Khách hàng cần đóng gói lô hàng xuất khẩu theo đúng tiêu chuẩn của thị trường nhập khẩu. Hàng phải đủ chắc để đi đường dài, dán nhãn đúng quy cách và kiểm tra được chất lượng trước khi xuất.",
     serviceSlug: "dong-goi-hang-hoa",
     cargo: "Hàng xuất khẩu đóng thùng carton",
     scale: ["4.000 kiện hàng", "Thời gian thực hiện 10 ngày"],
@@ -163,6 +171,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   },
   {
     slug: "xep-do-hang-roi-hiep-phuoc",
+    context: "Khách hàng có nhu cầu xếp dỡ hàng phát sinh mỗi ngày tại kho, nên cần một đội nhân công cố định thay vì thuê lẻ. Yêu cầu kèm theo là số liệu sản lượng và chấm công minh bạch để đối chiếu chi phí.",
     serviceSlug: "xep-do-hang-hoa",
     cargo: "Nguyên liệu dạng bao, hàng rời",
     scale: ["Trung bình 60 tấn/ngày", "Hợp tác theo tháng"],
@@ -182,6 +191,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   },
   {
     slug: "hang-air-cargo-tan-son-nhat",
+    context: "Đối tác forwarder cần nhân sự xử lý hàng air theo ca, sát giờ cắt máng của từng chuyến. Nhân sự phải đáp ứng điều kiện an ninh của khu vực sân bay và làm việc ổn định trong thời gian dài.",
     serviceSlug: "boc-xep-san-bay",
     cargo: "Hàng air cargo (hàng không)",
     scale: ["Hợp tác 6 tháng"],
