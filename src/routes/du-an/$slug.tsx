@@ -154,7 +154,13 @@ function ProjectDetailPage() {
                 </a>
               </Button>
               <QuoteButton className="inline-flex items-center rounded-md border border-primary px-6 text-sm font-bold uppercase tracking-wide text-primary hover:bg-primary/10" />
+              <Button asChild size="lg" variant="ghost">
+                <Link to="/" hash="du-an">
+                  ← Danh sách dự án
+                </Link>
+              </Button>
             </div>
+
 
             <Section title="Bối cảnh và nhu cầu của khách hàng">
               {detail.context ? (
