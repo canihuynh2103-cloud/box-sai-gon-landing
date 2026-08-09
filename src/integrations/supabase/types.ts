@@ -295,6 +295,7 @@ export type Database = {
           message: string | null
           name: string
           phone: string
+          preferred_time: string | null
           service: string | null
           source_path: string | null
         }
@@ -308,6 +309,7 @@ export type Database = {
           message?: string | null
           name: string
           phone: string
+          preferred_time?: string | null
           service?: string | null
           source_path?: string | null
         }
@@ -321,6 +323,7 @@ export type Database = {
           message?: string | null
           name?: string
           phone?: string
+          preferred_time?: string | null
           service?: string | null
           source_path?: string | null
         }

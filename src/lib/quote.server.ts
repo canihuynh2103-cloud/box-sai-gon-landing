@@ -1,5 +1,3 @@
-import { sendLovableEmail, EmailAPIError } from "@lovable.dev/email-js";
-
 /** Địa chỉ nhận yêu cầu báo giá (không đổi). */
 export const QUOTE_INBOX = "saigonhandling@gmail.com";
 
@@ -10,6 +8,7 @@ export type QuotePayload = {
   service?: string;
   address?: string;
   message?: string;
+  preferredTime?: string;
   sourcePath?: string;
 };
 
@@ -30,7 +29,8 @@ function buildRows(p: QuotePayload) {
     ["Email khách hàng", p.email || "Không cung cấp"],
     ["Loại dịch vụ", p.service || "Chưa chọn"],
     ["Địa điểm", p.address || "Chưa cung cấp"],
-    ["Thời gian dự kiến / Nội dung yêu cầu", p.message || "Chưa cung cấp"],
+    ["Thời gian dự kiến", p.preferredTime || "Chưa cung cấp"],
+    ["Nội dung yêu cầu", p.message || "Chưa cung cấp"],
     ["Trang gửi yêu cầu", p.sourcePath || "/"],
     ["Thời gian gửi", sentAt()],
   ] as const;
@@ -38,8 +38,9 @@ function buildRows(p: QuotePayload) {
 
 export function buildQuoteEmail(p: QuotePayload) {
   const rows = buildRows(p);
-  const subject = `[YÊU CẦU BÁO GIÁ] Bốc Xếp Sài Gòn - ${p.name}`;
+  const subject = `Yêu cầu báo giá mới - Bốc Xếp Sài Gòn (${p.name} - ${p.phone})`;
   const text = rows.map(([k, v]) => `${k}: ${v}`).join("\n");
+  const tel = p.phone.replace(/[^0-9+]/g, "");
   const html = `<!doctype html><html lang="vi"><body style="margin:0;background:#ffffff;font-family:Arial,Helvetica,sans-serif;color:#111827">
 <div style="max-width:640px;margin:0 auto;padding:24px">
 <h1 style="font-size:20px;margin:0 0 4px">Yêu cầu báo giá mới</h1>
@@ -54,49 +55,85 @@ ${rows
   )
   .join("")}
 </table>
-<p style="margin:20px 0 0;font-size:13px;color:#6b7280">Gọi lại khách hàng: <a href="tel:${esc(
-    p.phone,
-  )}">${esc(p.phone)}</a></p>
+<p style="margin:20px 0 0"><a href="tel:${esc(tel)}" style="display:inline-block;background:#dc2626;color:#ffffff;text-decoration:none;padding:12px 20px;border-radius:6px;font-weight:bold">Gọi khách hàng: ${esc(p.phone)}</a></p>
 </div></body></html>`;
   return { subject, html, text };
 }
 
+export function buildCustomerEmail(p: QuotePayload) {
+  const subject = "Bốc Xếp Sài Gòn đã nhận yêu cầu báo giá của bạn";
+  const text = `Xin chào ${p.name},\n\nChúng tôi đã nhận được yêu cầu báo giá của bạn và sẽ liên hệ trong ít phút.\nDịch vụ: ${p.service || "Chưa chọn"}\nThời gian dự kiến: ${p.preferredTime || "Chưa cung cấp"}\n\nHotline 24/7: 0888.997.822\nBốc Xếp Sài Gòn - bocxepsaigon.vn`;
+  const html = `<!doctype html><html lang="vi"><body style="margin:0;background:#ffffff;font-family:Arial,Helvetica,sans-serif;color:#111827">
+<div style="max-width:640px;margin:0 auto;padding:24px">
+<h1 style="font-size:20px;margin:0 0 8px">Cảm ơn ${esc(p.name)}!</h1>
+<p style="font-size:14px;line-height:1.6">Chúng tôi đã nhận được yêu cầu báo giá của bạn. Bộ phận điều phối sẽ liên hệ tư vấn trong ít phút.</p>
+<p style="font-size:14px;line-height:1.6">Dịch vụ: <b>${esc(p.service || "Chưa chọn")}</b><br/>Thời gian dự kiến: <b>${esc(p.preferredTime || "Chưa cung cấp")}</b></p>
+<p style="margin:20px 0 0"><a href="tel:0888997822" style="display:inline-block;background:#dc2626;color:#ffffff;text-decoration:none;padding:12px 20px;border-radius:6px;font-weight:bold">Hotline 24/7: 0888.997.822</a></p>
+<p style="margin:20px 0 0;font-size:12px;color:#6b7280">Bốc Xếp Sài Gòn - bocxepsaigon.vn</p>
+</div></body></html>`;
+  return { subject, html, text };
+}
+
+type SendArgs = {
+  to: string;
+  subject: string;
+  html: string;
+  text: string;
+  replyTo?: string;
+};
+
 /**
- * Gửi email thông báo yêu cầu báo giá.
- * Trả về lý do cụ thể nếu chưa gửi được để lưu lại trong database.
+ * Gửi email qua Resend HTTP API (chỉ cần API key, không cần NS record/nameserver).
+ * FROM mặc định dùng onboarding@resend.dev (chỉ gửi được tới email chủ tài khoản Resend);
+ * đặt RESEND_FROM_EMAIL sau khi verify domain để gửi cho khách hàng.
  */
-export async function sendQuoteEmail(
-  p: QuotePayload,
-  idempotencyKey: string,
-): Promise<{ sent: boolean; reason?: string }> {
-  const apiKey = process.env["LOVABLE_API_KEY"];
-  const senderDomain = process.env["EMAIL_SENDER_DOMAIN"];
+async function sendViaResend(args: SendArgs): Promise<{ sent: boolean; reason?: string }> {
+  const apiKey = process.env["RESEND_API_KEY"];
+  if (!apiKey) return { sent: false, reason: "missing_RESEND_API_KEY" };
 
-  if (!apiKey) return { sent: false, reason: "missing_LOVABLE_API_KEY" };
-  if (!senderDomain) return { sent: false, reason: "missing_EMAIL_SENDER_DOMAIN" };
-
-  const { subject, html, text } = buildQuoteEmail(p);
+  const from = process.env["RESEND_FROM_EMAIL"] || "Bốc Xếp Sài Gòn <onboarding@resend.dev>";
 
   try {
-    const res = await sendLovableEmail(
-      {
-        to: QUOTE_INBOX,
-        from: `Bốc Xếp Sài Gòn <bao-gia@${senderDomain}>`,
-        sender_domain: senderDomain,
-        subject,
-        html,
-        text,
-        reply_to: p.email || undefined,
-        purpose: "quote-request",
-        idempotency_key: idempotencyKey,
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
       },
-      { apiKey, idempotencyKey },
-    );
-    return res.success ? { sent: true } : { sent: false, reason: "provider_rejected" };
-  } catch (err) {
-    if (err instanceof EmailAPIError) {
-      return { sent: false, reason: `${err.code ?? "email_api_error"} (${err.status})` };
+      body: JSON.stringify({
+        from,
+        to: [args.to],
+        subject: args.subject,
+        html: args.html,
+        text: args.text,
+        ...(args.replyTo ? { reply_to: args.replyTo } : {}),
+      }),
+    });
+
+    if (!res.ok) {
+      const body = await res.text();
+      console.error(`[quote] resend failed [${res.status}]: ${body}`);
+      return { sent: false, reason: `resend_${res.status}: ${body.slice(0, 200)}` };
     }
+    return { sent: true };
+  } catch (err) {
+    console.error("[quote] resend error", err);
     return { sent: false, reason: err instanceof Error ? err.message : "unknown_error" };
   }
+}
+
+/** Email thông báo cho quản trị. */
+export async function sendQuoteEmail(p: QuotePayload): Promise<{ sent: boolean; reason?: string }> {
+  const { subject, html, text } = buildQuoteEmail(p);
+  return sendViaResend({ to: QUOTE_INBOX, subject, html, text, replyTo: p.email || undefined });
+}
+
+/** Email xác nhận cho khách (chỉ khi đã cấu hình domain gửi riêng). */
+export async function sendCustomerConfirmation(
+  p: QuotePayload,
+): Promise<{ sent: boolean; reason?: string }> {
+  if (!p.email) return { sent: false, reason: "no_customer_email" };
+  if (!process.env["RESEND_FROM_EMAIL"]) return { sent: false, reason: "no_verified_sender" };
+  const { subject, html, text } = buildCustomerEmail(p);
+  return sendViaResend({ to: p.email, subject, html, text });
 }

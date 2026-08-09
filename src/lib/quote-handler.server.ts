@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { sendQuoteEmail, type QuotePayload } from "./quote.server";
+import { sendCustomerConfirmation, sendQuoteEmail, type QuotePayload } from "./quote.server";
 
 export const quoteSchema = z.object({
   name: z.string().trim().min(2).max(100),
@@ -12,6 +12,7 @@ export const quoteSchema = z.object({
   service: z.string().trim().max(120).optional().or(z.literal("")),
   address: z.string().trim().max(200).optional().or(z.literal("")),
   message: z.string().trim().max(500).optional().or(z.literal("")),
+  preferredTime: z.string().trim().max(120).optional().or(z.literal("")),
   sourcePath: z.string().trim().max(200).optional().or(z.literal("")),
 });
 
@@ -25,11 +26,13 @@ export async function submitQuoteHandler(input: QuoteInput) {
     service: input.service || undefined,
     address: input.address || undefined,
     message: input.message || undefined,
+    preferredTime: input.preferredTime || undefined,
     sourcePath: input.sourcePath || undefined,
   };
 
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
+  // 1) Lưu lead trước — không mất dữ liệu dù email lỗi.
   const { data: row, error } = await supabaseAdmin
     .from("quote_requests")
     .insert({
@@ -39,6 +42,7 @@ export async function submitQuoteHandler(input: QuoteInput) {
       service: payload.service ?? null,
       address: payload.address ?? null,
       message: payload.message ?? null,
+      preferred_time: payload.preferredTime ?? null,
       source_path: payload.sourcePath ?? null,
     })
     .select("id")
@@ -49,17 +53,29 @@ export async function submitQuoteHandler(input: QuoteInput) {
     throw new Error("Không lưu được yêu cầu. Vui lòng gọi hotline 0888.997.822.");
   }
 
-  const result = await sendQuoteEmail(payload, `quote-${row.id}`);
+  // 2) Gửi email thông báo quản trị.
+  const admin = await sendQuoteEmail(payload);
+  const customer = await sendCustomerConfirmation(payload);
 
   await supabaseAdmin
     .from("quote_requests")
     .update({
-      email_status: result.sent ? "sent" : "failed",
-      email_error: result.reason ?? null,
+      email_status: admin.sent ? "sent" : "failed",
+      email_error: admin.reason ?? null,
     })
     .eq("id", row.id);
 
-  if (!result.sent) console.error("[quote] email not sent:", result.reason);
+  if (!admin.sent) {
+    console.error("[quote] admin email not sent:", admin.reason);
+    throw new Error(
+      "Đã lưu yêu cầu của bạn nhưng email thông báo chưa gửi được. Vui lòng gọi hotline 0888.997.822 để được xử lý ngay.",
+    );
+  }
 
-  return { id: row.id as string, saved: true, emailSent: result.sent };
+  return {
+    id: row.id as string,
+    saved: true,
+    emailSent: true,
+    customerEmailSent: customer.sent,
+  };
 }
