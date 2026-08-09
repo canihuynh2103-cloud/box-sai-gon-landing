@@ -30,7 +30,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <span className="flex h-16 w-20 shrink-0 items-center justify-center overflow-hidden rounded-lg">
+              <span className="flex h-16 w-20 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white">
                 <img
                   src={logoAsset.url}
                   alt="Logo Sai Gon Cargo Handling - Bốc Xếp Sài Gòn"
