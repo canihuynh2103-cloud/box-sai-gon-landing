@@ -30,6 +30,7 @@ const INFO = [
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
+  const send = useServerFn(submitQuote);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -48,13 +49,24 @@ export function Contact() {
     setStatus("loading");
     setError(null);
     try {
-      await new Promise((r) => setTimeout(r, 900));
+      await send({
+        data: {
+          ...parsed.data,
+          sourcePath: typeof window !== "undefined" ? window.location.pathname : "/",
+        },
+      });
       setStatus("success");
       form.reset();
-    } catch {
+    } catch (err) {
       setStatus("error");
-      setError("Gửi yêu cầu thất bại. Vui lòng gọi hotline.");
+      setError(
+        err instanceof Error && err.message
+          ? err.message
+          : `Gửi yêu cầu thất bại. Vui lòng gọi hotline ${HOTLINE}.`,
+      );
     }
+  }
+
   }
 
   return (
