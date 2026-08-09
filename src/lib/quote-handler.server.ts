@@ -13,21 +13,28 @@ export const quoteSchema = z.object({
   address: z.string().trim().max(200).optional().or(z.literal("")),
   message: z.string().trim().max(500).optional().or(z.literal("")),
   preferredTime: z.string().trim().max(120).optional().or(z.literal("")),
+  workersCount: z.string().trim().max(60).optional().or(z.literal("")),
+  cargoType: z.string().trim().max(120).optional().or(z.literal("")),
   sourcePath: z.string().trim().max(200).optional().or(z.literal("")),
 });
 
 export type QuoteInput = z.infer<typeof quoteSchema>;
 
 export async function submitQuoteHandler(input: QuoteInput) {
+  // Validate lại ở backend (không tin frontend).
+  const parsed = quoteSchema.parse(input);
+
   const payload: QuotePayload = {
-    name: input.name,
-    phone: input.phone,
-    email: input.email || undefined,
-    service: input.service || undefined,
-    address: input.address || undefined,
-    message: input.message || undefined,
-    preferredTime: input.preferredTime || undefined,
-    sourcePath: input.sourcePath || undefined,
+    name: parsed.name,
+    phone: parsed.phone,
+    email: parsed.email || undefined,
+    service: parsed.service || undefined,
+    address: parsed.address || undefined,
+    message: parsed.message || undefined,
+    preferredTime: parsed.preferredTime || undefined,
+    workersCount: parsed.workersCount || undefined,
+    cargoType: parsed.cargoType || undefined,
+    sourcePath: parsed.sourcePath || undefined,
   };
 
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -43,17 +50,21 @@ export async function submitQuoteHandler(input: QuoteInput) {
       address: payload.address ?? null,
       message: payload.message ?? null,
       preferred_time: payload.preferredTime ?? null,
+      workers_count: payload.workersCount ?? null,
+      cargo_type: payload.cargoType ?? null,
       source_path: payload.sourcePath ?? null,
     })
     .select("id")
     .single();
 
   if (error || !row) {
-    console.error("[quote] insert failed", error);
-    throw new Error("Không lưu được yêu cầu. Vui lòng gọi hotline 0888.997.822.");
+    console.error("[quote] insert failed", error?.message);
+    throw new Error(
+      "Không thể gửi yêu cầu lúc này. Vui lòng thử lại hoặc gọi Hotline 0888.997.822.",
+    );
   }
 
-  // 2) Gửi email thông báo quản trị.
+  // 2) Gửi email thông báo quản trị + xác nhận khách.
   const admin = await sendQuoteEmail(payload);
   const customer = await sendCustomerConfirmation(payload);
 
@@ -62,6 +73,7 @@ export async function submitQuoteHandler(input: QuoteInput) {
     .update({
       email_status: admin.sent ? "sent" : "failed",
       email_error: admin.reason ?? null,
+      customer_email_status: customer.sent ? "sent" : (customer.reason ?? "failed"),
     })
     .eq("id", row.id);
 
@@ -76,4 +88,3 @@ export async function submitQuoteHandler(input: QuoteInput) {
     customerEmailSent: customer.sent,
   };
 }
-

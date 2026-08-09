@@ -287,7 +287,9 @@ export type Database = {
       quote_requests: {
         Row: {
           address: string | null
+          cargo_type: string | null
           created_at: string
+          customer_email_status: string
           email: string | null
           email_error: string | null
           email_status: string
@@ -298,10 +300,13 @@ export type Database = {
           preferred_time: string | null
           service: string | null
           source_path: string | null
+          workers_count: string | null
         }
         Insert: {
           address?: string | null
+          cargo_type?: string | null
           created_at?: string
+          customer_email_status?: string
           email?: string | null
           email_error?: string | null
           email_status?: string
@@ -312,10 +317,13 @@ export type Database = {
           preferred_time?: string | null
           service?: string | null
           source_path?: string | null
+          workers_count?: string | null
         }
         Update: {
           address?: string | null
+          cargo_type?: string | null
           created_at?: string
+          customer_email_status?: string
           email?: string | null
           email_error?: string | null
           email_status?: string
@@ -326,6 +334,7 @@ export type Database = {
           preferred_time?: string | null
           service?: string | null
           source_path?: string | null
+          workers_count?: string | null
         }
         Relationships: []
       }
