@@ -284,6 +284,48 @@ export type Database = {
         }
         Relationships: []
       }
+      quote_requests: {
+        Row: {
+          address: string | null
+          created_at: string
+          email: string | null
+          email_error: string | null
+          email_status: string
+          id: string
+          message: string | null
+          name: string
+          phone: string
+          service: string | null
+          source_path: string | null
+        }
+        Insert: {
+          address?: string | null
+          created_at?: string
+          email?: string | null
+          email_error?: string | null
+          email_status?: string
+          id?: string
+          message?: string | null
+          name: string
+          phone: string
+          service?: string | null
+          source_path?: string | null
+        }
+        Update: {
+          address?: string | null
+          created_at?: string
+          email?: string | null
+          email_error?: string | null
+          email_status?: string
+          id?: string
+          message?: string | null
+          name?: string
+          phone?: string
+          service?: string | null
+          source_path?: string | null
+        }
+        Relationships: []
+      }
       reviews: {
         Row: {
           avatar: string | null
