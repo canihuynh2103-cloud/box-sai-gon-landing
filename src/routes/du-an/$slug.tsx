@@ -301,10 +301,10 @@ function ProjectDetailPage() {
               </p>
             </Section>
 
-            {service?.faqs?.length ? (
-              <Section title="Câu hỏi thường gặp">
+            {(detail.faqs?.length ? detail.faqs : service?.faqs?.slice(0, 4) ?? []).length ? (
+              <Section title="Câu hỏi thường gặp về dự án này">
                 <Accordion type="single" collapsible>
-                  {service.faqs.slice(0, 4).map((f) => (
+                  {(detail.faqs?.length ? detail.faqs : service!.faqs.slice(0, 4)).map((f) => (
                     <AccordionItem key={f.q} value={f.q}>
                       <AccordionTrigger className="text-left">{f.q}</AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
@@ -313,6 +313,7 @@ function ProjectDetailPage() {
                 </Accordion>
               </Section>
             ) : null}
+
 
             {service && (
               <p className="mt-8 text-muted-foreground">
