@@ -157,12 +157,15 @@ function ProjectDetailPage() {
             </div>
 
             <Section title="Bối cảnh và nhu cầu của khách hàng">
-              {service ? (
+              {detail.context ? (
+                <p className="text-muted-foreground">{detail.context}</p>
+              ) : service ? (
                 <p className="text-muted-foreground">{service.intro}</p>
               ) : (
                 <Pending />
               )}
             </Section>
+
 
             <Section title="Loại hàng hóa">
               {detail.cargo ? <p className="text-muted-foreground">{detail.cargo}</p> : <Pending />}
