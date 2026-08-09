@@ -13,6 +13,17 @@ const IMAGE_BY_CATEGORY: Record<string, string> = Object.fromEntries(
 
 const DETAIL_SLUGS = new Set(PROJECTS.map((p) => p.slug));
 
+/** Ghép dự án từ DB với trang case study tĩnh (theo tên, slug hoặc danh mục). */
+function resolveDetailSlug(name: string, category: string) {
+  const slug = slugify(name);
+  if (DETAIL_SLUGS.has(slug)) return slug;
+  const byName = PROJECTS.find((p) => p.name === name);
+  if (byName) return byName.slug;
+  const byCategory = PROJECTS.filter((p) => p.category === category);
+  if (byCategory.length === 1) return byCategory[0].slug;
+  return slug;
+}
+
 export function Projects() {
   const [filter, setFilter] = useState("Tất Cả");
   const [active, setActive] = useState<Project | null>(null);
@@ -22,7 +33,7 @@ export function Projects() {
     if (dbProjects.length === 0) return PROJECTS;
     return dbProjects.map((p, index) => ({
       id: index + 1,
-      slug: slugify(p.name),
+      slug: resolveDetailSlug(p.name, p.category),
       name: p.name,
       category: p.category,
       year: p.year ?? "",
@@ -32,6 +43,7 @@ export function Projects() {
       description: p.description ?? "",
     }));
   }, [dbProjects]);
+
 
   const filters = useMemo(
     () => ["Tất Cả", ...Array.from(new Set(projects.map((p) => p.category)))],
