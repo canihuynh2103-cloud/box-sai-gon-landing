@@ -29,18 +29,19 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="flex items-center gap-3">
-              <span className="flex h-16 w-20 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white">
+            <div className="flex items-center gap-4">
+              <span className="flex aspect-square size-24 shrink-0 items-center justify-center rounded-full bg-white p-2 sm:size-28">
                 <img
                   src={logoAsset.url}
                   alt="Logo Sai Gon Cargo Handling - Bốc Xếp Sài Gòn"
-                  width={240}
-                  height={240}
+                  width={256}
+                  height={256}
                   loading="lazy"
                   className="h-full w-full object-contain"
                 />
               </span>
-              <span className="font-display text-lg font-bold leading-[1.4]">Bốc Xếp Sài Gòn</span>
+              <span className="font-display text-xl font-bold leading-[1.4]">Bốc Xếp Sài Gòn</span>
+
             </div>
             <p className="mt-4 text-sm leading-relaxed text-secondary-foreground/70">
               Đơn vị cung cấp nhân công bốc xếp và di dời hàng hóa chuyên nghiệp tại TP.HCM
