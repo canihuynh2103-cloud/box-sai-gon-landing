@@ -213,6 +213,20 @@ function ProjectDetailPage() {
               {detail.scope?.length ? <Bullets items={detail.scope} /> : <Pending />}
             </Section>
 
+            {detail.deliverables?.length ? (
+              <Section title="Các hạng mục đã thực hiện">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {detail.deliverables.map((d) => (
+                    <div key={d.title} className="rounded-xl border border-border bg-card p-4">
+                      <h3 className="font-display text-base font-bold">{d.title}</h3>
+                      <p className="mt-1.5 text-sm text-muted-foreground">{d.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </Section>
+            ) : null}
+
+
             <Section title="Quy trình thực hiện">
               {detail.process?.length ? (
                 <ol className="space-y-4">
