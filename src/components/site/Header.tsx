@@ -49,15 +49,16 @@ export function Header() {
           aria-label="Bốc Xếp Sài Gòn - Trang chủ"
           className="flex min-w-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:gap-3.5 lg:shrink-0"
         >
-          <span className="flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-xl sm:size-16">
+          <span className="flex h-14 w-16 shrink-0 items-center justify-center sm:h-20 sm:w-24">
             <img
               src={logoAsset.url}
               alt="Logo Sai Gon Cargo Handling - Bốc Xếp Sài Gòn"
-              width={160}
-              height={160}
-              className="size-full object-contain"
+              width={240}
+              height={240}
+              className="h-full w-full object-contain"
             />
           </span>
+
           <span className="flex min-w-0 flex-col justify-center py-0.5">
             <span className="block truncate font-display text-lg font-bold leading-[1.35] tracking-wide text-secondary sm:text-2xl">
               Bốc Xếp Sài Gòn
