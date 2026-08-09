@@ -67,15 +67,13 @@ export async function submitQuoteHandler(input: QuoteInput) {
 
   if (!admin.sent) {
     console.error("[quote] admin email not sent:", admin.reason);
-    throw new Error(
-      "Đã lưu yêu cầu của bạn nhưng email thông báo chưa gửi được. Vui lòng gọi hotline 0888.997.822 để được xử lý ngay.",
-    );
   }
 
   return {
     id: row.id as string,
     saved: true,
-    emailSent: true,
+    emailSent: admin.sent,
     customerEmailSent: customer.sent,
   };
 }
+
