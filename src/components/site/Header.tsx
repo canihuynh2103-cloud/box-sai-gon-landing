@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Phone, Search } from "lucide-react";
 import { HOTLINE, HOTLINE_TEL, NAV_ITEMS } from "@/data/site";
+import logoAsset from "@/assets/logo.png.asset.json";
 import { NavLink } from "@/components/site/NavLink";
 import { QuoteButton } from "@/components/site/QuoteButton";
 import { cn } from "@/lib/utils";
@@ -49,11 +50,15 @@ export function Header() {
           aria-label="Bốc Xếp Sài Gòn - Trang chủ"
           className="flex min-w-0 items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:gap-3 lg:shrink-0"
         >
-          <img
-  src={logo}
-  alt="Sài Gòn Cargo Handling"
-  className="h-12 w-auto object-contain"
-/>
+          <span className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-1 sm:size-12">
+            <img
+              src={logoAsset.url}
+              alt="Logo Sai Gon Cargo Handling - Bốc Xếp Sài Gòn"
+              width={96}
+              height={96}
+              className="size-full object-contain"
+            />
+          </span>
           <span className="flex min-w-0 flex-col justify-center py-0.5">
             <span className="block truncate font-display text-base font-bold leading-[1.4] tracking-wide text-secondary-foreground sm:text-lg">
               Bốc Xếp Sài Gòn
@@ -64,6 +69,7 @@ export function Header() {
             </span>
           </span>
         </Link>
+
 
         <nav aria-label="Điều hướng chính" className="ml-auto hidden items-center gap-1 lg:flex">
           {NAV_ITEMS.map((item) => (
