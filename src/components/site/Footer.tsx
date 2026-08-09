@@ -30,14 +30,14 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <span className="flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-1">
+              <span className="flex h-16 w-20 shrink-0 items-center justify-center overflow-hidden rounded-lg">
                 <img
                   src={logoAsset.url}
                   alt="Logo Sai Gon Cargo Handling - Bốc Xếp Sài Gòn"
-                  width={96}
-                  height={96}
+                  width={240}
+                  height={240}
                   loading="lazy"
-                  className="size-full object-contain"
+                  className="h-full w-full object-contain"
                 />
               </span>
               <span className="font-display text-lg font-bold leading-[1.4]">Bốc Xếp Sài Gòn</span>
