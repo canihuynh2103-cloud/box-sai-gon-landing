@@ -31,17 +31,21 @@ export const Route = createFileRoute("/du-an/$slug")({
   },
   head: ({ loaderData }) => {
     const project = loaderData?.project;
+    const detail = loaderData?.detail;
     if (!project) {
       return { meta: [{ title: "Không tìm thấy dự án" }, { name: "robots", content: "noindex" }] };
     }
-    const title = `${project.name} | Dự án Bốc Xếp Sài Gòn`;
-    const description = `${project.name} - ${project.category} tại ${project.location}, thời gian thực hiện ${project.duration}. Xem chi tiết phạm vi công việc và quy trình thực hiện.`;
+    const title = detail?.seoTitle ?? `${project.name} | Dự án Bốc Xếp Sài Gòn`;
+    const description =
+      detail?.seoDescription ??
+      `${project.name} - ${project.category} tại ${project.location}, thời gian thực hiện ${project.duration}. Xem chi tiết phạm vi công việc và quy trình thực hiện.`;
     const base = metaFor({
       title,
       description,
       path: `/du-an/${project.slug}`,
       type: "article",
     });
+    const faqs = detail?.faqs ?? [];
     return {
       ...base,
       scripts: [
@@ -62,6 +66,7 @@ export const Route = createFileRoute("/du-an/$slug")({
             "@type": "CreativeWork",
             name: project.name,
             about: project.category,
+            description,
             url: absUrl(`/du-an/${project.slug}`),
             locationCreated: { "@type": "Place", name: project.location },
             provider: {
@@ -74,9 +79,26 @@ export const Route = createFileRoute("/du-an/$slug")({
             },
           }),
         },
+        ...(faqs.length
+          ? [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  mainEntity: faqs.map((f) => ({
+                    "@type": "Question",
+                    name: f.q,
+                    acceptedAnswer: { "@type": "Answer", text: f.a },
+                  })),
+                }),
+              },
+            ]
+          : []),
       ],
     };
   },
+
   component: ProjectDetailPage,
   notFoundComponent: () => (
     <div className="p-16 text-center text-muted-foreground">Không tìm thấy dự án.</div>
