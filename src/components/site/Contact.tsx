@@ -67,7 +67,7 @@ export function Contact() {
     }
   }
 
-  }
+
 
   return (
     <section id="lien-he" className="bg-muted/40 py-24">
