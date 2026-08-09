@@ -247,6 +247,20 @@ function ProjectDetailPage() {
               )}
             </Section>
 
+            {detail.execution?.length ? (
+              <Section title="Cách chúng tôi triển khai tại hiện trường">
+                <div className="space-y-4">
+                  {detail.execution.map((p) => (
+                    <p key={p} className="leading-relaxed text-muted-foreground">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              </Section>
+            ) : null}
+
+
+
             <Section title="Nhân sự tham gia">
               {detail.personnel ? (
                 <p className="text-muted-foreground">{detail.personnel}</p>
