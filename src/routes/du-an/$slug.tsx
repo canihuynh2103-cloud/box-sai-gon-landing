@@ -253,6 +253,22 @@ function ProjectDetailPage() {
               {detail.highlights?.length ? <Bullets items={detail.highlights} /> : <Pending />}
             </Section>
 
+            {detail.notes?.length ? (
+              <Section title="Lưu ý rút ra từ dự án">
+                <div className="rounded-xl border border-border bg-muted/40 p-5">
+                  <ul className="space-y-3">
+                    {detail.notes.map((n) => (
+                      <li key={n} className="flex gap-2 text-sm text-muted-foreground">
+                        <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
+                        <span>{n}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Section>
+            ) : null}
+
+
             <Section title="Dịch vụ chúng tôi đã thực hiện">
               <div className="rounded-xl border border-border bg-card p-5">
                 {service ? (
