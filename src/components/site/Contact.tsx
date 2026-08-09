@@ -15,7 +15,9 @@ const schema = z.object({
   email: z.string().trim().email("Email không hợp lệ").max(255).or(z.literal("")),
   service: z.string().trim().min(1, "Vui lòng chọn dịch vụ"),
   address: z.string().trim().max(200),
+  preferredTime: z.string().trim().max(120),
   message: z.string().trim().max(500),
+
 });
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -123,6 +125,17 @@ export function Contact() {
                   <input name="address" maxLength={200} className={inputCls} placeholder="Số nhà, đường, quận/huyện" />
                 </Field>
               </div>
+              <div className="sm:col-span-2">
+                <Field label="Thời gian dự kiến">
+                  <input
+                    name="preferredTime"
+                    maxLength={120}
+                    className={inputCls}
+                    placeholder="VD: 8h ngày 20/08, hoặc trong tuần này"
+                  />
+                </Field>
+              </div>
+
               <div className="sm:col-span-2">
                 <Field label="Nội dung yêu cầu">
                   <textarea
