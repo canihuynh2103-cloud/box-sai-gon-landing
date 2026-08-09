@@ -1,7 +1,10 @@
 import { useState, type FormEvent } from "react";
 import { CheckCircle2, Clock, Loader2, Mail, MapPin, Phone, AlertCircle } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { ADDRESS, BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, SERVICES, WORK_HOURS } from "@/data/site";
+import { submitQuote } from "@/lib/quote.functions";
+
 
 const schema = z.object({
   name: z.string().trim().min(2, "Vui lòng nhập họ tên").max(100),
@@ -27,6 +30,7 @@ const INFO = [
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
+  const send = useServerFn(submitQuote);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -45,14 +49,25 @@ export function Contact() {
     setStatus("loading");
     setError(null);
     try {
-      await new Promise((r) => setTimeout(r, 900));
+      await send({
+        data: {
+          ...parsed.data,
+          sourcePath: typeof window !== "undefined" ? window.location.pathname : "/",
+        },
+      });
       setStatus("success");
       form.reset();
-    } catch {
+    } catch (err) {
       setStatus("error");
-      setError("Gửi yêu cầu thất bại. Vui lòng gọi hotline.");
+      setError(
+        err instanceof Error && err.message
+          ? err.message
+          : `Gửi yêu cầu thất bại. Vui lòng gọi hotline ${HOTLINE}.`,
+      );
     }
   }
+
+
 
   return (
     <section id="lien-he" className="bg-muted/40 py-24">
