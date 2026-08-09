@@ -162,7 +162,13 @@ function ProjectDetailPage() {
               <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
                 {project.description}
               </p>
+              {detail.overview?.map((p) => (
+                <p key={p} className="mt-4 leading-relaxed text-muted-foreground">
+                  {p}
+                </p>
+              ))}
             </section>
+
 
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild size="lg">
