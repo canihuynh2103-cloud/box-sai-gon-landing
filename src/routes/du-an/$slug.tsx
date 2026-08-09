@@ -219,6 +219,38 @@ function ProjectDetailPage() {
               {detail.highlights?.length ? <Bullets items={detail.highlights} /> : <Pending />}
             </Section>
 
+            <Section title="Dịch vụ chúng tôi đã thực hiện">
+              <div className="rounded-xl border border-border bg-card p-5">
+                {service ? (
+                  <>
+                    <p className="text-xs font-bold uppercase tracking-widest text-primary">
+                      Dịch vụ chính
+                    </p>
+                    <h3 className="mt-1 font-display text-xl font-bold">{service.name}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground">{service.seoDescription}</p>
+                    <Link
+                      to="/dich-vu/$slug"
+                      params={{ slug: service.slug }}
+                      className="mt-3 inline-block text-sm font-bold uppercase tracking-wider text-primary hover:underline"
+                    >
+                      Xem chi tiết dịch vụ →
+                    </Link>
+                  </>
+                ) : (
+                  <Pending />
+                )}
+                {detail.scope?.length ? (
+                  <div className="mt-5 border-t border-border pt-4">
+                    <p className="text-sm font-semibold">Các hạng mục đã đảm nhận</p>
+                    <div className="mt-3">
+                      <Bullets items={detail.scope} />
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </Section>
+
+
             <Section title="Hình ảnh thực tế">
               <div className="overflow-hidden rounded-xl border border-border">
                 <img
