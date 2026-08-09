@@ -136,7 +136,7 @@ export function Services() {
                         </a>
                       )}
                     </h3>
-                    <p className="mt-2 flex-1 text-[11px] leading-relaxed text-muted-foreground sm:text-sm">
+                    <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground sm:text-sm">
                       {s.desc}
                     </p>
                     {posts.length > 0 && (
@@ -164,10 +164,11 @@ export function Services() {
                       </ul>
                     )}
 
-                    <span className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-bold text-primary sm:mt-4 sm:text-sm">
+                    <span className="mt-3 inline-flex items-center gap-1.5 pt-1 text-[11px] font-bold text-primary sm:mt-4 sm:text-sm">
                       {slug ? "Xem chi tiết" : "Báo giá ngay"}
                       <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                     </span>
+
                   </div>
                 </article>
               );
