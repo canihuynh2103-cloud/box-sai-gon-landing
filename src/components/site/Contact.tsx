@@ -16,6 +16,8 @@ const schema = z.object({
   service: z.string().trim().min(1, "Vui lòng chọn dịch vụ"),
   address: z.string().trim().max(200),
   preferredTime: z.string().trim().max(120),
+  workersCount: z.string().trim().max(60),
+  cargoType: z.string().trim().max(120),
   message: z.string().trim().max(500),
 
 });
@@ -32,6 +34,7 @@ const INFO = [
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
+  const [lastSentAt, setLastSentAt] = useState(0);
   const send = useServerFn(submitQuote);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -48,6 +51,12 @@ export function Contact() {
       return;
     }
 
+    if (Date.now() - lastSentAt < 15000) {
+      setStatus("error");
+      setError("Bạn vừa gửi yêu cầu. Vui lòng đợi ít giây trước khi gửi lại.");
+      return;
+    }
+
     setStatus("loading");
     setError(null);
     try {
@@ -58,13 +67,14 @@ export function Contact() {
         },
       });
       setStatus("success");
+      setLastSentAt(Date.now());
       form.reset();
     } catch (err) {
       setStatus("error");
       setError(
         err instanceof Error && err.message
           ? err.message
-          : `Gửi yêu cầu thất bại. Vui lòng gọi hotline ${HOTLINE}.`,
+          : `Không thể gửi yêu cầu lúc này. Vui lòng thử lại hoặc gọi Hotline ${HOTLINE}.`,
       );
     }
   }
@@ -136,6 +146,23 @@ export function Contact() {
                 </Field>
               </div>
 
+              <Field label="Số lượng nhân công">
+                <input
+                  name="workersCount"
+                  maxLength={60}
+                  className={inputCls}
+                  placeholder="VD: 5 người"
+                />
+              </Field>
+              <Field label="Loại hàng hóa">
+                <input
+                  name="cargoType"
+                  maxLength={120}
+                  className={inputCls}
+                  placeholder="VD: Thùng carton, máy móc, gạo..."
+                />
+              </Field>
+
               <div className="sm:col-span-2">
                 <Field label="Nội dung yêu cầu">
                   <textarea
@@ -157,8 +184,8 @@ export function Contact() {
             )}
             {status === "success" && (
               <p className="mt-5 flex items-center gap-2 rounded-md bg-primary/10 px-4 py-3 text-sm font-medium text-primary-dark">
-                <CheckCircle2 className="size-4" /> Đã gửi yêu cầu! Chúng tôi sẽ liên hệ trong
-                ít phút.
+                <CheckCircle2 className="size-4" /> Đã gửi yêu cầu thành công! Chúng tôi sẽ liên
+                hệ với bạn sớm nhất.
               </p>
             )}
 
