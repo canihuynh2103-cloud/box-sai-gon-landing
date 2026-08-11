@@ -91,8 +91,9 @@ export function Projects() {
             const hasDetail = DETAIL_SLUGS.has(p.slug);
             const inner = (
               <>
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
+                <div className="relative">
+                  <WatermarkedImage
+                    wrapperClassName="aspect-[4/3]"
                     src={p.image}
                     alt={`Hình ảnh minh hoạ hạng mục ${p.category} - ${p.name}`}
                     loading="lazy"
@@ -100,10 +101,11 @@ export function Projects() {
                     height={600}
                     className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute left-2 top-2 rounded-full bg-secondary/85 px-2 py-0.5 text-[10px] sm:left-4 sm:top-4 sm:px-3 sm:py-1 sm:text-xs font-bold text-secondary-foreground backdrop-blur">
+                  <span className="absolute left-2 top-2 z-10 rounded-full bg-secondary/85 px-2 py-0.5 text-[10px] sm:left-4 sm:top-4 sm:px-3 sm:py-1 sm:text-xs font-bold text-secondary-foreground backdrop-blur">
                     {p.year}
                   </span>
                 </div>
+
                 <div className="p-3 sm:p-5">
                   <p className="text-[10px] font-bold uppercase tracking-widest text-primary sm:text-xs">
                     {p.category}
