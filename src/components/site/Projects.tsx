@@ -4,7 +4,9 @@ import { CalendarDays, Clock, MapPin } from "lucide-react";
 import { PROJECTS, type Project } from "@/data/site";
 import { useProjects } from "@/hooks/use-content";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 import { slugify } from "@/lib/seo";
+
 import { cn } from "@/lib/utils";
 
 const IMAGE_BY_CATEGORY: Record<string, string> = Object.fromEntries(
