@@ -107,11 +107,11 @@ export function Services() {
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img
                       src={s.image}
-                      alt={`Dịch vụ ${s.title} tại TP.HCM`}
+                      alt={s.alt ?? `Dịch vụ ${s.title} tại TP.HCM`}
                       loading="lazy"
                       width={800}
                       height={600}
-                      className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="size-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     />
                     <span className="gradient-primary absolute bottom-0 left-3 flex size-8 sm:left-5 sm:size-11 translate-y-1/2 items-center justify-center rounded-lg text-primary-foreground shadow-[var(--shadow-glow)]">
                       <Icon className="size-4 sm:size-5" />
