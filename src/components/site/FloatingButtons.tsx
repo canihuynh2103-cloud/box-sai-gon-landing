@@ -21,7 +21,7 @@ export function FloatingButtons() {
       <a
         href={`tel:${HOTLINE_TEL}`}
         aria-label="Gọi hotline 0888.997.822"
-        className={`gradient-primary cta-float relative text-primary-foreground shadow-[var(--shadow-glow)] ${base}`}
+        className={`gradient-primary cta-ring relative text-primary-foreground shadow-[var(--shadow-glow)] ${base}`}
       >
         <span className="absolute inset-0 animate-ping rounded-full bg-primary/40 motion-reduce:animate-none" />
         <Phone className="relative size-5" />
@@ -31,7 +31,7 @@ export function FloatingButtons() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat Zalo với Bốc Xếp Sài Gòn"
-        className={`bg-secondary font-display text-sm font-bold text-secondary-foreground shadow-[var(--shadow-lift)] ${base}`}
+        className={`cta-attention bg-secondary font-display text-sm font-bold text-secondary-foreground shadow-[var(--shadow-lift)] ${base}`}
       >
         Zalo
       </a>
@@ -40,7 +40,7 @@ export function FloatingButtons() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Xem bản đồ Google Maps tới trụ sở"
-        className={`border border-border bg-card text-primary shadow-[var(--shadow-card)] ${base}`}
+        className={`cta-pulse border border-border bg-card text-primary shadow-[var(--shadow-card)] ${base}`}
       >
         <MapPin className="size-5" />
       </a>

@@ -34,7 +34,7 @@ export function QuoteButton({
       type="button"
       onClick={onClick}
       aria-label={ariaLabel ?? "Mở form nhận báo giá"}
-      className={cn("cta-press", className)}
+      className={cn("cta-press cta-attention", className)}
     >
       {children}
     </button>
