@@ -359,7 +359,7 @@ export const PROJECTS: Project[] = [
     year: "2022",
     location: "KCN Tân Bình, TP.HCM",
     duration: "10 ngày",
-    image: svcPacking,
+    image: svcBundles,
     description:
       "Đóng thùng carton 5 lớp, quấn màng PE và dán nhãn barcode theo tiêu chuẩn xuất khẩu EU. Tỉ lệ hàng lỗi khi kiểm tra đầu ra bằng 0.",
   },
