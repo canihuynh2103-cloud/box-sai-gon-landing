@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { HandHeart, Gauge, ScrollText, ShieldCheck } from "lucide-react";
-import teamImage from "@/assets/team.jpg";
+import teamAsset from "@/assets/team-group.jpg.asset.json";
+
+const teamImage = teamAsset.url;
 import { STATS } from "@/data/site";
 
 const VALUES = [
@@ -87,11 +89,11 @@ export function About() {
             <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-lift)]">
               <img
                 src={teamImage}
-                alt="Đội ngũ nhân công Bốc Xếp Sài Gòn"
+                alt="Đội ngũ hơn 20 nhân công Bốc Xếp Sài Gòn đội mũ bảo hộ, mặc áo phản quang trong nhà xưởng"
                 loading="lazy"
-                width={1200}
-                height={1408}
-                className="aspect-[4/5] w-full object-cover"
+                width={1456}
+                height={1092}
+                className="aspect-[4/3] w-full object-cover object-center"
               />
             </div>
             <div className="gradient-primary absolute -bottom-6 right-0 rounded-xl px-5 py-3 text-primary-foreground shadow-[var(--shadow-glow)] sm:right-8 sm:px-6 sm:py-4">
