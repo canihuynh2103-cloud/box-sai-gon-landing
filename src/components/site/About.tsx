@@ -86,16 +86,16 @@ export function About() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div className="relative">
-            <div className="overflow-hidden rounded-2xl shadow-[var(--shadow-lift)]">
-              <img
-                src={teamImage}
-                alt="Đội ngũ hơn 20 nhân công Bốc Xếp Sài Gòn đội mũ bảo hộ, mặc áo phản quang trong nhà xưởng"
-                loading="lazy"
-                width={1456}
-                height={1092}
-                className="aspect-[4/3] w-full object-cover object-center"
-              />
-            </div>
+            <WatermarkedImage
+              wrapperClassName="rounded-2xl shadow-[var(--shadow-lift)]"
+              src={teamImage}
+              alt="Đội ngũ hơn 20 nhân công Bốc Xếp Sài Gòn đội mũ bảo hộ, mặc áo phản quang trong nhà xưởng"
+              loading="lazy"
+              width={1456}
+              height={1092}
+              className="aspect-[4/3] w-full object-cover object-center"
+            />
+
             <div className="gradient-primary absolute -bottom-6 right-0 rounded-xl px-5 py-3 text-primary-foreground shadow-[var(--shadow-glow)] sm:right-8 sm:px-6 sm:py-4">
               <p className="font-display text-3xl font-bold leading-none">10+</p>
               <p className="mt-1 text-xs font-semibold uppercase tracking-widest">
