@@ -371,7 +371,7 @@ export const PROJECTS: Project[] = [
     year: "2023",
     location: "Kho Hiệp Phước, Nhà Bè",
     duration: "Theo tháng",
-    image: svcPort,
+    image: svcFmcg,
     description:
       "Đội cố định 20 người trực tại kho, xếp dỡ trung bình 60 tấn nguyên liệu mỗi ngày, có báo cáo sản lượng và chấm công điện tử hàng tuần.",
   },
