@@ -148,13 +148,14 @@ export function Projects() {
         <DialogContent className="max-w-2xl overflow-hidden p-0">
           {active && (
             <>
-              <img
+              <WatermarkedImage
                 src={active.image}
                 alt={active.name}
                 width={800}
                 height={600}
                 className="aspect-[16/9] w-full object-cover"
               />
+
               <div className="p-6">
                 <DialogHeader>
                   <p className="text-xs font-bold uppercase tracking-widest text-primary">
