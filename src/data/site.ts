@@ -299,7 +299,7 @@ export const PROJECTS: Project[] = [
     year: "2024",
     location: "KCN Vsip 1, Bình Dương",
     duration: "12 ngày",
-    image: svcWarehouse,
+    image: svcCrates,
     description:
       "Huy động 45 nhân công chia 3 ca, di dời hơn 9.000 pallet hàng tiêu dùng sang kho mới. Toàn bộ hàng được kiểm đếm hai lớp và sắp xếp lại theo sơ đồ vị trí do khách hàng cung cấp.",
   },
