@@ -213,6 +213,155 @@
   background-image: var(--gradient-primary);
 }
 
+/* ---- Watermark thương hiệu cho ảnh nội dung ---- */
+@utility wm-frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  container-type: inline-size;
+
+  & > img {
+    display: block;
+  }
+}
+
+@utility wm-mark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
+  z-index: 5;
+
+  &::before {
+    content: "Bocxepsaigon - 0888.997.822";
+    font-family: var(--font-body);
+    font-weight: 600;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+    color: #fff;
+    opacity: 0.2;
+    font-size: clamp(0.42rem, 5.6cqw, 1.05rem);
+    text-shadow: 0 1px 2px rgb(0 0 0 / 0.35);
+    transform: rotate(-18deg) translateY(26%);
+  }
+}
+
+/* Ảnh rất nhỏ: giảm thêm độ đậm và kích thước */
+@container (max-width: 220px) {
+  .wm-mark::before {
+    opacity: 0.15;
+    transform: rotate(-18deg) translateY(30%);
+  }
+}
+
+/* ---- Hiệu ứng thu hút cho CTA (rung nhẹ theo chu kỳ) ---- */
+@utility cta-attention {
+  animation: cta-attention 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes cta-attention {
+  0%,
+  86%,
+  100% {
+    transform: translateX(0) scale(1);
+  }
+  88% {
+    transform: translateX(-2px) scale(1.03);
+  }
+  90.5% {
+    transform: translateX(2px) scale(1.03);
+  }
+  93% {
+    transform: translateX(-1.5px) scale(1.02);
+  }
+  95.5% {
+    transform: translateX(1.5px) scale(1.02);
+  }
+  98% {
+    transform: translateX(0) scale(1.01);
+  }
+}
+
+/* Nút gọi: rung như điện thoại đổ chuông, icon rung mạnh hơn nút */
+@utility cta-ring {
+  animation: cta-attention 4.5s ease-in-out infinite;
+
+  & svg {
+    animation: cta-ring-icon 4.5s ease-in-out infinite;
+  }
+}
+
+@keyframes cta-ring-icon {
+  0%,
+  85%,
+  100% {
+    transform: rotate(0deg);
+  }
+  87% {
+    transform: rotate(-11deg);
+  }
+  89.5% {
+    transform: rotate(11deg);
+  }
+  92% {
+    transform: rotate(-8deg);
+  }
+  94.5% {
+    transform: rotate(8deg);
+  }
+  97% {
+    transform: rotate(-3deg);
+  }
+}
+
+/* Pulse rất tinh tế cho nút điều hướng (Maps) */
+@utility cta-pulse {
+  animation: cta-pulse 4.5s ease-in-out infinite;
+}
+
+@keyframes cta-pulse {
+  0%,
+  88%,
+  100% {
+    transform: scale(1);
+  }
+  93% {
+    transform: scale(1.035);
+  }
+}
+
+.cta-attention:hover,
+.cta-attention:active,
+.cta-attention:focus-visible,
+.cta-ring:hover,
+.cta-ring:active,
+.cta-ring:focus-visible,
+.cta-pulse:hover,
+.cta-pulse:active,
+.cta-pulse:focus-visible {
+  animation: none;
+}
+
+.cta-ring:hover svg,
+.cta-ring:active svg,
+.cta-ring:focus-visible svg {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-attention,
+  .cta-ring,
+  .cta-ring svg,
+  .cta-pulse {
+    animation: none !important;
+  }
+}
+
+
 
 /* ---- Blog block styles (shared by editor preview and public post) ---- */
 .post-content :is(h2, h3) {
