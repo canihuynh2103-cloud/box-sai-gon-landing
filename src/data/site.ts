@@ -1,11 +1,24 @@
-import svcWarehouse from "@/assets/svc-warehouse.jpg";
-import svcContainer from "@/assets/svc-container.jpg";
-import svcFactory from "@/assets/svc-factory.jpg";
-import svcPort from "@/assets/svc-port.jpg";
-import svcAirport from "@/assets/svc-airport.jpg";
-import svcOffice from "@/assets/svc-office.jpg";
-import svcHouse from "@/assets/svc-house.jpg";
-import svcPacking from "@/assets/svc-packing.jpg";
+import svcWarehouseAsset from "@/assets/svc-warehouse.jpg.asset.json";
+import svcContainerAsset from "@/assets/svc-container.jpg.asset.json";
+import svcFactoryAsset from "@/assets/svc-factory.jpg.asset.json";
+import svcPortAsset from "@/assets/svc-port.jpg.asset.json";
+import svcAirportAsset from "@/assets/svc-airport.jpg.asset.json";
+import svcOfficeAsset from "@/assets/svc-office.jpg.asset.json";
+import svcHouseAsset from "@/assets/svc-house.jpg.asset.json";
+import svcPackingAsset from "@/assets/svc-packing.jpg.asset.json";
+import svcLaborAsset from "@/assets/svc-labor.jpg.asset.json";
+import svcUnloadingAsset from "@/assets/svc-unloading.jpg.asset.json";
+
+const svcWarehouse = svcWarehouseAsset.url;
+const svcContainer = svcContainerAsset.url;
+const svcFactory = svcFactoryAsset.url;
+const svcPort = svcPortAsset.url;
+const svcAirport = svcAirportAsset.url;
+const svcOffice = svcOfficeAsset.url;
+const svcHouse = svcHouseAsset.url;
+const svcPacking = svcPackingAsset.url;
+const svcLabor = svcLaborAsset.url;
+const svcUnloading = svcUnloadingAsset.url;
 
 export const HOTLINE = "0888.997.822";
 export const HOTLINE_TEL = "0888997822";
@@ -54,90 +67,105 @@ export type Service = {
   desc: string;
   icon: string;
   image: string;
+  alt?: string;
   posts?: { title: string; excerpt: string }[];
 };
 
 export const SERVICES: Service[] = [
   {
     title: "Bốc Xếp Kho Hàng",
+    alt: "Nhân công chuyển thùng carton từ container xuống pallet tại kho",
     desc: "Nhập - xuất kho, sắp xếp pallet, kiểm đếm hàng hóa theo ca linh hoạt.",
     icon: "Warehouse",
     image: svcWarehouse,
   },
   {
     title: "Bốc Xếp Container",
+    alt: "Nhân công xếp bao hạt nhựa PVC bên trong container",
     desc: "Rút ruột container, đóng hàng lên cont tại depot, cảng và kho riêng.",
     icon: "Container",
     image: svcContainer,
   },
   {
     title: "Bốc Xếp Nhà Máy",
+    alt: "Xe nâng và nhân công đưa thiết bị vào container trong nhà máy",
     desc: "Di dời máy móc, nguyên vật liệu, thành phẩm trong khu công nghiệp.",
     icon: "Factory",
     image: svcFactory,
   },
   {
     title: "Bốc Xếp Cảng",
+    alt: "Nhân công chằng buộc pallet hàng bên trong container ngoài trời",
     desc: "Nhân công có thẻ ra vào cảng Cát Lái, Hiệp Phước, Tân Cảng.",
     icon: "Anchor",
     image: svcPort,
   },
   {
     title: "Bốc Xếp Sân Bay",
+    alt: "Nhân công đưa pallet hàng đã quấn màng lên xe tải",
     desc: "Xử lý hàng air cargo tại Tân Sơn Nhất, đúng quy trình an ninh.",
     icon: "Plane",
     image: svcAirport,
   },
   {
     title: "Thuê Nhân Công",
+    alt: "Nhóm nhân công mũ bảo hộ vận chuyển tấm kính trong công trình",
     desc: "Cung ứng nhân công thời vụ theo ca, theo ngày, có giám sát đội.",
     icon: "Users",
-    image: svcWarehouse,
+    image: svcLabor,
   },
   {
     title: "Đóng Gói Hàng Hóa",
+    alt: "Thùng thiết bị khổ lớn được đóng kiện và bọc bảo vệ trước khi vận chuyển",
     desc: "Quấn màng PE, đóng thùng gỗ, chèn lót hàng dễ vỡ đạt chuẩn.",
     icon: "PackageCheck",
     image: svcPacking,
   },
   {
     title: "Chuyển Kho",
+    alt: "Nhân công chuyển thùng carton từ container xuống pallet tại kho",
     desc: "Trọn gói tháo dỡ, vận chuyển và sắp xếp lại kho mới đúng sơ đồ.",
     icon: "Boxes",
     image: svcWarehouse,
   },
   {
     title: "Chuyển Văn Phòng",
+    alt: "Nhân công đồng phục Bốc Xếp Sài Gòn bọc màng bàn ghế và đóng thùng thiết bị văn phòng",
     desc: "Chuyển bàn ghế, thiết bị IT, hồ sơ ngoài giờ để không gián đoạn.",
     icon: "Building2",
     image: svcOffice,
   },
   {
     title: "Chuyển Nhà",
+    alt: "Thùng thiết bị khổ lớn được bọc kiện chờ vận chuyển tới nơi lắp đặt",
     desc: "Chuyển nhà trọn gói, bọc lót nội thất, lắp đặt lại tận nơi.",
     icon: "Home",
     image: svcHouse,
   },
   {
     title: "Xếp Dỡ Hàng Hóa",
+    alt: "Xe tải chở ống nhựa được xếp dỡ tại kho hàng",
     desc: "Xếp dỡ xe tải, xe container, hàng rời và hàng bao kiện.",
     icon: "Forklift",
-    image: svcContainer,
+    image: svcUnloading,
   },
   {
     title: "Bốc Hàng Theo Giờ",
+    alt: "Đội nhân công dùng xe đẩy dỡ thùng carton từ xe tải ban đêm",
     desc: "Điều động nhanh trong 60 phút, tính phí minh bạch theo giờ.",
     icon: "Clock",
     image: svcPacking,
   },
   {
     title: "Bốc Xếp Theo Tháng",
+    alt: "Xe nâng hỗ trợ xếp dỡ hàng tại nhà máy",
     desc: "Đội cố định trực tại kho, báo cáo sản lượng hàng tuần.",
     icon: "CalendarRange",
     image: svcFactory,
   },
   {
     title: "Bốc Xếp Hợp Đồng",
+    alt: "Nhân công cố định xếp dỡ pallet hàng trong container",
     desc: "Hợp đồng dài hạn, xuất hóa đơn VAT, cam kết SLA rõ ràng.",
     icon: "FileSignature",
     image: svcPort,

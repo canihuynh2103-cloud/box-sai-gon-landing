@@ -94,7 +94,7 @@ export function Projects() {
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={p.image}
-                    alt={`${p.name} - ${p.category} tại ${p.location || "TP.HCM"}`}
+                    alt={`Hình ảnh minh hoạ hạng mục ${p.category} - ${p.name}`}
                     loading="lazy"
                     width={800}
                     height={600}

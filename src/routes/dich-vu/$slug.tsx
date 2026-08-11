@@ -122,7 +122,7 @@ function ServiceDetail() {
             <div className="overflow-hidden rounded-2xl border border-border">
               <img
                 src={banner}
-                alt={`${page.name} - hình ảnh thực tế đội bốc xếp tại TP.HCM`}
+                alt={`Nhân công Bốc Xếp Sài Gòn thực hiện ${page.name.toLowerCase()} tại TP.HCM`}
                 width={1200}
                 height={630}
                 className="aspect-[16/9] w-full object-cover"

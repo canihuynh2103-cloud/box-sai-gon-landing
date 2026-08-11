@@ -134,7 +134,7 @@ function ProjectDetailPage() {
             <div className="overflow-hidden rounded-2xl border border-border">
               <img
                 src={project.image}
-                alt={`${project.name} - ${project.category} tại ${project.location}`}
+                alt={`Hình ảnh minh hoạ công việc ${project.category} tại ${project.location}`}
                 width={1200}
                 height={630}
                 className="aspect-[16/9] w-full object-cover"
@@ -333,7 +333,7 @@ function ProjectDetailPage() {
               <div className="overflow-hidden rounded-xl border border-border">
                 <img
                   src={project.image}
-                  alt={`Hình ảnh thi công ${project.name} tại ${project.location}`}
+                  alt={`Hình ảnh minh hoạ quá trình thi công hạng mục ${project.category}`}
                   loading="lazy"
                   width={1200}
                   height={800}
@@ -383,7 +383,7 @@ function ProjectDetailPage() {
                   >
                     <img
                       src={r.image}
-                      alt={`${r.name} - ${r.category}`}
+                      alt={`Hình ảnh minh hoạ hạng mục ${r.category}`}
                       loading="lazy"
                       width={600}
                       height={400}
