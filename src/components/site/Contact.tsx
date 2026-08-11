@@ -192,7 +192,7 @@ export function Contact() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="gradient-primary mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md px-6 py-3.5 font-display text-lg font-bold uppercase tracking-wide text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.01] disabled:opacity-60"
+              className="gradient-primary cta-attention mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md px-6 py-3.5 font-display text-lg font-bold uppercase tracking-wide text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.01] disabled:opacity-60"
             >
               {status === "loading" && <Loader2 className="size-5 animate-spin" />}
               {status === "loading" ? "Đang gửi..." : "Gửi Yêu Cầu Báo Giá"}

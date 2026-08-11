@@ -73,7 +73,7 @@ export function Hero() {
             )}
             <a
               href={`tel:${HOTLINE_TEL}`}
-              className="cta-press inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/10 px-7 py-3.5 font-display text-lg font-bold uppercase tracking-wide text-secondary-foreground backdrop-blur hover:bg-white/20"
+              className="cta-press cta-ring inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/10 px-7 py-3.5 font-display text-lg font-bold uppercase tracking-wide text-secondary-foreground backdrop-blur hover:bg-white/20"
             >
               <Phone className="size-5" />
               {HOTLINE}

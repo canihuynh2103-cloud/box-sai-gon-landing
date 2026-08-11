@@ -5,6 +5,7 @@ import { ArrowRight, Search } from "lucide-react";
 import { SERVICES, SERVICE_POSTS } from "@/data/site";
 import { SERVICE_PAGES } from "@/data/service-pages";
 import { usePostsByCategory, useServices } from "@/hooks/use-content";
+import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 
 const IMAGE_BY_TITLE: Record<string, string> = Object.fromEntries(
   SERVICES.map((s) => [s.title, s.image]),
@@ -116,16 +117,16 @@ export function Services() {
                   className="card-lift group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card"
                 >
                   <div className="relative">
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-t-xl">
-                      <img
-                        src={s.image}
-                        alt={s.alt ?? `Dịch vụ ${s.title} tại TP.HCM`}
-                        loading="lazy"
-                        width={800}
-                        height={600}
-                        className="size-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
+                    <WatermarkedImage
+                      wrapperClassName="aspect-[4/3] rounded-t-xl"
+                      src={s.image}
+                      alt={s.alt ?? `Dịch vụ ${s.title} tại TP.HCM`}
+                      loading="lazy"
+                      width={800}
+                      height={600}
+                      className="size-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    />
+
                     <span className="gradient-primary absolute bottom-0 left-3 z-10 flex size-8 translate-y-1/2 items-center justify-center rounded-lg text-primary-foreground shadow-[var(--shadow-glow)] sm:left-5 sm:size-11">
                       <Icon className="size-4 sm:size-5" />
                     </span>

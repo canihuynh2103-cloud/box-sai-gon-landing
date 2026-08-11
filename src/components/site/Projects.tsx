@@ -4,7 +4,9 @@ import { CalendarDays, Clock, MapPin } from "lucide-react";
 import { PROJECTS, type Project } from "@/data/site";
 import { useProjects } from "@/hooks/use-content";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 import { slugify } from "@/lib/seo";
+
 import { cn } from "@/lib/utils";
 
 const IMAGE_BY_CATEGORY: Record<string, string> = Object.fromEntries(
@@ -91,8 +93,9 @@ export function Projects() {
             const hasDetail = DETAIL_SLUGS.has(p.slug);
             const inner = (
               <>
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
+                <div className="relative">
+                  <WatermarkedImage
+                    wrapperClassName="aspect-[4/3]"
                     src={p.image}
                     alt={`Hình ảnh minh hoạ hạng mục ${p.category} - ${p.name}`}
                     loading="lazy"
@@ -100,10 +103,11 @@ export function Projects() {
                     height={600}
                     className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute left-2 top-2 rounded-full bg-secondary/85 px-2 py-0.5 text-[10px] sm:left-4 sm:top-4 sm:px-3 sm:py-1 sm:text-xs font-bold text-secondary-foreground backdrop-blur">
+                  <span className="absolute left-2 top-2 z-10 rounded-full bg-secondary/85 px-2 py-0.5 text-[10px] sm:left-4 sm:top-4 sm:px-3 sm:py-1 sm:text-xs font-bold text-secondary-foreground backdrop-blur">
                     {p.year}
                   </span>
                 </div>
+
                 <div className="p-3 sm:p-5">
                   <p className="text-[10px] font-bold uppercase tracking-widest text-primary sm:text-xs">
                     {p.category}
@@ -144,13 +148,14 @@ export function Projects() {
         <DialogContent className="max-w-2xl overflow-hidden p-0">
           {active && (
             <>
-              <img
+              <WatermarkedImage
                 src={active.image}
                 alt={active.name}
                 width={800}
                 height={600}
                 className="aspect-[16/9] w-full object-cover"
               />
+
               <div className="p-6">
                 <DialogHeader>
                   <p className="text-xs font-bold uppercase tracking-widest text-primary">

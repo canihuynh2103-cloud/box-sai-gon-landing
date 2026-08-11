@@ -5,6 +5,7 @@ import { Header } from "@/components/site/Header";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
+import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -119,15 +120,14 @@ function ServiceDetail() {
 
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
           <article className="max-w-3xl">
-            <div className="overflow-hidden rounded-2xl border border-border">
-              <img
-                src={banner}
-                alt={`Nhân công Bốc Xếp Sài Gòn thực hiện ${page.name.toLowerCase()} tại TP.HCM`}
-                width={1200}
-                height={630}
-                className="aspect-[16/9] w-full object-cover"
-              />
-            </div>
+            <WatermarkedImage
+              wrapperClassName="rounded-2xl border border-border"
+              src={banner}
+              alt={`Nhân công Bốc Xếp Sài Gòn thực hiện ${page.name.toLowerCase()} tại TP.HCM`}
+              width={1200}
+              height={630}
+              className="aspect-[16/9] w-full object-cover"
+            />
             <h1 className="mt-6 font-heading text-3xl font-bold uppercase tracking-tight md:text-4xl">
               {page.h1}
             </h1>
@@ -135,7 +135,7 @@ function ServiceDetail() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild size="lg">
-                <a href={`tel:${HOTLINE_TEL}`}>
+                <a href={`tel:${HOTLINE_TEL}`} className="cta-ring">
                   <Phone className="mr-2 h-4 w-4" /> Gọi {HOTLINE}
                 </a>
               </Button>
@@ -289,7 +289,7 @@ function ServiceDetail() {
                 </p>
                 <div className="mt-4 grid gap-2">
                   <Button asChild size="lg">
-                    <a href={`tel:${HOTLINE_TEL}`}>
+                    <a href={`tel:${HOTLINE_TEL}`} className="cta-ring">
                       <Phone className="mr-2 h-4 w-4" /> {HOTLINE}
                     </a>
                   </Button>

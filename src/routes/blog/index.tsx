@@ -5,6 +5,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
 import { usePosts } from "@/hooks/use-content";
+import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -126,7 +127,7 @@ function BlogIndex() {
                 >
                   <Card className="h-full overflow-hidden transition-shadow hover:shadow-lg">
                     {post.cover_image ? (
-                      <img
+                      <WatermarkedImage
                         src={post.cover_image}
                         alt={post.title}
                         loading="lazy"

@@ -86,7 +86,7 @@ export function Header() {
         <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:ml-0">
           <a
             href={`tel:${HOTLINE_TEL}`}
-            className="hidden items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary xl:flex"
+            className="cta-ring hidden items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary xl:flex"
           >
             <span className="flex size-9 items-center justify-center rounded-full bg-accent text-primary">
               <Phone className="size-4" />
@@ -100,7 +100,7 @@ export function Header() {
               </span>
             </span>
           </a>
-          <QuoteButton className="gradient-primary inline-flex shrink-0 animate-wiggle whitespace-nowrap rounded-md px-2.5 py-2 text-[10px] font-bold uppercase leading-none tracking-tight text-primary-foreground shadow-[var(--shadow-glow)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:animate-none sm:px-5 sm:py-2.5 sm:text-sm sm:tracking-wide" />
+          <QuoteButton className="gradient-primary inline-flex shrink-0 whitespace-nowrap rounded-md px-2.5 py-2 text-[10px] font-bold uppercase leading-none tracking-tight text-primary-foreground shadow-[var(--shadow-glow)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 motion-reduce:animate-none sm:px-5 sm:py-2.5 sm:text-sm sm:tracking-wide" />
         </div>
       </div>
 

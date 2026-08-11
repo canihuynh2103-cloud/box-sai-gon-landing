@@ -6,6 +6,7 @@ import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
 import { QuoteButton } from "@/components/site/QuoteButton";
+import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -131,15 +132,14 @@ function ProjectDetailPage() {
 
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
           <article className="max-w-3xl">
-            <div className="overflow-hidden rounded-2xl border border-border">
-              <img
-                src={project.image}
-                alt={`Hình ảnh minh hoạ công việc ${project.category} tại ${project.location}`}
-                width={1200}
-                height={630}
-                className="aspect-[16/9] w-full object-cover"
-              />
-            </div>
+            <WatermarkedImage
+              wrapperClassName="rounded-2xl border border-border"
+              src={project.image}
+              alt={`Hình ảnh minh hoạ công việc ${project.category} tại ${project.location}`}
+              width={1200}
+              height={630}
+              className="aspect-[16/9] w-full object-cover"
+            />
 
             <h1 className="mt-6 font-display text-3xl font-bold uppercase tracking-tight md:text-4xl">
               {project.name}
@@ -172,12 +172,12 @@ function ProjectDetailPage() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild size="lg">
-                <a href={`tel:${HOTLINE_TEL}`}>
+                <a href={`tel:${HOTLINE_TEL}`} className="cta-ring">
                   <Phone className="mr-2 size-4" /> Gọi {HOTLINE}
                 </a>
               </Button>
               <Button asChild size="lg" variant="secondary">
-                <a href={ZALO_LINK} target="_blank" rel="noreferrer">
+                <a href={ZALO_LINK} target="_blank" rel="noreferrer" className="cta-attention">
                   Chat Zalo
                 </a>
               </Button>
@@ -330,16 +330,15 @@ function ProjectDetailPage() {
 
 
             <Section title="Hình ảnh thực tế">
-              <div className="overflow-hidden rounded-xl border border-border">
-                <img
-                  src={project.image}
-                  alt={`Hình ảnh minh hoạ quá trình thi công hạng mục ${project.category}`}
-                  loading="lazy"
-                  width={1200}
-                  height={800}
-                  className="aspect-[3/2] w-full object-cover"
-                />
-              </div>
+              <WatermarkedImage
+                wrapperClassName="rounded-xl border border-border"
+                src={project.image}
+                alt={`Hình ảnh minh hoạ quá trình thi công hạng mục ${project.category}`}
+                loading="lazy"
+                width={1200}
+                height={800}
+                className="aspect-[3/2] w-full object-cover"
+              />
               <p className="mt-2 text-xs text-muted-foreground">
                 Thư viện hình ảnh thực tế của dự án đang được cập nhật thêm.
               </p>
@@ -381,7 +380,7 @@ function ProjectDetailPage() {
                     params={{ slug: r.slug }}
                     className="card-lift group block overflow-hidden rounded-xl border border-border bg-card"
                   >
-                    <img
+                    <WatermarkedImage
                       src={r.image}
                       alt={`Hình ảnh minh hoạ hạng mục ${r.category}`}
                       loading="lazy"
@@ -410,12 +409,12 @@ function ProjectDetailPage() {
                 </p>
                 <div className="mt-4 grid gap-2">
                   <Button asChild>
-                    <a href={`tel:${HOTLINE_TEL}`}>
+                    <a href={`tel:${HOTLINE_TEL}`} className="cta-ring">
                       <Phone className="mr-2 size-4" /> Gọi ngay
                     </a>
                   </Button>
                   <Button asChild variant="secondary">
-                    <a href={ZALO_LINK} target="_blank" rel="noreferrer">
+                    <a href={ZALO_LINK} target="_blank" rel="noreferrer" className="cta-attention">
                       Chat Zalo
                     </a>
                   </Button>
