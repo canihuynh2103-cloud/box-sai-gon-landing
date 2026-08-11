@@ -1,11 +1,24 @@
-import svcWarehouse from "@/assets/svc-warehouse.jpg";
-import svcContainer from "@/assets/svc-container.jpg";
-import svcFactory from "@/assets/svc-factory.jpg";
-import svcPort from "@/assets/svc-port.jpg";
-import svcAirport from "@/assets/svc-airport.jpg";
-import svcOffice from "@/assets/svc-office.jpg";
-import svcHouse from "@/assets/svc-house.jpg";
-import svcPacking from "@/assets/svc-packing.jpg";
+import svcWarehouseAsset from "@/assets/svc-warehouse.jpg.asset.json";
+import svcContainerAsset from "@/assets/svc-container.jpg.asset.json";
+import svcFactoryAsset from "@/assets/svc-factory.jpg.asset.json";
+import svcPortAsset from "@/assets/svc-port.jpg.asset.json";
+import svcAirportAsset from "@/assets/svc-airport.jpg.asset.json";
+import svcOfficeAsset from "@/assets/svc-office.jpg.asset.json";
+import svcHouseAsset from "@/assets/svc-house.jpg.asset.json";
+import svcPackingAsset from "@/assets/svc-packing.jpg.asset.json";
+import svcLaborAsset from "@/assets/svc-labor.jpg.asset.json";
+import svcUnloadingAsset from "@/assets/svc-unloading.jpg.asset.json";
+
+const svcWarehouse = svcWarehouseAsset.url;
+const svcContainer = svcContainerAsset.url;
+const svcFactory = svcFactoryAsset.url;
+const svcPort = svcPortAsset.url;
+const svcAirport = svcAirportAsset.url;
+const svcOffice = svcOfficeAsset.url;
+const svcHouse = svcHouseAsset.url;
+const svcPacking = svcPackingAsset.url;
+const svcLabor = svcLaborAsset.url;
+const svcUnloading = svcUnloadingAsset.url;
 
 export const HOTLINE = "0888.997.822";
 export const HOTLINE_TEL = "0888997822";
