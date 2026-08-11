@@ -120,15 +120,14 @@ function ServiceDetail() {
 
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
           <article className="max-w-3xl">
-            <div className="overflow-hidden rounded-2xl border border-border">
-              <img
-                src={banner}
-                alt={`Nhân công Bốc Xếp Sài Gòn thực hiện ${page.name.toLowerCase()} tại TP.HCM`}
-                width={1200}
-                height={630}
-                className="aspect-[16/9] w-full object-cover"
-              />
-            </div>
+            <WatermarkedImage
+              wrapperClassName="rounded-2xl border border-border"
+              src={banner}
+              alt={`Nhân công Bốc Xếp Sài Gòn thực hiện ${page.name.toLowerCase()} tại TP.HCM`}
+              width={1200}
+              height={630}
+              className="aspect-[16/9] w-full object-cover"
+            />
             <h1 className="mt-6 font-heading text-3xl font-bold uppercase tracking-tight md:text-4xl">
               {page.h1}
             </h1>

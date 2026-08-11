@@ -127,7 +127,7 @@ function BlogIndex() {
                 >
                   <Card className="h-full overflow-hidden transition-shadow hover:shadow-lg">
                     {post.cover_image ? (
-                      <img
+                      <WatermarkedImage
                         src={post.cover_image}
                         alt={post.title}
                         loading="lazy"

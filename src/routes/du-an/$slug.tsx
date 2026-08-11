@@ -132,15 +132,14 @@ function ProjectDetailPage() {
 
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
           <article className="max-w-3xl">
-            <div className="overflow-hidden rounded-2xl border border-border">
-              <img
-                src={project.image}
-                alt={`Hình ảnh minh hoạ công việc ${project.category} tại ${project.location}`}
-                width={1200}
-                height={630}
-                className="aspect-[16/9] w-full object-cover"
-              />
-            </div>
+            <WatermarkedImage
+              wrapperClassName="rounded-2xl border border-border"
+              src={project.image}
+              alt={`Hình ảnh minh hoạ công việc ${project.category} tại ${project.location}`}
+              width={1200}
+              height={630}
+              className="aspect-[16/9] w-full object-cover"
+            />
 
             <h1 className="mt-6 font-display text-3xl font-bold uppercase tracking-tight md:text-4xl">
               {project.name}
@@ -331,16 +330,15 @@ function ProjectDetailPage() {
 
 
             <Section title="Hình ảnh thực tế">
-              <div className="overflow-hidden rounded-xl border border-border">
-                <img
-                  src={project.image}
-                  alt={`Hình ảnh minh hoạ quá trình thi công hạng mục ${project.category}`}
-                  loading="lazy"
-                  width={1200}
-                  height={800}
-                  className="aspect-[3/2] w-full object-cover"
-                />
-              </div>
+              <WatermarkedImage
+                wrapperClassName="rounded-xl border border-border"
+                src={project.image}
+                alt={`Hình ảnh minh hoạ quá trình thi công hạng mục ${project.category}`}
+                loading="lazy"
+                width={1200}
+                height={800}
+                className="aspect-[3/2] w-full object-cover"
+              />
               <p className="mt-2 text-xs text-muted-foreground">
                 Thư viện hình ảnh thực tế của dự án đang được cập nhật thêm.
               </p>
@@ -382,7 +380,7 @@ function ProjectDetailPage() {
                     params={{ slug: r.slug }}
                     className="card-lift group block overflow-hidden rounded-xl border border-border bg-card"
                   >
-                    <img
+                    <WatermarkedImage
                       src={r.image}
                       alt={`Hình ảnh minh hoạ hạng mục ${r.category}`}
                       loading="lazy"
