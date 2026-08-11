@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { HandHeart, Gauge, ScrollText, ShieldCheck } from "lucide-react";
 import teamAsset from "@/assets/team-group.jpg.asset.json";
+import { WatermarkedImage } from "@/components/site/WatermarkedImage";
+
 
 const teamImage = teamAsset.url;
 import { STATS } from "@/data/site";
