@@ -115,19 +115,22 @@ export function Services() {
                   key={s.title}
                   className="card-lift group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img
-                      src={s.image}
-                      alt={s.alt ?? `Dịch vụ ${s.title} tại TP.HCM`}
-                      loading="lazy"
-                      width={800}
-                      height={600}
-                      className="size-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <span className="gradient-primary absolute bottom-0 left-3 flex size-8 sm:left-5 sm:size-11 translate-y-1/2 items-center justify-center rounded-lg text-primary-foreground shadow-[var(--shadow-glow)]">
+                  <div className="relative">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-t-xl">
+                      <img
+                        src={s.image}
+                        alt={s.alt ?? `Dịch vụ ${s.title} tại TP.HCM`}
+                        loading="lazy"
+                        width={800}
+                        height={600}
+                        className="size-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <span className="gradient-primary absolute bottom-0 left-3 z-10 flex size-8 translate-y-1/2 items-center justify-center rounded-lg text-primary-foreground shadow-[var(--shadow-glow)] sm:left-5 sm:size-11">
                       <Icon className="size-4 sm:size-5" />
                     </span>
                   </div>
+
                   <div className="flex flex-1 flex-col p-3 pt-7 sm:p-5 sm:pt-8">
                     <h3 className="font-display text-sm font-bold leading-snug sm:text-xl">
                       {slug ? (
