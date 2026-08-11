@@ -335,7 +335,7 @@ export const PROJECTS: Project[] = [
     year: "2023",
     location: "KCN Sóng Thần, Bình Dương",
     duration: "21 ngày",
-    image: svcFactory,
+    image: svcCraneSteel,
     description:
       "Phối hợp cùng kỹ sư nhà máy tháo dỡ, đóng kiện gỗ và lắp đặt lại 14 cụm máy nặng. Sử dụng xe nâng 5 tấn và pa lăng chuyên dụng, không xảy ra sự cố.",
   },
