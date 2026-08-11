@@ -8,6 +8,13 @@ import svcHouseAsset from "@/assets/svc-house.jpg.asset.json";
 import svcPackingAsset from "@/assets/svc-packing.jpg.asset.json";
 import svcLaborAsset from "@/assets/svc-labor.jpg.asset.json";
 import svcUnloadingAsset from "@/assets/svc-unloading.jpg.asset.json";
+import svcFmcgAsset from "@/assets/svc-fmcg.jpg.asset.json";
+import svcNightStreetAsset from "@/assets/svc-night-street.jpg.asset.json";
+import svcCraneSteelAsset from "@/assets/svc-crane-steel.jpg.asset.json";
+import svcNightTrussAsset from "@/assets/svc-night-truss.jpg.asset.json";
+import svcEquipmentAsset from "@/assets/svc-equipment.jpg.asset.json";
+import svcCratesAsset from "@/assets/svc-crates.jpg.asset.json";
+import svcBundlesAsset from "@/assets/svc-bundles.jpg.asset.json";
 
 const svcWarehouse = svcWarehouseAsset.url;
 const svcContainer = svcContainerAsset.url;
@@ -19,6 +26,14 @@ const svcHouse = svcHouseAsset.url;
 const svcPacking = svcPackingAsset.url;
 const svcLabor = svcLaborAsset.url;
 const svcUnloading = svcUnloadingAsset.url;
+const svcFmcg = svcFmcgAsset.url;
+const svcNightStreet = svcNightStreetAsset.url;
+const svcCraneSteel = svcCraneSteelAsset.url;
+const svcNightTruss = svcNightTrussAsset.url;
+const svcEquipment = svcEquipmentAsset.url;
+const svcCrates = svcCratesAsset.url;
+const svcBundles = svcBundlesAsset.url;
+
 
 export const HOTLINE = "0888.997.822";
 export const HOTLINE_TEL = "0888997822";
