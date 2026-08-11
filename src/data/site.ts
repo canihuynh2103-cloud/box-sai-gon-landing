@@ -347,7 +347,7 @@ export const PROJECTS: Project[] = [
     year: "2024",
     location: "TP. Thủ Đức",
     duration: "2 ngày",
-    image: svcHouse,
+    image: svcPacking,
     description:
       "Chuyển toàn bộ nội thất biệt thự 3 tầng bao gồm piano, tranh nghệ thuật và tủ rượu. Hàng dễ vỡ được bọc lót nhiều lớp và có bảo hiểm giá trị cao.",
   },
