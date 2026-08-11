@@ -135,7 +135,7 @@ function ServiceDetail() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild size="lg">
-                <a href={`tel:${HOTLINE_TEL}`}>
+                <a href={`tel:${HOTLINE_TEL}`} className="cta-ring">
                   <Phone className="mr-2 h-4 w-4" /> Gọi {HOTLINE}
                 </a>
               </Button>
@@ -289,7 +289,7 @@ function ServiceDetail() {
                 </p>
                 <div className="mt-4 grid gap-2">
                   <Button asChild size="lg">
-                    <a href={`tel:${HOTLINE_TEL}`}>
+                    <a href={`tel:${HOTLINE_TEL}`} className="cta-ring">
                       <Phone className="mr-2 h-4 w-4" /> {HOTLINE}
                     </a>
                   </Button>

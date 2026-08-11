@@ -172,12 +172,12 @@ function ProjectDetailPage() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild size="lg">
-                <a href={`tel:${HOTLINE_TEL}`}>
+                <a href={`tel:${HOTLINE_TEL}`} className="cta-ring">
                   <Phone className="mr-2 size-4" /> Gọi {HOTLINE}
                 </a>
               </Button>
               <Button asChild size="lg" variant="secondary">
-                <a href={ZALO_LINK} target="_blank" rel="noreferrer">
+                <a href={ZALO_LINK} target="_blank" rel="noreferrer" className="cta-attention">
                   Chat Zalo
                 </a>
               </Button>
@@ -409,12 +409,12 @@ function ProjectDetailPage() {
                 </p>
                 <div className="mt-4 grid gap-2">
                   <Button asChild>
-                    <a href={`tel:${HOTLINE_TEL}`}>
+                    <a href={`tel:${HOTLINE_TEL}`} className="cta-ring">
                       <Phone className="mr-2 size-4" /> Gọi ngay
                     </a>
                   </Button>
                   <Button asChild variant="secondary">
-                    <a href={ZALO_LINK} target="_blank" rel="noreferrer">
+                    <a href={ZALO_LINK} target="_blank" rel="noreferrer" className="cta-attention">
                       Chat Zalo
                     </a>
                   </Button>
