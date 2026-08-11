@@ -9,6 +9,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
 import { usePosts } from "@/hooks/use-content";
+import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { absUrl, breadcrumbLd, SITE_NAME } from "@/lib/seo";

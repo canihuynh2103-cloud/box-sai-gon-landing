@@ -5,6 +5,7 @@ import { Header } from "@/components/site/Header";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
+import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {

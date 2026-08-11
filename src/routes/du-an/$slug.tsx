@@ -6,6 +6,7 @@ import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
 import { QuoteButton } from "@/components/site/QuoteButton";
+import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {

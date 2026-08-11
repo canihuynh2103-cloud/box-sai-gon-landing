@@ -5,6 +5,7 @@ import { ArrowRight, Search } from "lucide-react";
 import { SERVICES, SERVICE_POSTS } from "@/data/site";
 import { SERVICE_PAGES } from "@/data/service-pages";
 import { usePostsByCategory, useServices } from "@/hooks/use-content";
+import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 
 const IMAGE_BY_TITLE: Record<string, string> = Object.fromEntries(
   SERVICES.map((s) => [s.title, s.image]),
