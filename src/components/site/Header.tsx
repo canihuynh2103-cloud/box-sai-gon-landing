@@ -86,8 +86,7 @@ export function Header() {
         <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:ml-0">
           <a
             href={`tel:${HOTLINE_TEL}`}
-            data-cta="call"
-            className="hidden items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary xl:flex"
+            className="cta-ring hidden items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary xl:flex"
           >
             <span className="flex size-9 items-center justify-center rounded-full bg-accent text-primary">
               <Phone className="size-4" />
