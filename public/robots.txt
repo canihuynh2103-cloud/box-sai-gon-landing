@@ -1,4 +1,19 @@
 User-agent: *
 Allow: /
 
+# Cho phép crawl tài nguyên (ảnh, JS, CSS) để Googlebot render đầy đủ trang
+Allow: /__l5e/
+Allow: /assets/
+Allow: /*.js
+Allow: /*.css
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.webp
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
 Sitemap: https://bocxepsaigon.vn/sitemap.xml
