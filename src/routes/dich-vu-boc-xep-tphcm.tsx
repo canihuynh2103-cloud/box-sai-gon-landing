@@ -17,28 +17,69 @@ import {
 } from "@/components/ui/accordion";
 import { SERVICES, HOTLINE, HOTLINE_TEL, EMAIL, ADDRESS } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor, SITE_NAME, SITE_URL } from "@/lib/seo";
+import containerAsset from "@/assets/svc-container.jpg.asset.json";
+
 
 const PATH = "/dich-vu-boc-xep-tphcm";
 const TITLE = "Dịch Vụ Bốc Xếp TP.HCM Chuyên Nghiệp 24/7 | Bốc Xếp Sài Gòn";
 const DESC =
-  "Bốc Xếp Sài Gòn cung cấp dịch vụ bốc xếp hàng hóa tại TP.HCM 24/7: kho hàng, nhà máy, container, xe tải, đóng gói, chuyển kho và cung ứng nhân công. Hotline 0888.997.822.";
+  "Dịch vụ bốc xếp TP.HCM chuyên nghiệp 24/7 tại kho, nhà máy, container và xe tải. Thuê nhân công theo giờ, ngày hoặc dài hạn. Gọi 0888.997.822.";
+
+/** Ảnh thực tế có sẵn trên site, dùng làm og:image (URL tuyệt đối). */
+const OG_IMAGE = `${SITE_URL}${containerAsset.url}`;
+
+/** Những trường hợp khách thường cần thuê dịch vụ bốc xếp. */
+const USE_CASES: { t: string; d: string }[] = [
+  {
+    t: "Kho hàng nhập - xuất theo ca",
+    d: "Kho cần thêm người cho ca nhận hàng buổi sáng hoặc ca soạn - giao hàng buổi chiều mà không muốn tăng biên chế cố định.",
+  },
+  {
+    t: "Container về kho cần rút hoặc đóng hàng",
+    d: "Cont về theo lịch tàu, cần đủ người hoàn thành trong thời gian lưu bãi để tránh phát sinh chi phí chờ.",
+  },
+  {
+    t: "Xe tải cần lên - xuống hàng",
+    d: "Xe tới điểm giao nhưng bên nhận không có người xếp dỡ, cần đội hỗ trợ đúng giờ hẹn của tài xế.",
+  },
+  {
+    t: "Nhà máy di dời máy móc, nguyên vật liệu",
+    d: "Chuyển vị trí dây chuyền, dịch chuyển nguyên vật liệu hoặc thành phẩm giữa các xưởng và khu vực lưu trữ.",
+  },
+  {
+    t: "Mùa cao điểm cần bổ sung nhân công",
+    d: "Giai đoạn lễ, Tết hoặc chương trình khuyến mại khiến lượng hàng tăng đột biến trong vài tuần.",
+  },
+  {
+    t: "Chuyển kho, sắp xếp lại hàng hóa",
+    d: "Đổi mặt bằng kho, gom hàng về một điểm hoặc bố trí lại sơ đồ kệ để dễ soạn hàng hơn.",
+  },
+  {
+    t: "Công việc ngoài giờ hoặc ban đêm",
+    d: "Nhiều kho, cửa hàng và tuyến đường chỉ cho nhận hàng ngoài giờ hành chính nên ca làm rơi vào buổi tối hoặc đêm.",
+  },
+];
+
 
 /** Card dịch vụ: chỉ liên kết tới URL đã tồn tại; mục không có trang riêng để trống `slug`. */
-const SERVICE_CARDS: { name: string; desc: string; slug?: string }[] = [
+const SERVICE_CARDS: { name: string; desc: string; slug?: string; anchor?: string }[] = [
   {
     name: "Bốc xếp kho hàng",
     desc: "Nhập - xuất kho theo ca, xếp pallet, kiểm đếm, đảo hàng theo sơ đồ kho.",
     slug: "boc-xep-kho-hang",
+    anchor: "Xem chi tiết dịch vụ bốc xếp kho hàng",
   },
   {
     name: "Bốc xếp container",
     desc: "Rút ruột và đóng hàng lên container tại cảng, depot hoặc kho của khách.",
     slug: "boc-xep-container",
+    anchor: "Xem chi tiết dịch vụ bốc xếp container",
   },
   {
     name: "Bốc xếp nhà máy",
     desc: "Xếp dỡ nguyên vật liệu, thành phẩm, di dời máy móc trong khu công nghiệp.",
     slug: "boc-xep-nha-may",
+    anchor: "Tìm hiểu bốc xếp tại nhà máy",
   },
   {
     name: "Bốc xếp xe tải",
@@ -48,11 +89,13 @@ const SERVICE_CARDS: { name: string; desc: string; slug?: string }[] = [
     name: "Cung ứng nhân công bốc xếp",
     desc: "Nhân công theo giờ, theo ca, theo tháng, có đội trưởng giám sát tại hiện trường.",
     slug: "thue-nhan-cong-boc-xep",
+    anchor: "Xem dịch vụ thuê nhân công bốc xếp",
   },
   {
     name: "Đóng gói hàng hóa",
     desc: "Đóng thùng, quấn màng PE, chèn lót, dán nhãn trước khi vận chuyển.",
     slug: "dong-goi-hang-hoa",
+    anchor: "Chi tiết cách chúng tôi đóng gói hàng hóa",
   },
   {
     name: "Tháo dỡ và lắp đặt",
@@ -62,12 +105,15 @@ const SERVICE_CARDS: { name: string; desc: string; slug?: string }[] = [
     name: "Chuyển kho",
     desc: "Chuyển toàn bộ hàng hóa sang kho mới theo đợt, giữ nguyên phân loại và mã hàng.",
     slug: "chuyen-kho",
+    anchor: "Quy trình chuyển kho trọn gói",
   },
   {
     name: "Xếp dỡ hàng hóa",
     desc: "Xếp dỡ hàng rời, hàng bao, hàng kiện, hàng nặng tại kho bãi và công trình.",
     slug: "xep-do-hang-hoa",
+    anchor: "Xem dịch vụ xếp dỡ hàng hóa",
   },
+
 ];
 
 const AREAS_HCM = [
@@ -140,7 +186,13 @@ const GALLERY = [
 
 export const Route = createFileRoute("/dich-vu-boc-xep-tphcm")({
   head: () => {
-    const base = metaFor({ title: TITLE, description: DESC, path: PATH });
+    const base = metaFor({
+      title: TITLE,
+      description: DESC,
+      path: PATH,
+      image: OG_IMAGE,
+    });
+
     return {
       ...base,
       scripts: [
@@ -301,7 +353,31 @@ function HcmcLandingPage() {
           </div>
         </section>
 
+        {/* TRƯỜNG HỢP THƯỜNG CẦN DỊCH VỤ */}
+        <section className="py-14">
+          <div className="container mx-auto px-4">
+
+            <h2 className="font-display text-2xl font-bold uppercase md:text-3xl">
+              Những trường hợp thường cần dịch vụ bốc xếp tại TP.HCM
+            </h2>
+            <p className="mt-3 max-w-3xl text-muted-foreground">
+              Phần lớn yêu cầu chúng tôi nhận được xuất phát từ những tình huống sau. Nếu công việc
+              của bạn nằm trong số này, chỉ cần cho biết địa chỉ, loại hàng và khung giờ là chúng tôi
+              tính được số người cần bố trí.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {USE_CASES.map((u) => (
+                <div key={u.t} className="rounded-xl border border-border bg-card p-5">
+                  <h3 className="font-display text-base font-bold uppercase">{u.t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{u.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CÁC DỊCH VỤ */}
+
         <section className="bg-muted/40 py-14">
           <div className="container mx-auto px-4">
             <h2 className="font-display text-2xl font-bold uppercase md:text-3xl">
@@ -324,7 +400,8 @@ function HcmcLandingPage() {
                         params={{ slug: c.slug }}
                         className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
                       >
-                        Xem chi tiết dịch vụ
+                        {c.anchor ?? `Xem chi tiết ${c.name.toLowerCase()}`}
+
                       </Link>
                     ) : (
                       <a

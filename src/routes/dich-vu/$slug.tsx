@@ -269,6 +269,13 @@ function ServiceDetail() {
               Xem thêm{" "}
               <Link to="/dich-vu" className="font-semibold text-primary hover:underline">
                 toàn bộ dịch vụ bốc xếp
+              </Link>
+              ,{" "}
+              <Link
+                to="/dich-vu-boc-xep-tphcm"
+                className="font-semibold text-primary hover:underline"
+              >
+                tổng quan dịch vụ bốc xếp tại TP.HCM
               </Link>{" "}
               hoặc{" "}
               <Link to="/blog" className="font-semibold text-primary hover:underline">
@@ -276,6 +283,7 @@ function ServiceDetail() {
               </Link>
               .
             </p>
+
           </article>
 
 

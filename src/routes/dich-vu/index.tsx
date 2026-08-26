@@ -70,6 +70,17 @@ function ServiceHub() {
           sân bay và hộ gia đình tại TP.HCM cùng các tỉnh phía Nam. Chọn dịch vụ bên dưới để xem
           phạm vi công việc, quy trình và câu hỏi thường gặp.
         </p>
+        <p className="mt-3 max-w-3xl text-muted-foreground">
+          Nếu bạn đang tìm dịch vụ bốc xếp tại TP.HCM, hãy xem{" "}
+          <Link
+            to="/dich-vu-boc-xep-tphcm"
+            className="font-semibold text-primary hover:underline"
+          >
+            tổng quan dịch vụ bốc xếp TP.HCM
+          </Link>{" "}
+          của Bốc Xếp Sài Gòn.
+        </p>
+
 
         <div className="mt-4 flex flex-wrap gap-3">
           <Button asChild size="lg">
