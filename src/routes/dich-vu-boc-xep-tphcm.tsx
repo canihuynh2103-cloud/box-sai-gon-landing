@@ -178,7 +178,13 @@ const GALLERY = [
 
 export const Route = createFileRoute("/dich-vu-boc-xep-tphcm")({
   head: () => {
-    const base = metaFor({ title: TITLE, description: DESC, path: PATH });
+    const base = metaFor({
+      title: TITLE,
+      description: DESC,
+      path: PATH,
+      image: OG_IMAGE,
+    });
+
     return {
       ...base,
       scripts: [
