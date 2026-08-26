@@ -21,7 +21,43 @@ import { absUrl, breadcrumbLd, metaFor, SITE_NAME, SITE_URL } from "@/lib/seo";
 const PATH = "/dich-vu-boc-xep-tphcm";
 const TITLE = "Dịch Vụ Bốc Xếp TP.HCM Chuyên Nghiệp 24/7 | Bốc Xếp Sài Gòn";
 const DESC =
-  "Bốc Xếp Sài Gòn cung cấp dịch vụ bốc xếp hàng hóa tại TP.HCM 24/7: kho hàng, nhà máy, container, xe tải, đóng gói, chuyển kho và cung ứng nhân công. Hotline 0888.997.822.";
+  "Dịch vụ bốc xếp TP.HCM chuyên nghiệp 24/7 tại kho, nhà máy, container và xe tải. Thuê nhân công theo giờ, ngày hoặc dài hạn. Gọi 0888.997.822.";
+
+/** Ảnh thực tế có sẵn trên site, dùng làm og:image (URL tuyệt đối). */
+const OG_IMAGE = `${SITE_URL}${containerAsset.url}`;
+
+/** Những trường hợp khách thường cần thuê dịch vụ bốc xếp. */
+const USE_CASES: { t: string; d: string }[] = [
+  {
+    t: "Kho hàng nhập - xuất theo ca",
+    d: "Kho cần thêm người cho ca nhận hàng buổi sáng hoặc ca soạn - giao hàng buổi chiều mà không muốn tăng biên chế cố định.",
+  },
+  {
+    t: "Container về kho cần rút hoặc đóng hàng",
+    d: "Cont về theo lịch tàu, cần đủ người hoàn thành trong thời gian lưu bãi để tránh phát sinh chi phí chờ.",
+  },
+  {
+    t: "Xe tải cần lên - xuống hàng",
+    d: "Xe tới điểm giao nhưng bên nhận không có người xếp dỡ, cần đội hỗ trợ đúng giờ hẹn của tài xế.",
+  },
+  {
+    t: "Nhà máy di dời máy móc, nguyên vật liệu",
+    d: "Chuyển vị trí dây chuyền, dịch chuyển nguyên vật liệu hoặc thành phẩm giữa các xưởng và khu vực lưu trữ.",
+  },
+  {
+    t: "Mùa cao điểm cần bổ sung nhân công",
+    d: "Giai đoạn lễ, Tết hoặc chương trình khuyến mại khiến lượng hàng tăng đột biến trong vài tuần.",
+  },
+  {
+    t: "Chuyển kho, sắp xếp lại hàng hóa",
+    d: "Đổi mặt bằng kho, gom hàng về một điểm hoặc bố trí lại sơ đồ kệ để dễ soạn hàng hơn.",
+  },
+  {
+    t: "Công việc ngoài giờ hoặc ban đêm",
+    d: "Nhiều kho, cửa hàng và tuyến đường chỉ cho nhận hàng ngoài giờ hành chính nên ca làm rơi vào buổi tối hoặc đêm.",
+  },
+];
+
 
 /** Card dịch vụ: chỉ liên kết tới URL đã tồn tại; mục không có trang riêng để trống `slug`. */
 const SERVICE_CARDS: { name: string; desc: string; slug?: string }[] = [
