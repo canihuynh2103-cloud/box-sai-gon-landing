@@ -185,6 +185,46 @@ function ServiceDetail() {
               </ul>
             </section>
 
+            {page.extraSections?.map((s) => (
+              <section key={s.h2} className="mt-10">
+                <h2 className="font-heading text-2xl font-bold uppercase">{s.h2}</h2>
+                {s.paragraphs.map((t) => (
+                  <p key={t} className="mt-3 text-muted-foreground">
+                    {t}
+                  </p>
+                ))}
+                {s.bullets && (
+                  <ul className="mt-4 space-y-2">
+                    {s.bullets.map((item) => (
+                      <li key={item} className="flex gap-2 text-muted-foreground">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            ))}
+
+            {page.gallery && page.gallery.length > 0 && (
+              <section className="mt-10 grid gap-4 sm:grid-cols-2">
+                {page.gallery.map((img) => (
+                  <figure key={img.src} className="m-0">
+                    <WatermarkedImage
+                      wrapperClassName="rounded-xl border border-border"
+                      src={img.src}
+                      alt={img.alt}
+                      width={800}
+                      height={600}
+                      loading="lazy"
+                      className="aspect-[4/3] w-full object-cover object-center"
+                    />
+                    <figcaption className="mt-2 text-xs text-muted-foreground">{img.alt}</figcaption>
+                  </figure>
+                ))}
+              </section>
+            )}
+
             <section className="mt-10">
               <h2 className="font-heading text-2xl font-bold uppercase">Quy trình triển khai</h2>
               <ol className="mt-4 space-y-4">
@@ -243,30 +283,72 @@ function ServiceDetail() {
               </Accordion>
             </section>
 
-            {clusterPosts.length > 0 && (
+            {page.priceNote && (
+              <section className="mt-10">
+                <h2 className="font-heading text-2xl font-bold uppercase">{page.priceNote.h2}</h2>
+                {page.priceNote.paragraphs.map((t) => (
+                  <p key={t} className="mt-3 text-muted-foreground">
+                    {t}
+                  </p>
+                ))}
+                <Button asChild size="lg" className="mt-4">
+                  <a href={`tel:${HOTLINE_TEL}`} className="cta-ring">
+                    <Phone className="mr-2 h-4 w-4" /> Gọi khảo sát &amp; báo giá {HOTLINE}
+                  </a>
+                </Button>
+              </section>
+            )}
+
+            {caseStudy && (
+              <section className="mt-10">
+                <h2 className="font-heading text-2xl font-bold uppercase">{caseStudy.h2}</h2>
+                <p className="mt-3 text-muted-foreground">{caseStudy.blurb}</p>
+                <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                  {caseStudy.facts.map((f) => (
+                    <li key={f} className="flex gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  to="/du-an/$slug"
+                  params={{ slug: caseStudy.slug }}
+                  className="mt-4 inline-block font-semibold text-primary hover:underline"
+                >
+                  {caseStudy.cta}
+                </Link>
+              </section>
+            )}
+
+            {clusterTopics.length > 0 && (
               <section className="mt-10">
                 <h2 className="font-heading text-2xl font-bold uppercase">
-                  Bài viết chuyên sâu về {page.name}
+                  {page.slug === "boc-xep-container"
+                    ? "Kiến thức về bốc xếp và rút ruột container"
+                    : `Bài viết chuyên sâu về ${page.name}`}
                 </h2>
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                  {clusterPosts.map((post) => (
-                    <Card key={post.id} className="h-full transition-colors hover:border-primary">
+                  {clusterTopics.map((topic) => (
+                    <Card key={topic.slug} className="h-full transition-colors hover:border-primary">
                       <CardContent className="flex h-full flex-col p-5">
                         <h3 className="font-heading text-base font-bold uppercase leading-snug">
                           <Link
                             to="/blog/$slug"
-                            params={{ slug: post.slug }}
+                            params={{ slug: topic.slug }}
                             className="hover:text-primary"
                           >
-                            {post.title}
+                            {topic.title}
                           </Link>
                         </h3>
-                        {post.excerpt && (
-                          <p className="mt-2 flex-1 text-sm text-muted-foreground">{post.excerpt}</p>
+                        {excerptFor(topic.slug) && (
+                          <p className="mt-2 flex-1 text-sm text-muted-foreground">
+                            {excerptFor(topic.slug)}
+                          </p>
                         )}
                         <Link
                           to="/blog/$slug"
-                          params={{ slug: post.slug }}
+                          params={{ slug: topic.slug }}
                           className="mt-3 text-sm font-semibold text-primary hover:underline"
                         >
                           Đọc bài viết
@@ -277,6 +359,7 @@ function ServiceDetail() {
                 </div>
               </section>
             )}
+
             <p className="mt-10 text-sm text-muted-foreground">
               Xem thêm{" "}
               <Link to="/dich-vu" className="font-semibold text-primary hover:underline">
