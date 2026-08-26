@@ -346,8 +346,9 @@ function HcmcLandingPage() {
         </section>
 
         {/* TRƯỜNG HỢP THƯỜNG CẦN DỊCH VỤ */}
-        <section className="bg-muted/40 py-14">
+        <section className="py-14">
           <div className="container mx-auto px-4">
+
             <h2 className="font-display text-2xl font-bold uppercase md:text-3xl">
               Những trường hợp thường cần dịch vụ bốc xếp tại TP.HCM
             </h2>
