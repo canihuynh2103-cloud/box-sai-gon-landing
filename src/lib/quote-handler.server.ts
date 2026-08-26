@@ -2,20 +2,44 @@ import { z } from "zod";
 
 import { sendCustomerConfirmation, sendQuoteEmail, type QuotePayload } from "./quote.server";
 
-export const quoteSchema = z.object({
-  name: z.string().trim().min(2).max(100),
-  phone: z
+/** Loại bỏ ký tự điều khiển / xuống dòng để chống header injection & dữ liệu rác. */
+const singleLine = (max: number) =>
+  z
     .string()
-    .trim()
-    .regex(/^[0-9+\-.\s()]{9,15}$/),
-  email: z.string().trim().email().max(255).optional().or(z.literal("")),
-  service: z.string().trim().max(120).optional().or(z.literal("")),
-  address: z.string().trim().max(200).optional().or(z.literal("")),
-  message: z.string().trim().max(500).optional().or(z.literal("")),
-  preferredTime: z.string().trim().max(120).optional().or(z.literal("")),
-  workersCount: z.string().trim().max(60).optional().or(z.literal("")),
-  cargoType: z.string().trim().max(120).optional().or(z.literal("")),
-  sourcePath: z.string().trim().max(200).optional().or(z.literal("")),
+    .transform((v) => v.replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim())
+    .pipe(z.string().max(max));
+
+/** Nội dung nhiều dòng: giữ xuống dòng, bỏ ký tự điều khiển khác. */
+const multiLine = (max: number) =>
+  z
+    .string()
+    .transform((v) =>
+      v
+        .replace(/\r\n/g, "\n")
+        .replace(/[\u0000-\u0009\u000b-\u001f\u007f]/g, " ")
+        .trim(),
+    )
+    .pipe(z.string().max(max));
+
+export const quoteSchema = z.object({
+  name: singleLine(100).pipe(z.string().min(2)),
+  phone: singleLine(15).pipe(
+    z
+      .string()
+      .regex(/^[0-9+\-.\s()]{9,15}$/, "Số điện thoại không hợp lệ"),
+  ),
+  email: singleLine(255)
+    .pipe(z.string().email().or(z.literal("")))
+    .optional(),
+  service: singleLine(120).optional(),
+  address: singleLine(200).optional(),
+  message: multiLine(500).optional(),
+  preferredTime: singleLine(120).optional(),
+  workersCount: singleLine(60).optional(),
+  cargoType: singleLine(120).optional(),
+  sourcePath: singleLine(200)
+    .pipe(z.string().regex(/^\/[\w\-./?=&%]*$/, "Đường dẫn không hợp lệ").or(z.literal("")))
+    .optional(),
 });
 
 export type QuoteInput = z.infer<typeof quoteSchema>;
