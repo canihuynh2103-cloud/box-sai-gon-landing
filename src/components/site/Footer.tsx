@@ -5,11 +5,16 @@ import { BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, NAV_ITEMS, SERVICES, WORK_HOURS 
 import { NavLink } from "@/components/site/NavLink";
 import logoAsset from "@/assets/logo.png.asset.json";
 
+// TODO(SEO): Các URL social bên dưới CHƯA được xác minh (đang là trang gốc của
+// từng nền tảng, không phải fanpage/kênh chính thức của Bốc Xếp Sài Gòn).
+// Khi có URL chính thức, thay vào đây; không tự suy đoán URL và không dùng
+// chúng cho schema sameAs cho đến khi xác minh.
 const SOCIALS = [
   { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/" },
   { icon: Youtube, label: "YouTube", href: "https://www.youtube.com/" },
   { icon: Music2, label: "TikTok", href: "https://www.tiktok.com/" },
 ];
+
 
 export function Footer() {
   const [sent, setSent] = useState(false);
