@@ -400,7 +400,8 @@ function HcmcLandingPage() {
                         params={{ slug: c.slug }}
                         className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
                       >
-                        Xem chi tiết dịch vụ
+                        {c.anchor ?? `Xem chi tiết ${c.name.toLowerCase()}`}
+
                       </Link>
                     ) : (
                       <a
