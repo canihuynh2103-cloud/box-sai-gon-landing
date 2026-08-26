@@ -69,8 +69,16 @@ export function Services() {
             </h2>
             <p className="mt-4 text-muted-foreground">
               Từ kho bãi, container, nhà máy đến chuyển nhà và chuyển văn phòng — mọi nhu cầu
-              nhân công bốc xếp đều có phương án phù hợp.
+              nhân công bốc xếp đều có phương án phù hợp. Xem thêm{" "}
+              <Link
+                to="/dich-vu-boc-xep-tphcm"
+                className="font-semibold text-primary hover:underline"
+              >
+                dịch vụ bốc xếp tại TP.HCM
+              </Link>
+              .
             </p>
+
           </div>
 
           <label className="relative block w-full lg:max-w-sm">
