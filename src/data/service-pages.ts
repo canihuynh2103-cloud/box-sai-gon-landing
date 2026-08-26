@@ -2,6 +2,11 @@
  * Cluster landing pages cho từng dịch vụ (SEO service pages).
  * Nội dung mô tả năng lực thực tế của Bốc Xếp Sài Gòn — không bịa số liệu, chứng nhận.
  */
+import svcContainerAsset from "@/assets/svc-container.jpg.asset.json";
+import svcUnloadingAsset from "@/assets/svc-unloading.jpg.asset.json";
+import svcPortAsset from "@/assets/svc-port.jpg.asset.json";
+import svcNightStreetAsset from "@/assets/svc-night-street.jpg.asset.json";
+
 export type ServicePage = {
   slug: string;
   name: string;
@@ -18,7 +23,26 @@ export type ServicePage = {
   notes: string[];
   faqs: { q: string; a: string }[];
   related: string[];
+  /** Ảnh tuyệt đối dùng cho og:image / twitter:image (tùy chọn). */
+  ogImagePath?: string;
+  /** Các section nội dung bổ sung, render sau phần "Phạm vi công việc" (tùy chọn). */
+  extraSections?: { h2: string; paragraphs: string[]; bullets?: string[] }[];
+  /** Ảnh thực tế bổ sung trong bài (tùy chọn). */
+  gallery?: { src: string; alt: string; caption?: string }[];
+  /** Liên kết tới case study đã tồn tại trong /du-an (tùy chọn). */
+  caseStudy?: { slug: string; h2: string; blurb: string; facts: string[]; cta: string };
+  /** Đoạn giải thích cách tính chi phí — không có con số (tùy chọn). */
+  priceNote?: { h2: string; paragraphs: string[] };
 };
+
+/** Ảnh thực tế có sẵn trong project. */
+const IMG = {
+  container: svcContainerAsset.url,
+  unloading: svcUnloadingAsset.url,
+  port: svcPortAsset.url,
+  nightStreet: svcNightStreetAsset.url,
+};
+
 
 export const SERVICE_PAGES: ServicePage[] = [
   {
