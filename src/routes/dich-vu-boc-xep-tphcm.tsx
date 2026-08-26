@@ -17,6 +17,8 @@ import {
 } from "@/components/ui/accordion";
 import { SERVICES, HOTLINE, HOTLINE_TEL, EMAIL, ADDRESS } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor, SITE_NAME, SITE_URL } from "@/lib/seo";
+import containerAsset from "@/assets/svc-container.jpg.asset.json";
+
 
 const PATH = "/dich-vu-boc-xep-tphcm";
 const TITLE = "Dịch Vụ Bốc Xếp TP.HCM Chuyên Nghiệp 24/7 | Bốc Xếp Sài Gòn";
