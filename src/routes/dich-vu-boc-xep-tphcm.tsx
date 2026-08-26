@@ -107,12 +107,13 @@ const SERVICE_CARDS: { name: string; desc: string; slug?: string; anchor?: strin
     slug: "chuyen-kho",
     anchor: "Quy trình chuyển kho trọn gói",
   },
-
   {
     name: "Xếp dỡ hàng hóa",
     desc: "Xếp dỡ hàng rời, hàng bao, hàng kiện, hàng nặng tại kho bãi và công trình.",
     slug: "xep-do-hang-hoa",
+    anchor: "Xem dịch vụ xếp dỡ hàng hóa",
   },
+
 ];
 
 const AREAS_HCM = [
