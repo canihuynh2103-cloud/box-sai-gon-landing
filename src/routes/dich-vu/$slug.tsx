@@ -15,7 +15,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SERVICE_PAGES, findServicePage, type ServicePage } from "@/data/service-pages";
-import { topicSlugsForPillar } from "@/data/content-plan";
+import { topicSlugsForPillar, topicsForPillar } from "@/data/content-plan";
+import { findProjectDetail } from "@/data/project-pages";
 import { usePosts } from "@/hooks/use-content";
 import { HOTLINE, HOTLINE_TEL, ADDRESS, EMAIL, SERVICES } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor, SITE_NAME } from "@/lib/seo";
@@ -33,6 +34,7 @@ export const Route = createFileRoute("/dich-vu/$slug")({
       title: page.seoTitle,
       description: page.seoDescription,
       path: `/dich-vu/${page.slug}`,
+      image: page.ogImagePath ? absUrl(page.ogImagePath) : undefined,
     });
     return {
       ...base,
