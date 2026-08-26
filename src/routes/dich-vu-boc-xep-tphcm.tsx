@@ -345,7 +345,30 @@ function HcmcLandingPage() {
           </div>
         </section>
 
+        {/* TRƯỜNG HỢP THƯỜNG CẦN DỊCH VỤ */}
+        <section className="bg-muted/40 py-14">
+          <div className="container mx-auto px-4">
+            <h2 className="font-display text-2xl font-bold uppercase md:text-3xl">
+              Những trường hợp thường cần dịch vụ bốc xếp tại TP.HCM
+            </h2>
+            <p className="mt-3 max-w-3xl text-muted-foreground">
+              Phần lớn yêu cầu chúng tôi nhận được xuất phát từ những tình huống sau. Nếu công việc
+              của bạn nằm trong số này, chỉ cần cho biết địa chỉ, loại hàng và khung giờ là chúng tôi
+              tính được số người cần bố trí.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {USE_CASES.map((u) => (
+                <div key={u.t} className="rounded-xl border border-border bg-card p-5">
+                  <h3 className="font-display text-base font-bold uppercase">{u.t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{u.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CÁC DỊCH VỤ */}
+
         <section className="bg-muted/40 py-14">
           <div className="container mx-auto px-4">
             <h2 className="font-display text-2xl font-bold uppercase md:text-3xl">
