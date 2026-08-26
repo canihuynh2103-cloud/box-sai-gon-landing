@@ -100,9 +100,19 @@ function ServiceDetail() {
     SERVICES.find((s) => s.title.trim().toLowerCase() === page.name.trim().toLowerCase())?.image ??
     SERVICES[0].image;
 
+  /**
+   * Danh sách bài cluster được render ngay ở SSR từ bản đồ chủ đề tĩnh
+   * (src/data/content-plan.ts) nên Googlebot đọc được link mà không cần chạy JS.
+   * Dữ liệu từ database chỉ dùng để bổ sung mô tả ngắn sau khi hydrate.
+   */
+  const clusterTopics = topicsForPillar(page.slug).slice(0, 6);
   const { data: posts = [] } = usePosts();
   const clusterSlugs = topicSlugsForPillar(page.slug);
-  const clusterPosts = posts.filter((p) => clusterSlugs.includes(p.slug)).slice(0, 4);
+  const clusterPosts = posts.filter((p) => clusterSlugs.includes(p.slug));
+  const excerptFor = (slug: string) => clusterPosts.find((p) => p.slug === slug)?.excerpt ?? null;
+
+  const caseStudy = page.caseStudy && findProjectDetail(page.caseStudy.slug) ? page.caseStudy : null;
+
 
   return (
     <div className="min-h-screen bg-background">
