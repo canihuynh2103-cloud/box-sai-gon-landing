@@ -171,3 +171,8 @@ export const ALL_TOPICS: Topic[] = CONTENT_CLUSTERS.flatMap((c) => c.topics);
 /** Slug các bài viết thuộc cluster của một pillar page (dùng cho internal link 2 chiều). */
 export const topicSlugsForPillar = (pillar: string): string[] =>
   ALL_TOPICS.filter((t) => t.pillar === pillar).map((t) => t.slug);
+
+/** Các chủ đề thuộc cluster của một pillar page — dùng render internal link ngay ở SSR. */
+export const topicsForPillar = (pillar: string): Topic[] =>
+  ALL_TOPICS.filter((t) => t.pillar === pillar);
+
