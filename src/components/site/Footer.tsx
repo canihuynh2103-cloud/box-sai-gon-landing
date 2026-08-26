@@ -103,6 +103,11 @@ export function Footer() {
                 </li>
               ))}
               <li>
+                <Link to="/dich-vu-boc-xep-tphcm" className={linkCls}>
+                  Dịch vụ bốc xếp TP.HCM
+                </Link>
+              </li>
+              <li>
                 <Link to="/ho-so-nang-luc" className={linkCls}>
                   Hồ sơ năng lực
                 </Link>
