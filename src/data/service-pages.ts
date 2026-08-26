@@ -2,6 +2,11 @@
  * Cluster landing pages cho từng dịch vụ (SEO service pages).
  * Nội dung mô tả năng lực thực tế của Bốc Xếp Sài Gòn — không bịa số liệu, chứng nhận.
  */
+import svcContainerAsset from "@/assets/svc-container.jpg.asset.json";
+import svcUnloadingAsset from "@/assets/svc-unloading.jpg.asset.json";
+import svcPortAsset from "@/assets/svc-port.jpg.asset.json";
+import svcNightStreetAsset from "@/assets/svc-night-street.jpg.asset.json";
+
 export type ServicePage = {
   slug: string;
   name: string;
@@ -18,7 +23,26 @@ export type ServicePage = {
   notes: string[];
   faqs: { q: string; a: string }[];
   related: string[];
+  /** Ảnh tuyệt đối dùng cho og:image / twitter:image (tùy chọn). */
+  ogImagePath?: string;
+  /** Các section nội dung bổ sung, render sau phần "Phạm vi công việc" (tùy chọn). */
+  extraSections?: { h2: string; paragraphs: string[]; bullets?: string[] }[];
+  /** Ảnh thực tế bổ sung trong bài (tùy chọn). */
+  gallery?: { src: string; alt: string; caption?: string }[];
+  /** Liên kết tới case study đã tồn tại trong /du-an (tùy chọn). */
+  caseStudy?: { slug: string; h2: string; blurb: string; facts: string[]; cta: string };
+  /** Đoạn giải thích cách tính chi phí — không có con số (tùy chọn). */
+  priceNote?: { h2: string; paragraphs: string[] };
 };
+
+/** Ảnh thực tế có sẵn trong project. */
+const IMG = {
+  container: svcContainerAsset.url,
+  unloading: svcUnloadingAsset.url,
+  port: svcPortAsset.url,
+  nightStreet: svcNightStreetAsset.url,
+};
+
 
 export const SERVICE_PAGES: ServicePage[] = [
   {
@@ -110,15 +134,90 @@ export const SERVICE_PAGES: ServicePage[] = [
       "Làm việc trong cont giữa trưa cần bố trí nghỉ luân phiên để đảm bảo an toàn",
     ],
     faqs: [
+      { q: "Bốc xếp container tại TP.HCM gồm những công việc gì?", a: "Gồm rút ruột container (chuyển hàng từ trong lòng cont ra xe hoặc vào kho), đóng hàng lên container theo tải trọng và quy cách chằng buộc, đảo hàng - kiểm đếm theo packing list, hỗ trợ quấn màng PE và lên pallet, cuối cùng là vệ sinh lòng cont trước khi trả rỗng." },
+      { q: "Rút ruột container cần chuẩn bị những gì?", a: "Cần chốt trước ba việc: điểm nhận hàng (lên xe tải hay vào kho), mặt bằng đủ chỗ đặt hàng tạm cạnh cont, và khung giờ được phép làm việc tại kho hoặc bãi. Nếu rút trong bãi cảng hay depot thì cần thêm thời gian làm thủ tục ra vào cho nhân sự." },
+      { q: "Có nhận bốc xếp container tại Cát Lái không?", a: "Có. Chúng tôi đã thực hiện rút ruột container hàng bao kiện tại cảng Cát Lái với đội nhân sự có thẻ ra vào cảng, làm việc theo quy định khu vực bãi. Khu vực Trường Thọ, Tân Cảng, các depot và kho tại Thủ Đức cũng nằm trong phạm vi phục vụ thường xuyên." },
       { q: "Rút một container 40 feet mất bao lâu?", a: "Phụ thuộc loại hàng và số người. Hàng thùng carton xếp pallet nhanh hơn nhiều so với hàng bao rời. Khi nhận thông tin lô hàng, chúng tôi đề xuất số người để hoàn thành trong khung giờ bạn cần." },
-      { q: "Có làm tại depot và cảng không?", a: "Có. Chúng tôi có nhân sự quen thủ tục ra vào bãi và cảng tại khu vực TP.HCM." },
-      { q: "Chi phí tính theo cont hay theo giờ?", a: "Cả hai. Hàng đồng nhất thường tính theo cont hoặc theo tấn; hàng phức tạp tính theo giờ cho minh bạch." },
+      { q: "Chi phí bốc xếp container được tính như thế nào?", a: "Tính theo cont, theo tấn hoặc theo giờ tùy đặc điểm lô hàng: hàng đồng nhất thường tính theo cont hoặc theo tấn, hàng phức tạp và hàng cần phân loại thì tính theo giờ cho minh bạch. Các yếu tố ảnh hưởng gồm loại cont, khối lượng, hình thức đóng hay rút, địa điểm và khung giờ thi công." },
       { q: "Có hỗ trợ đóng gói trước khi vào cont?", a: "Có: quấn màng PE, đóng thùng, lên pallet và chèn lót chống xô hàng." },
       { q: "Làm ngoài giờ và ban đêm được không?", a: "Được, chúng tôi thường xuyên chạy ca đêm để kịp lịch trả cont." },
-      { q: "Cần cung cấp gì để nhận báo giá?", a: "Loại hàng, số cont, trọng lượng trung bình mỗi kiện, địa chỉ và thời gian mong muốn." },
+      { q: "Cần cung cấp thông tin gì để nhận báo giá?", a: "Loại hàng, số cont và kích cỡ cont, trọng lượng trung bình mỗi kiện, địa chỉ kho hoặc bãi, và thời gian mong muốn hoàn thành." },
     ],
     related: ["boc-xep-cang", "xep-do-hang-hoa", "dong-goi-hang-hoa"],
+    ogImagePath: IMG.container,
+    extraSections: [
+      {
+        h2: "Bốc Xếp Container Tại TP.HCM",
+        paragraphs: [
+          "Ở TP.HCM, phần lớn công việc bốc xếp container không diễn ra ở một chỗ cố định mà rải theo nơi container dừng lại: bãi cảng, depot trả rỗng, hoặc kho riêng của doanh nghiệp sau khi xe đầu kéo hạ cont. Mỗi tình huống có ràng buộc khác nhau về giờ ra vào, chỗ đặt hàng tạm và số người được phép làm cùng lúc.",
+          "Vì vậy khi nhận yêu cầu, việc đầu tiên là xác định container nằm ở đâu và phải trả rỗng lúc nào. Hai thông tin đó quyết định số người cần bố trí và cách chia ca, chứ không phải khối lượng hàng.",
+        ],
+        bullets: [
+          "Rút và đóng cont tại kho riêng của doanh nghiệp sau khi hạ cont",
+          "Làm việc trong bãi cảng và depot theo quy định khu vực",
+          "Xếp dỡ hàng từ cont sang xe tải để trung chuyển tiếp",
+          "Điều phối nhiều cont trong cùng một ngày theo thứ tự ưu tiên",
+        ],
+      },
+      {
+        h2: "Rút Ruột Container Tại TP.HCM",
+        paragraphs: [
+          "Rút ruột container là công việc bị ràng buộc bởi thời gian nhiều hơn bởi sức người: mỗi ngày container còn nằm lại là thêm chi phí lưu cont và lưu bãi. Cách tổ chức của chúng tôi là chia thành nhóm trong lòng cont, nhóm trung chuyển và nhóm xếp hàng ở điểm nhận, để dòng hàng chạy liên tục thay vì dồn đống ở cửa cont.",
+          "Trong lòng container nóng và chật nên các nhóm được luân phiên vị trí. Đây là cách đơn giản để giữ tốc độ đều suốt ca, tránh tình trạng nhanh lúc đầu rồi chậm dần về cuối. Kiện hàng rách, ướt hoặc bẹp được tách riêng và ghi nhận ngay lúc rút, không để lẫn vào lô hàng rồi mới phát hiện sau khi nhập kho.",
+        ],
+      },
+      {
+        h2: "Đóng Hàng Lên Container",
+        paragraphs: [
+          "Đóng hàng lên cont đòi hỏi tính toán trước thứ tự xếp: hàng nặng ở dưới và phân bố đều theo trục để không lệch tải, hàng nhẹ và hàng dễ vỡ xếp trên. Sau khi xếp xong mới tới bước chèn lót và chằng buộc để hàng không xê dịch trên đường.",
+          "Nếu hàng chưa đạt điều kiện vào cont, đội hỗ trợ luôn phần đóng gói tại chỗ: quấn màng PE, lên pallet, đóng thùng lại những kiện đã bung. Làm gộp trong cùng một ca giúp không phải hẹn lại nhân công lần hai.",
+        ],
+        bullets: [
+          "Xếp theo tải trọng và phân bố đều trong lòng cont",
+          "Chèn lót khoảng trống, chằng dây chống xê dịch",
+          "Kiểm đếm theo packing list, dán nhãn kiện",
+          "Chụp ảnh hiện trạng hàng trước khi đóng cửa cont",
+        ],
+      },
+      {
+        h2: "Bốc Xếp Container Tại Depot Và Cảng Cát Lái",
+        paragraphs: [
+          "Làm việc trong khu vực bãi cảng và depot khác với làm ở kho riêng: nhân sự phải đủ điều kiện ra vào và tuân thủ quy định của khu vực, nên thời gian làm thủ tục cần được tính vào lịch trước khi chốt ngày khởi công. Chúng tôi thường xuyên nhận việc tại Cát Lái, Trường Thọ, Tân Cảng và các depot, kho quanh Thủ Đức; các lô hàng đi kèm kho tại Bình Dương và Đồng Nai cũng thuộc phạm vi phục vụ.",
+          "Vị trí cont trên bãi ảnh hưởng trực tiếp tới sản lượng trong ngày: cont nằm rải rác thì thời gian di chuyển giữa các điểm chiếm phần đáng kể của ca làm việc. Vì thế đội được chia theo cụm vị trí gần nhau, và lịch làm được xếp theo lịch tàu cùng hạn trả cont thay vì theo giờ hành chính.",
+        ],
+      },
+    ],
+    gallery: [
+      {
+        src: IMG.unloading,
+        alt: "Nhân công rút hàng kiện từ trong lòng container xuống điểm tập kết",
+      },
+      {
+        src: IMG.port,
+        alt: "Đội bốc xếp làm việc cạnh container trong khu vực bãi cảng",
+      },
+      {
+        src: IMG.nightStreet,
+        alt: "Ca làm việc buổi tối để kịp lịch trả container",
+      },
+    ],
+    caseStudy: {
+      slug: "rut-ruot-container-cat-lai",
+      h2: "Dự án thực tế: Rút ruột container tại Cát Lái",
+      blurb:
+        "Khách hàng có container hàng bao kiện về liên tục theo lịch tàu, nếu không rút kịp tiến độ sẽ phát sinh phí lưu cont và lưu bãi. Đội nhân công có thẻ ra vào cảng được tổ chức theo dây chuyền trong bãi, nhận danh sách cont và vị trí mỗi buổi sáng rồi chia người theo cụm vị trí gần nhau.",
+      facts: ["120 container", "Trung bình 7 container/ngày", "Thời gian thực hiện 18 ngày", "30 nhân công có thẻ ra vào cảng"],
+      cta: "Xem chi tiết dự án rút ruột container tại Cát Lái",
+    },
+    priceNote: {
+      h2: "Chi phí bốc xếp container được tính thế nào",
+      paragraphs: [
+        "Chi phí bốc xếp container phụ thuộc vào loại container, khối lượng hàng, hình thức đóng hay rút, địa điểm, thời gian thực hiện và yêu cầu nhân công. Liên hệ để được khảo sát và báo giá.",
+        "Chúng tôi không đưa ra một con số cố định trên trang vì cùng một container 40 feet, hàng carton đã lên pallet và hàng bao rời cần số người khác nhau; làm trong bãi cảng và làm tại kho riêng cũng khác nhau về thời gian chờ. Sau khi có thông tin lô hàng, báo giá được chốt trước khi điều người và không phát sinh ngoài thỏa thuận.",
+      ],
+    },
   },
+
   {
     slug: "boc-xep-nha-may",
     name: "Bốc Xếp Nhà Máy",
