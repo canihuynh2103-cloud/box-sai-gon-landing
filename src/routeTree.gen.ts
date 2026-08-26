@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as HoSoNangLucRouteImport } from './routes/ho-so-nang-luc'
+import { Route as DichVuBocXepTphcmRouteImport } from './routes/dich-vu-boc-xep-tphcm'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
@@ -44,6 +45,11 @@ const ResetPasswordRoute = ResetPasswordRouteImport.update({
 const HoSoNangLucRoute = HoSoNangLucRouteImport.update({
   id: '/ho-so-nang-luc',
   path: '/ho-so-nang-luc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DichVuBocXepTphcmRoute = DichVuBocXepTphcmRouteImport.update({
+  id: '/dich-vu-boc-xep-tphcm',
+  path: '/dich-vu-boc-xep-tphcm',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -144,6 +150,7 @@ const AuthenticatedAdminBannersRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/dich-vu-boc-xep-tphcm': typeof DichVuBocXepTphcmRoute
   '/ho-so-nang-luc': typeof HoSoNangLucRoute
   '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -166,6 +173,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/dich-vu-boc-xep-tphcm': typeof DichVuBocXepTphcmRoute
   '/ho-so-nang-luc': typeof HoSoNangLucRoute
   '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -189,6 +197,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/dich-vu-boc-xep-tphcm': typeof DichVuBocXepTphcmRoute
   '/ho-so-nang-luc': typeof HoSoNangLucRoute
   '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -213,6 +222,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/auth'
+    | '/dich-vu-boc-xep-tphcm'
     | '/ho-so-nang-luc'
     | '/reset-password'
     | '/sitemap.xml'
@@ -235,6 +245,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth'
+    | '/dich-vu-boc-xep-tphcm'
     | '/ho-so-nang-luc'
     | '/reset-password'
     | '/sitemap.xml'
@@ -257,6 +268,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/auth'
+    | '/dich-vu-boc-xep-tphcm'
     | '/ho-so-nang-luc'
     | '/reset-password'
     | '/sitemap.xml'
@@ -281,6 +293,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
+  DichVuBocXepTphcmRoute: typeof DichVuBocXepTphcmRoute
   HoSoNangLucRoute: typeof HoSoNangLucRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -312,6 +325,13 @@ declare module '@tanstack/react-router' {
       path: '/ho-so-nang-luc'
       fullPath: '/ho-so-nang-luc'
       preLoaderRoute: typeof HoSoNangLucRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu-boc-xep-tphcm': {
+      id: '/dich-vu-boc-xep-tphcm'
+      path: '/dich-vu-boc-xep-tphcm'
+      fullPath: '/dich-vu-boc-xep-tphcm'
+      preLoaderRoute: typeof DichVuBocXepTphcmRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -488,6 +508,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
+  DichVuBocXepTphcmRoute: DichVuBocXepTphcmRoute,
   HoSoNangLucRoute: HoSoNangLucRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
