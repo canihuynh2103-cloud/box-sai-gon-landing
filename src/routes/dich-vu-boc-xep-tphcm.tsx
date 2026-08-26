@@ -62,21 +62,24 @@ const USE_CASES: { t: string; d: string }[] = [
 
 
 /** Card dịch vụ: chỉ liên kết tới URL đã tồn tại; mục không có trang riêng để trống `slug`. */
-const SERVICE_CARDS: { name: string; desc: string; slug?: string }[] = [
+const SERVICE_CARDS: { name: string; desc: string; slug?: string; anchor?: string }[] = [
   {
     name: "Bốc xếp kho hàng",
     desc: "Nhập - xuất kho theo ca, xếp pallet, kiểm đếm, đảo hàng theo sơ đồ kho.",
     slug: "boc-xep-kho-hang",
+    anchor: "Xem chi tiết dịch vụ bốc xếp kho hàng",
   },
   {
     name: "Bốc xếp container",
     desc: "Rút ruột và đóng hàng lên container tại cảng, depot hoặc kho của khách.",
     slug: "boc-xep-container",
+    anchor: "Xem chi tiết dịch vụ bốc xếp container",
   },
   {
     name: "Bốc xếp nhà máy",
     desc: "Xếp dỡ nguyên vật liệu, thành phẩm, di dời máy móc trong khu công nghiệp.",
     slug: "boc-xep-nha-may",
+    anchor: "Tìm hiểu bốc xếp tại nhà máy",
   },
   {
     name: "Bốc xếp xe tải",
@@ -86,11 +89,13 @@ const SERVICE_CARDS: { name: string; desc: string; slug?: string }[] = [
     name: "Cung ứng nhân công bốc xếp",
     desc: "Nhân công theo giờ, theo ca, theo tháng, có đội trưởng giám sát tại hiện trường.",
     slug: "thue-nhan-cong-boc-xep",
+    anchor: "Xem dịch vụ thuê nhân công bốc xếp",
   },
   {
     name: "Đóng gói hàng hóa",
     desc: "Đóng thùng, quấn màng PE, chèn lót, dán nhãn trước khi vận chuyển.",
     slug: "dong-goi-hang-hoa",
+    anchor: "Chi tiết cách chúng tôi đóng gói hàng hóa",
   },
   {
     name: "Tháo dỡ và lắp đặt",
@@ -100,7 +105,9 @@ const SERVICE_CARDS: { name: string; desc: string; slug?: string }[] = [
     name: "Chuyển kho",
     desc: "Chuyển toàn bộ hàng hóa sang kho mới theo đợt, giữ nguyên phân loại và mã hàng.",
     slug: "chuyen-kho",
+    anchor: "Quy trình chuyển kho trọn gói",
   },
+
   {
     name: "Xếp dỡ hàng hóa",
     desc: "Xếp dỡ hàng rời, hàng bao, hàng kiện, hàng nặng tại kho bãi và công trình.",
