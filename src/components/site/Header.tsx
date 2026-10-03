@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Phone, Search } from "lucide-react";
 import { HOTLINE, HOTLINE_TEL, NAV_ITEMS } from "@/data/site";
-import logoAsset from "@/assets/logo.png.asset.json";
+import logoAsset from "@/assets/logo-header.png.asset.json";
 import { NavLink } from "@/components/site/NavLink";
 import { QuoteButton } from "@/components/site/QuoteButton";
 import { cn } from "@/lib/utils";
@@ -49,25 +49,14 @@ export function Header() {
           aria-label="Bốc Xếp Sài Gòn - Trang chủ"
           className="flex min-w-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:gap-3.5 lg:shrink-0"
         >
-          <span className="flex h-14 w-16 shrink-0 items-center justify-center sm:h-20 sm:w-24">
-            <img
-              src={logoAsset.url}
-              alt="Logo Sai Gon Cargo Handling - Bốc Xếp Sài Gòn"
-              width={240}
-              height={240}
-              className="h-full w-full object-contain"
-            />
-          </span>
-
-          <span className="flex min-w-0 flex-col justify-center py-0.5">
-            <span className="block truncate font-display text-lg font-bold leading-[1.35] tracking-wide text-secondary sm:text-2xl">
-              Bốc Xếp Sài Gòn
-            </span>
-            <span className="block pt-0.5 text-[8px] font-semibold uppercase leading-[1.7] tracking-[0.02em] text-muted-foreground sm:text-[10px] sm:tracking-[0.12em]">
-              <span className="sm:hidden">Chuyên Nghiệp - Tin Cậy</span>
-              <span className="hidden sm:inline">Chuyên Nghiệp - Minh Bạch - Tin Cậy</span>
-            </span>
-          </span>
+          <img
+            src={logoAsset.url}
+            alt="Logo Sai Gon Cargo Handling - Bốc Xếp Sài Gòn"
+            width={884}
+            height={200}
+            className="h-10 w-auto max-w-full shrink object-contain min-[380px]:h-11 sm:h-14 lg:h-12 xl:h-14"
+          />
+          <span className="sr-only">Bốc Xếp Sài Gòn - Chuyên Nghiệp - Minh Bạch - Tin Cậy</span>
         </Link>
 
         <nav aria-label="Điều hướng chính" className="ml-auto hidden items-center gap-1 lg:flex">
