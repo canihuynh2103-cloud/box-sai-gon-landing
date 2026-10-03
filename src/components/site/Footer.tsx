@@ -137,7 +137,7 @@ export function Footer() {
               {PROJECTS.slice(0, 4).map((p) => (
                 <li key={p.slug}>
                   <Link to="/du-an/$slug" params={{ slug: p.slug }} className={linkCls}>
-                    {p.title}
+                    {p.name}
                   </Link>
                 </li>
               ))}
