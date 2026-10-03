@@ -13,6 +13,8 @@ import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { absUrl, breadcrumbLd, SITE_NAME } from "@/lib/seo";
+import { ALL_TOPICS } from "@/data/content-plan";
+import { SERVICE_PAGES } from "@/data/service-pages";
 
 export const Route = createFileRoute("/blog/$slug")({
   head: ({ params }) => {
@@ -236,12 +238,45 @@ function PostPage() {
           </article>
         )}
 
+        <PillarServiceLink slug={slug} />
         <RelatedPosts slug={slug} category={data?.category ?? null} />
       </main>
       <Footer />
       <FloatingButtons />
 
     </div>
+  );
+}
+
+/**
+ * Liên kết nội bộ về trang dịch vụ trụ cột tương ứng với chủ đề bài viết.
+ * Dữ liệu lấy từ bản đồ chủ đề tĩnh (content-plan) nên được render ngay trong
+ * HTML SSR — Googlebot đọc được link mà không cần chạy JS.
+ */
+function PillarServiceLink({ slug }: { slug: string }) {
+  const topic = ALL_TOPICS.find((t) => t.slug === slug);
+  if (!topic) return null;
+  const pillar = SERVICE_PAGES.find((p) => p.slug === topic.pillar);
+  if (!pillar) return null;
+
+  return (
+    <nav aria-label="Dịch vụ liên quan" className="mt-12 rounded-xl border border-border bg-card p-5">
+      <p className="text-sm text-muted-foreground">
+        Bài viết thuộc chuyên mục{" "}
+        <Link to="/dich-vu/$slug" params={{ slug: pillar.slug }} className="font-semibold text-primary hover:underline">
+          {pillar.name}
+        </Link>
+        . Xem thêm{" "}
+        <Link to="/dich-vu-boc-xep-tphcm" className="font-semibold text-primary hover:underline">
+          dịch vụ bốc xếp tại TP.HCM
+        </Link>{" "}
+        hoặc{" "}
+        <Link to="/dich-vu" className="font-semibold text-primary hover:underline">
+          toàn bộ dịch vụ bốc xếp
+        </Link>{" "}
+        của Bốc Xếp Sài Gòn.
+      </p>
+    </nav>
   );
 }
 
