@@ -4,7 +4,9 @@ import { CalendarDays, Search } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
-import { usePosts } from "@/hooks/use-content";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { postsListQuery } from "@/lib/blog-queries";
+import { absUrl } from "@/lib/seo";
 import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -22,9 +24,12 @@ export const Route = createFileRoute("/blog/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: absUrl("/blog") },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: absUrl("/blog") }],
   }),
+  loader: ({ context }) => context.queryClient.ensureQueryData(postsListQuery()),
   component: BlogIndex,
 });
 
@@ -37,7 +42,8 @@ function normalize(v: string) {
 }
 
 function BlogIndex() {
-  const { data = [], isLoading } = usePosts();
+  const { data } = useSuspenseQuery(postsListQuery());
+  const isLoading = false;
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<string>("Tất cả");
 

@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { ArrowLeft, CalendarDays, Clock, User } from "lucide-react";
 
-import { supabase } from "@/integrations/supabase/client";
+import { postDetailQuery, postsListQuery, type PostDetail } from "@/lib/blog-queries";
+import { PROJECTS } from "@/data/site";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
-import { usePosts } from "@/hooks/use-content";
 import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -17,21 +17,40 @@ import { ALL_TOPICS } from "@/data/content-plan";
 import { SERVICE_PAGES } from "@/data/service-pages";
 
 export const Route = createFileRoute("/blog/$slug")({
-  head: ({ params }) => {
-    const title = `${params.slug.replace(/-/g, " ")} — Bốc Xếp Sài Gòn`;
+  loader: async ({ context, params }) => {
+    const [post] = await Promise.all([
+      context.queryClient.ensureQueryData(postDetailQuery(params.slug)),
+      context.queryClient.ensureQueryData(postsListQuery()),
+    ]);
+    return { post };
+  },
+  head: ({ params, loaderData }) => {
+    const post = loaderData?.post;
+    const url = absUrl(`/blog/${params.slug}`);
+    const title = post
+      ? post.seo_title || `${post.title} — Bốc Xếp Sài Gòn`
+      : `${params.slug.replace(/-/g, " ")} — Bốc Xếp Sài Gòn`;
+    const desc =
+      post?.seo_description ||
+      post?.excerpt ||
+      "Bài viết kiến thức bốc xếp và logistics từ Bốc Xếp Sài Gòn.";
+    const image = post?.og_image || post?.cover_image || "";
+    const meta: Array<Record<string, string>> = [
+      { title },
+      { name: "description", content: desc },
+      { property: "og:title", content: post?.og_title || title },
+      { property: "og:description", content: post?.og_description || desc },
+      { property: "og:type", content: "article" },
+      { property: "og:url", content: url },
+      { name: "twitter:card", content: "summary_large_image" },
+    ];
+    if (image.startsWith("https://")) {
+      meta.push({ property: "og:image", content: image }, { name: "twitter:image", content: image });
+    }
     return {
-      meta: [
-        { title },
-        { name: "description", content: "Bài viết kiến thức bốc xếp và logistics từ Bốc Xếp Sài Gòn." },
-        { property: "og:title", content: title },
-        {
-          property: "og:description",
-          content: "Bài viết kiến thức bốc xếp và logistics từ Bốc Xếp Sài Gòn.",
-        },
-        { property: "og:type", content: "article" },
-        { name: "twitter:card", content: "summary_large_image" },
-      ],
-      links: [{ rel: "canonical", href: `/blog/${params.slug}` }],
+      meta,
+      links: [{ rel: "canonical", href: url }],
+      scripts: post ? [{ type: "application/ld+json", children: buildJsonLd(post, params.slug) }] : [],
     };
   },
   component: PostPage,
@@ -41,118 +60,58 @@ export const Route = createFileRoute("/blog/$slug")({
   notFoundComponent: () => <div className="p-10 text-center">Không tìm thấy bài viết.</div>,
 });
 
-type Post = {
-  title: string;
-  excerpt: string | null;
-  content: string | null;
-  cover_image: string | null;
-  cover_image_alt: string | null;
-  category: string | null;
-  published_at: string | null;
-  updated_at: string | null;
-  author: string | null;
-  tags: string[] | null;
-  reading_time: number | null;
-  seo_title: string | null;
-  seo_description: string | null;
-  canonical_url: string | null;
-  og_title: string | null;
-  og_description: string | null;
-  og_image: string | null;
-};
+type Post = PostDetail;
 
-/** Adds ids to headings so the table-of-contents block can link to them. */
+function buildJsonLd(data: Post, slug: string) {
+  const url = absUrl(`/blog/${slug}`);
+  const image = data.og_image || data.cover_image || undefined;
+  return JSON.stringify([
+    breadcrumbLd([
+      { name: "Trang chủ", path: "/" },
+      { name: "Kiến thức", path: "/blog" },
+      { name: data.title, path: `/blog/${slug}` },
+    ]),
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: data.seo_title || data.title,
+      description: data.seo_description || data.excerpt || undefined,
+      inLanguage: "vi-VN",
+      mainEntityOfPage: { "@type": "WebPage", "@id": url },
+      url,
+      ...(image?.startsWith("http") ? { image: [image] } : {}),
+      datePublished: data.published_at || undefined,
+      dateModified: data.updated_at || data.published_at || undefined,
+      articleSection: data.category || undefined,
+      keywords: data.tags?.join(", ") || undefined,
+      author: data.author
+        ? { "@type": "Person", name: data.author }
+        : { "@type": "Organization", name: SITE_NAME, url: absUrl("/") },
+      publisher: { "@type": "Organization", name: SITE_NAME, url: absUrl("/") },
+    },
+  ]);
+}
+
+/** Adds ids to h2/h3 (string-based so SSR and client output match). */
 function withHeadingIds(html: string) {
-  if (typeof window === "undefined") return html;
-  const doc = new DOMParser().parseFromString(html, "text/html");
-  doc.querySelectorAll("h2,h3").forEach((h, i) => {
-    if (!h.id) h.id = `muc-${i + 1}`;
+  let i = 0;
+  return html.replace(/<(h[23])(\s[^>]*)?>/gi, (m, tag: string, attrs: string = "") => {
+    i += 1;
+    if (/\sid=/i.test(attrs)) return m;
+    return `<${tag} id="muc-${i}"${attrs}>`;
   });
-  return doc.body.innerHTML;
 }
 
 function PostPage() {
   const { slug } = Route.useParams();
 
-  const { data, isLoading } = useQuery({
-    queryKey: ["content", "post", slug],
-    queryFn: async () => {
-      const { data } = await (supabase as any)
-        .from("posts")
-        .select(
-          "title,excerpt,content,cover_image,cover_image_alt,category,published_at,updated_at,author,tags,reading_time,seo_title,seo_description,canonical_url,og_title,og_description,og_image",
-        )
-        .eq("slug", slug)
-        .maybeSingle();
-      return data as Post | null;
-    },
-  });
-
+  const { data } = useSuspenseQuery(postDetailQuery(slug));
+  const isLoading = false;
   const content = useMemo(() => withHeadingIds(data?.content ?? ""), [data?.content]);
-
-  const jsonLd = useMemo(() => {
-    if (!data) return null;
-    const url = absUrl(`/blog/${slug}`);
-    const image = data.og_image || data.cover_image || undefined;
-    return JSON.stringify([
-      breadcrumbLd([
-        { name: "Trang chủ", path: "/" },
-        { name: "Kiến thức", path: "/blog" },
-        { name: data.title, path: `/blog/${slug}` },
-      ]),
-      {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        headline: data.seo_title || data.title,
-        description: data.seo_description || data.excerpt || undefined,
-        inLanguage: "vi-VN",
-        mainEntityOfPage: { "@type": "WebPage", "@id": url },
-        url,
-        ...(image?.startsWith("http") ? { image: [image] } : {}),
-        datePublished: data.published_at || undefined,
-        dateModified: data.updated_at || data.published_at || undefined,
-        articleSection: data.category || undefined,
-        keywords: data.tags?.join(", ") || undefined,
-        author: {
-          "@type": "Person",
-          name: data.author || `Đội ngũ ${SITE_NAME}`,
-          jobTitle: "Chuyên gia vận hành bốc xếp & logistics",
-          worksFor: { "@type": "Organization", name: SITE_NAME, url: absUrl("/") },
-        },
-        publisher: {
-          "@type": "Organization",
-          name: SITE_NAME,
-          url: absUrl("/"),
-        },
-      },
-    ]);
-  }, [data, slug]);
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      {data ? (
-        <>
-          <title>{data.seo_title || `${data.title} — Bốc Xếp Sài Gòn`}</title>
-          <meta name="description" content={data.seo_description || data.excerpt || ""} />
-          <meta property="og:title" content={data.og_title || data.seo_title || data.title} />
-          <meta
-            property="og:description"
-            content={data.og_description || data.seo_description || data.excerpt || ""}
-          />
-          {data.og_image || data.cover_image ? (
-            <meta property="og:image" content={(data.og_image || data.cover_image) as string} />
-          ) : null}
-          <link rel="canonical" href={data.canonical_url || `/blog/${slug}`} />
-          {jsonLd ? (
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: jsonLd }}
-            />
-          ) : null}
-        </>
-      ) : null}
-
       <main className="container mx-auto max-w-3xl px-4 pb-16 pt-44 lg:pt-32">
         <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">
           <Link to="/" className="hover:text-primary">
@@ -258,6 +217,8 @@ function PillarServiceLink({ slug }: { slug: string }) {
   if (!topic) return null;
   const pillar = SERVICE_PAGES.find((p) => p.slug === topic.pillar);
   if (!pillar) return null;
+  const idx = ALL_TOPICS.indexOf(topic);
+  const project = PROJECTS.length ? PROJECTS[idx % PROJECTS.length] : null;
 
   return (
     <nav aria-label="Dịch vụ liên quan" className="mt-12 rounded-xl border border-border bg-card p-5">
@@ -275,13 +236,26 @@ function PillarServiceLink({ slug }: { slug: string }) {
           toàn bộ dịch vụ bốc xếp
         </Link>{" "}
         của Bốc Xếp Sài Gòn.
+        {project ? (
+          <>
+            {" "}Tham khảo dự án thực tế:{" "}
+            <Link to="/du-an/$slug" params={{ slug: project.slug }} className="font-semibold text-primary hover:underline">
+              {project.name}
+            </Link>
+            , hoặc{" "}
+            <Link to="/" hash="lien-he" className="font-semibold text-primary hover:underline">
+              gửi yêu cầu báo giá
+            </Link>
+            .
+          </>
+        ) : null}
       </p>
     </nav>
   );
 }
 
 function RelatedPosts({ slug, category }: { slug: string; category: string | null }) {
-  const { data = [] } = usePosts();
+  const { data } = useSuspenseQuery(postsListQuery());
   const related = data
     .filter((p) => p.slug !== slug)
     .sort((a, b) => {
