@@ -1,7 +1,8 @@
 import { useState, type FormEvent } from "react";
 import { Link } from "@tanstack/react-router";
 import { Clock, Facebook, Mail, MapPin, Phone, Send, Youtube, Music2 } from "lucide-react";
-import { BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, NAV_ITEMS, SERVICES, WORK_HOURS } from "@/data/site";
+import { BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, NAV_ITEMS, PROJECTS, SERVICES, WORK_HOURS } from "@/data/site";
+import { SERVICE_PAGES } from "@/data/service-pages";
 import { NavLink } from "@/components/site/NavLink";
 import logoAsset from "@/assets/logo.png.asset.json";
 
@@ -87,13 +88,24 @@ export function Footer() {
           <div>
             <h3 className="font-display text-lg font-bold uppercase">Dịch Vụ</h3>
             <ul className="mt-4 space-y-2">
-              {SERVICES.slice(0, 8).map((s) => (
-                <li key={s.title}>
-                  <Link to="/dich-vu" className={linkCls}>
-                    {s.title}
-                  </Link>
-                </li>
-              ))}
+              {SERVICES.slice(0, 8).map((s) => {
+                const page = SERVICE_PAGES.find(
+                  (p) => p.name.trim().toLowerCase() === s.title.trim().toLowerCase(),
+                );
+                return (
+                  <li key={s.title}>
+                    {page ? (
+                      <Link to="/dich-vu/$slug" params={{ slug: page.slug }} className={linkCls}>
+                        {s.title}
+                      </Link>
+                    ) : (
+                      <Link to="/dich-vu" className={linkCls}>
+                        {s.title}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -117,6 +129,18 @@ export function Footer() {
                   Hồ sơ năng lực
                 </Link>
               </li>
+              <li>
+                <Link to="/blog" className={linkCls}>
+                  Kiến thức bốc xếp &amp; logistics
+                </Link>
+              </li>
+              {PROJECTS.slice(0, 4).map((p) => (
+                <li key={p.slug}>
+                  <Link to="/du-an/$slug" params={{ slug: p.slug }} className={linkCls}>
+                    {p.name}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <Link to="/" hash="lien-he" className={linkCls}>
                   Tuyển dụng
