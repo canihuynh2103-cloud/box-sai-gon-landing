@@ -4,6 +4,7 @@ import { Clock, Facebook, Mail, MapPin, Phone, Send, Youtube, Music2 } from "luc
 import { BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, NAV_ITEMS, PROJECTS, SERVICES, WORK_HOURS } from "@/data/site";
 import { SERVICE_PAGES } from "@/data/service-pages";
 import { NavLink } from "@/components/site/NavLink";
+import { openConsentSettings } from "@/lib/consent";
 import logoAsset from "@/assets/logo.png.asset.json";
 
 // TODO(SEO): Các URL social bên dưới CHƯA được xác minh (đang là trang gốc của
@@ -204,10 +205,20 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-secondary-foreground/55 sm:flex-row">
           <p>© {new Date().getFullYear()} Bốc Xếp Sài Gòn. Bảo lưu mọi quyền.</p>
-          <div className="flex gap-5">
+          <div className="flex flex-wrap gap-5">
             <Link to="/ho-so-nang-luc" className="hover:text-primary">
               Hồ sơ năng lực
             </Link>
+            <Link to="/chinh-sach-bao-mat" className="hover:text-primary">
+              Chính sách bảo mật
+            </Link>
+            <button
+              type="button"
+              onClick={openConsentSettings}
+              className="rounded-sm hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+              Cài đặt cookie
+            </button>
             <Link to="/" hash="lien-he" className="hover:text-primary">
               Liên hệ
             </Link>
