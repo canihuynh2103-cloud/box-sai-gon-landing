@@ -4,6 +4,7 @@ import { Clock, Facebook, Mail, MapPin, Phone, Send, Youtube, Music2 } from "luc
 import { BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, NAV_ITEMS, PROJECTS, SERVICES, WORK_HOURS } from "@/data/site";
 import { SERVICE_PAGES } from "@/data/service-pages";
 import { NavLink } from "@/components/site/NavLink";
+import { openConsentSettings } from "@/lib/consent";
 import logoAsset from "@/assets/logo.png.asset.json";
 
 // TODO(SEO): Các URL social bên dưới CHƯA được xác minh (đang là trang gốc của
