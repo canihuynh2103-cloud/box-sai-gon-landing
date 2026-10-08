@@ -208,10 +208,16 @@ function RootComponent() {
     return () => data.subscription.unsubscribe();
   }, [router, queryClient]);
 
+  useEffect(() => {
+    // Cookie consent (regional banner) + Google Ads tag gating. Client-only.
+    void initConsent();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <ConsentBanner />
       <Toaster richColors position="top-right" />
     </QueryClientProvider>
   );

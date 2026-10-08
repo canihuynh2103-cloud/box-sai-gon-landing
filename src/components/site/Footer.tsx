@@ -204,10 +204,20 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-secondary-foreground/55 sm:flex-row">
           <p>© {new Date().getFullYear()} Bốc Xếp Sài Gòn. Bảo lưu mọi quyền.</p>
-          <div className="flex gap-5">
+          <div className="flex flex-wrap gap-5">
             <Link to="/ho-so-nang-luc" className="hover:text-primary">
               Hồ sơ năng lực
             </Link>
+            <Link to="/chinh-sach-bao-mat" className="hover:text-primary">
+              Chính sách bảo mật
+            </Link>
+            <button
+              type="button"
+              onClick={openConsentSettings}
+              className="rounded-sm hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+              Cài đặt cookie
+            </button>
             <Link to="/" hash="lien-he" className="hover:text-primary">
               Liên hệ
             </Link>
