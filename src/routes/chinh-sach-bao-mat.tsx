@@ -76,10 +76,9 @@ function PrivacyPolicyPage() {
           chuyển đổi như yêu cầu báo giá hoặc gọi điện qua nút hotline.
         </P>
         <P>
-          Mặc định, ở các khu vực pháp luật yêu cầu sự đồng ý (bao gồm Việt Nam, EEA, Vương
-          quốc Anh và Thụy Sĩ), cookie quảng cáo bị tắt cho đến khi bạn chọn "Chấp nhận" trên
-          banner cookie. Bạn có thể rút lại hoặc thay đổi lựa chọn bất cứ lúc nào qua mục
-          "Cài đặt cookie" ở chân trang.
+          Ở các khu vực pháp luật yêu cầu sự đồng ý (bao gồm Việt Nam, EEA, Vương quốc Anh
+          và Thụy Sĩ) hoặc khi không xác định được khu vực, website không tải thẻ Google Ads
+          và không gửi dữ liệu đo lường quảng cáo tới Google.
         </P>
 
         <H2>3. Mục đích sử dụng dữ liệu</H2>
@@ -91,10 +90,9 @@ function PrivacyPolicyPage() {
 
         <H2>4. Quyền của bạn và cách từ chối</H2>
         <P>
-          Bạn có quyền từ chối cookie quảng cáo ngay trên banner, hoặc rút lại đồng ý sau đó
-          qua "Cài đặt cookie" ở chân trang mọi trang. Việc từ chối cookie quảng cáo không
-          ảnh hưởng tới việc bạn sử dụng các chức năng của website. Lựa chọn của bạn được lưu
-          trên thiết bị của bạn và được áp dụng ngay lập tức.
+          Bạn có thể chặn hoặc xoá cookie trong cài đặt trình duyệt, hoặc tắt quảng cáo được
+          cá nhân hoá tại trang Cài đặt quảng cáo của Google (adssettings.google.com). Việc
+          này không ảnh hưởng tới việc bạn sử dụng các chức năng của website.
         </P>
 
         <H2>5. Lưu trữ và liên hệ</H2>
