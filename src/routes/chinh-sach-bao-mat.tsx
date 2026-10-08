@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
@@ -31,11 +32,11 @@ export const Route = createFileRoute(POLICY_PATH as "/chinh-sach-bao-mat")({
   component: PrivacyPolicyPage,
 });
 
-function H2({ children }: { children: string }) {
+function H2({ children }: { children: ReactNode }) {
   return <h2 className="mt-8 font-heading text-xl font-bold uppercase tracking-tight">{children}</h2>;
 }
 
-function P({ children }: { children: string }) {
+function P({ children }: { children: ReactNode }) {
   return <p className="mt-3 leading-relaxed text-muted-foreground">{children}</p>;
 }
 
