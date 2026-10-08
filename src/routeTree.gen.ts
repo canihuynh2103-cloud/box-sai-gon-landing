@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as ChinhSachBaoMatRouteImport } from './routes/chinh-sach-bao-mat'
 import { Route as DichVuBocXepTphcmRouteImport } from './routes/dich-vu-boc-xep-tphcm'
 import { Route as HoSoNangLucRouteImport } from './routes/ho-so-nang-luc'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
@@ -44,6 +45,11 @@ const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChinhSachBaoMatRoute = ChinhSachBaoMatRouteImport.update({
+  id: '/chinh-sach-bao-mat',
+  path: '/chinh-sach-bao-mat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DichVuBocXepTphcmRoute = DichVuBocXepTphcmRouteImport.update({
@@ -150,6 +156,7 @@ const AuthenticatedAdminUsersRoute = AuthenticatedAdminUsersRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/chinh-sach-bao-mat': typeof ChinhSachBaoMatRoute
   '/dich-vu-boc-xep-tphcm': typeof DichVuBocXepTphcmRoute
   '/ho-so-nang-luc': typeof HoSoNangLucRoute
   '/reset-password': typeof ResetPasswordRoute
@@ -173,6 +180,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/chinh-sach-bao-mat': typeof ChinhSachBaoMatRoute
   '/dich-vu-boc-xep-tphcm': typeof DichVuBocXepTphcmRoute
   '/ho-so-nang-luc': typeof HoSoNangLucRoute
   '/reset-password': typeof ResetPasswordRoute
@@ -197,6 +205,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/chinh-sach-bao-mat': typeof ChinhSachBaoMatRoute
   '/dich-vu-boc-xep-tphcm': typeof DichVuBocXepTphcmRoute
   '/ho-so-nang-luc': typeof HoSoNangLucRoute
   '/reset-password': typeof ResetPasswordRoute
@@ -222,6 +231,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/auth'
+    | '/chinh-sach-bao-mat'
     | '/dich-vu-boc-xep-tphcm'
     | '/ho-so-nang-luc'
     | '/reset-password'
@@ -245,6 +255,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth'
+    | '/chinh-sach-bao-mat'
     | '/dich-vu-boc-xep-tphcm'
     | '/ho-so-nang-luc'
     | '/reset-password'
@@ -268,6 +279,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/auth'
+    | '/chinh-sach-bao-mat'
     | '/dich-vu-boc-xep-tphcm'
     | '/ho-so-nang-luc'
     | '/reset-password'
@@ -293,6 +305,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
+  ChinhSachBaoMatRoute: typeof ChinhSachBaoMatRoute
   DichVuBocXepTphcmRoute: typeof DichVuBocXepTphcmRoute
   HoSoNangLucRoute: typeof HoSoNangLucRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
@@ -325,6 +338,13 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chinh-sach-bao-mat': {
+      id: '/chinh-sach-bao-mat'
+      path: '/chinh-sach-bao-mat'
+      fullPath: '/chinh-sach-bao-mat'
+      preLoaderRoute: typeof ChinhSachBaoMatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dich-vu-boc-xep-tphcm': {
@@ -508,6 +528,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
+  ChinhSachBaoMatRoute: ChinhSachBaoMatRoute,
   DichVuBocXepTphcmRoute: DichVuBocXepTphcmRoute,
   HoSoNangLucRoute: HoSoNangLucRoute,
   ResetPasswordRoute: ResetPasswordRoute,
