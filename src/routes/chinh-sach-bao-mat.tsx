@@ -11,7 +11,7 @@ const TITLE = "Chính Sách Bảo Mật — Bốc Xếp Sài Gòn";
 const DESC =
   "Chính sách bảo mật và xử lý cookie của Bốc Xếp Sài Gòn: dữ liệu thu thập, Google Ads, mục đích đo lường quảng cáo, quyền đồng ý và cách rút lại đồng ý.";
 
-export const Route = createFileRoute(POLICY_PATH as "/chinh-sach-bao-mat")({
+export const Route = createFileRoute("/chinh-sach-bao-mat")({
   head: () => {
     const base = metaFor({ title: TITLE, description: DESC, path: POLICY_PATH });
     return {
