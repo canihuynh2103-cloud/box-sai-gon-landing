@@ -14,6 +14,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { supabase } from "@/integrations/supabase/client";
 import { Toaster } from "@/components/ui/sonner";
+import { GTAG_SNIPPET, initConsent } from "@/lib/consent";
+import { ConsentBanner } from "@/components/site/ConsentBanner";
 
 
 function NotFoundComponent() {
@@ -92,6 +94,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "robots", content: "index, follow, max-image-preview:large" },
     ],
     scripts: [
+      {
+        // Google Ads — single global tag (AW-17877629629) with Consent Mode v2.
+        // Ad purposes default to denied inside consent regions until the visitor
+        // decides via the regional banner. No conversion events configured yet.
+        children: GTAG_SNIPPET,
+      },
       {
         type: "application/ld+json",
         children: JSON.stringify({
