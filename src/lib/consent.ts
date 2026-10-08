@@ -9,7 +9,7 @@
  *   region lookup fails / is unknown, per privacy-safe fallback).
  * - Each decision is stored locally (decision, timestamp, notice version) so
  *   the visitor can change or withdraw it later via "Cài đặt cookie" (footer).
- * - No conversion events are configured yet (owner will supply ID/label).
+ * - One conversion: quote form success (trackQuoteConversion), gated by Consent Mode.
  */
 
 export const ADS_ID = "AW-17877629629";
@@ -165,4 +165,18 @@ export function rejectConsent() {
 export function openConsentSettings() {
   bannerVisible = true;
   notify();
+}
+
+/** Google Ads conversion: "Gửi Yêu Cầu Báo Giá" (call only after backend success). */
+export const QUOTE_CONVERSION_SEND_TO = "AW-17877629629/f-4LCKyL1pUdEL3128xC";
+
+export function trackQuoteConversion(): void {
+  if (typeof window === "undefined") return;
+  const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+  if (typeof w.gtag !== "function") return;
+  w.gtag("event", "conversion", {
+    send_to: QUOTE_CONVERSION_SEND_TO,
+    value: 1.0,
+    currency: "VND",
+  });
 }

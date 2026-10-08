@@ -1,9 +1,10 @@
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { CheckCircle2, Clock, Loader2, Mail, MapPin, Phone, AlertCircle } from "lucide-react";
 import { useServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { ADDRESS, BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, SERVICES, WORK_HOURS } from "@/data/site";
 import { submitQuote } from "@/lib/quote.functions";
+import { trackQuoteConversion } from "@/lib/consent";
 
 
 const schema = z.object({
@@ -35,6 +36,7 @@ export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
   const [lastSentAt, setLastSentAt] = useState(0);
+  const inFlight = useRef(false);
   const send = useServerFn(submitQuote);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -80,6 +82,8 @@ export function Contact() {
           ? err.message
           : `Không thể gửi yêu cầu lúc này. Vui lòng thử lại hoặc gọi Hotline ${HOTLINE}.`,
       );
+    } finally {
+      inFlight.current = false;
     }
   }
 
