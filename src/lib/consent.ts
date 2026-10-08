@@ -18,7 +18,7 @@ export const POLICY_PATH = "/chinh-sach-bao-mat";
 const STORAGE_KEY = "bsg.cookie-consent.v1";
 
 /** EEA + UK + CH + VN: regions where ad consent must be asked. */
-export const CONSENT_REGIONS: string[] = [
+const CONSENT_REGION_LIST: string[] = [
   "VN",
   // EU 27
   "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR",
@@ -27,6 +27,8 @@ export const CONSENT_REGIONS: string[] = [
   // EEA extras + UK + CH + BR (LGPD) + KR (PIPA) + ZA (POPIA)
   "IS", "LI", "NO", "GB", "CH", "BR", "KR", "ZA",
 ];
+
+export const CONSENT_REGIONS = new Set(CONSENT_REGION_LIST);
 
 export const GTAG_SNIPPET = [
   "window.dataLayer = window.dataLayer || [];",
