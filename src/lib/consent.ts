@@ -33,7 +33,7 @@ export const CONSENT_REGIONS = new Set(CONSENT_REGION_LIST);
 export const GTAG_SNIPPET = [
   "window.dataLayer = window.dataLayer || [];",
   "function gtag(){dataLayer.push(arguments);}",
-  `gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500,region:${JSON.stringify(CONSENT_REGIONS)}});`,
+  `gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500,region:${JSON.stringify(CONSENT_REGION_LIST)}});`,
   "gtag('js', new Date());",
   `gtag('config','${ADS_ID}');`,
   `(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=${ADS_ID}';var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);})();`,
