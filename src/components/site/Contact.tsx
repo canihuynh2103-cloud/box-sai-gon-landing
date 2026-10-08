@@ -57,6 +57,8 @@ export function Contact() {
       return;
     }
 
+    if (inFlight.current) return; // block double clicks while sending
+    inFlight.current = true;
     setStatus("loading");
     setError(null);
     try {
@@ -66,6 +68,8 @@ export function Contact() {
           sourcePath: typeof window !== "undefined" ? window.location.pathname : "/",
         },
       });
+      // Fire exactly once, only after the backend confirmed the request.
+      trackQuoteConversion();
       setStatus("success");
       setLastSentAt(Date.now());
       form.reset();
