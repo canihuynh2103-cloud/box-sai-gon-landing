@@ -10,4 +10,4 @@
 <!-- LOVABLE:END -->
 
 ## Analytics / Ads
-- Google Ads tag (AW-17877629629) is a single global snippet in `src/routes/__root.tsx` head with Consent Mode v2 defaults denied in consent regions; consent state lives in `src/lib/consent.ts` (regional banner + footer "Cài đặt cookie"). Why: keeps one tag per page and the regional-banner compliance route the owner chose; conversion events intentionally not configured until the owner supplies ID/label.
+- Google Ads tag (AW-17877629629) is a single global snippet in `src/routes/__root.tsx` head with Consent Mode v2 defaults denied in consent regions; consent state lives in `src/lib/consent.ts` (regional banner + footer "Cài đặt cookie"). Why: keeps one tag per page and the regional-banner compliance route the owner chose; the only conversion event is the quote-form success, fired once via trackQuoteConversion after the server confirms.
