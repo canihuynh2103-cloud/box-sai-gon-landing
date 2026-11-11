@@ -31,9 +31,11 @@ const VALUES = [
 ];
 
 function useCountUp(target: number, start: boolean) {
-  const [value, setValue] = useState(0);
+  // Hiển thị số thật ngay khi tải trang (SSR/Googlebot), chỉ chạy hiệu ứng khi cuộn tới.
+  const [value, setValue] = useState(target);
   useEffect(() => {
     if (!start) return;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
     const duration = 1600;
     const t0 = performance.now();
     let raf = 0;

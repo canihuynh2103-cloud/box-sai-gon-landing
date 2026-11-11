@@ -10,7 +10,6 @@ import { absUrl } from "@/lib/seo";
 import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Skeleton } from "@/components/ui/skeleton";
 
 const TITLE = "Kiến Thức Bốc Xếp & Logistics — Bốc Xếp Sài Gòn";
 const DESC =
@@ -43,7 +42,6 @@ function normalize(v: string) {
 
 function BlogIndex() {
   const { data } = useSuspenseQuery(postsListQuery());
-  const isLoading = false;
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<string>("Tất cả");
 
@@ -118,13 +116,11 @@ function BlogIndex() {
         )}
 
         <p aria-live="polite" className="mt-4 text-sm text-muted-foreground">
-          {isLoading ? "Đang tải bài viết..." : `${filtered.length} bài viết`}
+          {`${filtered.length} bài viết`}
         </p>
 
         <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {isLoading
-            ? Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} className="h-56 w-full" />)
-            : filtered.map((post) => (
+          {filtered.map((post) => (
                 <Link
                   key={post.id}
                   to="/blog/$slug"
@@ -155,7 +151,7 @@ function BlogIndex() {
                 </Link>
               ))}
         </div>
-        {!isLoading && filtered.length === 0 ? (
+        {filtered.length === 0 ? (
           <p className="mt-10 text-muted-foreground">
             Không tìm thấy bài viết phù hợp. Thử từ khóa khác nhé.
           </p>
