@@ -509,5 +509,5 @@ export const STATS = [
   { value: 10, suffix: "+", label: "Năm Kinh Nghiệm" },
   { value: 1200, suffix: "+", label: "Dự Án" },
   { value: 850, suffix: "+", label: "Khách Hàng" },
-  { value: 100, suffix: "+", label: "Nhân Công" },
+  { value: 80, suffix: "+", label: "Nhân Công" },
 ];
