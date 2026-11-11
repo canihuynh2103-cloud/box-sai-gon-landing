@@ -11,11 +11,11 @@ import { absUrl, breadcrumbLd, metaFor, SITE_NAME } from "@/lib/seo";
 
 const TITLE = "Hồ Sơ Năng Lực Bốc Xếp Sài Gòn — Kinh Nghiệm & Cam Kết";
 const DESC =
-  "Hồ sơ năng lực Bốc Xếp Sài Gòn: hơn 10 năm kinh nghiệm, 100+ nhân công, 3 chi nhánh tại TP.HCM, quy trình an toàn, bảo hiểm hàng hóa và cam kết dịch vụ rõ ràng.";
+  "Hồ sơ năng lực Bốc Xếp Sài Gòn: hơn 10 năm kinh nghiệm, 80+ nhân công, 3 chi nhánh tại TP.HCM, quy trình an toàn, bảo hiểm hàng hóa và cam kết dịch vụ rõ ràng.";
 
 const CAPABILITIES = [
   { label: "Năm kinh nghiệm", value: "10+", desc: "Hoạt động liên tục trong ngành bốc xếp tại TP.HCM" },
-  { label: "Nhân công thường trực", value: "100+", desc: "Có hồ sơ, được huấn luyện an toàn lao động" },
+  { label: "Nhân công thường trực", value: "80+", desc: "Có hồ sơ, được huấn luyện an toàn lao động" },
   { label: "Chi nhánh điều phối", value: "3", desc: "Thủ Đức, Tân Bình, Bình Tân" },
   { label: "Thời gian điều động", value: "2 giờ", desc: "Trong nội thành, kể cả ngoài giờ hành chính" },
 ];

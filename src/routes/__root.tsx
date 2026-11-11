@@ -117,7 +117,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             addressCountry: "VN",
           },
           areaServed: ["Thành phố Hồ Chí Minh", "Bình Dương", "Đồng Nai", "Long An"],
-          openingHours: "Mo-Su 06:00-22:00",
+          openingHours: "Mo-Su 00:00-23:59",
           priceRange: "$$",
         }),
       },

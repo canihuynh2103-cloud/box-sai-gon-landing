@@ -43,7 +43,7 @@ export const ZALO_LINK = "https://zaloapp.com/qr/p/8nkmbua5ktom?src=qr";
 export const MAPS_LINK =
   "https://www.google.com/maps/search/?api=1&query=" +
   encodeURIComponent("234 Tô Ngọc Vân, Thủ Đức, TP.HCM");
-export const WORK_HOURS = "T2 - CN: 6h00 - 22h00";
+export const WORK_HOURS = "24/7 – tất cả các ngày trong tuần";
 
 export const BRANCHES = [
   {
