@@ -21,9 +21,9 @@ import containerAsset from "@/assets/svc-container.jpg.asset.json";
 
 
 const PATH = "/dich-vu-boc-xep-tphcm";
-const TITLE = "Dịch Vụ Bốc Xếp TP.HCM Chuyên Nghiệp 24/7 | Bốc Xếp Sài Gòn";
+const TITLE = "Bốc Xếp TPHCM – Thuê Bốc Xếp Tận Nơi 24/7 | Bốc Xếp Sài Gòn";
 const DESC =
-  "Dịch vụ bốc xếp TP.HCM chuyên nghiệp 24/7 tại kho, nhà máy, container và xe tải. Thuê nhân công theo giờ, ngày hoặc dài hạn. Gọi 0888.997.822.";
+  "Cần bốc xếp ở TPHCM? Đội bốc xếp đến tận kho, nhà máy, container và xe tải tại các quận, huyện. Thuê theo giờ, ngày hoặc dài hạn, báo giá nhanh qua 0888.997.822.";
 
 /** Ảnh thực tế có sẵn trên site, dùng làm og:image (URL tuyệt đối). */
 const OG_IMAGE = `${SITE_URL}${containerAsset.url}`;

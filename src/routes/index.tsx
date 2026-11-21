@@ -17,9 +17,9 @@ import { postsListQuery } from "@/lib/blog-queries";
 import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
 
-const TITLE = "Dịch Vụ Bốc Xếp TP.HCM Giá Tốt, Uy Tín 24/7 | Bốc Xếp Sài Gòn";
+const TITLE = "Bốc Xếp Sài Gòn – Dịch Vụ Bốc Xếp, Bốc Vác Hàng Hóa 24/7";
 const DESC =
-  "Bốc Xếp Sài Gòn cung cấp dịch vụ bốc xếp hàng hóa tại TP.HCM: kho hàng, container, nhà máy, cảng và thuê nhân công theo giờ, ngày, tháng. Báo giá minh bạch, phục vụ 24/7.";
+  "Bốc Xếp Sài Gòn nhận bốc xếp, bốc vác hàng hóa tại kho, container, nhà máy và cảng. Thuê theo giờ, ngày hoặc tháng, báo giá theo khối lượng thực tế. Gọi 0888.997.822.";
 
 export const Route = createFileRoute("/")({
   loader: ({ context }) => context.queryClient.prefetchQuery(postsListQuery()),
