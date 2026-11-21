@@ -47,12 +47,12 @@ export function Hero() {
           </span>
 
 
-          <h1 className="mt-6 max-w-3xl font-display text-5xl font-bold leading-[0.95] text-secondary-foreground sm:text-7xl lg:text-8xl">
+          <p className="mt-6 max-w-3xl font-display text-5xl font-bold leading-[0.95] text-secondary-foreground sm:text-7xl lg:text-8xl">
             Bốc Xếp Sài Gòn
-          </h1>
-          <p className="mt-3 font-display text-2xl font-semibold uppercase tracking-[0.06em] text-primary sm:text-3xl">
-            Chuyên Nghiệp - Nhanh Chóng - An Toàn
           </p>
+          <h1 className="mt-3 max-w-3xl font-display text-2xl font-semibold uppercase leading-tight tracking-[0.04em] text-primary sm:text-3xl">
+            Dịch Vụ Bốc Xếp Hàng Hóa Tại TP.HCM Chuyên Nghiệp 24/7
+          </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-secondary-foreground/80 sm:text-lg">
             {banner?.subtitle ??
               "Hơn 10 năm kinh nghiệm trong ngành bốc xếp và di dời hàng hóa. Đội ngũ 80+ nhân công được huấn luyện an toàn lao động, sẵn sàng phục vụ 24/7 tại TP.HCM và các tỉnh lân cận."}

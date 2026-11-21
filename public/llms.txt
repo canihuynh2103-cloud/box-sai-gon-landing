@@ -1,0 +1,19 @@
+# Bốc Xếp Sài Gòn
+
+> Dịch vụ bốc xếp hàng hóa, cung ứng nhân công, xếp dỡ container, kho hàng, nhà máy và chuyển kho xưởng tại TP.HCM và các tỉnh lân cận. Hotline 0888.997.822, phục vụ 24/7.
+
+## Pages
+
+- [Trang chủ](https://bocxepsaigon.vn/): Giới thiệu dịch vụ, bảng giá, dự án và form báo giá.
+- [Dịch vụ bốc xếp TP.HCM](https://bocxepsaigon.vn/dich-vu-boc-xep-tphcm): Trang tổng hợp dịch vụ bốc xếp tại TP.HCM.
+- [Danh sách dịch vụ](https://bocxepsaigon.vn/dich-vu): Toàn bộ dịch vụ bốc xếp và nhân công.
+- [Bốc xếp container](https://bocxepsaigon.vn/dich-vu/boc-xep-container): Đóng, rút hàng container 20/40 feet.
+- [Hồ sơ năng lực](https://bocxepsaigon.vn/ho-so-nang-luc): Năng lực nhân sự và kinh nghiệm.
+
+## Blog
+
+- [Blog kiến thức bốc xếp](https://bocxepsaigon.vn/blog): Bài viết về chi phí, quy trình và kinh nghiệm bốc xếp.
+
+## Optional
+
+- [Chính sách bảo mật](https://bocxepsaigon.vn/chinh-sach-bao-mat)

@@ -14,7 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { supabase } from "@/integrations/supabase/client";
 import { Toaster } from "@/components/ui/sonner";
-import { GTAG_SNIPPET, initConsent } from "@/lib/consent";
+import { GTAG_SNIPPET, initConsent, initClickTracking } from "@/lib/consent";
 
 
 function NotFoundComponent() {
@@ -209,6 +209,7 @@ function RootComponent() {
   useEffect(() => {
     // Cookie consent (regional banner) + Google Ads tag gating. Client-only.
     void initConsent();
+    initClickTracking();
   }, []);
 
   return (

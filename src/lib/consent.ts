@@ -95,4 +95,21 @@ export function trackQuoteConversion(): void {
     value: 1.0,
     currency: "VND",
   });
+  w.gtag("event", "form_success", { form: "quote" });
+}
+
+/** Ghi nhận lượt bấm Gọi / Zalo (không phải chuyển đổi Ads). Gọi một lần ở root. */
+let clicksBound = false;
+export function initClickTracking(): void {
+  if (clicksBound || typeof document === "undefined") return;
+  clicksBound = true;
+  document.addEventListener("click", (e) => {
+    const a = (e.target as HTMLElement | null)?.closest?.("a[href]") as HTMLAnchorElement | null;
+    if (!a) return;
+    const href = a.getAttribute("href") ?? "";
+    const name = href.startsWith("tel:") ? "click_phone" : /zalo/i.test(href) ? "click_zalo" : null;
+    if (!name) return;
+    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+    w.gtag?.("event", name, { page_path: window.location.pathname });
+  }, { capture: true });
 }

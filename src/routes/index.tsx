@@ -11,14 +11,18 @@ import { Reviews } from "@/components/site/Reviews";
 import { Pricing } from "@/components/site/Pricing";
 import { Faq } from "@/components/site/Faq";
 import { Contact } from "@/components/site/Contact";
+import { ServiceAreas } from "@/components/site/ServiceAreas";
+import { LatestPosts } from "@/components/site/LatestPosts";
+import { postsListQuery } from "@/lib/blog-queries";
 import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
 
-const TITLE = "Bốc Xếp Sài Gòn — Dịch Vụ Bốc Xếp Hàng Hóa TP.HCM 24/7";
+const TITLE = "Dịch Vụ Bốc Xếp TP.HCM Giá Tốt, Uy Tín 24/7 | Bốc Xếp Sài Gòn";
 const DESC =
-  "Dịch vụ bốc xếp hàng hóa, thuê nhân công, chuyển kho - nhà - văn phòng tại TP.HCM. 10+ năm kinh nghiệm, 80+ nhân công, báo giá minh bạch, hotline 24/7.";
+  "Bốc Xếp Sài Gòn cung cấp dịch vụ bốc xếp hàng hóa tại TP.HCM: kho hàng, container, nhà máy, cảng và thuê nhân công theo giờ, ngày, tháng. Báo giá minh bạch, phục vụ 24/7.";
 
 export const Route = createFileRoute("/")({
+  loader: ({ context }) => context.queryClient.prefetchQuery(postsListQuery()),
   head: () => ({
     meta: [
       { title: TITLE },
@@ -60,7 +64,9 @@ function Index() {
         <Partners />
         <Projects />
         <Reviews />
+        <ServiceAreas />
         <Pricing />
+        <LatestPosts />
         <Faq />
         <Contact />
       </main>
