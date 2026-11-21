@@ -36,6 +36,7 @@ export const CONTENT_CLUSTERS: Cluster[] = [
       t("Thuê bốc xếp kho theo ca đêm: lưu ý và chi phí", "boc-xep-kho-ca-dem", "bốc xếp ca đêm", "commercial", 3, "boc-xep-kho-hang"),
       t("An toàn lao động trong kho: 12 nguyên tắc bắt buộc", "an-toan-lao-dong-trong-kho", "an toàn lao động trong kho", "informational", 2, "boc-xep-kho-hang"),
       t("Sai lầm khiến chi phí bốc xếp kho tăng 30%", "sai-lam-tang-chi-phi-boc-xep-kho", "giảm chi phí bốc xếp", "informational", 3, "boc-xep-kho-hang"),
+      t("Cách sắp xếp pallet tối ưu diện tích kho", "cach-sap-xep-pallet-toi-uu-dien-tich-kho", "sắp xếp pallet tối ưu diện tích kho", "informational", 2, "boc-xep-kho-hang"),
     ],
   },
   {
@@ -48,6 +49,7 @@ export const CONTENT_CLUSTERS: Cluster[] = [
       t("Đóng hàng vào container: cách chằng buộc chống xê dịch", "dong-hang-vao-container-chang-buoc", "đóng hàng container", "informational", 2, "boc-xep-container"),
       t("Phí lưu container (DEM/DET) và cách rút hàng kịp hạn", "phi-luu-container-dem-det", "phí lưu container", "informational", 2, "boc-xep-container"),
       t("Rút container hàng lạnh: yêu cầu đặc thù", "rut-container-hang-lanh", "container hàng lạnh", "commercial", 3, "boc-xep-container"),
+      t("Rút ruột container: tránh phí lưu container (DEM/DET) bằng cách nào?", "rut-ruot-container-tranh-phi-luu-cont", "rút container tránh phí lưu cont", "informational", 2, "boc-xep-container"),
     ],
   },
   {
@@ -59,6 +61,7 @@ export const CONTENT_CLUSTERS: Cluster[] = [
       t("5S trong xưởng sản xuất và vai trò của tổ bốc xếp", "5s-trong-xuong-san-xuat", "5S trong sản xuất", "informational", 3, "boc-xep-nha-may"),
       t("Bốc xếp hàng hóa chất: quy định an toàn", "boc-xep-hang-hoa-chat-an-toan", "bốc xếp hóa chất", "informational", 2, "boc-xep-nha-may"),
       t("KPI đo hiệu suất tổ bốc xếp trong nhà máy", "kpi-to-boc-xep-nha-may", "KPI bốc xếp", "informational", 3, "boc-xep-nha-may"),
+      t("Checklist di dời máy móc trong nhà máy", "checklist-di-doi-may-moc-trong-nha-may", "checklist di dời máy móc", "informational", 2, "boc-xep-nha-may"),
     ],
   },
   {
@@ -90,6 +93,7 @@ export const CONTENT_CLUSTERS: Cluster[] = [
       t("Tự tuyển hay thuê ngoài tổ bốc xếp: so sánh chi phí", "tu-tuyen-hay-thue-ngoai-boc-xep", "thuê ngoài bốc xếp", "informational", 2, "thue-nhan-cong-boc-xep"),
       t("Thuê nhân công dịp cao điểm Tết: kinh nghiệm", "thue-nhan-cong-cao-diem-tet", "nhân công dịp Tết", "commercial", 3, "thue-nhan-cong-boc-xep"),
       t("Bốc xếp thời vụ cho sàn TMĐT mùa sale", "boc-xep-thoi-vu-tmdt", "bốc xếp thời vụ", "commercial", 3, "thue-nhan-cong-boc-xep"),
+      t("Nên thuê nhân công bốc xếp theo giờ hay theo tháng?", "nen-thue-nhan-cong-theo-gio-hay-theo-thang", "thuê nhân công theo giờ hay theo tháng", "commercial", 2, "thue-nhan-cong-boc-xep"),
     ],
   },
   {
@@ -100,6 +104,7 @@ export const CONTENT_CLUSTERS: Cluster[] = [
       t("Đóng thùng gỗ, kiện gỗ cho hàng máy móc", "dong-thung-go-cho-may-moc", "đóng thùng gỗ", "commercial", 2, "dong-goi-hang-hoa"),
       t("Vật liệu đóng gói: chọn màng PE, xốp hay carton?", "chon-vat-lieu-dong-goi", "vật liệu đóng gói", "informational", 2, "dong-goi-hang-hoa"),
       t("Đóng gói hàng dễ vỡ: 9 kỹ thuật thực tế", "dong-goi-hang-de-vo", "đóng gói hàng dễ vỡ", "informational", 2, "dong-goi-hang-hoa"),
+      t("Tiêu chuẩn đóng gói hàng xuất khẩu đi EU", "tieu-chuan-dong-goi-hang-xuat-khau-eu", "tiêu chuẩn đóng gói hàng xuất khẩu EU", "informational", 2, "dong-goi-hang-hoa"),
     ],
   },
   {

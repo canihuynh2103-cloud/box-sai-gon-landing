@@ -1,5 +1,16 @@
 # Technical SEO audit độc lập
 
+## Ultra SEO — 21/11/2026
+- [x] Kiểm tra 88 URL production và 88 URL preview; xuất Keyword-to-URL Mapping và 29 ảnh.
+- [x] Phân nhóm 62 seed A–G, 229 bản ghi quản trị; bổ sung 5 bài có sẵn vào 14 cluster.
+- [x] Sửa anchor danh mục, tìm kiếm tiếng Việt/dịch vụ trước bài; giữ URL công khai và nhận diện.
+- [x] Quản trị từ khóa/CSV: CRUD, lọc, cảnh báo trùng, 138 dòng semantic được lưu/đọc lại; admin/nonadmin/anon đã thử.
+- [x] Đối chiếu Search Console HTTPS không www chủ chọn: 105 cặp truy vấn–trang, kỳ 21/10–18/11/2026; dữ liệu có thật.
+- [x] Xuất XLSX/Markdown; 16 tests đạt, flow thật CRUD/CSV/GSC/search và mobile/desktop đạt.
+- [ ] Publish và kiểm tra live — cần chủ xuất bản; production còn soft-404 và hai logo đối tác cũ.
+- [ ] Nâng cấp blog có giá/định mức — cần hồ sơ nguồn vận hành và báo giá được xác nhận.
+- [ ] Lịch tự động GSC — refresh thủ công đã đạt; chờ chấp thuận lịch vận hành định kỳ.
+
 ## Production readiness — 21/11/2026
 - [x] Kiểm tra production: 104 URL, metadata/schema, 38 tài nguyên, liên kết, redirects/404.
 - [x] Kiểm tra 176 lượt trình duyệt desktop/mobile, điều hướng, console/runtime và liên kết liên hệ.

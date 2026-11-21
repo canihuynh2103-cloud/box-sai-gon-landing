@@ -106,7 +106,7 @@ function ServiceHub() {
                   params={{ slug: s.slug }}
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
                 >
-                  Xem chi tiết <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  {s.name} <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
                 </Link>
               </CardContent>
             </Card>

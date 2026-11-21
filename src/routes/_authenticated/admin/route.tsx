@@ -11,6 +11,7 @@ import {
   Menu,
   MessageSquareQuote,
   Package,
+  Search,
   ShieldAlert,
   Star,
   Users,
@@ -29,6 +30,7 @@ export const Route = createFileRoute("/_authenticated/admin")({
 const NAV: { to: string; label: string; icon: typeof Home; exact?: boolean }[] = [
   { to: "/admin", label: "Tổng quan", icon: LayoutDashboard, exact: true },
   { to: "/admin/posts", label: "Bài viết", icon: FileText },
+  { to: "/admin/keywords", label: "Từ khóa SEO", icon: Search },
   { to: "/admin/services", label: "Dịch vụ", icon: Package },
   { to: "/admin/projects", label: "Dự án", icon: GalleryHorizontal },
   { to: "/admin/reviews", label: "Đánh giá", icon: Star },

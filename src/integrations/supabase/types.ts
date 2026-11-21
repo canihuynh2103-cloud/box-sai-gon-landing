@@ -377,6 +377,153 @@ export type Database = {
         }
         Relationships: []
       }
+      seo_gsc_snapshots: {
+        Row: {
+          clicks: number
+          ctr: number
+          end_date: string
+          fetched_at: string
+          id: string
+          impressions: number
+          page_url: string
+          position: number
+          query: string
+          site_url: string
+          start_date: string
+        }
+        Insert: {
+          clicks: number
+          ctr: number
+          end_date: string
+          fetched_at?: string
+          id?: string
+          impressions: number
+          page_url: string
+          position: number
+          query: string
+          site_url: string
+          start_date: string
+        }
+        Update: {
+          clicks?: number
+          ctr?: number
+          end_date?: string
+          fetched_at?: string
+          id?: string
+          impressions?: number
+          page_url?: string
+          position?: number
+          query?: string
+          site_url?: string
+          start_date?: string
+        }
+        Relationships: []
+      }
+      seo_keywords: {
+        Row: {
+          content_status: string
+          content_type: string
+          created_at: string
+          cta: string
+          evidence_source: string
+          gsc_clicks: number | null
+          gsc_ctr: number | null
+          gsc_end_date: string | null
+          gsc_impressions: number | null
+          gsc_position: number | null
+          gsc_start_date: string | null
+          gsc_synced_at: string | null
+          h1: string
+          id: string
+          keyword: string
+          keyword_group: string
+          long_tail_keywords: string[]
+          meta_description: string
+          notes: string
+          primary_keyword: string
+          priority: number
+          questions: string[]
+          related_urls: string[]
+          search_intent: string
+          search_location: string
+          secondary_keywords: string[]
+          semantic_keywords: string[]
+          semrush_difficulty: number | null
+          semrush_volume: number | null
+          seo_title: string
+          target_url: string
+          updated_at: string
+        }
+        Insert: {
+          content_status?: string
+          content_type?: string
+          created_at?: string
+          cta?: string
+          evidence_source?: string
+          gsc_clicks?: number | null
+          gsc_ctr?: number | null
+          gsc_end_date?: string | null
+          gsc_impressions?: number | null
+          gsc_position?: number | null
+          gsc_start_date?: string | null
+          gsc_synced_at?: string | null
+          h1?: string
+          id?: string
+          keyword: string
+          keyword_group?: string
+          long_tail_keywords?: string[]
+          meta_description?: string
+          notes?: string
+          primary_keyword?: string
+          priority?: number
+          questions?: string[]
+          related_urls?: string[]
+          search_intent?: string
+          search_location?: string
+          secondary_keywords?: string[]
+          semantic_keywords?: string[]
+          semrush_difficulty?: number | null
+          semrush_volume?: number | null
+          seo_title?: string
+          target_url?: string
+          updated_at?: string
+        }
+        Update: {
+          content_status?: string
+          content_type?: string
+          created_at?: string
+          cta?: string
+          evidence_source?: string
+          gsc_clicks?: number | null
+          gsc_ctr?: number | null
+          gsc_end_date?: string | null
+          gsc_impressions?: number | null
+          gsc_position?: number | null
+          gsc_start_date?: string | null
+          gsc_synced_at?: string | null
+          h1?: string
+          id?: string
+          keyword?: string
+          keyword_group?: string
+          long_tail_keywords?: string[]
+          meta_description?: string
+          notes?: string
+          primary_keyword?: string
+          priority?: number
+          questions?: string[]
+          related_urls?: string[]
+          search_intent?: string
+          search_location?: string
+          secondary_keywords?: string[]
+          semantic_keywords?: string[]
+          semrush_difficulty?: number | null
+          semrush_volume?: number | null
+          seo_title?: string
+          target_url?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       services: {
         Row: {
           content: string | null

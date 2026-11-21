@@ -26,6 +26,7 @@ import { Route as DuAnSlugRouteImport } from './routes/du-an/$slug'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin/index'
 import { Route as AuthenticatedAdminBannersRouteImport } from './routes/_authenticated/admin/banners'
 import { Route as AuthenticatedAdminFaqsRouteImport } from './routes/_authenticated/admin/faqs'
+import { Route as AuthenticatedAdminKeywordsRouteImport } from './routes/_authenticated/admin/keywords'
 import { Route as AuthenticatedAdminPostsRouteImport } from './routes/_authenticated/admin/posts'
 import { Route as AuthenticatedAdminPricingRouteImport } from './routes/_authenticated/admin/pricing'
 import { Route as AuthenticatedAdminProjectsRouteImport } from './routes/_authenticated/admin/projects'
@@ -118,6 +119,12 @@ const AuthenticatedAdminFaqsRoute = AuthenticatedAdminFaqsRouteImport.update({
   path: '/faqs',
   getParentRoute: () => AuthenticatedAdminRouteRoute,
 } as any)
+const AuthenticatedAdminKeywordsRoute =
+  AuthenticatedAdminKeywordsRouteImport.update({
+    id: '/keywords',
+    path: '/keywords',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
 const AuthenticatedAdminPostsRoute = AuthenticatedAdminPostsRouteImport.update({
   id: '/posts',
   path: '/posts',
@@ -169,6 +176,7 @@ export interface FileRoutesByFullPath {
   '/dich-vu/': typeof DichVuIndexRoute
   '/admin/banners': typeof AuthenticatedAdminBannersRoute
   '/admin/faqs': typeof AuthenticatedAdminFaqsRoute
+  '/admin/keywords': typeof AuthenticatedAdminKeywordsRoute
   '/admin/posts': typeof AuthenticatedAdminPostsRoute
   '/admin/pricing': typeof AuthenticatedAdminPricingRoute
   '/admin/projects': typeof AuthenticatedAdminProjectsRoute
@@ -192,6 +200,7 @@ export interface FileRoutesByTo {
   '/dich-vu': typeof DichVuIndexRoute
   '/admin/banners': typeof AuthenticatedAdminBannersRoute
   '/admin/faqs': typeof AuthenticatedAdminFaqsRoute
+  '/admin/keywords': typeof AuthenticatedAdminKeywordsRoute
   '/admin/posts': typeof AuthenticatedAdminPostsRoute
   '/admin/pricing': typeof AuthenticatedAdminPricingRoute
   '/admin/projects': typeof AuthenticatedAdminProjectsRoute
@@ -218,6 +227,7 @@ export interface FileRoutesById {
   '/dich-vu/': typeof DichVuIndexRoute
   '/_authenticated/admin/banners': typeof AuthenticatedAdminBannersRoute
   '/_authenticated/admin/faqs': typeof AuthenticatedAdminFaqsRoute
+  '/_authenticated/admin/keywords': typeof AuthenticatedAdminKeywordsRoute
   '/_authenticated/admin/posts': typeof AuthenticatedAdminPostsRoute
   '/_authenticated/admin/pricing': typeof AuthenticatedAdminPricingRoute
   '/_authenticated/admin/projects': typeof AuthenticatedAdminProjectsRoute
@@ -244,6 +254,7 @@ export interface FileRouteTypes {
     | '/dich-vu/'
     | '/admin/banners'
     | '/admin/faqs'
+    | '/admin/keywords'
     | '/admin/posts'
     | '/admin/pricing'
     | '/admin/projects'
@@ -267,6 +278,7 @@ export interface FileRouteTypes {
     | '/dich-vu'
     | '/admin/banners'
     | '/admin/faqs'
+    | '/admin/keywords'
     | '/admin/posts'
     | '/admin/pricing'
     | '/admin/projects'
@@ -292,6 +304,7 @@ export interface FileRouteTypes {
     | '/dich-vu/'
     | '/_authenticated/admin/banners'
     | '/_authenticated/admin/faqs'
+    | '/_authenticated/admin/keywords'
     | '/_authenticated/admin/posts'
     | '/_authenticated/admin/pricing'
     | '/_authenticated/admin/projects'
@@ -438,6 +451,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminFaqsRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
+    '/_authenticated/admin/keywords': {
+      id: '/_authenticated/admin/keywords'
+      path: '/keywords'
+      fullPath: '/admin/keywords'
+      preLoaderRoute: typeof AuthenticatedAdminKeywordsRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
     '/_authenticated/admin/posts': {
       id: '/_authenticated/admin/posts'
       path: '/posts'
@@ -486,6 +506,7 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedAdminRouteRouteChildren {
   AuthenticatedAdminBannersRoute: typeof AuthenticatedAdminBannersRoute
   AuthenticatedAdminFaqsRoute: typeof AuthenticatedAdminFaqsRoute
+  AuthenticatedAdminKeywordsRoute: typeof AuthenticatedAdminKeywordsRoute
   AuthenticatedAdminPostsRoute: typeof AuthenticatedAdminPostsRoute
   AuthenticatedAdminPricingRoute: typeof AuthenticatedAdminPricingRoute
   AuthenticatedAdminProjectsRoute: typeof AuthenticatedAdminProjectsRoute
@@ -499,6 +520,7 @@ const AuthenticatedAdminRouteRouteChildren: AuthenticatedAdminRouteRouteChildren
   {
     AuthenticatedAdminBannersRoute: AuthenticatedAdminBannersRoute,
     AuthenticatedAdminFaqsRoute: AuthenticatedAdminFaqsRoute,
+    AuthenticatedAdminKeywordsRoute: AuthenticatedAdminKeywordsRoute,
     AuthenticatedAdminPostsRoute: AuthenticatedAdminPostsRoute,
     AuthenticatedAdminPricingRoute: AuthenticatedAdminPricingRoute,
     AuthenticatedAdminProjectsRoute: AuthenticatedAdminProjectsRoute,

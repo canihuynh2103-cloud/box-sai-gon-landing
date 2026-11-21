@@ -14,6 +14,9 @@
 - www.bocxepsaigon.vn redirects 301 to bocxepsaigon.vn via request middleware in src/start.ts; why: one canonical host for SEO.
 
 ## Technical SEO
+- Public search uses the shared Vietnamese normalization and Fuse matching; service suggestions precede articles without creating search URLs. Why: retain crawlable existing routes while supporting accented, unaccented and mistyped queries.
+- SEO keyword records live in an admin-only table and never modify public page metadata automatically. Why: keep editorial planning and measured evidence separate from published content.
+- Search Console refresh revalidates the chosen verified property and admin role before saving query/page snapshots; public requests only use existing content. Why: prevent credential exposure and keep provider traffic out of visitor rendering.
 - Missing blog records throw router notFound and query failures propagate; why: absent articles must not return indexable HTTP 200 pages.
 - Organization staffing structured data uses the shared workforceLd value; why: keep the machine-readable count consistent with confirmed business information.
 - The authenticated layout emits noindex; why: administrative screens are not public search destinations.

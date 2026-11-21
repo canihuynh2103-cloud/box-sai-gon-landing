@@ -8,6 +8,20 @@
       "when": 1795261094670,
       "tag": "0000_remove_signup_admin_bootstrap",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1795262825309,
+      "tag": "0001_admin_seo_keyword_management",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795262931607,
+      "tag": "0002_seo_search_console_snapshots",
+      "breakpoints": true
     }
   ]
 }
