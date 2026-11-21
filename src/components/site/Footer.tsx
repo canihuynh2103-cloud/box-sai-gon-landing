@@ -51,7 +51,7 @@ export function Footer() {
             </div>
             <p className="mt-4 text-sm leading-relaxed text-secondary-foreground/70">
               Đơn vị cung cấp nhân công bốc xếp và di dời hàng hóa chuyên nghiệp tại TP.HCM
-              từ năm 2010. Chuyên nghiệp - Minh bạch - Tin cậy.
+              từ năm 2015. Chuyên nghiệp - Minh bạch - Tin cậy.
             </p>
             <form onSubmit={onSubscribe} className="mt-5">
               <label
