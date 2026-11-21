@@ -15,6 +15,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { absUrl, breadcrumbLd, SITE_NAME } from "@/lib/seo";
 import { ALL_TOPICS } from "@/data/content-plan";
 import { SERVICE_PAGES } from "@/data/service-pages";
+import { safePostHtml } from "@/lib/safe-html";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: async ({ context, params }) => {
@@ -121,7 +122,7 @@ function PostPage() {
 
   const { data } = useSuspenseQuery(postDetailQuery(slug));
   const isLoading = false;
-  const content = useMemo(() => withHeadingIds(data?.content ?? ""), [data?.content]);
+  const content = useMemo(() => withHeadingIds(safePostHtml(data?.content ?? "")), [data?.content]);
 
   return (
     <div className="min-h-screen bg-background">

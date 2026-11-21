@@ -194,9 +194,9 @@ export type Partner = { name: string; logo?: string };
 export const PARTNERS: Partner[] = [
   { name: "Samsung", logo: "https://cdn.simpleicons.org/samsung/ffffff" },
   { name: "Unilever", logo: "https://cdn.simpleicons.org/unilever/ffffff" },
-  { name: "Nestlé", logo: "https://cdn.simpleicons.org/nestle/ffffff" },
+  { name: "Nestlé" },
   { name: "DHL", logo: "https://cdn.simpleicons.org/dhl/ffffff" },
-  { name: "Maersk", logo: "https://cdn.simpleicons.org/maersk/ffffff" },
+  { name: "Maersk" },
   { name: "FedEx", logo: "https://cdn.simpleicons.org/fedex/ffffff" },
   { name: "Panasonic", logo: "https://cdn.simpleicons.org/panasonic/ffffff" },
   { name: "Toyota", logo: "https://cdn.simpleicons.org/toyota/ffffff" },

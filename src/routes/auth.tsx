@@ -167,7 +167,7 @@ function AuthPage() {
                 Tạo tài khoản
               </Button>
               <p className="text-xs text-muted-foreground">
-                Tài khoản đầu tiên được cấp quyền admin tự động. Các tài khoản sau cần admin phân quyền.
+                Tài khoản mới cần quản trị viên cấp quyền trước khi truy cập khu vực quản trị.
               </p>
             </TabsContent>
           </Tabs>

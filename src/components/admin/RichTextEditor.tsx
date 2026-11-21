@@ -36,6 +36,7 @@ import {
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { listRows, uploadMedia } from "@/lib/admin-db";
+import { safePostHtml, escapeHtmlText } from "@/lib/safe-html";
 
 type Props = {
   value: string;
@@ -66,17 +67,17 @@ export function RichTextEditor({ value, onChange, placeholder }: Props) {
   const [address, setAddress] = useState("");
   const [faq, setFaq] = useState("Câu hỏi 1 | Trả lời 1\nCâu hỏi 2 | Trả lời 2");
   const [ctaTitle, setCtaTitle] = useState("Cần báo giá bốc xếp?");
-  const [ctaText, setCtaText] = useState("Gọi ngay để nhận tư vấn miễn phí trong 5 phút.");
+  const [ctaText, setCtaText] = useState("Liên hệ để được tư vấn phương án phù hợp.");
   const [ctaLabel, setCtaLabel] = useState("Nhận báo giá");
-  const [ctaHref, setCtaHref] = useState("/#contact");
+  const [ctaHref, setCtaHref] = useState("/#lien-he");
 
   useEffect(() => {
     if (!html && ref.current && ref.current.innerHTML !== value) {
-      ref.current.innerHTML = value || "";
+      ref.current.innerHTML = safePostHtml(value || "");
     }
   }, [value, html]);
 
-  const emit = () => onChange(ref.current?.innerHTML ?? "");
+  const emit = () => onChange(safePostHtml(ref.current?.innerHTML ?? ""));
 
   const exec = (command: string, arg?: string) => {
     ref.current?.focus();
@@ -86,11 +87,11 @@ export function RichTextEditor({ value, onChange, placeholder }: Props) {
 
   const insert = (snippet: string) => {
     if (html) {
-      onChange(`${value}\n${snippet}`);
+      onChange(safePostHtml(`${value}\n${snippet}`));
       return;
     }
     ref.current?.focus();
-    document.execCommand("insertHTML", false, `${snippet}<p><br/></p>`);
+    document.execCommand("insertHTML", false, safePostHtml(`${snippet}<p><br/></p>`));
     emit();
   };
 
@@ -132,9 +133,9 @@ export function RichTextEditor({ value, onChange, placeholder }: Props) {
       const internal = posts.map((p) => ({ label: p.title as string, href: `/blog/${p.slug}` }));
       setLinks([
         { label: "Trang chủ", href: "/" },
-        { label: "Dịch vụ", href: "/#services" },
-        { label: "Bảng giá", href: "/#pricing" },
-        { label: "Liên hệ", href: "/#contact" },
+        { label: "Dịch vụ", href: "/dich-vu" },
+        { label: "Bảng giá", href: "/#bang-gia" },
+        { label: "Liên hệ", href: "/#lien-he" },
         { label: "Tất cả bài viết", href: "/blog" },
         ...internal,
       ]);
@@ -214,14 +215,14 @@ export function RichTextEditor({ value, onChange, placeholder }: Props) {
         .filter((parts) => parts[0]?.trim())
         .map(
           (parts) =>
-            `<details class="post-faq-item"><summary>${parts[0].trim()}</summary><p>${(parts[1] ?? "").trim()}</p></details>`,
+            `<details class="post-faq-item"><summary>${escapeHtmlText(parts[0]?.trim() ?? "")}</summary><p>${escapeHtmlText((parts[1] ?? "").trim())}</p></details>`,
         )
         .join("");
       insert(`<div class="post-faq">${items}</div>`);
     }
     if (block === "cta") {
       insert(
-        `<div class="post-cta"><strong>${ctaTitle}</strong><p>${ctaText}</p><a class="post-cta-btn" href="${ctaHref}">${ctaLabel}</a></div>`,
+        `<div class="post-cta"><strong>${escapeHtmlText(ctaTitle)}</strong><p>${escapeHtmlText(ctaText)}</p><a class="post-cta-btn" href="${escapeHtmlText(ctaHref)}">${escapeHtmlText(ctaLabel)}</a></div>`,
       );
     }
     setBlock(null);
@@ -272,6 +273,11 @@ export function RichTextEditor({ value, onChange, placeholder }: Props) {
           data-placeholder={placeholder}
           onInput={emit}
           onBlur={emit}
+          onPaste={(e) => {
+            e.preventDefault();
+            const pasted = e.clipboardData.getData("text/html") || escapeHtmlText(e.clipboardData.getData("text/plain"));
+            insert(pasted);
+          }}
           onDragOver={(e) => {
             e.preventDefault();
             setDragging(true);

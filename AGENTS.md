@@ -21,3 +21,7 @@
 - Service-specific operational guidance lives in service-guidance.ts and extends the existing service data; why: keep each page's advice distinct while preserving its URL, metadata, media and shared layout.
 - Booking duration copy derives from booking-policy.ts; why: keep FAQs and pricing notes consistent with the business policy.
 - Router dehydration restores the per-request Query cache before hydration; why: the initial HTML and client must show the same database-backed content and links.
+
+## Content security
+- Sanitize rich HTML through the shared safe-html allowlist before public rendering, preview, editor insertion and saving; why: stored content must never execute scripts in visitor or administrator sessions.
+- Signup only creates a profile and never grants administrator roles automatically; why: privileges must require an existing administrator's explicit decision.

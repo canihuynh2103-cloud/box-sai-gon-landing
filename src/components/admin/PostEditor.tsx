@@ -34,6 +34,7 @@ import { ImageUpload } from "@/components/admin/ImageUpload";
 import { EditorErrorBoundary } from "@/components/admin/EditorErrorBoundary";
 import { saveRowReturning, slugify, type Row } from "@/lib/admin-db";
 import { cn } from "@/lib/utils";
+import { safePostHtml } from "@/lib/safe-html";
 
 const toLocalInput = (value?: string | null) => {
   if (!value) return "";
@@ -135,7 +136,7 @@ export function PostEditor({ post, onClose }: Props) {
       slug: String(values.slug ?? "").trim() || slugify(String(values.title ?? "")) || `bai-viet-${Date.now()}`,
       category: values.category || null,
       excerpt: values.excerpt || null,
-      content: values.content ?? "",
+      content: safePostHtml(String(values.content ?? "")),
       cover_image: values.cover_image || null,
       cover_image_alt: values.cover_image_alt || null,
       status: values.status ?? "draft",
@@ -580,7 +581,7 @@ export function PostEditor({ post, onClose }: Props) {
             </p>
             <div
               className="post-content text-sm"
-              dangerouslySetInnerHTML={{ __html: String(values.content ?? "") }}
+              dangerouslySetInnerHTML={{ __html: safePostHtml(String(values.content ?? "")) }}
             />
           </article>
         </DialogContent>
