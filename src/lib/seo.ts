@@ -1,6 +1,9 @@
 export const SITE_URL = "https://bocxepsaigon.vn";
 export const SITE_NAME = "Bốc Xếp Sài Gòn";
 
+/** Minimum staffing confirmed by the business owner; shared with structured data. */
+export const workforceLd = { "@type": "QuantitativeValue", minValue: 80 } as const;
+
 /** Absolute URL for canonical / og:url / JSON-LD. */
 export const absUrl = (path: string) =>
   `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`.replace(/\/$/, "") || SITE_URL;

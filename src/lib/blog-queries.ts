@@ -44,13 +44,14 @@ export const postDetailQuery = (slug: string) =>
   queryOptions({
     queryKey: ["content", "post", slug],
     queryFn: async () => {
-      const { data } = await client
+      const { data, error } = await client
         .from("posts")
         .select(
           "title,excerpt,content,cover_image,cover_image_alt,category,published_at,updated_at,author,tags,reading_time,seo_title,seo_description,canonical_url,og_title,og_description,og_image",
         )
         .eq("slug", slug)
         .maybeSingle();
+      if (error) throw error;
       return (data as PostDetail | null) ?? null;
     },
     staleTime: 60_000,

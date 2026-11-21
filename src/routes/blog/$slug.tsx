@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMemo } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { ArrowLeft, CalendarDays, Clock, User } from "lucide-react";
 
@@ -22,10 +22,24 @@ export const Route = createFileRoute("/blog/$slug")({
       context.queryClient.ensureQueryData(postDetailQuery(params.slug)),
       context.queryClient.ensureQueryData(postsListQuery()),
     ]);
+    if (!post) throw notFound();
     return { post };
   },
   head: ({ params, loaderData }) => {
     const post = loaderData?.post;
+    if (!post) {
+      return {
+        meta: [
+          { title: "Bài viết không khả dụng — Bốc Xếp Sài Gòn" },
+          { name: "description", content: "Bài viết hiện không khả dụng trên Bốc Xếp Sài Gòn." },
+          { property: "og:title", content: "Bài viết không khả dụng — Bốc Xếp Sài Gòn" },
+          { property: "og:description", content: "Bài viết hiện không khả dụng trên Bốc Xếp Sài Gòn." },
+          { property: "og:type", content: "article" },
+          { name: "twitter:card", content: "summary" },
+          { name: "robots", content: "noindex, follow" },
+        ],
+      };
+    }
     const url = absUrl(`/blog/${params.slug}`);
     const title = post
       ? post.seo_title || `${post.title} — Bốc Xếp Sài Gòn`

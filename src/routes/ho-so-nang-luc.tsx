@@ -7,7 +7,7 @@ import { FloatingButtons } from "@/components/site/FloatingButtons";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ADDRESS, BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, WORK_HOURS } from "@/data/site";
-import { absUrl, breadcrumbLd, metaFor, SITE_NAME } from "@/lib/seo";
+import { absUrl, breadcrumbLd, metaFor, SITE_NAME, workforceLd } from "@/lib/seo";
 
 const TITLE = "Hồ Sơ Năng Lực Bốc Xếp Sài Gòn — Kinh Nghiệm & Cam Kết";
 const DESC =
@@ -89,7 +89,7 @@ export const Route = createFileRoute("/ho-so-nang-luc")({
               addressCountry: "VN",
             },
             areaServed: "TP. Hồ Chí Minh và các tỉnh lân cận",
-            numberOfEmployees: { "@type": "QuantitativeValue", minValue: 100 },
+            numberOfEmployees: workforceLd,
             department: BRANCHES.map((b) => ({
               "@type": "LocalBusiness",
               name: `${SITE_NAME} — ${b.name}`,

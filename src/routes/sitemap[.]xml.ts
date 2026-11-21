@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { SERVICE_PAGES } from "@/data/service-pages";
 import { PROJECTS } from "@/data/site";
+import { fetchSitemapPosts } from "@/lib/sitemap-posts";
 
 const BASE_URL = "https://bocxepsaigon.vn";
 
@@ -39,31 +40,28 @@ export const Route = createFileRoute("/sitemap.xml")({
           const url = process.env.VITE_SUPABASE_URL ?? process.env.SUPABASE_URL;
           const key =
             process.env.VITE_SUPABASE_PUBLISHABLE_KEY ?? process.env.SUPABASE_PUBLISHABLE_KEY;
-          if (url && key) {
-            const res = await fetch(
-              `${url}/rest/v1/posts?select=slug,updated_at&status=eq.published&order=updated_at.desc`,
-              { headers: { apikey: key } },
-            );
-            if (res.ok) {
-              const posts = (await res.json()) as { slug: string; updated_at: string | null }[];
-              for (const post of posts) {
-                entries.push({
-                  path: `/blog/${post.slug}`,
-                  lastmod: post.updated_at ? post.updated_at.slice(0, 10) : undefined,
-                  changefreq: "monthly",
-                  priority: "0.7",
-                });
-              }
-            }
+          if (!url || !key) throw new Error("Missing public sitemap configuration");
+          const posts = await fetchSitemapPosts(url, key);
+          for (const post of posts) {
+            entries.push({
+              path: `/blog/${post.slug}`,
+              ...(post.updated_at ? { lastmod: post.updated_at.slice(0, 10) } : {}),
+              changefreq: "monthly",
+              priority: "0.7",
+            });
           }
-        } catch {
-          // sitemap vẫn trả về các route tĩnh nếu không lấy được bài viết
+        } catch (error) {
+          console.error("Sitemap unavailable", error);
+          return new Response("Sitemap temporarily unavailable", {
+            status: 503,
+            headers: { "Content-Type": "text/plain", "Cache-Control": "no-store", "Retry-After": "60" },
+          });
         }
 
         const urls = entries.map((e) =>
           [
             `  <url>`,
-            `    <loc>${BASE_URL}${e.path}</loc>`,
+            `    <loc>${`${BASE_URL}${e.path}`.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</loc>`,
             e.lastmod ? `    <lastmod>${e.lastmod}</lastmod>` : null,
             e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
             e.priority ? `    <priority>${e.priority}</priority>` : null,
