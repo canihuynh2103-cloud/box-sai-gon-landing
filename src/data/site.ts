@@ -15,6 +15,7 @@ import svcNightTrussAsset from "@/assets/svc-night-truss.jpg.asset.json";
 import svcEquipmentAsset from "@/assets/svc-equipment.jpg.asset.json";
 import svcCratesAsset from "@/assets/svc-crates.jpg.asset.json";
 import svcBundlesAsset from "@/assets/svc-bundles.jpg.asset.json";
+import { minimumHireNote } from "@/lib/booking-policy";
 
 const svcWarehouse = svcWarehouseAsset.url;
 const svcContainer = svcContainerAsset.url;
@@ -210,7 +211,7 @@ export const PARTNERS: Partner[] = [
 export const SERVICE_POSTS: Record<string, { title: string; excerpt: string }[]> = {
   "Bốc Xếp Kho Hàng": [
     { title: "Quy trình nhập - xuất kho chuẩn 5 bước", excerpt: "Kiểm đếm hai lớp, dán nhãn vị trí và ký biên bản bàn giao ngay tại kho." },
-    { title: "Cách sắp xếp pallet tối ưu diện tích kho", excerpt: "Bố trí theo tần suất xuất hàng giúp rút ngắn 30% thời gian lấy hàng." },
+    { title: "Cách sắp xếp pallet tối ưu diện tích kho", excerpt: "Bố trí theo tần suất xuất hàng, vị trí kệ và lối đi để thuận tiện lấy hàng." },
   ],
   "Bốc Xếp Container": [
     { title: "Rút ruột container: tránh phí lưu cont thế nào?", excerpt: "Lên kế hoạch nhân sự theo lịch tàu để giải phóng cont đúng hạn." },
@@ -222,18 +223,18 @@ export const SERVICE_POSTS: Record<string, { title: string; excerpt: string }[]>
   ],
   "Bốc Xếp Cảng": [
     { title: "Thủ tục ra vào cảng Cát Lái cho nhân công", excerpt: "Nhân sự có thẻ cảng và chứng nhận an toàn, sẵn sàng làm việc 24/7." },
-    { title: "Bốc xếp hàng bao kiện tại cảng hiệu quả", excerpt: "Tổ chức đội 10-15 người theo dây chuyền giúp tăng năng suất theo ca." },
+    { title: "Bốc xếp hàng bao kiện tại cảng hiệu quả", excerpt: "Chia nhóm theo các khâu thao tác, vị trí hàng và thiết bị được phép sử dụng." },
   ],
   "Bốc Xếp Sân Bay": [
-    { title: "Quy trình build-up pallet hàng air", excerpt: "Tuân thủ quy định an ninh hàng không và tiêu chuẩn ULD của hãng bay." },
-    { title: "Xử lý hàng air cargo nhanh tại Tân Sơn Nhất", excerpt: "Đội trực theo ca đêm bảo đảm kịp giờ cắt máng của forwarder." },
+    { title: "Chuẩn bị kiện hàng air tại kho", excerpt: "Đối chiếu quy cách bao bì và hướng dẫn bàn giao từ đơn vị giao nhận." },
+    { title: "Xử lý hàng air cargo gần Tân Sơn Nhất", excerpt: "Bố trí ca theo giờ tiếp nhận được forwarder xác nhận, tại khu vực được phép làm." },
   ],
   "Thuê Nhân Công": [
     { title: "Nên thuê nhân công theo giờ hay theo tháng?", excerpt: "So sánh chi phí và tính ổn định để chọn phương án phù hợp mùa cao điểm." },
-    { title: "Cách quản lý nhân công thời vụ hiệu quả", excerpt: "Có đội trưởng giám sát, chấm công điện tử và báo cáo sản lượng hằng ngày." },
+    { title: "Cách quản lý nhân công thời vụ hiệu quả", excerpt: "Làm rõ người giám sát, cách chấm công và báo cáo phần việc hoàn thành." },
   ],
   "Đóng Gói Hàng Hóa": [
-    { title: "Tiêu chuẩn đóng gói hàng xuất khẩu EU", excerpt: "Thùng carton 5 lớp, quấn màng PE và dán nhãn barcode đúng quy cách." },
+    { title: "Tiêu chuẩn đóng gói hàng xuất khẩu EU", excerpt: "Chọn bao bì, vật liệu và nhãn theo hướng dẫn tuyến vận chuyển và khách nhận." },
     { title: "Đóng gói hàng dễ vỡ: 6 lưu ý quan trọng", excerpt: "Chèn lót nhiều lớp, cố định góc và ghi rõ ký hiệu cảnh báo." },
   ],
   "Chuyển Kho": [
@@ -254,7 +255,7 @@ export const SERVICE_POSTS: Record<string, { title: string; excerpt: string }[]>
   ],
   "Bốc Hàng Theo Giờ": [
     { title: "Điều động nhân công trong 60 phút", excerpt: "Tổng đài trực 24/7, điều phối đội gần nhất tới hiện trường." },
-    { title: "Cách tính phí bốc hàng theo giờ", excerpt: "Tính theo giờ thực tế, tối thiểu 3 giờ, không phát sinh ngoài thỏa thuận." },
+    { title: "Cách tính phí bốc hàng theo giờ", excerpt: "Thời gian thuê theo công việc, cách tính công được xác nhận trước khi điều đội." },
   ],
   "Bốc Xếp Theo Tháng": [
     { title: "Lợi ích của đội cố định trực tại kho", excerpt: "Nhân sự quen quy trình, giảm sai sót và ổn định năng suất." },
@@ -427,7 +428,7 @@ export const PRICING = [
     name: "Theo Giờ",
     price: "50.000 - 80.000",
     unit: "VNĐ/giờ/người",
-    note: "Tối thiểu 3 giờ",
+    note: minimumHireNote(),
     popular: false,
     features: [
       "Điều động trong 60 phút",

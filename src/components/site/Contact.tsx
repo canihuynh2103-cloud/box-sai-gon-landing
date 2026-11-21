@@ -95,7 +95,7 @@ export function Contact() {
         <div className="max-w-2xl">
           <span className="section-eyebrow">Liên hệ</span>
           <h2 className="mt-4 font-display text-4xl font-bold uppercase leading-tight sm:text-5xl">
-            Nhận báo giá trong 15 phút
+            Nhận báo giá theo nhu cầu
           </h2>
           <p className="mt-4 text-muted-foreground">
             Để lại thông tin, bộ phận điều phối sẽ liên hệ tư vấn và khảo sát miễn phí.
@@ -154,12 +154,12 @@ export function Contact() {
                 </Field>
               </div>
 
-              <Field label="Số lượng nhân công">
+              <Field label="Số nhân công (nếu đã biết)">
                 <input
                   name="workersCount"
                   maxLength={60}
                   className={inputCls}
-                  placeholder="VD: 5 người"
+                  placeholder="Chưa rõ — cần tư vấn"
                 />
               </Field>
               <Field label="Loại hàng hóa">

@@ -6,6 +6,8 @@ import svcContainerAsset from "@/assets/svc-container.jpg.asset.json";
 import svcUnloadingAsset from "@/assets/svc-unloading.jpg.asset.json";
 import svcPortAsset from "@/assets/svc-port.jpg.asset.json";
 import svcNightStreetAsset from "@/assets/svc-night-street.jpg.asset.json";
+import { SERVICE_GUIDANCE } from "./service-guidance";
+import { minimumHireNote } from "@/lib/booking-policy";
 
 export type ServicePage = {
   slug: string;
@@ -44,7 +46,7 @@ const IMG = {
 };
 
 
-export const SERVICE_PAGES: ServicePage[] = [
+const BASE_SERVICE_PAGES: ServicePage[] = [
   {
     slug: "boc-xep-kho-hang",
     name: "Bốc Xếp Kho Hàng",
@@ -86,7 +88,7 @@ export const SERVICE_PAGES: ServicePage[] = [
       "Hàng quá khổ hoặc quá nặng phải khảo sát trước để chuẩn bị thiết bị hỗ trợ",
     ],
     faqs: [
-      { q: "Thuê tối thiểu bao nhiêu giờ?", a: "Thông thường tính tối thiểu 3 giờ cho ca lẻ. Với kho làm thường xuyên, chúng tôi tính theo ca 8 giờ hoặc theo tháng để chi phí trên mỗi giờ thấp hơn." },
+      { q: "Thuê tối thiểu bao nhiêu giờ?", a: `${minimumHireNote()}. Với ca kho, thời lượng được trao đổi theo lượng hàng, lịch xe và phạm vi nhập xuất; công việc thường xuyên có thể lựa chọn theo ca hoặc theo tháng.` },
       { q: "Có nhận làm ca đêm không?", a: "Có. Nhiều kho chỉ nhập hàng ban đêm nên chúng tôi bố trí đội trực ca đêm và cuối tuần." },
       { q: "Ai chịu trách nhiệm nếu hàng bị hư hỏng?", a: "Đội trưởng lập biên bản tại hiện trường cùng quản lý kho. Phần lỗi do thao tác của nhân công, chúng tôi chịu trách nhiệm theo thỏa thuận trong hợp đồng." },
       { q: "Bao lâu thì có người tới kho?", a: "Trong nội thành TP.HCM, các ca đặt trước được điều đúng giờ; yêu cầu gấp thường xử lý trong vòng vài giờ tùy thời điểm và số người cần." },
@@ -150,7 +152,7 @@ export const SERVICE_PAGES: ServicePage[] = [
         h2: "Bốc Xếp Container Tại TP.HCM",
         paragraphs: [
           "Ở TP.HCM, phần lớn công việc bốc xếp container không diễn ra ở một chỗ cố định mà rải theo nơi container dừng lại: bãi cảng, depot trả rỗng, hoặc kho riêng của doanh nghiệp sau khi xe đầu kéo hạ cont. Mỗi tình huống có ràng buộc khác nhau về giờ ra vào, chỗ đặt hàng tạm và số người được phép làm cùng lúc.",
-          "Vì vậy khi nhận yêu cầu, việc đầu tiên là xác định container nằm ở đâu và phải trả rỗng lúc nào. Hai thông tin đó quyết định số người cần bố trí và cách chia ca, chứ không phải khối lượng hàng.",
+          "Khi nhận yêu cầu, cần xác định container nằm ở đâu, lượng hàng và cách đóng kiện, thiết bị có sẵn cùng thời điểm phải trả rỗng. Những thông tin này được xem xét đồng thời để bố trí nhân công và lịch làm phù hợp.",
         ],
         bullets: [
           "Rút và đóng cont tại kho riêng của doanh nghiệp sau khi hạ cont",
@@ -162,7 +164,7 @@ export const SERVICE_PAGES: ServicePage[] = [
       {
         h2: "Rút Ruột Container Tại TP.HCM",
         paragraphs: [
-          "Rút ruột container là công việc bị ràng buộc bởi thời gian nhiều hơn bởi sức người: mỗi ngày container còn nằm lại là thêm chi phí lưu cont và lưu bãi. Cách tổ chức của chúng tôi là chia thành nhóm trong lòng cont, nhóm trung chuyển và nhóm xếp hàng ở điểm nhận, để dòng hàng chạy liên tục thay vì dồn đống ở cửa cont.",
+          "Rút ruột container cần phối hợp theo lịch nhận hàng và hạn trả rỗng. Khi vượt thời hạn miễn phí do bên liên quan xác nhận, có thể phát sinh phí lưu container hoặc lưu bãi. Đội được chia theo các khâu trong lòng cont, trung chuyển và xếp ở điểm nhận để tránh dồn hàng tại cửa.",
           "Trong lòng container nóng và chật nên các nhóm được luân phiên vị trí. Đây là cách đơn giản để giữ tốc độ đều suốt ca, tránh tình trạng nhanh lúc đầu rồi chậm dần về cuối. Kiện hàng rách, ướt hoặc bẹp được tách riêng và ghi nhận ngay lúc rút, không để lẫn vào lô hàng rồi mới phát hiện sau khi nhập kho.",
         ],
       },
@@ -305,7 +307,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     ],
     faqs: [
       { q: "Có nhận việc gấp trong ngày không?", a: "Tùy thời điểm và số người cần. Bạn gọi hotline để được xác nhận khả năng điều động ngay." },
-      { q: "Đội bao nhiêu người là hợp lý?", a: "Hàng bao kiện thường tổ chức đội 10-15 người theo dây chuyền; hàng pallet cần ít người hơn nhưng cần thiết bị hỗ trợ." },
+      { q: "Đội bao nhiêu người là hợp lý?", a: "Cần xem số kiện, trọng lượng, cách đóng hàng, vị trí trong bãi và thiết bị được phép sử dụng. Đội được đề xuất theo các khâu thao tác và lịch bàn giao; không chốt một số người chung khi chưa có thông tin lô hàng và điều kiện ra vào." },
       { q: "Chi phí tính theo tấn hay theo giờ?", a: "Hàng đồng nhất tính theo tấn hoặc theo kiện; công việc phát sinh, đảo hàng thường tính theo giờ." },
       { q: "Có làm ban đêm?", a: "Có, chúng tôi bố trí ca đêm theo lịch tàu." },
       { q: "Ai giám sát chất lượng công việc?", a: "Đội trưởng tại hiện trường, làm việc trực tiếp với đại diện của bạn." },
@@ -319,11 +321,11 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Bốc Xếp Hàng Air Cargo Khu Vực Tân Sơn Nhất",
     seoTitle: "Bốc Xếp Sân Bay Tân Sơn Nhất — Hàng Air Cargo",
     seoDescription:
-      "Nhân công xử lý hàng air cargo khu vực sân bay Tân Sơn Nhất: build-up pallet, đóng gói, sang xe, làm theo ca kịp giờ cắt máng. Gọi 0888.997.822.",
+      "Xếp dỡ và đóng gói hàng air cargo tại kho gần Tân Sơn Nhất. Phối hợp lịch giao nhận, sang xe và bảo vệ kiện. Gọi 0888.997.822.",
     keyword: "bốc xếp sân bay",
     subKeywords: ["bốc xếp hàng air cargo", "nhân công sân bay tân sơn nhất", "xử lý hàng hàng không"],
     intro:
-      "Hàng air cargo chạy theo giờ cắt máng, chậm một nhịp là lỡ chuyến bay. Chúng tôi bố trí đội trực theo ca tại khu vực Tân Bình - Tân Sơn Nhất để xử lý hàng nhanh và đúng quy định an ninh.",
+      "Hàng air cargo cần được chuẩn bị theo giờ tiếp nhận mà đơn vị giao nhận xác nhận. Đội hỗ trợ xếp dỡ, sang xe và đóng gói tại kho gần Tân Sơn Nhất, phối hợp phần bàn giao với forwarder; không thay thế nghiệp vụ trong khu vực hạn chế của sân bay.",
     forWho: [
       "Forwarder, công ty giao nhận hàng hàng không",
       "Doanh nghiệp gửi hàng gấp bằng đường air",
@@ -332,11 +334,11 @@ export const SERVICE_PAGES: ServicePage[] = [
     scope: [
       "Sang xe, xếp dỡ hàng tại kho gần sân bay",
       "Đóng gói lại, quấn màng, cân và dán nhãn kiện",
-      "Hỗ trợ build-up hàng lên pallet theo yêu cầu của hãng bay",
+      "Sắp xếp kiện tại kho theo hướng dẫn bàn giao của đơn vị giao nhận",
       "Kiểm đếm theo AWB và chứng từ đi kèm",
     ],
     process: [
-      { step: "Nhận yêu cầu theo lô", detail: "Thông tin AWB, số kiện, trọng lượng, giờ cắt máng." },
+      { step: "Nhận yêu cầu theo lô", detail: "Thông tin AWB khi đã có, số kiện, trọng lượng và hạn bàn giao do đơn vị giao nhận xác nhận." },
       { step: "Điều động đội trực", detail: "Ưu tiên đội tại chi nhánh Tân Bình để tới hiện trường nhanh." },
       { step: "Xử lý hàng", detail: "Đóng gói, cân, dán nhãn, xếp hàng đúng quy cách." },
       { step: "Bàn giao", detail: "Chốt số kiện, trọng lượng và ký nhận với người phụ trách." },
@@ -397,9 +399,9 @@ export const SERVICE_PAGES: ServicePage[] = [
       "Công việc đặc thù cần đào tạo ngắn tại chỗ trước khi vào việc",
     ],
     faqs: [
-      { q: "Thuê 2 người trong 3 giờ có được không?", a: "Được. Ca lẻ thường tính tối thiểu 3 giờ." },
-      { q: "Thuê theo tháng có lợi gì?", a: "Đơn giá trên mỗi giờ thấp hơn, đội cố định quen việc nên năng suất ổn định và có báo cáo định kỳ." },
-      { q: "Có thay người nếu không phù hợp?", a: "Có. Bạn phản hồi với đội trưởng hoặc tổng đài, chúng tôi thay người trong ca kế tiếp." },
+      { q: "Có thể thuê nhân công cho một việc ngắn không?", a: `${minimumHireNote()}. Gửi lượng hàng, thao tác cần làm và giờ mong muốn để xác nhận đội cùng cách tính công cho lượt thuê của bạn.` },
+      { q: "Thuê theo tháng có lợi gì?", a: "Đội làm thường xuyên có điều kiện làm quen quy trình và lịch hàng của bạn. Hiệu quả chi phí cần so sánh trên số ca thực tế, phạm vi công việc và yêu cầu quản lý, không mặc định thuê tháng luôn rẻ hơn thuê theo ca." },
+      { q: "Có thay người nếu không phù hợp?", a: "Bạn phản hồi với đội trưởng hoặc đầu mối điều phối, nêu rõ thao tác hoặc yêu cầu chưa đáp ứng. Phương án và thời điểm thay người được xác nhận theo tình hình đội, nội quy ra vào và điều kiện đã thỏa thuận." },
       { q: "Nhân công có bảo hộ lao động?", a: "Có đồng phục, găng tay, giày bảo hộ và tuân thủ nội quy nơi làm việc." },
       { q: "Làm ngoài TP.HCM được không?", a: "Được, chúng tôi nhận việc tại Bình Dương, Đồng Nai, Long An và các tỉnh lân cận." },
       { q: "Thanh toán thế nào?", a: "Theo ca cho việc lẻ, theo tuần hoặc theo tháng với khách có hợp đồng." },
@@ -416,7 +418,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     keyword: "đóng gói hàng hóa",
     subKeywords: ["đóng thùng gỗ", "quấn màng pe pallet", "đóng gói hàng dễ vỡ"],
     intro:
-      "Phần lớn hư hỏng trên đường đi bắt nguồn từ khâu đóng gói. Đóng gói đúng cách giúp giảm rủi ro và cũng giúp xếp hàng lên xe, lên cont hiệu quả hơn.",
+      "Đóng gói cần bảo vệ đúng điểm yếu của hàng và phù hợp cách nâng, xếp, vận chuyển. Từ hàng dễ vỡ đến máy móc, phương án vật liệu và cố định kiện được lựa chọn theo đặc điểm hàng, không chỉ theo hình thức bên ngoài.",
     forWho: [
       "Doanh nghiệp gửi hàng đi tỉnh hoặc xuất khẩu",
       "Đơn vị chuyển kho, chuyển xưởng cần đóng kiện thiết bị",
@@ -457,13 +459,13 @@ export const SERVICE_PAGES: ServicePage[] = [
     slug: "chuyen-kho",
     name: "Chuyển Kho",
     h1: "Dịch Vụ Chuyển Kho Trọn Gói Tại TP.HCM",
-    seoTitle: "Chuyển Kho Trọn Gói TP.HCM — Không Gián Đoạn Vận Hành",
+    seoTitle: "Chuyển Kho Trọn Gói TP.HCM — Lập Kế Hoạch Theo Từng Đợt",
     seoDescription:
       "Chuyển kho trọn gói tại TP.HCM: lập kế hoạch, tháo dỡ, vận chuyển và sắp xếp lại kho mới theo sơ đồ. Làm theo giai đoạn, hotline 0888.997.822.",
     keyword: "chuyển kho",
     subKeywords: ["dịch vụ chuyển kho trọn gói", "di dời kho hàng", "chuyển kho tphcm"],
     intro:
-      "Chuyển kho không chỉ là chuyển hàng, mà là chuyển cả cách vận hành. Kế hoạch tốt giúp kho mới hoạt động ngay từ ngày đầu, thay vì mất một tuần để tìm hàng.",
+      "Chuyển kho cần giữ được khả năng kiểm soát hàng ở cả điểm đi và điểm nhận. Kế hoạch theo từng lô, nhãn vị trí và lịch bàn giao giúp hạn chế nhầm hàng, chuyển lại hoặc ảnh hưởng tới hoạt động nhập xuất đang diễn ra.",
     forWho: [
       "Doanh nghiệp mở rộng, đổi mặt bằng kho",
       "Đơn vị 3PL chuyển hàng giữa các kho",
@@ -511,7 +513,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     keyword: "chuyển văn phòng",
     subKeywords: ["chuyển office trọn gói", "chuyển văn phòng tphcm", "dọn văn phòng"],
     intro:
-      "Văn phòng chuyển tốt là văn phòng sáng thứ Hai mọi người tới là làm việc được ngay: máy có điện, hồ sơ đúng phòng ban, bàn ghế đã lắp xong.",
+      "Chuyển văn phòng cần giữ đúng vị trí hồ sơ, bảo vệ thiết bị và bố trí nội thất theo phòng ban ở nơi mới. Kế hoạch nên phối hợp lịch tòa nhà và công việc của bộ phận IT để hạn chế ảnh hưởng tới thời gian làm việc.",
     forWho: [
       "Công ty đổi mặt bằng, mở rộng diện tích",
       "Doanh nghiệp cần chuyển ngoài giờ hành chính",
@@ -530,7 +532,7 @@ export const SERVICE_PAGES: ServicePage[] = [
       { step: "Lắp đặt & bàn giao", detail: "Lắp lại bàn ghế, đặt thiết bị đúng vị trí, dọn dẹp và nghiệm thu." },
     ],
     pros: [
-      "Không mất ngày làm việc do thi công ngoài giờ",
+      "Có thể bố trí ngoài giờ theo lịch tòa nhà và người phụ trách để hạn chế ảnh hưởng công việc",
       "Hồ sơ, thiết bị có đánh số nên dễ kiểm soát",
       "Một đội phụ trách từ đóng gói tới lắp đặt lại",
     ],
@@ -587,8 +589,8 @@ export const SERVICE_PAGES: ServicePage[] = [
       "Đồ quá khổ như tủ lớn, đàn piano cần khảo sát riêng",
     ],
     faqs: [
-      { q: "Chuyển nhà cần đặt trước bao lâu?", a: "Nên đặt trước 1-3 ngày; cuối tuần và cuối tháng nên đặt sớm hơn." },
-      { q: "Có nhận chuyển ít đồ?", a: "Có, bạn có thể chỉ thuê 2-3 người theo giờ." },
+      { q: "Chuyển nhà cần đặt trước bao lâu?", a: "Nên liên hệ khi đã có ngày chuyển và điều kiện bàn giao hai nhà. Với chung cư, cần chốt lịch thang hàng trước; đội điều phối xác nhận thời điểm có thể nhận việc theo lượng đồ và lịch đội, không áp một số ngày đặt trước cho mọi trường hợp." },
+      { q: "Có nhận chuyển ít đồ?", a: "Có thể chọn chỉ thuê nhân công nếu bạn đã có xe và đồ đóng sẵn. Gửi ảnh, lượng đồ và điều kiện tầng hoặc cầu thang để xác nhận số người phù hợp, thay vì đặt một đội mẫu cho mọi lượt chuyển nhỏ." },
       { q: "Có tháo lắp máy lạnh?", a: "Hạng mục điện lạnh do kỹ thuật chuyên môn thực hiện; chúng tôi hỗ trợ kết nối hoặc phối hợp theo yêu cầu của bạn." },
       { q: "Chi phí phụ thuộc điều gì?", a: "Khối lượng đồ, tầng và thang máy, khoảng cách, số người và số chuyến xe." },
       { q: "Có cung cấp thùng carton?", a: "Có, tính theo số lượng thực dùng." },
@@ -634,7 +636,7 @@ export const SERVICE_PAGES: ServicePage[] = [
       "Hàng nặng cần thiết bị hỗ trợ, thống nhất trước khi làm",
     ],
     faqs: [
-      { q: "Có nhận việc theo chuyến lẻ?", a: "Có, tính theo giờ hoặc theo chuyến, tối thiểu thường là 3 giờ." },
+      { q: "Có nhận việc theo chuyến lẻ?", a: `${minimumHireNote()}. Với chuyến xe lẻ, cần nêu lượng hàng và điểm bàn giao để thống nhất tính theo công việc hoặc theo thời gian phù hợp.` },
       { q: "Bao nhiêu người cho một xe tải 8 tấn?", a: "Tùy loại hàng; hàng thùng carton thường cần ít người hơn hàng bao rời. Chúng tôi đề xuất sau khi biết loại hàng." },
       { q: "Có làm đêm không?", a: "Có, nhiều tuyến xe chỉ vào nội thành được vào ban đêm." },
       { q: "Có xe nâng, xe đẩy?", a: "Chúng tôi mang xe đẩy, ván trượt; xe nâng thu xếp theo yêu cầu và tính riêng." },
@@ -649,7 +651,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     h1: "Bốc Hàng Theo Giờ — Điều Động Nhanh Tại TP.HCM",
     seoTitle: "Bốc Hàng Theo Giờ TP.HCM — Thuê Nhanh, Giá Theo Giờ",
     seoDescription:
-      "Bốc hàng theo giờ tại TP.HCM, điều động nhanh, tính phí theo giờ thực tế, tối thiểu 3 giờ. Trực tổng đài 24/7, gọi 0888.997.822.",
+      "Bốc hàng theo giờ tại TP.HCM, không có mức thuê tối thiểu cố định. Tư vấn nhân công và cách tính công theo nhu cầu. Hotline 24/7: 0888.997.822.",
     keyword: "bốc hàng theo giờ",
     subKeywords: ["thuê bốc xếp theo giờ", "bốc xếp gấp tphcm", "giá bốc xếp theo giờ"],
     intro:
@@ -666,12 +668,12 @@ export const SERVICE_PAGES: ServicePage[] = [
     ],
     process: [
       { step: "Gọi hotline", detail: "Mô tả việc, địa chỉ, số người và thời gian bắt đầu." },
-      { step: "Chốt giá theo giờ", detail: "Xác nhận đơn giá và số giờ tối thiểu trước khi điều người." },
+      { step: "Chốt giá theo giờ", detail: "Xác nhận đơn giá, thời lượng cần thuê và cách ghi nhận giờ làm theo công việc trước khi điều người." },
       { step: "Điều đội gần nhất", detail: "Ưu tiên đội thuộc chi nhánh gần địa điểm của bạn." },
       { step: "Chốt giờ thực tế", detail: "Tính theo giờ làm thực tế, thanh toán sau khi hoàn thành." },
     ],
     pros: [
-      "Chi phí thấp cho việc nhỏ",
+      "Dễ kiểm soát công cho việc ngắn khi phạm vi và cách tính thời gian đã rõ",
       "Không cần hợp đồng dài hạn",
       "Phù hợp với công việc phát sinh ngoài kế hoạch",
     ],
@@ -680,7 +682,7 @@ export const SERVICE_PAGES: ServicePage[] = [
       "Việc kéo dài hơn dự kiến sẽ tính thêm theo giờ đã thống nhất",
     ],
     faqs: [
-      { q: "Tối thiểu bao nhiêu giờ?", a: "Thường là 3 giờ cho mỗi lượt điều động." },
+      { q: "Tối thiểu bao nhiêu giờ?", a: `${minimumHireNote()}. Thời gian cần thuê và cách ghi nhận giờ làm được thống nhất theo từng công việc trước khi điều đội, không buộc mọi lượt phải thuê đủ một số giờ chung.` },
       { q: "Có phụ phí ngoài giờ?", a: "Ca đêm, ngày lễ có thể áp dụng đơn giá khác, chúng tôi báo rõ trước khi bạn xác nhận." },
       { q: "Bao lâu có người tới?", a: "Tùy khu vực và thời điểm; hãy gọi hotline để được xác nhận thời gian cụ thể." },
       { q: "Thanh toán bằng chuyển khoản được không?", a: "Được, chuyển khoản hoặc tiền mặt sau khi hoàn thành." },
@@ -699,7 +701,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     keyword: "bốc xếp theo tháng",
     subKeywords: ["thuê nhân công theo tháng", "đội bốc xếp cố định", "outsourcing nhân công kho"],
     intro:
-      "Kho hoạt động đều mỗi ngày thì thuê theo tháng hợp lý hơn thuê lẻ: đội quen việc, năng suất ổn định và đơn giá mỗi giờ thấp hơn.",
+      "Kho có lịch hàng đều có thể lựa chọn đội theo tháng để bám ca và làm quen quy trình. Phương án cần dựa trên lượng việc, thời gian sử dụng thực tế và cách bổ sung người vào cao điểm, không chỉ so sánh đơn giá một giờ.",
     forWho: [
       "Kho, xưởng vận hành liên tục theo ca",
       "Doanh nghiệp muốn giảm gánh nặng tuyển dụng, quản lý nhân sự phổ thông",
@@ -718,7 +720,7 @@ export const SERVICE_PAGES: ServicePage[] = [
       { step: "Vận hành & báo cáo", detail: "Chấm công, báo sản lượng hằng tuần, họp đánh giá định kỳ." },
     ],
     pros: [
-      "Đơn giá mỗi giờ thấp hơn thuê lẻ",
+      "Chủ động lập ngân sách theo lịch ca và phạm vi công việc đã thống nhất",
       "Nhân sự quen quy trình nên ít sai sót",
       "Có cam kết thay người khi nghỉ",
     ],
@@ -785,5 +787,15 @@ export const SERVICE_PAGES: ServicePage[] = [
     related: ["boc-xep-theo-thang", "boc-xep-nha-may", "boc-xep-kho-hang"],
   },
 ];
+
+export const SERVICE_PAGES: ServicePage[] = BASE_SERVICE_PAGES.map((page) => {
+  const guidance = SERVICE_GUIDANCE[page.slug];
+  if (!guidance) return page;
+  return {
+    ...page,
+    extraSections: [...(page.extraSections ?? []), ...guidance.sections],
+    priceNote: guidance.pricing,
+  };
+});
 
 export const findServicePage = (slug: string) => SERVICE_PAGES.find((s) => s.slug === slug);

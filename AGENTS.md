@@ -18,3 +18,6 @@
 - Organization staffing structured data uses the shared workforceLd value; why: keep the machine-readable count consistent with confirmed business information.
 - The authenticated layout emits noindex; why: administrative screens are not public search destinations.
 - The existing custom sitemap paginates public published posts and returns uncached 503 on source failure; why: preserve all public URLs instead of silently serving incomplete XML.
+- Service-specific operational guidance lives in service-guidance.ts and extends the existing service data; why: keep each page's advice distinct while preserving its URL, metadata, media and shared layout.
+- Booking duration copy derives from booking-policy.ts; why: keep FAQs and pricing notes consistent with the business policy.
+- Router dehydration restores the per-request Query cache before hydration; why: the initial HTML and client must show the same database-backed content and links.

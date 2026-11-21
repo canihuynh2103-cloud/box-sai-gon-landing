@@ -94,7 +94,7 @@ function ServiceDetail() {
   const { page } = Route.useLoaderData() as { page: ServicePage };
   const related = page.related
     .map((slug) => SERVICE_PAGES.find((s) => s.slug === slug))
-    .filter(Boolean);
+    .filter((service): service is ServicePage => service !== undefined);
 
   const banner =
     SERVICES.find((s) => s.title.trim().toLowerCase() === page.name.trim().toLowerCase())?.image ??
@@ -131,7 +131,7 @@ function ServiceDetail() {
         </nav>
 
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
-          <article className="max-w-3xl">
+          <article className="max-w-3xl pr-16 lg:pr-0">
             <WatermarkedImage
               wrapperClassName="rounded-2xl border border-border"
               src={banner}
@@ -292,9 +292,7 @@ function ServiceDetail() {
                   </p>
                 ))}
                 <Button asChild size="lg" className="mt-4">
-                  <a href={`tel:${HOTLINE_TEL}`} className="cta-ring">
-                    <Phone className="mr-2 h-4 w-4" /> Gọi khảo sát &amp; báo giá {HOTLINE}
-                  </a>
+                  <a href="#lien-he">Gửi thông tin để nhận báo giá</a>
                 </Button>
               </section>
             )}
@@ -387,8 +385,8 @@ function ServiceDetail() {
               <CardContent className="p-5">
                 <h2 className="font-heading text-xl font-bold uppercase">Nhận báo giá {page.name}</h2>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Gọi hotline để được báo giá trong ít phút, hoặc để lại thông tin để chúng tôi liên
-                  hệ lại.
+                  Gọi hotline để trao đổi nhu cầu, hoặc gửi thông tin hàng hóa và địa điểm qua form.
+                  Chúng tôi xác nhận phạm vi, phương án và báo giá theo công việc của bạn.
                 </p>
                 <div className="mt-4 grid gap-2">
                   <Button asChild size="lg">
@@ -417,13 +415,13 @@ function ServiceDetail() {
                   <h2 className="font-heading text-lg font-bold uppercase">Dịch vụ liên quan</h2>
                   <ul className="mt-3 space-y-2 text-sm">
                     {related.map((r) => (
-                      <li key={r!.slug}>
+                      <li key={r.slug}>
                         <Link
                           to="/dich-vu/$slug"
-                          params={{ slug: r!.slug }}
+                          params={{ slug: r.slug }}
                           className="text-primary hover:underline"
                         >
-                          {r!.name}
+                          {r.name}
                         </Link>
                       </li>
                     ))}
