@@ -1,11 +1,14 @@
 # Technical SEO audit độc lập
 
 ## Production readiness — 21/11/2026
-- [ ] Kiểm tra production: routes, metadata/schema, tài nguyên, liên kết, redirects/404.
-- [ ] Kiểm tra trình duyệt desktop/mobile, điều hướng, console/runtime và liên kết liên hệ.
-- [ ] Gửi một báo giá kiểm thử thực tế; xác minh lưu dữ liệu và kết quả gửi email; xóa đúng lead thử.
-- [ ] Kiểm tra đăng nhập/quyền truy cập, dữ liệu và bảo mật; sửa lỗi an toàn và kiểm thử lại.
-- [ ] Xuất báo cáo PASS/FAIL, phạm vi chưa xác minh và các xác nhận cần chủ website.
+- [x] Kiểm tra production: 104 URL, metadata/schema, 38 tài nguyên, liên kết, redirects/404.
+- [x] Kiểm tra 176 lượt trình duyệt desktop/mobile, điều hướng, console/runtime và liên kết liên hệ.
+- [x] Gửi báo giá thật; đọc dữ liệu lưu, chủ xác nhận nhận cả hai email lúc 11:39 UTC; xóa đúng lead thử và xác minh.
+- [x] Kiểm tra admin/nonadmin/anon, CRUD FAQ/nháp/ảnh, signout; sửa auto-admin và HTML độc hại, kiểm thử lại.
+- [x] Xuất báo cáo 29 mục PASS/FAIL, bảng URL và phạm vi chưa xác minh.
+- [ ] Kiểm tra lại production sau publish — chờ chủ xuất bản; live còn hydration/soft-404/ảnh cũ.
+- [ ] Xác nhận cách thu gọn CTA mobile, quyền editor, vận hành lead/email fallback và nguồn số liệu blog — chờ chủ website.
+- [ ] Xác minh OAuth/reset/CWV/load/backup và xử lý Zod lồng — cần phiên provider/khôi phục và bản framework tương thích.
 
 ## Tối ưu nội dung dịch vụ
 - [x] Rà soát nội dung công khai và đối chiếu nhu cầu tìm kiếm tại Việt Nam.
