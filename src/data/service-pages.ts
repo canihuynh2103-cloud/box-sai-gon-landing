@@ -51,9 +51,9 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "boc-xep-kho-hang",
     name: "Bốc Xếp Kho Hàng",
     h1: "Dịch Vụ Bốc Xếp Kho Hàng Tại TP.HCM",
-    seoTitle: "Bốc Xếp Kho Hàng TP.HCM — Nhân Công Theo Ca 24/7",
+    seoTitle: "Dịch Vụ Bốc Xếp Kho Hàng TPHCM – Bốc Vác Nhập Xuất Kho 24/7",
     seoDescription:
-      "Dịch vụ bốc xếp kho hàng tại TP.HCM: nhập xuất kho, sắp xếp pallet, kiểm đếm hàng hóa theo ca. Điều động nhanh, báo giá minh bạch, hotline 0888.997.822.",
+      "Cần bốc xếp, bốc vác kho hàng ở TPHCM? Nhân công nhập xuất kho, sắp xếp pallet, kiểm đếm hàng theo ca, thuê theo giờ hoặc dài hạn. Gọi 0888.997.822.",
     keyword: "bốc xếp kho hàng",
     subKeywords: ["nhân công bốc xếp kho", "bốc xếp kho hàng tphcm", "thuê nhân công nhập xuất kho"],
     intro:
@@ -101,9 +101,9 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "boc-xep-container",
     name: "Bốc Xếp Container",
     h1: "Dịch Vụ Bốc Xếp Container — Rút Ruột & Đóng Hàng",
-    seoTitle: "Bốc Xếp Container TP.HCM — Rút Ruột, Đóng Cont Nhanh",
+    seoTitle: "Bốc Xếp Container TPHCM – Rút Ruột, Đóng Hàng Cont 24/7",
     seoDescription:
-      "Rút ruột container, đóng hàng lên cont tại depot, cảng và kho riêng ở TP.HCM. Đội bốc xếp container theo lịch tàu, tránh phí lưu cont. Gọi 0888.997.822.",
+      "Dịch vụ bốc xếp container, rút ruột và đóng hàng cont tại cảng, depot, kho riêng ở TPHCM. Đội bốc vác làm theo lịch tàu, hạn chế phí lưu cont. Gọi 0888.997.822.",
     keyword: "bốc xếp container",
     subKeywords: ["rút ruột container", "đóng hàng lên container", "bốc xếp cont tphcm"],
     intro:
@@ -224,9 +224,9 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "boc-xep-nha-may",
     name: "Bốc Xếp Nhà Máy",
     h1: "Bốc Xếp Nhà Máy & Di Dời Máy Móc Trong KCN",
-    seoTitle: "Bốc Xếp Nhà Máy, Di Dời Máy Móc TP.HCM & Lân Cận",
+    seoTitle: "Bốc Xếp Nhà Máy, Di Dời Máy Móc – TPHCM, Bình Dương, Đồng Nai",
     seoDescription:
-      "Bốc xếp nhà máy, di dời máy móc, nguyên vật liệu và thành phẩm trong khu công nghiệp TP.HCM, Bình Dương, Đồng Nai. Khảo sát trước, thi công theo kế hoạch.",
+      "Bốc xếp nhà máy, khuân vác nguyên vật liệu, thành phẩm và di dời máy móc trong KCN TPHCM, Bình Dương, Đồng Nai. Khảo sát trước, thi công theo kế hoạch.",
     keyword: "bốc xếp nhà máy",
     subKeywords: ["di dời máy móc nhà máy", "bốc xếp khu công nghiệp", "chuyển nhà xưởng"],
     intro:
@@ -272,9 +272,9 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "boc-xep-cang",
     name: "Bốc Xếp Cảng",
     h1: "Bốc Xếp Tại Cảng & Depot Khu Vực TP.HCM",
-    seoTitle: "Bốc Xếp Cảng TP.HCM — Nhân Công Ra Vào Cảng, Depot",
+    seoTitle: "Bốc Xếp Cảng TPHCM – Nhân Công Xếp Dỡ Tại Cảng, Depot",
     seoDescription:
-      "Nhân công bốc xếp tại cảng và depot khu vực TP.HCM: xếp dỡ hàng bao kiện, hàng rời, đảo hàng theo lịch tàu. Trực 24/7, hotline 0888.997.822.",
+      "Thuê nhân công bốc xếp tại cảng và depot khu vực TPHCM: xếp dỡ hàng bao kiện, hàng rời, đảo hàng theo lịch tàu. Trực 24/7, gọi 0888.997.822.",
     keyword: "bốc xếp cảng",
     subKeywords: ["nhân công bốc xếp cảng cát lái", "bốc xếp depot", "xếp dỡ hàng tại cảng"],
     intro:
@@ -319,9 +319,9 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "boc-xep-san-bay",
     name: "Bốc Xếp Sân Bay",
     h1: "Bốc Xếp Hàng Air Cargo Khu Vực Tân Sơn Nhất",
-    seoTitle: "Bốc Xếp Sân Bay Tân Sơn Nhất — Hàng Air Cargo",
+    seoTitle: "Bốc Xếp Hàng Sân Bay Tân Sơn Nhất – Air Cargo TPHCM",
     seoDescription:
-      "Xếp dỡ và đóng gói hàng air cargo tại kho gần Tân Sơn Nhất. Phối hợp lịch giao nhận, sang xe và bảo vệ kiện. Gọi 0888.997.822.",
+      "Bốc xếp, xếp dỡ và đóng gói hàng air cargo tại kho gần sân bay Tân Sơn Nhất. Phối hợp lịch giao nhận, sang xe, bảo vệ kiện hàng. Gọi 0888.997.822.",
     keyword: "bốc xếp sân bay",
     subKeywords: ["bốc xếp hàng air cargo", "nhân công sân bay tân sơn nhất", "xử lý hàng hàng không"],
     intro:
@@ -366,9 +366,9 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "thue-nhan-cong-boc-xep",
     name: "Thuê Nhân Công",
     h1: "Cho Thuê Nhân Công Bốc Xếp Theo Giờ, Ngày, Tháng",
-    seoTitle: "Thuê Nhân Công Bốc Xếp TP.HCM Theo Giờ, Ngày, Tháng",
+    seoTitle: "Thuê Nhân Công Bốc Xếp, Bốc Vác TPHCM Theo Giờ, Ngày, Tháng",
     seoDescription:
-      "Cho thuê nhân công bốc xếp tại TP.HCM theo giờ, theo ngày, theo tháng. Có đội trưởng giám sát, hợp đồng và hóa đơn. Hotline 0888.997.822.",
+      "Cho thuê nhân công bốc xếp, bốc vác, khuân vác tại TPHCM theo giờ, ngày, tháng. Có đội trưởng giám sát, hợp đồng và hóa đơn. Gọi 0888.997.822.",
     keyword: "thuê nhân công bốc xếp",
     subKeywords: ["cho thuê nhân công thời vụ", "nhân công bốc xếp theo giờ", "cung ứng lao động bốc xếp"],
     intro:
@@ -412,9 +412,9 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "dong-goi-hang-hoa",
     name: "Đóng Gói Hàng Hóa",
     h1: "Dịch Vụ Đóng Gói Hàng Hóa Tại TP.HCM",
-    seoTitle: "Đóng Gói Hàng Hóa TP.HCM — Thùng Gỗ, Màng PE, Pallet",
+    seoTitle: "Dịch Vụ Đóng Gói Hàng Hóa TPHCM – Thùng Gỗ, Màng PE, Pallet",
     seoDescription:
-      "Dịch vụ đóng gói hàng hóa tại TP.HCM: quấn màng PE, đóng thùng gỗ, chèn lót hàng dễ vỡ, lên pallet chuẩn vận chuyển. Gọi 0888.997.822.",
+      "Đóng gói hàng hóa tại TPHCM: quấn màng PE, đóng thùng gỗ, chèn lót hàng dễ vỡ, lên pallet chuẩn vận chuyển, kèm bốc xếp lên xe. Gọi 0888.997.822.",
     keyword: "đóng gói hàng hóa",
     subKeywords: ["đóng thùng gỗ", "quấn màng pe pallet", "đóng gói hàng dễ vỡ"],
     intro:
@@ -459,9 +459,9 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "chuyen-kho",
     name: "Chuyển Kho",
     h1: "Dịch Vụ Chuyển Kho Trọn Gói Tại TP.HCM",
-    seoTitle: "Chuyển Kho Trọn Gói TP.HCM — Lập Kế Hoạch Theo Từng Đợt",
+    seoTitle: "Dịch Vụ Chuyển Kho Trọn Gói TPHCM – Bốc Xếp, Vận Chuyển, Sắp Xếp",
     seoDescription:
-      "Chuyển kho trọn gói tại TP.HCM: lập kế hoạch, tháo dỡ, vận chuyển và sắp xếp lại kho mới theo sơ đồ. Làm theo giai đoạn, hotline 0888.997.822.",
+      "Chuyển kho trọn gói tại TPHCM: lập kế hoạch, bốc xếp, tháo dỡ kệ, vận chuyển và sắp xếp lại kho mới theo sơ đồ, làm theo từng đợt. Gọi 0888.997.822.",
     keyword: "chuyển kho",
     subKeywords: ["dịch vụ chuyển kho trọn gói", "di dời kho hàng", "chuyển kho tphcm"],
     intro:
@@ -507,9 +507,9 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "chuyen-van-phong",
     name: "Chuyển Văn Phòng",
     h1: "Chuyển Văn Phòng Trọn Gói Tại TP.HCM",
-    seoTitle: "Chuyển Văn Phòng TP.HCM — Làm Ngoài Giờ, Trọn Gói",
+    seoTitle: "Dịch Vụ Chuyển Văn Phòng Trọn Gói TPHCM – Làm Ngoài Giờ",
     seoDescription:
-      "Chuyển văn phòng trọn gói tại TP.HCM: đóng gói hồ sơ, thiết bị IT, tháo lắp bàn ghế, thi công ngoài giờ để không gián đoạn công việc.",
+      "Chuyển văn phòng trọn gói tại TPHCM: đóng gói hồ sơ, thiết bị IT, tháo lắp bàn ghế, bốc xếp và vận chuyển ngoài giờ để không gián đoạn công việc. Gọi 0888.997.822.",
     keyword: "chuyển văn phòng",
     subKeywords: ["chuyển office trọn gói", "chuyển văn phòng tphcm", "dọn văn phòng"],
     intro:
@@ -554,9 +554,9 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "chuyen-nha",
     name: "Chuyển Nhà",
     h1: "Chuyển Nhà Trọn Gói Tại TP.HCM",
-    seoTitle: "Chuyển Nhà Trọn Gói TP.HCM — Bọc Lót, Lắp Đặt Lại",
+    seoTitle: "Dịch Vụ Chuyển Nhà Trọn Gói TPHCM – Bốc Vác, Bọc Lót, Lắp Đặt",
     seoDescription:
-      "Chuyển nhà trọn gói tại TP.HCM: đóng gói, bọc lót nội thất, tháo lắp giường tủ, lắp đặt lại tận nơi. Báo giá rõ ràng, hotline 0888.997.822.",
+      "Chuyển nhà trọn gói tại TPHCM: đóng gói, bọc lót nội thất, bốc vác, tháo lắp giường tủ và lắp đặt lại tận nơi. Báo giá rõ ràng, gọi 0888.997.822.",
     keyword: "chuyển nhà trọn gói",
     subKeywords: ["chuyển nhà tphcm", "dịch vụ chuyển nhà", "chuyển nhà chung cư"],
     intro:
@@ -602,9 +602,9 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "xep-do-hang-hoa",
     name: "Xếp Dỡ Hàng Hóa",
     h1: "Dịch Vụ Xếp Dỡ Hàng Hóa Lên Xuống Xe",
-    seoTitle: "Xếp Dỡ Hàng Hóa TP.HCM — Xe Tải, Container, Hàng Rời",
+    seoTitle: "Xếp Dỡ, Bốc Hàng Lên Xuống Xe Tải TPHCM – Container, Hàng Rời",
     seoDescription:
-      "Dịch vụ xếp dỡ hàng hóa tại TP.HCM: lên xuống xe tải, container, hàng bao kiện và hàng rời. Đội bốc xếp theo dây chuyền, gọi 0888.997.822.",
+      "Dịch vụ xếp dỡ, bốc hàng hóa lên xuống xe tải, container, hàng bao kiện và hàng rời tại TPHCM. Đội bốc vác làm theo dây chuyền, gọi 0888.997.822.",
     keyword: "xếp dỡ hàng hóa",
     subKeywords: ["bốc xếp lên xe tải", "xếp dỡ hàng rời", "bốc hàng xuống xe"],
     intro:
@@ -649,9 +649,9 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "boc-hang-theo-gio",
     name: "Bốc Hàng Theo Giờ",
     h1: "Bốc Hàng Theo Giờ — Điều Động Nhanh Tại TP.HCM",
-    seoTitle: "Bốc Hàng Theo Giờ TP.HCM — Thuê Nhanh, Giá Theo Giờ",
+    seoTitle: "Thuê Bốc Xếp Theo Giờ TPHCM – Bốc Công, Bốc Vác Gọi Là Có",
     seoDescription:
-      "Bốc hàng theo giờ tại TP.HCM, không có mức thuê tối thiểu cố định. Tư vấn nhân công và cách tính công theo nhu cầu. Hotline 24/7: 0888.997.822.",
+      "Thuê bốc xếp, bốc công theo giờ tại TPHCM, không có mức thuê tối thiểu cố định. Tư vấn số người và cách tính công theo nhu cầu. Hotline 24/7: 0888.997.822.",
     keyword: "bốc hàng theo giờ",
     subKeywords: ["thuê bốc xếp theo giờ", "bốc xếp gấp tphcm", "giá bốc xếp theo giờ"],
     intro:
@@ -695,9 +695,9 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "boc-xep-theo-thang",
     name: "Bốc Xếp Theo Tháng",
     h1: "Bốc Xếp Theo Tháng — Đội Cố Định Trực Tại Kho",
-    seoTitle: "Bốc Xếp Theo Tháng TP.HCM — Đội Cố Định, Báo Cáo Tuần",
+    seoTitle: "Thuê Bốc Xếp Theo Tháng TPHCM – Đội Nhân Công Cố Định Tại Kho",
     seoDescription:
-      "Thuê đội bốc xếp theo tháng tại TP.HCM: nhân sự cố định trực tại kho, có đội trưởng, báo cáo sản lượng hằng tuần, hợp đồng và hóa đơn đầy đủ.",
+      "Thuê đội bốc xếp theo tháng tại TPHCM: nhân công cố định trực tại kho, có đội trưởng, báo cáo sản lượng hằng tuần, hợp đồng và hóa đơn đầy đủ.",
     keyword: "bốc xếp theo tháng",
     subKeywords: ["thuê nhân công theo tháng", "đội bốc xếp cố định", "outsourcing nhân công kho"],
     intro:
@@ -742,9 +742,9 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "boc-xep-hop-dong",
     name: "Bốc Xếp Hợp Đồng",
     h1: "Bốc Xếp Theo Hợp Đồng Dài Hạn, Hóa Đơn VAT",
-    seoTitle: "Bốc Xếp Hợp Đồng Dài Hạn — SLA Rõ Ràng, Hóa Đơn VAT",
+    seoTitle: "Dịch Vụ Bốc Xếp Hợp Đồng Dài Hạn TPHCM – Hóa Đơn VAT",
     seoDescription:
-      "Hợp đồng bốc xếp dài hạn cho doanh nghiệp tại TP.HCM: cam kết SLA, định biên nhân sự, báo cáo định kỳ và hóa đơn VAT. Gọi 0888.997.822.",
+      "Hợp đồng bốc xếp dài hạn cho doanh nghiệp tại TPHCM: cam kết SLA, định biên nhân công, báo cáo định kỳ và hóa đơn VAT. Gọi 0888.997.822.",
     keyword: "bốc xếp hợp đồng",
     subKeywords: ["hợp đồng bốc xếp dài hạn", "thuê ngoài nhân công bốc xếp", "dịch vụ bốc xếp doanh nghiệp"],
     intro:

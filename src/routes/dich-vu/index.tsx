@@ -10,7 +10,7 @@ import { SERVICE_PAGES } from "@/data/service-pages";
 import { HOTLINE, HOTLINE_TEL } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor } from "@/lib/seo";
 
-const TITLE = "Dịch Vụ Bốc Xếp Hàng Hóa TP.HCM — Danh Mục Đầy Đủ";
+const TITLE = "Tất Cả Dịch Vụ Bốc Xếp, Chuyển Nhà, Chuyển Văn Phòng TPHCM";
 const DESC =
   "Tổng hợp toàn bộ dịch vụ bốc xếp của Bốc Xếp Sài Gòn: bốc xếp kho hàng, container, nhà máy, cảng, sân bay, thuê nhân công, đóng gói, chuyển kho, chuyển nhà và văn phòng.";
 
