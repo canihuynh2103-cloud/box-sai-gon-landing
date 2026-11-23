@@ -9,7 +9,7 @@ import {
 } from "./consent";
 
 export const ADS_ID = "AW-17877629629";
-export const QUOTE_CONVERSION_SEND_TO = "AW-17877629629/f-4LCKyL1pUdEL3128xC";
+export const QUOTE_CONVERSION_SEND_TO = "AW-17877629629/67t4COLM5b0dEL3128xC";
 export const NOTICE_VERSION = "2026-11-23-v2";
 export const POLICY_PATH = "/chinh-sach-bao-mat";
 const NOTICE_KEY = "saigonhandling.consent-notice";
