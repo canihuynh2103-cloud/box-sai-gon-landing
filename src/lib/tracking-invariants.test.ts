@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { ADS_ID, CONSENT_REGIONS, QUOTE_CONVERSION_SEND_TO } from "./consent";
+import { ADS_ID, CONSENT_REGIONS, QUOTE_CONVERSION_SEND_TO } from "./google-ads";
 
 test("Google Ads retains the owner's existing tag ID", () => {
   assert.equal(ADS_ID, "AW-17877629629");

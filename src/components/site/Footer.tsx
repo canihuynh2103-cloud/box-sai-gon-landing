@@ -14,6 +14,8 @@ import {
 import { SERVICE_PAGES } from "@/data/service-pages";
 import { NavLink } from "@/components/site/NavLink";
 import logoAsset from "@/assets/logo.png.asset.json";
+import { Button } from "@/components/ui/button";
+import { openCookieSettings } from "@/lib/google-ads";
 
 // TODO(SEO): Các URL social bên dưới CHƯA được xác minh (đang là trang gốc của
 // từng nền tảng, không phải fanpage/kênh chính thức của Saigon Handling).
@@ -218,6 +220,13 @@ export function Footer() {
             <Link to="/chinh-sach-bao-mat" className="hover:text-primary">
               Chính sách bảo mật
             </Link>
+            <Button
+              variant="link"
+              className="h-auto p-0 text-xs text-secondary-foreground/55 hover:text-primary"
+              onClick={openCookieSettings}
+            >
+              Cài đặt cookie
+            </Button>
             <Link to="/" hash="lien-he" className="hover:text-primary">
               Liên hệ
             </Link>

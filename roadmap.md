@@ -1,5 +1,10 @@
 # Technical SEO audit độc lập
 
+## Consent — 23/11/2026 (chỉ code và preview, không publish)
+- [x] Thêm banner và cài đặt cookie; mặc định denied toàn cầu, lưu phiên bản/thời gian, hỗ trợ rút lại.
+- [x] Giữ ID/tag duy nhất và điều kiện chuyển đổi sau backend success; chỉ đổi import Contact, không sửa backend/form.
+- [x] 29 tests đạt; preview VN/DE/GB/CH/CA/US/unknown, cross-tab/GPC/storage/mobile và conversion mô phỏng đạt; lint tệp sửa sạch (module chuẩn giữ nguyên, bỏ riêng quy tắc định dạng); build tự động OK; không publish.
+
 ## Saigon Handling — 23/11/2026 (chỉ code và preview)
 - [x] Audit thương hiệu tĩnh và lập danh sách bản ghi dữ liệu cần chủ rà soát; không ghi database.
 - [x] Đồng bộ thương hiệu; giữ keyword dịch vụ, URL, liên hệ, số liệu, hình logo và tracking.

@@ -1,115 +1,153 @@
-/**
- * Google Ads consent handling (single global tag AW-17877629629).
- *
- * Route chosen by the owner: regional consent banner.
- * - The Google tag always renders once per page (root head) with Consent Mode
- *   v2 defaults that DENY ad purposes inside consent regions until the visitor
- *   decides. Outside those regions the tag measures normally without a banner.
- * - The banner is shown only to visitors in consent regions (or when the
- *   region lookup fails / is unknown, per privacy-safe fallback).
- * - Each decision is stored locally (decision, timestamp, notice version) so
- *   the visitor can change or withdraw it later via "Cài đặt cookie" (footer).
- * - One conversion: quote form success (trackQuoteConversion), gated by Consent Mode.
- */
+export type Purpose = "analytics" | "advertising";
+export type Choice = "granted" | "denied";
 
-export const ADS_ID = "AW-17877629629";
-export const NOTICE_VERSION = "2026-10-08";
-export const POLICY_PATH = "/chinh-sach-bao-mat";
-const STORAGE_KEY = "bsg.cookie-consent.v1";
+const PURPOSES = {
+  analytics: ["analytics_storage"],
+  advertising: ["ad_storage", "ad_user_data", "ad_personalization"],
+} satisfies Record<Purpose, string[]>;
+const LEGACY_KEY = "cookie_consent";
+const MAX_AGE_DAYS: Record<Choice, number> = { denied: 183, granted: 365 };
+const DAY_MS = 86_400_000;
+const CHANGE_EVENT = "consent-change";
+const CONSENT_COUNTRIES =
+  "AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,IS,LI,NO,GB,CH,RE,GP,MQ,GF,YT,MF,AX,CA".split(
+    ",",
+  );
+let consentRegion: Promise<boolean> | undefined;
+const unsaved: Partial<Record<Purpose, Choice>> = {};
 
-/** EEA + UK + CH + VN: regions where ad consent must be asked. */
-const CONSENT_REGION_LIST: string[] = [
-  "VN",
-  // EU 27
-  "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR",
-  "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK",
-  "SI", "ES", "SE",
-  // EEA extras + UK + CH + BR (LGPD) + KR (PIPA) + ZA (POPIA)
-  "IS", "LI", "NO", "GB", "CH", "BR", "KR", "ZA",
-];
-
-export const CONSENT_REGIONS = new Set(CONSENT_REGION_LIST);
-
-// Inline stub only: dataLayer, consent defaults, config. gtag.js itself is
-// loaded by initConsent() only for visitors confirmed outside consent regions.
-export const GTAG_SNIPPET = [
-  "window.dataLayer = window.dataLayer || [];",
-  "function gtag(){dataLayer.push(arguments);}",
-  `gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',region:${JSON.stringify(CONSENT_REGION_LIST)}});`,
-  "gtag('js', new Date());",
-  `gtag('config','${ADS_ID}');`,
-].join("\n");
-
-let initialized = false;
-
-function loadGtag() {
-  const s = document.createElement("script");
-  s.async = true;
-  s.src = `https://www.googletagmanager.com/gtag/js?id=${ADS_ID}`;
-  document.head.appendChild(s);
+function isPurpose(purpose: string): purpose is Purpose {
+  return Object.prototype.hasOwnProperty.call(PURPOSES, purpose);
 }
 
-/** Country from same-origin /cdn-cgi/trace; null on failure/unknown (privacy-safe). */
-async function getCountry(): Promise<string | null> {
+function keyOf(purpose: Purpose): string {
+  return `cookie_consent_${purpose}`;
+}
+
+function gtag(...args: unknown[]) {
+  (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.(...args);
+}
+
+function isConsentRequiredRegion(): Promise<boolean> {
+  return (consentRegion ??= lookupConsentRegion());
+}
+
+async function lookupConsentRegion(): Promise<boolean> {
   try {
-    const controller = new AbortController();
-    const timer = window.setTimeout(() => controller.abort(), 2000);
-    const res = await fetch("/cdn-cgi/trace", { signal: controller.signal });
-    window.clearTimeout(timer);
-    if (!res.ok) return null;
-    const text = await res.text();
-    const line = text.split("\n").find((l) => l.startsWith("loc="));
-    const loc = line?.slice(4).trim();
-    if (!loc || loc === "XX" || loc === "T1") return null;
-    return loc;
+    const res = await fetch("/cdn-cgi/trace", { signal: AbortSignal.timeout(2000) });
+    if (!res.ok) return true;
+    const trace = await res.text();
+    // Behind a rewrite proxy the trace answers for the proxy's connection under another host.
+    const host = trace
+      .match(/^h=(.+)$/m)?.[1]
+      ?.trim()
+      .toLowerCase()
+      .replace(/:\d+$/, "");
+    if (host !== location.hostname) return true;
+    const country = trace.match(/^loc=([A-Z0-9]{2})$/m)?.[1];
+    if (!country || country === "XX" || country === "T1") return true;
+    return CONSENT_COUNTRIES.includes(country);
+  } catch {
+    return true;
+  }
+}
+
+function storedAnswer(purpose: Purpose): { choice: Choice; stale: boolean } | null {
+  const pending = unsaved[purpose];
+  if (pending) return { choice: pending, stale: false };
+  try {
+    const saved = JSON.parse(localStorage.getItem(keyOf(purpose)) ?? "null");
+    const choice = saved?.choice;
+    if ((choice !== "granted" && choice !== "denied") || typeof saved.at !== "number") return null;
+    return { choice, stale: Date.now() - saved.at >= MAX_AGE_DAYS[choice as Choice] * DAY_MS };
   } catch {
     return null;
   }
 }
 
-/** Called once from the root component (client only). No banner route. */
-export async function initConsent() {
-  if (initialized) return;
-  initialized = true;
-  const country = await getCountry();
-  if (country === null || CONSENT_REGIONS.has(country)) return; // blocked
-  const g = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
-  g?.("consent", "update", {
-    ad_storage: "granted",
-    ad_user_data: "granted",
-    ad_personalization: "granted",
-    analytics_storage: "granted",
-  });
-  loadGtag();
+function storedChoice(purpose: Purpose): Choice | null {
+  const answer = storedAnswer(purpose);
+  // An old refusal lets the banner ask again but never turns tracking back on.
+  return answer && !(answer.stale && answer.choice === "granted") ? answer.choice : null;
 }
 
-/** Google Ads conversion: "Gửi Yêu Cầu Báo Giá" (call only after backend success). */
-export const QUOTE_CONVERSION_SEND_TO = "AW-17877629629/f-4LCKyL1pUdEL3128xC";
-
-export function trackQuoteConversion(): void {
-  if (typeof window === "undefined") return;
-  const w = window as unknown as { gtag?: (...args: unknown[]) => void };
-  if (typeof w.gtag !== "function") return;
-  w.gtag("event", "conversion", {
-    send_to: QUOTE_CONVERSION_SEND_TO,
-    value: 1.0,
-    currency: "VND",
-  });
-  w.gtag("event", "form_success", { form: "quote" });
+function globalPrivacyControl(): boolean {
+  return (
+    typeof navigator !== "undefined" &&
+    (navigator as unknown as { globalPrivacyControl?: boolean }).globalPrivacyControl === true
+  );
 }
 
-/** Ghi nhận lượt bấm Gọi / Zalo (không phải chuyển đổi Ads). Gọi một lần ở root. */
-let clicksBound = false;
-export function initClickTracking(): void {
-  if (clicksBound || typeof document === "undefined") return;
-  clicksBound = true;
-  document.addEventListener("click", (e) => {
-    const a = (e.target as HTMLElement | null)?.closest?.("a[href]") as HTMLAnchorElement | null;
-    if (!a) return;
-    const href = a.getAttribute("href") ?? "";
-    const name = href.startsWith("tel:") ? "click_phone" : /zalo/i.test(href) ? "click_zalo" : null;
-    if (!name) return;
-    const w = window as unknown as { gtag?: (...args: unknown[]) => void };
-    w.gtag?.("event", name, { page_path: window.location.pathname });
-  }, { capture: true });
+export function readChoice(purpose: Purpose): Choice | null {
+  return globalPrivacyControl() ? "denied" : storedChoice(purpose);
+}
+
+export async function canTrack(purpose: Purpose): Promise<boolean> {
+  const choice = readChoice(purpose);
+  if (choice !== null) return choice === "granted";
+  const required = await isConsentRequiredRegion();
+  const latest = readChoice(purpose);
+  return latest !== null ? latest === "granted" : !required;
+}
+
+export function applySignals(purpose: Purpose, choice: Choice) {
+  if (!isPurpose(purpose)) return;
+  if (globalPrivacyControl()) choice = "denied";
+  if (purpose === "advertising" && choice === "denied") gtag("set", "user_data", null);
+  gtag("consent", "update", Object.fromEntries(PURPOSES[purpose].map((signal) => [signal, choice])));
+}
+
+function restoreChoices(purposes: Purpose[]) {
+  for (const purpose of purposes) {
+    const choice = readChoice(purpose);
+    if (choice) {
+      applySignals(purpose, choice);
+      continue;
+    }
+    // A cleared answer falls back to the regional default.
+    void isConsentRequiredRegion().then((required) => {
+      if (readChoice(purpose) === null) applySignals(purpose, required ? "denied" : "granted");
+    });
+  }
+}
+
+/** Persists only the purposes passed, so one answer never stands in for another. */
+export function saveChoices(choices: Partial<Record<Purpose, Choice>>) {
+  for (const [purpose, choice] of Object.entries(choices) as [Purpose, Choice][]) {
+    if (!isPurpose(purpose)) continue;
+    try {
+      localStorage.setItem(keyOf(purpose), JSON.stringify({ choice, at: Date.now() }));
+      // Code from before the per-purpose answers still reads the legacy key, so a refusal reaches it too.
+      if (choice === "denied" && localStorage.getItem(LEGACY_KEY) !== null) localStorage.setItem(LEGACY_KEY, "denied");
+      delete unsaved[purpose];
+    } catch {
+      unsaved[purpose] = choice;
+    }
+    applySignals(purpose, readChoice(purpose) ?? choice);
+  }
+  window.dispatchEvent(new Event(CHANGE_EVENT));
+}
+
+export async function needsAnswer(purposes: Purpose[]): Promise<boolean> {
+  const required = await isConsentRequiredRegion();
+  return required && !globalPrivacyControl() && purposes.some((purpose) => storedAnswer(purpose)?.stale ?? true);
+}
+
+/** Fires on changes from this tab and from other tabs. */
+export function onConsentChange(listener: () => void): () => void {
+  const onStorage = (event: StorageEvent) => {
+    const changed = (Object.keys(PURPOSES) as Purpose[]).filter(
+      (purpose) => event.key === null || keyOf(purpose) === event.key,
+    );
+    if (changed.length === 0) return;
+    for (const purpose of changed) delete unsaved[purpose];
+    restoreChoices(changed);
+    listener();
+  };
+  window.addEventListener(CHANGE_EVENT, listener);
+  window.addEventListener("storage", onStorage);
+  return () => {
+    window.removeEventListener(CHANGE_EVENT, listener);
+    window.removeEventListener("storage", onStorage);
+  };
 }

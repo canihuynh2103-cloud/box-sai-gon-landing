@@ -5,7 +5,7 @@ import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
 import { EMAIL } from "@/data/site";
 import { breadcrumbLd, metaFor } from "@/lib/seo";
-import { ADS_ID, POLICY_PATH } from "@/lib/consent";
+import { ADS_ID, POLICY_PATH } from "@/lib/google-ads";
 
 const TITLE = "Chính Sách Bảo Mật — Saigon Handling";
 const DESC =

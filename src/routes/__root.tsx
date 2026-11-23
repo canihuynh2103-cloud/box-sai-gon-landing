@@ -14,7 +14,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { supabase } from "@/integrations/supabase/client";
 import { Toaster } from "@/components/ui/sonner";
-import { GTAG_SNIPPET, initConsent, initClickTracking } from "@/lib/consent";
+import { GTAG_SNIPPET, initConsent, initClickTracking } from "@/lib/google-ads";
+import { CookieConsent } from "@/components/site/CookieConsent";
 
 function NotFoundComponent() {
   return (
@@ -93,7 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     scripts: [
       {
         // Google Ads — single global tag (AW-17877629629) with Consent Mode v2.
-        // No banner: gtag.js is loaded client-side only outside consent regions.
+        // Denied defaults precede all tags; the banner gates gtag.js loading.
         children: GTAG_SNIPPET,
       },
       {
@@ -214,6 +215,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <CookieConsent />
       <Toaster richColors position="top-right" />
     </QueryClientProvider>
   );

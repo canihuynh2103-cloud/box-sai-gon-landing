@@ -4,7 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { ADDRESS, BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, SERVICES, WORK_HOURS } from "@/data/site";
 import { submitQuote } from "@/lib/quote.functions";
-import { trackQuoteConversion } from "@/lib/consent";
+import { trackQuoteConversion } from "@/lib/google-ads";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Vui lòng nhập họ tên").max(100),
