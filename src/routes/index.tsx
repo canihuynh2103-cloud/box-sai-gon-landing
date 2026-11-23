@@ -17,9 +17,9 @@ import { postsListQuery } from "@/lib/blog-queries";
 import { Footer } from "@/components/site/Footer";
 import { FloatingButtons } from "@/components/site/FloatingButtons";
 
-const TITLE = "Bốc Xếp Sài Gòn – Dịch Vụ Bốc Xếp, Bốc Vác Hàng Hóa 24/7";
+const TITLE = "Saigon Handling – Dịch Vụ Bốc Xếp Sài Gòn, Bốc Vác 24/7";
 const DESC =
-  "Bốc Xếp Sài Gòn nhận bốc xếp, bốc vác hàng hóa tại kho, container, nhà máy và cảng. Thuê theo giờ, ngày hoặc tháng, báo giá theo khối lượng thực tế. Gọi 0888.997.822.";
+  "Saigon Handling nhận bốc xếp, bốc vác hàng hóa tại kho, container, nhà máy và cảng. Thuê theo giờ, ngày hoặc tháng, báo giá theo khối lượng thực tế. Gọi 0888.997.822.";
 
 export const Route = createFileRoute("/")({
   loader: ({ context }) => context.queryClient.prefetchQuery(postsListQuery()),
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:url", content: absUrl("/") },
-      { property: "og:site_name", content: "Bốc Xếp Sài Gòn" },
+      { property: "og:site_name", content: "Saigon Handling" },
     ],
     links: [{ rel: "canonical", href: absUrl("/") }],
     scripts: [

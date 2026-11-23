@@ -16,7 +16,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { Toaster } from "@/components/ui/sonner";
 import { GTAG_SNIPPET, initConsent, initClickTracking } from "@/lib/consent";
 
-
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -34,7 +33,6 @@ function NotFoundComponent() {
           >
             Về trang chủ
           </Link>
-
         </div>
       </div>
     </div>
@@ -84,11 +82,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Bốc Xếp Sài Gòn" },
+      { title: "Saigon Handling" },
       { name: "description", content: "Dịch vụ bốc xếp hàng hóa chuyên nghiệp tại TP.HCM." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:site_name", content: "Bốc Xếp Sài Gòn" },
+      { property: "og:site_name", content: "Saigon Handling" },
       { property: "og:locale", content: "vi_VN" },
       { name: "robots", content: "index, follow, max-image-preview:large" },
     ],
@@ -103,7 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          name: "Bốc Xếp Sài Gòn",
+          name: "Saigon Handling",
           url: "https://bocxepsaigon.vn",
           telephone: "+84888997822",
           email: "saigonhandling@gmail.com",
@@ -126,8 +124,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "Bốc Xếp Sài Gòn",
-          alternateName: "Sai Gon Cargo Handling",
+          name: "Saigon Handling",
+          alternateName: ["Bốc Xếp Sài Gòn", "Sai Gon Cargo Handling"],
           url: "https://bocxepsaigon.vn",
           logo: {
             "@type": "ImageObject",
@@ -145,12 +143,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "Bốc Xếp Sài Gòn",
+          name: "Saigon Handling",
           url: "https://bocxepsaigon.vn",
           inLanguage: "vi-VN",
           publisher: {
             "@type": "Organization",
-            name: "Bốc Xếp Sài Gòn",
+            name: "Saigon Handling",
             logo: "https://bocxepsaigon.vn/logo-og.png",
           },
         }),
@@ -220,4 +218,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-

@@ -14,9 +14,9 @@ import { Button } from "@/components/ui/button";
 import { SERVICE_PAGES } from "@/data/service-pages";
 import { searchItems } from "@/lib/site-search";
 
-const TITLE = "Kiến Thức Bốc Xếp & Logistics — Bốc Xếp Sài Gòn";
+const TITLE = "Kiến Thức Bốc Xếp & Logistics — Saigon Handling";
 const DESC =
-  "Bài viết kinh nghiệm bốc xếp, đóng gói, chuyển kho và quản lý nhân công tại TP.HCM từ đội ngũ Bốc Xếp Sài Gòn.";
+  "Bài viết kinh nghiệm bốc xếp, đóng gói, chuyển kho và quản lý nhân công tại TP.HCM từ đội ngũ Saigon Handling.";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
@@ -158,6 +158,8 @@ function BlogIndex() {
                     src={post.cover_image}
                     alt={post.title}
                     loading="lazy"
+                    width={640}
+                    height={360}
                     className="h-40 w-full object-cover"
                   />
                 ) : null}

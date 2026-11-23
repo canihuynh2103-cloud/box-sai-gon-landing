@@ -6,7 +6,6 @@ import { ADDRESS, BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, SERVICES, WORK_HOURS } 
 import { submitQuote } from "@/lib/quote.functions";
 import { trackQuoteConversion } from "@/lib/consent";
 
-
 const schema = z.object({
   name: z.string().trim().min(2, "Vui lòng nhập họ tên").max(100),
   phone: z
@@ -20,7 +19,6 @@ const schema = z.object({
   workersCount: z.string().trim().max(60),
   cargoType: z.string().trim().max(120),
   message: z.string().trim().max(500),
-
 });
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -87,8 +85,6 @@ export function Contact() {
     }
   }
 
-
-
   return (
     <section id="lien-he" className="bg-muted/40 py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -117,13 +113,31 @@ export function Contact() {
             />
             <div className="grid gap-5 sm:grid-cols-2">
               <Field label="Họ và tên *">
-                <input name="name" required maxLength={100} className={inputCls} placeholder="Nguyễn Văn A" />
+                <input
+                  name="name"
+                  required
+                  maxLength={100}
+                  className={inputCls}
+                  placeholder="Nguyễn Văn A"
+                />
               </Field>
               <Field label="Số điện thoại *">
-                <input name="phone" required maxLength={15} className={inputCls} placeholder="09xx xxx xxx" />
+                <input
+                  name="phone"
+                  required
+                  maxLength={15}
+                  className={inputCls}
+                  placeholder="09xx xxx xxx"
+                />
               </Field>
               <Field label="Email">
-                <input name="email" type="email" maxLength={255} className={inputCls} placeholder="email@congty.vn" />
+                <input
+                  name="email"
+                  type="email"
+                  maxLength={255}
+                  className={inputCls}
+                  placeholder="email@congty.vn"
+                />
               </Field>
               <Field label="Dịch vụ quan tâm *">
                 <select name="service" required defaultValue="" className={inputCls}>
@@ -140,7 +154,12 @@ export function Contact() {
               </Field>
               <div className="sm:col-span-2">
                 <Field label="Địa chỉ công trình">
-                  <input name="address" maxLength={200} className={inputCls} placeholder="Số nhà, đường, quận/huyện" />
+                  <input
+                    name="address"
+                    maxLength={200}
+                    className={inputCls}
+                    placeholder="Số nhà, đường, quận/huyện"
+                  />
                 </Field>
               </div>
               <div className="sm:col-span-2">
@@ -192,8 +211,8 @@ export function Contact() {
             )}
             {status === "success" && (
               <p className="mt-5 flex items-center gap-2 rounded-md bg-primary/10 px-4 py-3 text-sm font-medium text-primary-dark">
-                <CheckCircle2 className="size-4" /> Đã gửi yêu cầu thành công! Chúng tôi sẽ liên
-                hệ với bạn sớm nhất.
+                <CheckCircle2 className="size-4" /> Đã gửi yêu cầu thành công! Chúng tôi sẽ liên hệ
+                với bạn sớm nhất.
               </p>
             )}
 
@@ -210,7 +229,7 @@ export function Contact() {
           <div className="flex flex-col gap-6">
             <div className="overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)]">
               <iframe
-                title="Bản đồ Bốc Xếp Sài Gòn"
+                title="Bản đồ Saigon Handling"
                 src={`https://www.google.com/maps?q=${encodeURIComponent(ADDRESS)}&output=embed`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -242,7 +261,7 @@ export function Contact() {
                   {i.href ? (
                     <a
                       href={i.href}
-                      className="mt-1 block font-display text-lg font-bold hover:text-primary"
+                      className="mt-1 block break-words font-display text-lg font-bold hover:text-primary"
                     >
                       {i.value}
                     </a>

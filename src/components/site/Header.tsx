@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Phone, Search } from "lucide-react";
 import { HOTLINE, HOTLINE_TEL, NAV_ITEMS } from "@/data/site";
@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [query, setQuery] = useState("");
-  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -19,44 +18,27 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Đo chiều cao header thật để các section bên dưới không bị che / dư khoảng trắng
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const apply = () =>
-      document.documentElement.style.setProperty("--header-h", `${el.offsetHeight}px`);
-    apply();
-    const ro = new ResizeObserver(apply);
-    ro.observe(el);
-    window.addEventListener("resize", apply);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener("resize", apply);
-    };
-  }, []);
-
   return (
     <header
-      ref={ref}
       className={cn(
         "fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/95 text-foreground backdrop-blur transition-shadow duration-300",
         scrolled && "shadow-[0_6px_20px_-16px_oklch(0.1_0.005_20/0.6)]",
       )}
     >
-      <div className="mx-auto grid min-h-16 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 py-2 sm:min-h-20 sm:gap-4 sm:px-6 lg:flex lg:gap-6 lg:px-8">
+      <div className="mx-auto grid h-20 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 py-2 sm:gap-4 sm:px-6 lg:flex lg:gap-6 lg:px-8">
         <Link
           to="/"
-          aria-label="Bốc Xếp Sài Gòn - Trang chủ"
-          className="flex min-w-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:gap-3.5 lg:shrink-0"
+          aria-label="Saigon Handling - Trang chủ"
+          className="flex min-w-0 flex-col items-start gap-1 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:shrink-0"
         >
           <img
             src={logoAsset.url}
-            alt="Logo Sai Gon Cargo Handling - Bốc Xếp Sài Gòn"
+            alt="Logo Saigon Handling"
             width={884}
             height={200}
-            className="h-10 w-auto max-w-full shrink object-contain min-[380px]:h-11 sm:h-14 lg:h-12 xl:h-14"
+            className="h-7 w-auto max-w-full object-contain sm:h-8 lg:h-9"
           />
-          <span className="sr-only">Bốc Xếp Sài Gòn - Chuyên Nghiệp - Minh Bạch - Tin Cậy</span>
+          <span className="text-sm font-bold leading-none">Saigon Handling</span>
         </Link>
 
         <nav aria-label="Điều hướng chính" className="ml-auto hidden items-center gap-1 lg:flex">
@@ -97,7 +79,7 @@ export function Header() {
       <div className="border-t border-border/60 lg:hidden">
         <nav
           aria-label="Điều hướng nhanh"
-          className="flex gap-1.5 overflow-x-auto px-3 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex h-[46px] items-center gap-1.5 overflow-x-auto px-3 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {NAV_ITEMS.map((item) => (
             <NavLink
@@ -116,7 +98,7 @@ export function Header() {
             window.dispatchEvent(new CustomEvent("service-search", { detail: query }));
             document.getElementById("dich-vu")?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="relative px-3 pb-2.5"
+          className="relative h-[49px] px-3 pb-2.5"
         >
           <Search className="pointer-events-none absolute left-6 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
           <input

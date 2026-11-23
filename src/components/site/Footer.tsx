@@ -1,13 +1,22 @@
 import { useState, type FormEvent } from "react";
 import { Link } from "@tanstack/react-router";
 import { Clock, Facebook, Mail, MapPin, Phone, Send, Youtube, Music2 } from "lucide-react";
-import { BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, NAV_ITEMS, PROJECTS, SERVICES, WORK_HOURS } from "@/data/site";
+import {
+  BRANCHES,
+  EMAIL,
+  HOTLINE,
+  HOTLINE_TEL,
+  NAV_ITEMS,
+  PROJECTS,
+  SERVICES,
+  WORK_HOURS,
+} from "@/data/site";
 import { SERVICE_PAGES } from "@/data/service-pages";
 import { NavLink } from "@/components/site/NavLink";
 import logoAsset from "@/assets/logo.png.asset.json";
 
 // TODO(SEO): Các URL social bên dưới CHƯA được xác minh (đang là trang gốc của
-// từng nền tảng, không phải fanpage/kênh chính thức của Bốc Xếp Sài Gòn).
+// từng nền tảng, không phải fanpage/kênh chính thức của Saigon Handling).
 // Khi có URL chính thức, thay vào đây; không tự suy đoán URL và không dùng
 // chúng cho schema sameAs cho đến khi xác minh.
 const SOCIALS = [
@@ -15,7 +24,6 @@ const SOCIALS = [
   { icon: Youtube, label: "YouTube", href: "https://www.youtube.com/" },
   { icon: Music2, label: "TikTok", href: "https://www.tiktok.com/" },
 ];
-
 
 export function Footer() {
   const [sent, setSent] = useState(false);
@@ -39,19 +47,18 @@ export function Footer() {
               <span className="flex aspect-square size-20 shrink-0 items-center justify-center rounded-2xl bg-white p-2.5 sm:size-24">
                 <img
                   src={logoAsset.url}
-                  alt="Logo Sai Gon Cargo Handling - Bốc Xếp Sài Gòn"
+                  alt="Logo Saigon Handling"
                   width={256}
                   height={256}
                   loading="lazy"
                   className="h-full w-full object-contain"
                 />
               </span>
-              <span className="font-display text-xl font-bold leading-[1.4]">Bốc Xếp Sài Gòn</span>
-
+              <span className="font-display text-xl font-bold leading-[1.4]">Saigon Handling</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-secondary-foreground/70">
-              Đơn vị cung cấp nhân công bốc xếp và di dời hàng hóa chuyên nghiệp tại TP.HCM
-              từ năm 2015. Chuyên nghiệp - Minh bạch - Tin cậy.
+              Đơn vị cung cấp nhân công bốc xếp và di dời hàng hóa chuyên nghiệp tại TP.HCM từ năm
+              2015. Chuyên nghiệp - Minh bạch - Tin cậy.
             </p>
             <form onSubmit={onSubscribe} className="mt-5">
               <label
@@ -203,7 +210,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-secondary-foreground/55 sm:flex-row">
-          <p>© {new Date().getFullYear()} Bốc Xếp Sài Gòn. Bảo lưu mọi quyền.</p>
+          <p>© {new Date().getFullYear()} Saigon Handling. Bảo lưu mọi quyền.</p>
           <div className="flex flex-wrap gap-5">
             <Link to="/ho-so-nang-luc" className="hover:text-primary">
               Hồ sơ năng lực

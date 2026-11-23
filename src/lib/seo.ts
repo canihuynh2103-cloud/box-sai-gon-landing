@@ -1,5 +1,5 @@
 export const SITE_URL = "https://bocxepsaigon.vn";
-export const SITE_NAME = "Bốc Xếp Sài Gòn";
+export const SITE_NAME = "Saigon Handling";
 
 /** Minimum staffing confirmed by the business owner; shared with structured data. */
 export const workforceLd = { "@type": "QuantitativeValue", minValue: 80 } as const;

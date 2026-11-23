@@ -62,6 +62,13 @@
 }
 
 :root {
+  --header-h: 177px;
+  --hero-overlay: linear-gradient(
+    105deg,
+    oklch(0.14 0.005 20 / 0.92) 0%,
+    oklch(0.14 0.005 20 / 0.72) 45%,
+    oklch(0.14 0.005 20 / 0.35) 100%
+  );
   --radius: 0.5rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.21 0.03 258);
@@ -119,7 +126,9 @@
   --animate-wiggle: wiggle 1.8s ease-in-out infinite;
 
   @keyframes wiggle {
-    0%, 62%, 100% {
+    0%,
+    62%,
+    100% {
       transform: rotate(0deg) scale(1);
     }
     66% {
@@ -162,25 +171,46 @@
     overflow-x: hidden;
   }
 
-
   h1,
   h2,
   h3,
   h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
   }
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 12rem;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
   }
 
   @media (min-width: 1024px) {
-    html {
-      scroll-padding-top: 5rem;
+    :root {
+      --header-h: 81px;
     }
   }
+  body {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+  @media (min-width: 1024px) {
+    body {
+      padding-bottom: 0;
+    }
+  }
+}
+
+/* Keep the initial hero geometry stable before hydration and font loading. */
+.home-hero-content {
+  min-height: calc(100svh - 3rem);
+  padding-top: calc(var(--header-h) + 1rem);
+}
+
+.hero-overlay {
+  background-image: var(--hero-overlay);
+}
+
+.contact-dock {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
 }
 
 @utility section-eyebrow {
@@ -236,14 +266,13 @@
   z-index: 5;
 
   &::before {
-    content: "Bocxepsaigon - 0888.997.822";
+    content: "Saigon Handling - 0888.997.822";
     font-family: var(--font-body);
     font-weight: 600;
     white-space: nowrap;
-    letter-spacing: 0.04em;
-    color: #fff;
+    color: var(--secondary-foreground);
     opacity: 0.42;
-    letter-spacing: 0.02em;
+    letter-spacing: 0;
     white-space: nowrap;
     font-size: clamp(0.5rem, 6.4cqw, 1.3rem);
     text-shadow:
@@ -364,8 +393,6 @@
     animation: none !important;
   }
 }
-
-
 
 /* ---- Blog block styles (shared by editor preview and public post) ---- */
 .post-content :is(h2, h3) {

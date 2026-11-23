@@ -19,9 +19,8 @@ import { SERVICES, HOTLINE, HOTLINE_TEL, EMAIL, ADDRESS } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor, SITE_NAME, SITE_URL } from "@/lib/seo";
 import containerAsset from "@/assets/svc-container.jpg.asset.json";
 
-
 const PATH = "/dich-vu-boc-xep-tphcm";
-const TITLE = "Bốc Xếp TPHCM – Thuê Bốc Xếp Tận Nơi 24/7 | Bốc Xếp Sài Gòn";
+const TITLE = "Bốc Xếp TPHCM – Thuê Bốc Xếp Tận Nơi 24/7 | Saigon Handling";
 const DESC =
   "Cần bốc xếp ở TPHCM? Đội bốc xếp đến tận kho, nhà máy, container và xe tải tại các quận, huyện. Thuê theo giờ, ngày hoặc dài hạn, báo giá nhanh qua 0888.997.822.";
 
@@ -59,7 +58,6 @@ const USE_CASES: { t: string; d: string }[] = [
     d: "Nhiều kho, cửa hàng và tuyến đường chỉ cho nhận hàng ngoài giờ hành chính nên ca làm rơi vào buổi tối hoặc đêm.",
   },
 ];
-
 
 /** Card dịch vụ: chỉ liên kết tới URL đã tồn tại; mục không có trang riêng để trống `slug`. */
 const SERVICE_CARDS: { name: string; desc: string; slug?: string; anchor?: string }[] = [
@@ -113,7 +111,6 @@ const SERVICE_CARDS: { name: string; desc: string; slug?: string; anchor?: strin
     slug: "xep-do-hang-hoa",
     anchor: "Xem dịch vụ xếp dỡ hàng hóa",
   },
-
 ];
 
 const AREAS_HCM = [
@@ -130,20 +127,57 @@ const AREAS_HCM = [
 ];
 
 const PROCESS = [
-  { step: "Tiếp nhận yêu cầu", detail: "Gọi hotline hoặc gửi form: địa chỉ, loại hàng, khối lượng, khung giờ và số người cần." },
-  { step: "Trao đổi / khảo sát", detail: "Trao đổi tình trạng hàng hóa, lối vào, tầng lầu, thiết bị hỗ trợ. Khối lượng lớn hoặc hàng đặc thù sẽ khảo sát trước." },
-  { step: "Báo giá", detail: "Báo giá theo giờ, theo ngày, theo tháng hoặc theo hợp đồng trước khi điều người, thống nhất phạm vi công việc." },
-  { step: "Điều phối nhân công", detail: "Điều đội đúng giờ, có đội trưởng phụ trách, nhân công mang bảo hộ và tuân thủ nội quy nơi làm việc." },
-  { step: "Thực hiện và nghiệm thu", detail: "Thi công theo phạm vi đã chốt, chốt sản lượng, vệ sinh khu vực và bàn giao cho người phụ trách." },
+  {
+    step: "Tiếp nhận yêu cầu",
+    detail: "Gọi hotline hoặc gửi form: địa chỉ, loại hàng, khối lượng, khung giờ và số người cần.",
+  },
+  {
+    step: "Trao đổi / khảo sát",
+    detail:
+      "Trao đổi tình trạng hàng hóa, lối vào, tầng lầu, thiết bị hỗ trợ. Khối lượng lớn hoặc hàng đặc thù sẽ khảo sát trước.",
+  },
+  {
+    step: "Báo giá",
+    detail:
+      "Báo giá theo giờ, theo ngày, theo tháng hoặc theo hợp đồng trước khi điều người, thống nhất phạm vi công việc.",
+  },
+  {
+    step: "Điều phối nhân công",
+    detail:
+      "Điều đội đúng giờ, có đội trưởng phụ trách, nhân công mang bảo hộ và tuân thủ nội quy nơi làm việc.",
+  },
+  {
+    step: "Thực hiện và nghiệm thu",
+    detail:
+      "Thi công theo phạm vi đã chốt, chốt sản lượng, vệ sinh khu vực và bàn giao cho người phụ trách.",
+  },
 ];
 
 const WHY = [
-  { t: "Phục vụ 24/7", d: "Nhận ca ngày, ca đêm, cuối tuần và ngày lễ theo lịch nhập - xuất hàng của khách." },
-  { t: "Đội ngũ nhân công có tổ chức", d: "Làm việc theo đội, có đội trưởng giám sát tiến độ và an toàn trong suốt ca." },
-  { t: "Nhận nhiều loại hàng hóa", d: "Hàng thùng, hàng bao, hàng kiện, hàng rời, hàng nặng, máy móc và thiết bị." },
-  { t: "Đa dạng hiện trường", d: "Kho hàng, nhà máy, container, xe tải, văn phòng, cửa hàng và công trình." },
-  { t: "Thuê theo giờ / ngày / tháng", d: "Chọn hình thức phù hợp khối lượng công việc, có hợp đồng cho nhu cầu dài hạn." },
-  { t: "TP.HCM và khu vực lân cận", d: "Phục vụ toàn TP.HCM, đồng thời nhận việc tại Bình Dương, Đồng Nai, Long An." },
+  {
+    t: "Phục vụ 24/7",
+    d: "Nhận ca ngày, ca đêm, cuối tuần và ngày lễ theo lịch nhập - xuất hàng của khách.",
+  },
+  {
+    t: "Đội ngũ nhân công có tổ chức",
+    d: "Làm việc theo đội, có đội trưởng giám sát tiến độ và an toàn trong suốt ca.",
+  },
+  {
+    t: "Nhận nhiều loại hàng hóa",
+    d: "Hàng thùng, hàng bao, hàng kiện, hàng rời, hàng nặng, máy móc và thiết bị.",
+  },
+  {
+    t: "Đa dạng hiện trường",
+    d: "Kho hàng, nhà máy, container, xe tải, văn phòng, cửa hàng và công trình.",
+  },
+  {
+    t: "Thuê theo giờ / ngày / tháng",
+    d: "Chọn hình thức phù hợp khối lượng công việc, có hợp đồng cho nhu cầu dài hạn.",
+  },
+  {
+    t: "TP.HCM và khu vực lân cận",
+    d: "Phục vụ toàn TP.HCM, đồng thời nhận việc tại Bình Dương, Đồng Nai, Long An.",
+  },
 ];
 
 const FAQS = [
@@ -172,7 +206,7 @@ const FAQS = [
     a: `Gọi hotline ${HOTLINE} hoặc gửi form yêu cầu trên trang này với địa chỉ, loại hàng, khối lượng và thời gian dự kiến. Chúng tôi báo giá trước khi điều nhân công.`,
   },
   {
-    q: "Bốc Xếp Sài Gòn có phục vụ ngoài TP.HCM không?",
+    q: "Saigon Handling có phục vụ ngoài TP.HCM không?",
     a: "Có. Ngoài TP.HCM, chúng tôi nhận việc tại Bình Dương, Đồng Nai, Long An và các khu vực lân cận; với địa điểm xa, vui lòng trao đổi trước để sắp xếp lịch điều đội.",
   },
 ];
@@ -273,12 +307,12 @@ function HcmcLandingPage() {
 
           <div className="grid items-center gap-8 lg:grid-cols-2">
             <div>
-              <span className="section-eyebrow">Bốc Xếp Sài Gòn</span>
+              <span className="section-eyebrow">Saigon Handling</span>
               <h1 className="mt-4 font-display text-3xl font-bold uppercase leading-tight md:text-5xl">
                 Dịch Vụ Bốc Xếp TP.HCM Chuyên Nghiệp 24/7
               </h1>
               <p className="mt-4 text-lg text-muted-foreground">
-                Bốc Xếp Sài Gòn là đơn vị cung cấp dịch vụ bốc xếp hàng hóa tại TP.HCM, phục vụ kho
+                Saigon Handling là đơn vị cung cấp dịch vụ bốc xếp hàng hóa tại TP.HCM, phục vụ kho
                 hàng, nhà máy, container, xe tải, văn phòng, cửa hàng và các nhu cầu xếp dỡ hàng hóa
                 khác. Bạn cần thêm người cho một ca nhập hàng gấp hay một đội cố định làm việc mỗi
                 ngày, chúng tôi bố trí nhân công đúng giờ và báo giá trước khi bắt đầu.
@@ -294,17 +328,19 @@ function HcmcLandingPage() {
               </div>
 
               <p className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-                <Clock className="h-4 w-4 text-primary" /> Nhận yêu cầu 24/7, kể cả ca đêm, cuối tuần
-                và ngày lễ.
+                <Clock className="h-4 w-4 text-primary" /> Nhận yêu cầu 24/7, kể cả ca đêm, cuối
+                tuần và ngày lễ.
               </p>
             </div>
 
             <WatermarkedImage
               wrapperClassName="rounded-2xl border border-border"
               src={heroImage}
-              alt="Nhân công Bốc Xếp Sài Gòn bốc xếp hàng hóa từ container tại TP.HCM"
+              alt="Nhân công Saigon Handling bốc xếp hàng hóa từ container tại TP.HCM"
               width={1200}
               height={800}
+              loading="eager"
+              fetchPriority="high"
               className="aspect-[4/3] w-full rounded-2xl object-cover object-center"
             />
           </div>
@@ -313,7 +349,7 @@ function HcmcLandingPage() {
         {/* GIỚI THIỆU DỊCH VỤ */}
         <section className="container mx-auto px-4 py-14">
           <h2 className="font-display text-2xl font-bold uppercase md:text-3xl">
-            Bốc Xếp Sài Gòn cung cấp dịch vụ bốc xếp tại TP.HCM như thế nào
+            Saigon Handling cung cấp dịch vụ bốc xếp tại TP.HCM như thế nào
           </h2>
           <div className="mt-5 grid gap-6 lg:grid-cols-2">
             <div className="space-y-4 text-muted-foreground">
@@ -334,7 +370,9 @@ function HcmcLandingPage() {
             </div>
             <Card>
               <CardContent className="p-6">
-                <h3 className="font-display text-lg font-bold uppercase">Hình thức thuê nhân công</h3>
+                <h3 className="font-display text-lg font-bold uppercase">
+                  Hình thức thuê nhân công
+                </h3>
                 <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                   {[
                     "Theo giờ: phù hợp ca lẻ, hàng về đột xuất, khối lượng nhỏ.",
@@ -356,14 +394,13 @@ function HcmcLandingPage() {
         {/* TRƯỜNG HỢP THƯỜNG CẦN DỊCH VỤ */}
         <section className="py-14">
           <div className="container mx-auto px-4">
-
             <h2 className="font-display text-2xl font-bold uppercase md:text-3xl">
               Những trường hợp thường cần dịch vụ bốc xếp tại TP.HCM
             </h2>
             <p className="mt-3 max-w-3xl text-muted-foreground">
               Phần lớn yêu cầu chúng tôi nhận được xuất phát từ những tình huống sau. Nếu công việc
-              của bạn nằm trong số này, chỉ cần cho biết địa chỉ, loại hàng và khung giờ là chúng tôi
-              tính được số người cần bố trí.
+              của bạn nằm trong số này, chỉ cần cho biết địa chỉ, loại hàng và khung giờ là chúng
+              tôi tính được số người cần bố trí.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {USE_CASES.map((u) => (
@@ -401,7 +438,6 @@ function HcmcLandingPage() {
                         className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
                       >
                         {c.anchor ?? `Xem chi tiết ${c.name.toLowerCase()}`}
-
                       </Link>
                     ) : (
                       <a
@@ -423,7 +459,7 @@ function HcmcLandingPage() {
               </Link>{" "}
               hoặc{" "}
               <Link to="/ho-so-nang-luc" className="font-semibold text-primary hover:underline">
-                hồ sơ năng lực của Bốc Xếp Sài Gòn
+                hồ sơ năng lực của Saigon Handling
               </Link>
               .
             </p>
@@ -481,7 +517,7 @@ function HcmcLandingPage() {
         {/* VÌ SAO CHỌN */}
         <section className="container mx-auto px-4 py-14">
           <h2 className="font-display text-2xl font-bold uppercase md:text-3xl">
-            Vì sao nên chọn Bốc Xếp Sài Gòn
+            Vì sao nên chọn Saigon Handling
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {WHY.map((w) => (
@@ -502,7 +538,7 @@ function HcmcLandingPage() {
               Hình ảnh công việc thực tế
             </h2>
             <p className="mt-3 max-w-3xl text-muted-foreground">
-              Một số hình ảnh ca làm việc của đội Bốc Xếp Sài Gòn tại kho hàng, depot container và
+              Một số hình ảnh ca làm việc của đội Saigon Handling tại kho hàng, depot container và
               hiện trường đóng gói ở TP.HCM.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -572,7 +608,10 @@ function HcmcLandingPage() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 shrink-0 text-primary" />
-                <a href={`tel:${HOTLINE_TEL}`} className="font-display text-lg font-bold text-primary">
+                <a
+                  href={`tel:${HOTLINE_TEL}`}
+                  className="font-display text-lg font-bold text-primary"
+                >
                   {HOTLINE}
                 </a>
               </li>

@@ -111,8 +111,8 @@ function ServiceDetail() {
   const clusterPosts = posts.filter((p) => clusterSlugs.includes(p.slug));
   const excerptFor = (slug: string) => clusterPosts.find((p) => p.slug === slug)?.excerpt ?? null;
 
-  const caseStudy = page.caseStudy && findProjectDetail(page.caseStudy.slug) ? page.caseStudy : null;
-
+  const caseStudy =
+    page.caseStudy && findProjectDetail(page.caseStudy.slug) ? page.caseStudy : null;
 
   return (
     <div className="min-h-screen bg-background">
@@ -131,13 +131,15 @@ function ServiceDetail() {
         </nav>
 
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
-          <article className="max-w-3xl pr-16 lg:pr-0">
+          <article className="min-w-0 max-w-3xl">
             <WatermarkedImage
               wrapperClassName="rounded-2xl border border-border"
               src={banner}
-              alt={`Nhân công Bốc Xếp Sài Gòn thực hiện ${page.name.toLowerCase()} tại TP.HCM`}
+              alt={`Nhân công Saigon Handling thực hiện ${page.name.toLowerCase()} tại TP.HCM`}
               width={1200}
               height={630}
+              loading="eager"
+              fetchPriority="high"
               className="aspect-[16/9] w-full object-cover"
             />
             <h1 className="mt-6 font-heading text-3xl font-bold uppercase tracking-tight md:text-4xl">
@@ -152,7 +154,11 @@ function ServiceDetail() {
                 </a>
               </Button>
               <Button asChild size="lg" variant="secondary">
-                <a href="https://zaloapp.com/qr/p/8nkmbua5ktom?src=qr" target="_blank" rel="noreferrer">
+                <a
+                  href="https://zaloapp.com/qr/p/8nkmbua5ktom?src=qr"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Chat Zalo
                 </a>
               </Button>
@@ -162,7 +168,9 @@ function ServiceDetail() {
             </div>
 
             <section className="mt-10">
-              <h2 className="font-heading text-2xl font-bold uppercase">Dịch vụ này phù hợp với ai?</h2>
+              <h2 className="font-heading text-2xl font-bold uppercase">
+                Dịch vụ này phù hợp với ai?
+              </h2>
               <ul className="mt-4 space-y-2">
                 {page.forWho.map((item) => (
                   <li key={item} className="flex gap-2 text-muted-foreground">
@@ -219,7 +227,9 @@ function ServiceDetail() {
                       loading="lazy"
                       className="aspect-[4/3] w-full object-cover object-center"
                     />
-                    <figcaption className="mt-2 text-xs text-muted-foreground">{img.alt}</figcaption>
+                    <figcaption className="mt-2 text-xs text-muted-foreground">
+                      {img.alt}
+                    </figcaption>
                   </figure>
                 ))}
               </section>
@@ -328,7 +338,10 @@ function ServiceDetail() {
                 </h2>
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
                   {clusterTopics.map((topic) => (
-                    <Card key={topic.slug} className="h-full transition-colors hover:border-primary">
+                    <Card
+                      key={topic.slug}
+                      className="h-full transition-colors hover:border-primary"
+                    >
                       <CardContent className="flex h-full flex-col p-5">
                         <h3 className="font-heading text-base font-bold uppercase leading-snug">
                           <Link
@@ -376,14 +389,14 @@ function ServiceDetail() {
               </Link>
               .
             </p>
-
           </article>
-
 
           <aside className="space-y-5 lg:sticky lg:top-28 lg:self-start">
             <Card className="border-primary">
               <CardContent className="p-5">
-                <h2 className="font-heading text-xl font-bold uppercase">Nhận báo giá {page.name}</h2>
+                <h2 className="font-heading text-xl font-bold uppercase">
+                  Nhận báo giá {page.name}
+                </h2>
                 <p className="mt-2 text-sm text-muted-foreground">
                   Gọi hotline để trao đổi nhu cầu, hoặc gửi thông tin hàng hóa và địa điểm qua form.
                   Chúng tôi xác nhận phạm vi, phương án và báo giá theo công việc của bạn.
@@ -395,7 +408,11 @@ function ServiceDetail() {
                     </a>
                   </Button>
                   <Button asChild size="lg" variant="secondary">
-                    <a href="https://zaloapp.com/qr/p/8nkmbua5ktom?src=qr" target="_blank" rel="noreferrer">
+                    <a
+                      href="https://zaloapp.com/qr/p/8nkmbua5ktom?src=qr"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       Chat Zalo
                     </a>
                   </Button>

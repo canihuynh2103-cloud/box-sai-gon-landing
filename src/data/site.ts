@@ -35,7 +35,6 @@ const svcEquipment = svcEquipmentAsset.url;
 const svcCrates = svcCratesAsset.url;
 const svcBundles = svcBundlesAsset.url;
 
-
 export const HOTLINE = "0888.997.822";
 export const HOTLINE_TEL = "0888997822";
 export const EMAIL = "saigonhandling@gmail.com";
@@ -76,7 +75,6 @@ export const NAV_ITEMS = [
   { label: "FAQ", href: "#faq" },
   { label: "Liên Hệ", href: "#lien-he" },
 ];
-
 
 export type Service = {
   title: string;
@@ -146,7 +144,7 @@ export const SERVICES: Service[] = [
   },
   {
     title: "Chuyển Văn Phòng",
-    alt: "Nhân công đồng phục Bốc Xếp Sài Gòn đóng gói thiết bị trong văn phòng",
+    alt: "Nhân công đồng phục Saigon Handling đóng gói thiết bị trong văn phòng",
     desc: "Chuyển bàn ghế, thiết bị IT, hồ sơ ngoài giờ để không gián đoạn.",
     icon: "Building2",
     image: svcOffice,
@@ -188,7 +186,6 @@ export const SERVICES: Service[] = [
   },
 ];
 
-
 export type Partner = { name: string; logo?: string };
 
 export const PARTNERS: Partner[] = [
@@ -210,60 +207,144 @@ export const PARTNERS: Partner[] = [
 
 export const SERVICE_POSTS: Record<string, { title: string; excerpt: string }[]> = {
   "Bốc Xếp Kho Hàng": [
-    { title: "Quy trình nhập - xuất kho chuẩn 5 bước", excerpt: "Kiểm đếm hai lớp, dán nhãn vị trí và ký biên bản bàn giao ngay tại kho." },
-    { title: "Cách sắp xếp pallet tối ưu diện tích kho", excerpt: "Bố trí theo tần suất xuất hàng, vị trí kệ và lối đi để thuận tiện lấy hàng." },
+    {
+      title: "Quy trình nhập - xuất kho chuẩn 5 bước",
+      excerpt: "Kiểm đếm hai lớp, dán nhãn vị trí và ký biên bản bàn giao ngay tại kho.",
+    },
+    {
+      title: "Cách sắp xếp pallet tối ưu diện tích kho",
+      excerpt: "Bố trí theo tần suất xuất hàng, vị trí kệ và lối đi để thuận tiện lấy hàng.",
+    },
   ],
   "Bốc Xếp Container": [
-    { title: "Rút ruột container: tránh phí lưu cont thế nào?", excerpt: "Lên kế hoạch nhân sự theo lịch tàu để giải phóng cont đúng hạn." },
-    { title: "Kinh nghiệm đóng hàng lên cont an toàn", excerpt: "Chèn lót, ràng dây và phân bố tải trọng đều tránh xô hàng khi vận chuyển." },
+    {
+      title: "Rút ruột container: tránh phí lưu cont thế nào?",
+      excerpt: "Lên kế hoạch nhân sự theo lịch tàu để giải phóng cont đúng hạn.",
+    },
+    {
+      title: "Kinh nghiệm đóng hàng lên cont an toàn",
+      excerpt: "Chèn lót, ràng dây và phân bố tải trọng đều tránh xô hàng khi vận chuyển.",
+    },
   ],
   "Bốc Xếp Nhà Máy": [
-    { title: "Checklist di dời máy móc trong nhà máy", excerpt: "Phối hợp kỹ sư, đóng kiện gỗ và nghiệm thu chạy thử sau lắp đặt." },
-    { title: "An toàn lao động khi bốc xếp trong KCN", excerpt: "Trang bị bảo hộ, phân luồng di chuyển và giám sát đội tại hiện trường." },
+    {
+      title: "Checklist di dời máy móc trong nhà máy",
+      excerpt: "Phối hợp kỹ sư, đóng kiện gỗ và nghiệm thu chạy thử sau lắp đặt.",
+    },
+    {
+      title: "An toàn lao động khi bốc xếp trong KCN",
+      excerpt: "Trang bị bảo hộ, phân luồng di chuyển và giám sát đội tại hiện trường.",
+    },
   ],
   "Bốc Xếp Cảng": [
-    { title: "Thủ tục ra vào cảng Cát Lái cho nhân công", excerpt: "Nhân sự có thẻ cảng và chứng nhận an toàn, sẵn sàng làm việc 24/7." },
-    { title: "Bốc xếp hàng bao kiện tại cảng hiệu quả", excerpt: "Chia nhóm theo các khâu thao tác, vị trí hàng và thiết bị được phép sử dụng." },
+    {
+      title: "Thủ tục ra vào cảng Cát Lái cho nhân công",
+      excerpt: "Nhân sự có thẻ cảng và chứng nhận an toàn, sẵn sàng làm việc 24/7.",
+    },
+    {
+      title: "Bốc xếp hàng bao kiện tại cảng hiệu quả",
+      excerpt: "Chia nhóm theo các khâu thao tác, vị trí hàng và thiết bị được phép sử dụng.",
+    },
   ],
   "Bốc Xếp Sân Bay": [
-    { title: "Chuẩn bị kiện hàng air tại kho", excerpt: "Đối chiếu quy cách bao bì và hướng dẫn bàn giao từ đơn vị giao nhận." },
-    { title: "Xử lý hàng air cargo gần Tân Sơn Nhất", excerpt: "Bố trí ca theo giờ tiếp nhận được forwarder xác nhận, tại khu vực được phép làm." },
+    {
+      title: "Chuẩn bị kiện hàng air tại kho",
+      excerpt: "Đối chiếu quy cách bao bì và hướng dẫn bàn giao từ đơn vị giao nhận.",
+    },
+    {
+      title: "Xử lý hàng air cargo gần Tân Sơn Nhất",
+      excerpt: "Bố trí ca theo giờ tiếp nhận được forwarder xác nhận, tại khu vực được phép làm.",
+    },
   ],
   "Thuê Nhân Công": [
-    { title: "Nên thuê nhân công theo giờ hay theo tháng?", excerpt: "So sánh chi phí và tính ổn định để chọn phương án phù hợp mùa cao điểm." },
-    { title: "Cách quản lý nhân công thời vụ hiệu quả", excerpt: "Làm rõ người giám sát, cách chấm công và báo cáo phần việc hoàn thành." },
+    {
+      title: "Nên thuê nhân công theo giờ hay theo tháng?",
+      excerpt: "So sánh chi phí và tính ổn định để chọn phương án phù hợp mùa cao điểm.",
+    },
+    {
+      title: "Cách quản lý nhân công thời vụ hiệu quả",
+      excerpt: "Làm rõ người giám sát, cách chấm công và báo cáo phần việc hoàn thành.",
+    },
   ],
   "Đóng Gói Hàng Hóa": [
-    { title: "Tiêu chuẩn đóng gói hàng xuất khẩu EU", excerpt: "Chọn bao bì, vật liệu và nhãn theo hướng dẫn tuyến vận chuyển và khách nhận." },
-    { title: "Đóng gói hàng dễ vỡ: 6 lưu ý quan trọng", excerpt: "Chèn lót nhiều lớp, cố định góc và ghi rõ ký hiệu cảnh báo." },
+    {
+      title: "Tiêu chuẩn đóng gói hàng xuất khẩu EU",
+      excerpt: "Chọn bao bì, vật liệu và nhãn theo hướng dẫn tuyến vận chuyển và khách nhận.",
+    },
+    {
+      title: "Đóng gói hàng dễ vỡ: 6 lưu ý quan trọng",
+      excerpt: "Chèn lót nhiều lớp, cố định góc và ghi rõ ký hiệu cảnh báo.",
+    },
   ],
   "Chuyển Kho": [
-    { title: "Lập kế hoạch chuyển kho không gián đoạn", excerpt: "Chia ca luân phiên để hoạt động xuất nhập vẫn diễn ra bình thường." },
-    { title: "Sơ đồ bố trí kho mới theo nhóm hàng", excerpt: "Sắp xếp lại đúng sơ đồ khách cung cấp, bàn giao kèm danh sách vị trí." },
+    {
+      title: "Lập kế hoạch chuyển kho không gián đoạn",
+      excerpt: "Chia ca luân phiên để hoạt động xuất nhập vẫn diễn ra bình thường.",
+    },
+    {
+      title: "Sơ đồ bố trí kho mới theo nhóm hàng",
+      excerpt: "Sắp xếp lại đúng sơ đồ khách cung cấp, bàn giao kèm danh sách vị trí.",
+    },
   ],
   "Chuyển Văn Phòng": [
-    { title: "Chuyển văn phòng ngoài giờ hành chính", excerpt: "Thi công từ 20h đến 5h sáng để nhân sự làm việc bình thường hôm sau." },
-    { title: "Cách đóng gói thiết bị IT và hồ sơ", excerpt: "Đánh số theo phòng ban, bọc chống sốc cho máy chủ và màn hình." },
+    {
+      title: "Chuyển văn phòng ngoài giờ hành chính",
+      excerpt: "Thi công từ 20h đến 5h sáng để nhân sự làm việc bình thường hôm sau.",
+    },
+    {
+      title: "Cách đóng gói thiết bị IT và hồ sơ",
+      excerpt: "Đánh số theo phòng ban, bọc chống sốc cho máy chủ và màn hình.",
+    },
   ],
   "Chuyển Nhà": [
-    { title: "Chuyển nhà trọn gói cần chuẩn bị gì?", excerpt: "Danh sách đồ đạc, lịch thang máy và phương án bảo hiểm hàng giá trị cao." },
-    { title: "Bảo vệ nội thất gỗ khi vận chuyển", excerpt: "Bọc lót nhiều lớp, tháo lắp đúng kỹ thuật và lắp đặt lại tận nơi." },
+    {
+      title: "Chuyển nhà trọn gói cần chuẩn bị gì?",
+      excerpt: "Danh sách đồ đạc, lịch thang máy và phương án bảo hiểm hàng giá trị cao.",
+    },
+    {
+      title: "Bảo vệ nội thất gỗ khi vận chuyển",
+      excerpt: "Bọc lót nhiều lớp, tháo lắp đúng kỹ thuật và lắp đặt lại tận nơi.",
+    },
   ],
   "Xếp Dỡ Hàng Hóa": [
-    { title: "Xếp dỡ xe tải nhanh và an toàn", excerpt: "Dùng xe đẩy, ván trượt và bố trí đội hình theo dây chuyền." },
-    { title: "Lưu ý khi xếp dỡ hàng rời, hàng bao", excerpt: "Kiểm soát tải trọng, chống rơi vãi và vệ sinh mặt bằng sau ca." },
+    {
+      title: "Xếp dỡ xe tải nhanh và an toàn",
+      excerpt: "Dùng xe đẩy, ván trượt và bố trí đội hình theo dây chuyền.",
+    },
+    {
+      title: "Lưu ý khi xếp dỡ hàng rời, hàng bao",
+      excerpt: "Kiểm soát tải trọng, chống rơi vãi và vệ sinh mặt bằng sau ca.",
+    },
   ],
   "Bốc Hàng Theo Giờ": [
-    { title: "Điều động nhân công trong 60 phút", excerpt: "Tổng đài trực 24/7, điều phối đội gần nhất tới hiện trường." },
-    { title: "Cách tính phí bốc hàng theo giờ", excerpt: "Thời gian thuê theo công việc, cách tính công được xác nhận trước khi điều đội." },
+    {
+      title: "Điều động nhân công trong 60 phút",
+      excerpt: "Tổng đài trực 24/7, điều phối đội gần nhất tới hiện trường.",
+    },
+    {
+      title: "Cách tính phí bốc hàng theo giờ",
+      excerpt: "Thời gian thuê theo công việc, cách tính công được xác nhận trước khi điều đội.",
+    },
   ],
   "Bốc Xếp Theo Tháng": [
-    { title: "Lợi ích của đội cố định trực tại kho", excerpt: "Nhân sự quen quy trình, giảm sai sót và ổn định năng suất." },
-    { title: "Báo cáo sản lượng hằng tuần gồm những gì?", excerpt: "Số ca, khối lượng xử lý, sự cố và đề xuất cải tiến vận hành." },
+    {
+      title: "Lợi ích của đội cố định trực tại kho",
+      excerpt: "Nhân sự quen quy trình, giảm sai sót và ổn định năng suất.",
+    },
+    {
+      title: "Báo cáo sản lượng hằng tuần gồm những gì?",
+      excerpt: "Số ca, khối lượng xử lý, sự cố và đề xuất cải tiến vận hành.",
+    },
   ],
   "Bốc Xếp Hợp Đồng": [
-    { title: "Những điều khoản SLA nên có trong hợp đồng", excerpt: "Thời gian điều động, năng suất tối thiểu và mức bồi thường rõ ràng." },
-    { title: "Xuất hóa đơn VAT cho khách doanh nghiệp", excerpt: "Thanh toán theo kỳ, chứng từ đầy đủ phục vụ quyết toán." },
+    {
+      title: "Những điều khoản SLA nên có trong hợp đồng",
+      excerpt: "Thời gian điều động, năng suất tối thiểu và mức bồi thường rõ ràng.",
+    },
+    {
+      title: "Xuất hóa đơn VAT cho khách doanh nghiệp",
+      excerpt: "Thanh toán theo kỳ, chứng từ đầy đủ phục vụ quyết toán.",
+    },
   ],
 };
 
@@ -473,7 +554,7 @@ export const PRICING = [
 
 export const FAQS = [
   {
-    q: "Bốc Xếp Sài Gòn phục vụ những khu vực nào?",
+    q: "Saigon Handling phục vụ những khu vực nào?",
     a: "Chúng tôi phục vụ toàn bộ 22 quận huyện TP.HCM và các tỉnh lân cận gồm Bình Dương, Đồng Nai, Long An, Bà Rịa - Vũng Tàu, Tây Ninh. Với hợp đồng dài hạn, chúng tôi có thể điều động nhân sự đi các tỉnh xa hơn.",
   },
   {

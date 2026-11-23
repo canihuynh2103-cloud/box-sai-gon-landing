@@ -9,15 +9,27 @@ import { Button } from "@/components/ui/button";
 import { ADDRESS, BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, WORK_HOURS } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor, SITE_NAME, workforceLd } from "@/lib/seo";
 
-const TITLE = "Hồ Sơ Năng Lực Bốc Xếp Sài Gòn — Kinh Nghiệm & Cam Kết";
+const TITLE = "Hồ Sơ Năng Lực Saigon Handling — Kinh Nghiệm & Cam Kết";
 const DESC =
-  "Hồ sơ năng lực Bốc Xếp Sài Gòn: hơn 10 năm kinh nghiệm, 80+ nhân công, 3 chi nhánh tại TP.HCM, quy trình an toàn, bảo hiểm hàng hóa và cam kết dịch vụ rõ ràng.";
+  "Hồ sơ năng lực Saigon Handling: hơn 10 năm kinh nghiệm, 80+ nhân công, 3 chi nhánh tại TP.HCM, quy trình an toàn, bảo hiểm hàng hóa và cam kết dịch vụ rõ ràng.";
 
 const CAPABILITIES = [
-  { label: "Năm kinh nghiệm", value: "10+", desc: "Hoạt động liên tục trong ngành bốc xếp tại TP.HCM" },
-  { label: "Nhân công thường trực", value: "80+", desc: "Có hồ sơ, được huấn luyện an toàn lao động" },
+  {
+    label: "Năm kinh nghiệm",
+    value: "10+",
+    desc: "Hoạt động liên tục trong ngành bốc xếp tại TP.HCM",
+  },
+  {
+    label: "Nhân công thường trực",
+    value: "80+",
+    desc: "Có hồ sơ, được huấn luyện an toàn lao động",
+  },
   { label: "Chi nhánh điều phối", value: "3", desc: "Thủ Đức, Tân Bình, Bình Tân" },
-  { label: "Thời gian điều động", value: "2 giờ", desc: "Trong nội thành, kể cả ngoài giờ hành chính" },
+  {
+    label: "Thời gian điều động",
+    value: "2 giờ",
+    desc: "Trong nội thành, kể cả ngoài giờ hành chính",
+  },
 ];
 
 const EXPERIENCE = [
@@ -52,10 +64,26 @@ const COMMITMENTS = [
 ];
 
 const PROCESS = [
-  { step: "01", name: "Tiếp nhận & khảo sát", desc: "Ghi nhận loại hàng, khối lượng, mặt bằng, khung giờ; khảo sát tại chỗ với công việc lớn." },
-  { step: "02", name: "Báo giá & chốt phương án", desc: "Đề xuất số nhân công, thiết bị, thời gian và đơn giá bằng văn bản." },
-  { step: "03", name: "Điều động & triển khai", desc: "Tổ trưởng phổ biến an toàn đầu ca, phân công khu vực, làm theo quy trình đã duyệt." },
-  { step: "04", name: "Nghiệm thu & hậu kiểm", desc: "Đối chiếu số lượng, ký biên bản, xử lý phát sinh trong 24 giờ nếu có." },
+  {
+    step: "01",
+    name: "Tiếp nhận & khảo sát",
+    desc: "Ghi nhận loại hàng, khối lượng, mặt bằng, khung giờ; khảo sát tại chỗ với công việc lớn.",
+  },
+  {
+    step: "02",
+    name: "Báo giá & chốt phương án",
+    desc: "Đề xuất số nhân công, thiết bị, thời gian và đơn giá bằng văn bản.",
+  },
+  {
+    step: "03",
+    name: "Điều động & triển khai",
+    desc: "Tổ trưởng phổ biến an toàn đầu ca, phân công khu vực, làm theo quy trình đã duyệt.",
+  },
+  {
+    step: "04",
+    name: "Nghiệm thu & hậu kiểm",
+    desc: "Đối chiếu số lượng, ký biên bản, xử lý phát sinh trong 24 giờ nếu có.",
+  },
 ];
 
 export const Route = createFileRoute("/ho-so-nang-luc")({
@@ -119,12 +147,12 @@ function CapabilityPage() {
 
         <header className="max-w-3xl">
           <h1 className="font-heading text-3xl uppercase leading-tight md:text-5xl">
-            Hồ sơ năng lực Bốc Xếp Sài Gòn
+            Hồ sơ năng lực Saigon Handling
           </h1>
           <p className="mt-4 text-muted-foreground md:text-lg">
-            Chúng tôi cung cấp nhân công và dịch vụ bốc xếp hàng hóa tại TP.HCM từ kho hàng, container,
-            nhà máy, cảng biển đến sân bay. Trang này tổng hợp năng lực thực tế, quy trình làm việc và
-            cam kết dịch vụ để khách hàng có đủ cơ sở đánh giá trước khi hợp tác.
+            Chúng tôi cung cấp nhân công và dịch vụ bốc xếp hàng hóa tại TP.HCM từ kho hàng,
+            container, nhà máy, cảng biển đến sân bay. Trang này tổng hợp năng lực thực tế, quy
+            trình làm việc và cam kết dịch vụ để khách hàng có đủ cơ sở đánh giá trước khi hợp tác.
           </p>
         </header>
 
@@ -232,8 +260,8 @@ function CapabilityPage() {
         <section className="mt-14 rounded-xl border border-border/60 bg-card p-8">
           <h2 className="font-heading text-2xl uppercase">Cần bản hồ sơ năng lực chi tiết?</h2>
           <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-            Chúng tôi gửi hồ sơ năng lực đầy đủ kèm bảng giá, mẫu hợp đồng và phụ lục SLA theo yêu cầu
-            của bộ phận mua hàng.
+            Chúng tôi gửi hồ sơ năng lực đầy đủ kèm bảng giá, mẫu hợp đồng và phụ lục SLA theo yêu
+            cầu của bộ phận mua hàng.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button asChild size="lg">

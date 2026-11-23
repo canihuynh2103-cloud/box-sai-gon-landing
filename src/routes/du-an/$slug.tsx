@@ -15,11 +15,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  findProjectDetail,
-  relatedProjects,
-  type ProjectDetail,
-} from "@/data/project-pages";
+import { findProjectDetail, relatedProjects, type ProjectDetail } from "@/data/project-pages";
 import { findServicePage } from "@/data/service-pages";
 import { HOTLINE, HOTLINE_TEL, EMAIL, ZALO_LINK, ADDRESS, type Project } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor, SITE_NAME } from "@/lib/seo";
@@ -36,7 +32,7 @@ export const Route = createFileRoute("/du-an/$slug")({
     if (!project) {
       return { meta: [{ title: "Không tìm thấy dự án" }, { name: "robots", content: "noindex" }] };
     }
-    const title = detail?.seoTitle ?? `${project.name} | Dự án Bốc Xếp Sài Gòn`;
+    const title = detail?.seoTitle ?? `${project.name} | Dự án Saigon Handling`;
     const description =
       detail?.seoDescription ??
       `${project.name} - ${project.category} tại ${project.location}, thời gian thực hiện ${project.duration}. Xem chi tiết phạm vi công việc và quy trình thực hiện.`;
@@ -138,6 +134,8 @@ function ProjectDetailPage() {
               alt={`Hình ảnh minh hoạ công việc ${project.category} tại ${project.location}`}
               width={1200}
               height={630}
+              loading="eager"
+              fetchPriority="high"
               className="aspect-[16/9] w-full object-cover"
             />
 
@@ -169,7 +167,6 @@ function ProjectDetailPage() {
               ))}
             </section>
 
-
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild size="lg">
                 <a href={`tel:${HOTLINE_TEL}`} className="cta-ring">
@@ -189,7 +186,6 @@ function ProjectDetailPage() {
               </Button>
             </div>
 
-
             <Section title="Bối cảnh và nhu cầu của khách hàng">
               {detail.context ? (
                 <p className="text-muted-foreground">{detail.context}</p>
@@ -199,7 +195,6 @@ function ProjectDetailPage() {
                 <Pending />
               )}
             </Section>
-
 
             <Section title="Loại hàng hóa">
               {detail.cargo ? <p className="text-muted-foreground">{detail.cargo}</p> : <Pending />}
@@ -225,7 +220,6 @@ function ProjectDetailPage() {
                 </div>
               </Section>
             ) : null}
-
 
             <Section title="Quy trình thực hiện">
               {detail.process?.length ? (
@@ -258,8 +252,6 @@ function ProjectDetailPage() {
                 </div>
               </Section>
             ) : null}
-
-
 
             <Section title="Nhân sự tham gia">
               {detail.personnel ? (
@@ -296,7 +288,6 @@ function ProjectDetailPage() {
               </Section>
             ) : null}
 
-
             <Section title="Dịch vụ chúng tôi đã thực hiện">
               <div className="rounded-xl border border-border bg-card p-5">
                 {service ? (
@@ -328,7 +319,6 @@ function ProjectDetailPage() {
               </div>
             </Section>
 
-
             <Section title="Hình ảnh thực tế">
               <WatermarkedImage
                 wrapperClassName="rounded-xl border border-border"
@@ -344,7 +334,7 @@ function ProjectDetailPage() {
               </p>
             </Section>
 
-            {(detail.faqs?.length ? detail.faqs : service?.faqs?.slice(0, 4) ?? []).length ? (
+            {(detail.faqs?.length ? detail.faqs : (service?.faqs?.slice(0, 4) ?? [])).length ? (
               <Section title="Câu hỏi thường gặp về dự án này">
                 <Accordion type="single" collapsible>
                   {(detail.faqs?.length ? detail.faqs : service!.faqs.slice(0, 4)).map((f) => (
@@ -356,7 +346,6 @@ function ProjectDetailPage() {
                 </Accordion>
               </Section>
             ) : null}
-
 
             {service && (
               <p className="mt-8 text-muted-foreground">
@@ -392,7 +381,9 @@ function ProjectDetailPage() {
                       <p className="text-[10px] font-bold uppercase tracking-widest text-primary">
                         {r.category}
                       </p>
-                      <h3 className="mt-1 font-display text-base font-bold leading-snug">{r.name}</h3>
+                      <h3 className="mt-1 font-display text-base font-bold leading-snug">
+                        {r.name}
+                      </h3>
                     </div>
                   </Link>
                 ))}
@@ -420,7 +411,9 @@ function ProjectDetailPage() {
                   </Button>
                   <QuoteButton className="inline-flex h-9 items-center justify-center rounded-md border border-primary px-4 text-sm font-bold uppercase text-primary hover:bg-primary/10" />
                   <Button asChild variant="outline">
-                    <a href={`mailto:${EMAIL}?subject=${encodeURIComponent("Yêu cầu báo giá bốc xếp")}`}>
+                    <a
+                      href={`mailto:${EMAIL}?subject=${encodeURIComponent("Yêu cầu báo giá bốc xếp")}`}
+                    >
                       <Mail className="mr-2 size-4" /> Gửi email
                     </a>
                   </Button>

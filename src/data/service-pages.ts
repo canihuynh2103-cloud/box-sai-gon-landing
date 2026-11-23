@@ -1,6 +1,6 @@
 /**
  * Cluster landing pages cho từng dịch vụ (SEO service pages).
- * Nội dung mô tả năng lực thực tế của Bốc Xếp Sài Gòn — không bịa số liệu, chứng nhận.
+ * Nội dung mô tả năng lực thực tế của Saigon Handling — không bịa số liệu, chứng nhận.
  */
 import svcContainerAsset from "@/assets/svc-container.jpg.asset.json";
 import svcUnloadingAsset from "@/assets/svc-unloading.jpg.asset.json";
@@ -45,7 +45,6 @@ const IMG = {
   nightStreet: svcNightStreetAsset.url,
 };
 
-
 const BASE_SERVICE_PAGES: ServicePage[] = [
   {
     slug: "boc-xep-kho-hang",
@@ -55,9 +54,13 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     seoDescription:
       "Cần bốc xếp, bốc vác kho hàng ở TPHCM? Nhân công nhập xuất kho, sắp xếp pallet, kiểm đếm hàng theo ca, thuê theo giờ hoặc dài hạn. Gọi 0888.997.822.",
     keyword: "bốc xếp kho hàng",
-    subKeywords: ["nhân công bốc xếp kho", "bốc xếp kho hàng tphcm", "thuê nhân công nhập xuất kho"],
+    subKeywords: [
+      "nhân công bốc xếp kho",
+      "bốc xếp kho hàng tphcm",
+      "thuê nhân công nhập xuất kho",
+    ],
     intro:
-      "Kho hàng là nơi dòng hàng hóa vào - ra liên tục, chỉ cần chậm một ca là lịch giao hàng phía sau bị dồn. Bốc Xếp Sài Gòn cung ứng nhân công bốc xếp kho theo ca, theo ngày và theo tháng cho các kho tại TP. Thủ Đức, Tân Bình, Bình Tân, Bình Chánh và các khu công nghiệp lân cận.",
+      "Kho hàng là nơi dòng hàng hóa vào - ra liên tục, chỉ cần chậm một ca là lịch giao hàng phía sau bị dồn. Saigon Handling cung ứng nhân công bốc xếp kho theo ca, theo ngày và theo tháng cho các kho tại TP. Thủ Đức, Tân Bình, Bình Tân, Bình Chánh và các khu công nghiệp lân cận.",
     forWho: [
       "Kho phân phối FMCG, thực phẩm, hàng tiêu dùng có ca nhập - xuất cố định",
       "Kho thương mại điện tử cần tăng người vào mùa cao điểm sale",
@@ -71,11 +74,29 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Hỗ trợ kiểm kê định kỳ, quấn màng PE, đóng gói lại thùng hỏng",
     ],
     process: [
-      { step: "Tiếp nhận yêu cầu", detail: "Ghi nhận địa chỉ kho, loại hàng, khối lượng, khung giờ làm việc và số người cần." },
-      { step: "Báo giá", detail: "Báo giá theo giờ, theo ngày hoặc theo tháng trước khi điều người, không phát sinh ngoài thỏa thuận." },
-      { step: "Điều động đội", detail: "Đội có đội trưởng giám sát, trang bị bảo hộ, nhận bàn giao công việc từ quản lý kho." },
-      { step: "Thi công", detail: "Làm theo quy trình kho của khách: kiểm đếm hai lớp, ghi nhận số lượng, báo ngay khi phát hiện hàng lỗi." },
-      { step: "Bàn giao", detail: "Chốt sản lượng, ký biên bản ca làm việc, vệ sinh khu vực trước khi rời kho." },
+      {
+        step: "Tiếp nhận yêu cầu",
+        detail: "Ghi nhận địa chỉ kho, loại hàng, khối lượng, khung giờ làm việc và số người cần.",
+      },
+      {
+        step: "Báo giá",
+        detail:
+          "Báo giá theo giờ, theo ngày hoặc theo tháng trước khi điều người, không phát sinh ngoài thỏa thuận.",
+      },
+      {
+        step: "Điều động đội",
+        detail:
+          "Đội có đội trưởng giám sát, trang bị bảo hộ, nhận bàn giao công việc từ quản lý kho.",
+      },
+      {
+        step: "Thi công",
+        detail:
+          "Làm theo quy trình kho của khách: kiểm đếm hai lớp, ghi nhận số lượng, báo ngay khi phát hiện hàng lỗi.",
+      },
+      {
+        step: "Bàn giao",
+        detail: "Chốt sản lượng, ký biên bản ca làm việc, vệ sinh khu vực trước khi rời kho.",
+      },
     ],
     pros: [
       "Chủ động tăng - giảm số người theo mùa vụ, không phải tuyển dụng",
@@ -88,12 +109,30 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Hàng quá khổ hoặc quá nặng phải khảo sát trước để chuẩn bị thiết bị hỗ trợ",
     ],
     faqs: [
-      { q: "Thuê tối thiểu bao nhiêu giờ?", a: `${minimumHireNote()}. Với ca kho, thời lượng được trao đổi theo lượng hàng, lịch xe và phạm vi nhập xuất; công việc thường xuyên có thể lựa chọn theo ca hoặc theo tháng.` },
-      { q: "Có nhận làm ca đêm không?", a: "Có. Nhiều kho chỉ nhập hàng ban đêm nên chúng tôi bố trí đội trực ca đêm và cuối tuần." },
-      { q: "Ai chịu trách nhiệm nếu hàng bị hư hỏng?", a: "Đội trưởng lập biên bản tại hiện trường cùng quản lý kho. Phần lỗi do thao tác của nhân công, chúng tôi chịu trách nhiệm theo thỏa thuận trong hợp đồng." },
-      { q: "Bao lâu thì có người tới kho?", a: "Trong nội thành TP.HCM, các ca đặt trước được điều đúng giờ; yêu cầu gấp thường xử lý trong vòng vài giờ tùy thời điểm và số người cần." },
-      { q: "Nhân công có được trang bị bảo hộ?", a: "Có đồng phục, găng tay, giày bảo hộ và tuân thủ nội quy an toàn của kho." },
-      { q: "Có ký hợp đồng và xuất hóa đơn VAT?", a: "Có, áp dụng cho cả hợp đồng ngắn hạn theo vụ việc và hợp đồng dài hạn theo tháng." },
+      {
+        q: "Thuê tối thiểu bao nhiêu giờ?",
+        a: `${minimumHireNote()}. Với ca kho, thời lượng được trao đổi theo lượng hàng, lịch xe và phạm vi nhập xuất; công việc thường xuyên có thể lựa chọn theo ca hoặc theo tháng.`,
+      },
+      {
+        q: "Có nhận làm ca đêm không?",
+        a: "Có. Nhiều kho chỉ nhập hàng ban đêm nên chúng tôi bố trí đội trực ca đêm và cuối tuần.",
+      },
+      {
+        q: "Ai chịu trách nhiệm nếu hàng bị hư hỏng?",
+        a: "Đội trưởng lập biên bản tại hiện trường cùng quản lý kho. Phần lỗi do thao tác của nhân công, chúng tôi chịu trách nhiệm theo thỏa thuận trong hợp đồng.",
+      },
+      {
+        q: "Bao lâu thì có người tới kho?",
+        a: "Trong nội thành TP.HCM, các ca đặt trước được điều đúng giờ; yêu cầu gấp thường xử lý trong vòng vài giờ tùy thời điểm và số người cần.",
+      },
+      {
+        q: "Nhân công có được trang bị bảo hộ?",
+        a: "Có đồng phục, găng tay, giày bảo hộ và tuân thủ nội quy an toàn của kho.",
+      },
+      {
+        q: "Có ký hợp đồng và xuất hóa đơn VAT?",
+        a: "Có, áp dụng cho cả hợp đồng ngắn hạn theo vụ việc và hợp đồng dài hạn theo tháng.",
+      },
     ],
     related: ["thue-nhan-cong-boc-xep", "chuyen-kho", "boc-xep-theo-thang"],
   },
@@ -107,7 +146,7 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     keyword: "bốc xếp container",
     subKeywords: ["rút ruột container", "đóng hàng lên container", "bốc xếp cont tphcm"],
     intro:
-      "Container nằm chờ là chi phí phát sinh: phí lưu cont, lưu bãi, phí chờ tài xế. Bốc Xếp Sài Gòn tổ chức đội bốc xếp container theo dây chuyền, chạy đúng lịch tàu và lịch trả cont để hàng ra khỏi cont sớm nhất có thể.",
+      "Container nằm chờ là chi phí phát sinh: phí lưu cont, lưu bãi, phí chờ tài xế. Saigon Handling tổ chức đội bốc xếp container theo dây chuyền, chạy đúng lịch tàu và lịch trả cont để hàng ra khỏi cont sớm nhất có thể.",
     forWho: [
       "Doanh nghiệp nhập khẩu cần rút ruột cont tại kho",
       "Đơn vị xuất khẩu cần đóng hàng lên cont đúng quy cách",
@@ -120,11 +159,26 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Hỗ trợ quấn màng PE, đóng pallet trước khi đưa vào cont",
     ],
     process: [
-      { step: "Nhận thông tin lô hàng", detail: "Số lượng cont, loại hàng, trọng lượng kiện, địa điểm và thời hạn trả cont." },
-      { step: "Bố trí nhân sự theo lịch", detail: "Chia đội theo số cont và khung giờ để không kéo dài thời gian giữ cont." },
-      { step: "Thi công theo dây chuyền", detail: "Chia nhóm trong cont - nhóm trung chuyển - nhóm xếp kho để dòng hàng liên tục." },
-      { step: "Kiểm đếm và ghi nhận", detail: "Đếm theo packing list, chụp ảnh kiện hư hỏng nếu có để làm cơ sở khiếu nại." },
-      { step: "Vệ sinh và bàn giao", detail: "Thu gom vật liệu chèn lót, vệ sinh cont và khu vực, chốt sản lượng với khách." },
+      {
+        step: "Nhận thông tin lô hàng",
+        detail: "Số lượng cont, loại hàng, trọng lượng kiện, địa điểm và thời hạn trả cont.",
+      },
+      {
+        step: "Bố trí nhân sự theo lịch",
+        detail: "Chia đội theo số cont và khung giờ để không kéo dài thời gian giữ cont.",
+      },
+      {
+        step: "Thi công theo dây chuyền",
+        detail: "Chia nhóm trong cont - nhóm trung chuyển - nhóm xếp kho để dòng hàng liên tục.",
+      },
+      {
+        step: "Kiểm đếm và ghi nhận",
+        detail: "Đếm theo packing list, chụp ảnh kiện hư hỏng nếu có để làm cơ sở khiếu nại.",
+      },
+      {
+        step: "Vệ sinh và bàn giao",
+        detail: "Thu gom vật liệu chèn lót, vệ sinh cont và khu vực, chốt sản lượng với khách.",
+      },
     ],
     pros: [
       "Tổ chức theo dây chuyền nên rút ngắn thời gian mỗi cont",
@@ -136,14 +190,38 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Làm việc trong cont giữa trưa cần bố trí nghỉ luân phiên để đảm bảo an toàn",
     ],
     faqs: [
-      { q: "Bốc xếp container tại TP.HCM gồm những công việc gì?", a: "Gồm rút ruột container (chuyển hàng từ trong lòng cont ra xe hoặc vào kho), đóng hàng lên container theo tải trọng và quy cách chằng buộc, đảo hàng - kiểm đếm theo packing list, hỗ trợ quấn màng PE và lên pallet, cuối cùng là vệ sinh lòng cont trước khi trả rỗng." },
-      { q: "Rút ruột container cần chuẩn bị những gì?", a: "Cần chốt trước ba việc: điểm nhận hàng (lên xe tải hay vào kho), mặt bằng đủ chỗ đặt hàng tạm cạnh cont, và khung giờ được phép làm việc tại kho hoặc bãi. Nếu rút trong bãi cảng hay depot thì cần thêm thời gian làm thủ tục ra vào cho nhân sự." },
-      { q: "Có nhận bốc xếp container tại Cát Lái không?", a: "Có. Chúng tôi đã thực hiện rút ruột container hàng bao kiện tại cảng Cát Lái với đội nhân sự có thẻ ra vào cảng, làm việc theo quy định khu vực bãi. Khu vực Trường Thọ, Tân Cảng, các depot và kho tại Thủ Đức cũng nằm trong phạm vi phục vụ thường xuyên." },
-      { q: "Rút một container 40 feet mất bao lâu?", a: "Phụ thuộc loại hàng và số người. Hàng thùng carton xếp pallet nhanh hơn nhiều so với hàng bao rời. Khi nhận thông tin lô hàng, chúng tôi đề xuất số người để hoàn thành trong khung giờ bạn cần." },
-      { q: "Chi phí bốc xếp container được tính như thế nào?", a: "Tính theo cont, theo tấn hoặc theo giờ tùy đặc điểm lô hàng: hàng đồng nhất thường tính theo cont hoặc theo tấn, hàng phức tạp và hàng cần phân loại thì tính theo giờ cho minh bạch. Các yếu tố ảnh hưởng gồm loại cont, khối lượng, hình thức đóng hay rút, địa điểm và khung giờ thi công." },
-      { q: "Có hỗ trợ đóng gói trước khi vào cont?", a: "Có: quấn màng PE, đóng thùng, lên pallet và chèn lót chống xô hàng." },
-      { q: "Làm ngoài giờ và ban đêm được không?", a: "Được, chúng tôi thường xuyên chạy ca đêm để kịp lịch trả cont." },
-      { q: "Cần cung cấp thông tin gì để nhận báo giá?", a: "Loại hàng, số cont và kích cỡ cont, trọng lượng trung bình mỗi kiện, địa chỉ kho hoặc bãi, và thời gian mong muốn hoàn thành." },
+      {
+        q: "Bốc xếp container tại TP.HCM gồm những công việc gì?",
+        a: "Gồm rút ruột container (chuyển hàng từ trong lòng cont ra xe hoặc vào kho), đóng hàng lên container theo tải trọng và quy cách chằng buộc, đảo hàng - kiểm đếm theo packing list, hỗ trợ quấn màng PE và lên pallet, cuối cùng là vệ sinh lòng cont trước khi trả rỗng.",
+      },
+      {
+        q: "Rút ruột container cần chuẩn bị những gì?",
+        a: "Cần chốt trước ba việc: điểm nhận hàng (lên xe tải hay vào kho), mặt bằng đủ chỗ đặt hàng tạm cạnh cont, và khung giờ được phép làm việc tại kho hoặc bãi. Nếu rút trong bãi cảng hay depot thì cần thêm thời gian làm thủ tục ra vào cho nhân sự.",
+      },
+      {
+        q: "Có nhận bốc xếp container tại Cát Lái không?",
+        a: "Có. Chúng tôi đã thực hiện rút ruột container hàng bao kiện tại cảng Cát Lái với đội nhân sự có thẻ ra vào cảng, làm việc theo quy định khu vực bãi. Khu vực Trường Thọ, Tân Cảng, các depot và kho tại Thủ Đức cũng nằm trong phạm vi phục vụ thường xuyên.",
+      },
+      {
+        q: "Rút một container 40 feet mất bao lâu?",
+        a: "Phụ thuộc loại hàng và số người. Hàng thùng carton xếp pallet nhanh hơn nhiều so với hàng bao rời. Khi nhận thông tin lô hàng, chúng tôi đề xuất số người để hoàn thành trong khung giờ bạn cần.",
+      },
+      {
+        q: "Chi phí bốc xếp container được tính như thế nào?",
+        a: "Tính theo cont, theo tấn hoặc theo giờ tùy đặc điểm lô hàng: hàng đồng nhất thường tính theo cont hoặc theo tấn, hàng phức tạp và hàng cần phân loại thì tính theo giờ cho minh bạch. Các yếu tố ảnh hưởng gồm loại cont, khối lượng, hình thức đóng hay rút, địa điểm và khung giờ thi công.",
+      },
+      {
+        q: "Có hỗ trợ đóng gói trước khi vào cont?",
+        a: "Có: quấn màng PE, đóng thùng, lên pallet và chèn lót chống xô hàng.",
+      },
+      {
+        q: "Làm ngoài giờ và ban đêm được không?",
+        a: "Được, chúng tôi thường xuyên chạy ca đêm để kịp lịch trả cont.",
+      },
+      {
+        q: "Cần cung cấp thông tin gì để nhận báo giá?",
+        a: "Loại hàng, số cont và kích cỡ cont, trọng lượng trung bình mỗi kiện, địa chỉ kho hoặc bãi, và thời gian mong muốn hoàn thành.",
+      },
     ],
     related: ["boc-xep-cang", "xep-do-hang-hoa", "dong-goi-hang-hoa"],
     ogImagePath: IMG.container,
@@ -208,7 +286,12 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       h2: "Dự án thực tế: Rút ruột container tại Cát Lái",
       blurb:
         "Khách hàng có container hàng bao kiện về liên tục theo lịch tàu, nếu không rút kịp tiến độ sẽ phát sinh phí lưu cont và lưu bãi. Đội nhân công có thẻ ra vào cảng được tổ chức theo dây chuyền trong bãi, nhận danh sách cont và vị trí mỗi buổi sáng rồi chia người theo cụm vị trí gần nhau.",
-      facts: ["120 container", "Trung bình 7 container/ngày", "Thời gian thực hiện 18 ngày", "30 nhân công có thẻ ra vào cảng"],
+      facts: [
+        "120 container",
+        "Trung bình 7 container/ngày",
+        "Thời gian thực hiện 18 ngày",
+        "30 nhân công có thẻ ra vào cảng",
+      ],
       cta: "Xem chi tiết dự án rút ruột container tại Cát Lái",
     },
     priceNote: {
@@ -243,11 +326,28 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Dọn dẹp, thu hồi vật liệu chèn lót sau khi hoàn thành",
     ],
     process: [
-      { step: "Khảo sát hiện trường", detail: "Đo lối di chuyển, xác định trọng lượng thiết bị và các điểm rủi ro." },
-      { step: "Lập kế hoạch", detail: "Chốt trình tự công việc, thiết bị hỗ trợ, số người và khung giờ ít ảnh hưởng sản xuất." },
-      { step: "Chuẩn bị an toàn", detail: "Phổ biến an toàn đầu ca, trang bị bảo hộ, phân luồng di chuyển trong xưởng." },
-      { step: "Thi công", detail: "Thực hiện theo trình tự, có đội trưởng giám sát và phối hợp với kỹ thuật của nhà máy." },
-      { step: "Nghiệm thu", detail: "Kiểm tra vị trí, tình trạng thiết bị và ký biên bản bàn giao." },
+      {
+        step: "Khảo sát hiện trường",
+        detail: "Đo lối di chuyển, xác định trọng lượng thiết bị và các điểm rủi ro.",
+      },
+      {
+        step: "Lập kế hoạch",
+        detail:
+          "Chốt trình tự công việc, thiết bị hỗ trợ, số người và khung giờ ít ảnh hưởng sản xuất.",
+      },
+      {
+        step: "Chuẩn bị an toàn",
+        detail: "Phổ biến an toàn đầu ca, trang bị bảo hộ, phân luồng di chuyển trong xưởng.",
+      },
+      {
+        step: "Thi công",
+        detail:
+          "Thực hiện theo trình tự, có đội trưởng giám sát và phối hợp với kỹ thuật của nhà máy.",
+      },
+      {
+        step: "Nghiệm thu",
+        detail: "Kiểm tra vị trí, tình trạng thiết bị và ký biên bản bàn giao.",
+      },
     ],
     pros: [
       "Có khảo sát và kế hoạch trước khi thi công",
@@ -259,11 +359,26 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Một số KCN yêu cầu đăng ký nhân sự trước, cần thời gian làm thủ tục",
     ],
     faqs: [
-      { q: "Có nhận di dời cả nhà xưởng không?", a: "Có. Chúng tôi nhận trọn gói tháo dỡ, vận chuyển và sắp xếp lại theo sơ đồ mặt bằng mới, chia thành nhiều giai đoạn nếu cần duy trì sản xuất." },
-      { q: "Máy móc nặng vài tấn có làm được?", a: "Cần khảo sát để chọn thiết bị nâng phù hợp. Sau khảo sát chúng tôi báo phương án và chi phí cụ thể." },
-      { q: "Nhân công có hồ sơ an toàn để vào KCN?", a: "Có. Chúng tôi cung cấp danh sách nhân sự để nhà máy đăng ký ra vào theo quy định." },
-      { q: "Làm vào Chủ nhật được không?", a: "Được, đây là khung giờ nhiều nhà máy chọn để hạn chế ảnh hưởng dây chuyền." },
-      { q: "Chi phí tính thế nào?", a: "Theo khối lượng công việc sau khảo sát, hoặc theo ngày công nếu công việc lặp lại theo ca." },
+      {
+        q: "Có nhận di dời cả nhà xưởng không?",
+        a: "Có. Chúng tôi nhận trọn gói tháo dỡ, vận chuyển và sắp xếp lại theo sơ đồ mặt bằng mới, chia thành nhiều giai đoạn nếu cần duy trì sản xuất.",
+      },
+      {
+        q: "Máy móc nặng vài tấn có làm được?",
+        a: "Cần khảo sát để chọn thiết bị nâng phù hợp. Sau khảo sát chúng tôi báo phương án và chi phí cụ thể.",
+      },
+      {
+        q: "Nhân công có hồ sơ an toàn để vào KCN?",
+        a: "Có. Chúng tôi cung cấp danh sách nhân sự để nhà máy đăng ký ra vào theo quy định.",
+      },
+      {
+        q: "Làm vào Chủ nhật được không?",
+        a: "Được, đây là khung giờ nhiều nhà máy chọn để hạn chế ảnh hưởng dây chuyền.",
+      },
+      {
+        q: "Chi phí tính thế nào?",
+        a: "Theo khối lượng công việc sau khảo sát, hoặc theo ngày công nếu công việc lặp lại theo ca.",
+      },
       { q: "Có xuất hóa đơn VAT?", a: "Có, kèm hợp đồng và biên bản nghiệm thu từng giai đoạn." },
     ],
     related: ["chuyen-kho", "boc-xep-hop-dong", "thue-nhan-cong-boc-xep"],
@@ -278,7 +393,7 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     keyword: "bốc xếp cảng",
     subKeywords: ["nhân công bốc xếp cảng cát lái", "bốc xếp depot", "xếp dỡ hàng tại cảng"],
     intro:
-      "Công việc tại cảng phụ thuộc lịch tàu và quy định ra vào khu vực. Bốc Xếp Sài Gòn bố trí đội theo ca, làm việc đúng nội quy cảng và sẵn sàng tăng người khi lô hàng gấp.",
+      "Công việc tại cảng phụ thuộc lịch tàu và quy định ra vào khu vực. Saigon Handling bố trí đội theo ca, làm việc đúng nội quy cảng và sẵn sàng tăng người khi lô hàng gấp.",
     forWho: [
       "Chủ hàng cần xếp dỡ tại cảng, depot trong khu vực TP.HCM",
       "Forwarder cần nhân công theo lô, theo ca",
@@ -291,9 +406,18 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Hỗ trợ chèn lót, ràng buộc hàng trước khi vận chuyển",
     ],
     process: [
-      { step: "Nhận lịch làm việc", detail: "Theo lịch tàu, lịch lấy hàng và khung giờ cho phép ra vào." },
-      { step: "Chuẩn bị nhân sự", detail: "Lập danh sách nhân sự, chuẩn bị bảo hộ và thủ tục ra vào theo yêu cầu." },
-      { step: "Thi công theo ca", detail: "Tổ chức đội theo dây chuyền, có đội trưởng điều phối tại hiện trường." },
+      {
+        step: "Nhận lịch làm việc",
+        detail: "Theo lịch tàu, lịch lấy hàng và khung giờ cho phép ra vào.",
+      },
+      {
+        step: "Chuẩn bị nhân sự",
+        detail: "Lập danh sách nhân sự, chuẩn bị bảo hộ và thủ tục ra vào theo yêu cầu.",
+      },
+      {
+        step: "Thi công theo ca",
+        detail: "Tổ chức đội theo dây chuyền, có đội trưởng điều phối tại hiện trường.",
+      },
       { step: "Kiểm đếm & báo cáo", detail: "Chốt số lượng theo chứng từ, ghi nhận sự cố nếu có." },
     ],
     pros: [
@@ -306,12 +430,27 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Thời tiết xấu có thể ảnh hưởng tiến độ xếp dỡ ngoài bãi",
     ],
     faqs: [
-      { q: "Có nhận việc gấp trong ngày không?", a: "Tùy thời điểm và số người cần. Bạn gọi hotline để được xác nhận khả năng điều động ngay." },
-      { q: "Đội bao nhiêu người là hợp lý?", a: "Cần xem số kiện, trọng lượng, cách đóng hàng, vị trí trong bãi và thiết bị được phép sử dụng. Đội được đề xuất theo các khâu thao tác và lịch bàn giao; không chốt một số người chung khi chưa có thông tin lô hàng và điều kiện ra vào." },
-      { q: "Chi phí tính theo tấn hay theo giờ?", a: "Hàng đồng nhất tính theo tấn hoặc theo kiện; công việc phát sinh, đảo hàng thường tính theo giờ." },
+      {
+        q: "Có nhận việc gấp trong ngày không?",
+        a: "Tùy thời điểm và số người cần. Bạn gọi hotline để được xác nhận khả năng điều động ngay.",
+      },
+      {
+        q: "Đội bao nhiêu người là hợp lý?",
+        a: "Cần xem số kiện, trọng lượng, cách đóng hàng, vị trí trong bãi và thiết bị được phép sử dụng. Đội được đề xuất theo các khâu thao tác và lịch bàn giao; không chốt một số người chung khi chưa có thông tin lô hàng và điều kiện ra vào.",
+      },
+      {
+        q: "Chi phí tính theo tấn hay theo giờ?",
+        a: "Hàng đồng nhất tính theo tấn hoặc theo kiện; công việc phát sinh, đảo hàng thường tính theo giờ.",
+      },
       { q: "Có làm ban đêm?", a: "Có, chúng tôi bố trí ca đêm theo lịch tàu." },
-      { q: "Ai giám sát chất lượng công việc?", a: "Đội trưởng tại hiện trường, làm việc trực tiếp với đại diện của bạn." },
-      { q: "Có hợp đồng theo lô hàng?", a: "Có, hợp đồng theo lô hoặc hợp đồng khung cho khách làm thường xuyên." },
+      {
+        q: "Ai giám sát chất lượng công việc?",
+        a: "Đội trưởng tại hiện trường, làm việc trực tiếp với đại diện của bạn.",
+      },
+      {
+        q: "Có hợp đồng theo lô hàng?",
+        a: "Có, hợp đồng theo lô hoặc hợp đồng khung cho khách làm thường xuyên.",
+      },
     ],
     related: ["boc-xep-container", "xep-do-hang-hoa", "boc-xep-hop-dong"],
   },
@@ -323,7 +462,11 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     seoDescription:
       "Bốc xếp, xếp dỡ và đóng gói hàng air cargo tại kho gần sân bay Tân Sơn Nhất. Phối hợp lịch giao nhận, sang xe, bảo vệ kiện hàng. Gọi 0888.997.822.",
     keyword: "bốc xếp sân bay",
-    subKeywords: ["bốc xếp hàng air cargo", "nhân công sân bay tân sơn nhất", "xử lý hàng hàng không"],
+    subKeywords: [
+      "bốc xếp hàng air cargo",
+      "nhân công sân bay tân sơn nhất",
+      "xử lý hàng hàng không",
+    ],
     intro:
       "Hàng air cargo cần được chuẩn bị theo giờ tiếp nhận mà đơn vị giao nhận xác nhận. Đội hỗ trợ xếp dỡ, sang xe và đóng gói tại kho gần Tân Sơn Nhất, phối hợp phần bàn giao với forwarder; không thay thế nghiệp vụ trong khu vực hạn chế của sân bay.",
     forWho: [
@@ -338,8 +481,15 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Kiểm đếm theo AWB và chứng từ đi kèm",
     ],
     process: [
-      { step: "Nhận yêu cầu theo lô", detail: "Thông tin AWB khi đã có, số kiện, trọng lượng và hạn bàn giao do đơn vị giao nhận xác nhận." },
-      { step: "Điều động đội trực", detail: "Ưu tiên đội tại chi nhánh Tân Bình để tới hiện trường nhanh." },
+      {
+        step: "Nhận yêu cầu theo lô",
+        detail:
+          "Thông tin AWB khi đã có, số kiện, trọng lượng và hạn bàn giao do đơn vị giao nhận xác nhận.",
+      },
+      {
+        step: "Điều động đội trực",
+        detail: "Ưu tiên đội tại chi nhánh Tân Bình để tới hiện trường nhanh.",
+      },
       { step: "Xử lý hàng", detail: "Đóng gói, cân, dán nhãn, xếp hàng đúng quy cách." },
       { step: "Bàn giao", detail: "Chốt số kiện, trọng lượng và ký nhận với người phụ trách." },
     ],
@@ -353,12 +503,24 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Cần thông tin lô hàng sớm để chuẩn bị đủ người",
     ],
     faqs: [
-      { q: "Có làm việc trong khu vực cách ly sân bay?", a: "Các công việc bên trong khu vực hạn chế do đơn vị được cấp phép đảm nhiệm. Chúng tôi hỗ trợ phần việc tại kho, bãi và khu vực ngoài theo yêu cầu của khách." },
+      {
+        q: "Có làm việc trong khu vực cách ly sân bay?",
+        a: "Các công việc bên trong khu vực hạn chế do đơn vị được cấp phép đảm nhiệm. Chúng tôi hỗ trợ phần việc tại kho, bãi và khu vực ngoài theo yêu cầu của khách.",
+      },
       { q: "Nhận hàng gấp trong đêm không?", a: "Có, đây là khung giờ thường xuyên của hàng air." },
-      { q: "Có hỗ trợ đóng gói theo chuẩn hàng không?", a: "Có: quấn màng PE, chèn lót, dán nhãn cảnh báo và cân kiện." },
+      {
+        q: "Có hỗ trợ đóng gói theo chuẩn hàng không?",
+        a: "Có: quấn màng PE, chèn lót, dán nhãn cảnh báo và cân kiện.",
+      },
       { q: "Tính phí thế nào?", a: "Theo giờ hoặc theo lô, thống nhất trước khi làm." },
-      { q: "Hàng dễ vỡ có nhận không?", a: "Có, chúng tôi bố trí người có kinh nghiệm và tăng lớp chèn lót." },
-      { q: "Bao lâu có người tới?", a: "Với khu vực Tân Bình - Tân Phú - Gò Vấp, thời gian điều động thường rất nhanh; hãy gọi hotline để xác nhận." },
+      {
+        q: "Hàng dễ vỡ có nhận không?",
+        a: "Có, chúng tôi bố trí người có kinh nghiệm và tăng lớp chèn lót.",
+      },
+      {
+        q: "Bao lâu có người tới?",
+        a: "Với khu vực Tân Bình - Tân Phú - Gò Vấp, thời gian điều động thường rất nhanh; hãy gọi hotline để xác nhận.",
+      },
     ],
     related: ["dong-goi-hang-hoa", "boc-hang-theo-gio", "thue-nhan-cong-boc-xep"],
   },
@@ -370,7 +532,11 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     seoDescription:
       "Cho thuê nhân công bốc xếp, bốc vác, khuân vác tại TPHCM theo giờ, ngày, tháng. Có đội trưởng giám sát, hợp đồng và hóa đơn. Gọi 0888.997.822.",
     keyword: "thuê nhân công bốc xếp",
-    subKeywords: ["cho thuê nhân công thời vụ", "nhân công bốc xếp theo giờ", "cung ứng lao động bốc xếp"],
+    subKeywords: [
+      "cho thuê nhân công thời vụ",
+      "nhân công bốc xếp theo giờ",
+      "cung ứng lao động bốc xếp",
+    ],
     intro:
       "Thuê nhân công theo nhu cầu giúp doanh nghiệp linh hoạt chi phí: cao điểm thì tăng người, thấp điểm thì giảm, không phải giữ biên chế cả năm.",
     forWho: [
@@ -384,10 +550,22 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Nhân sự làm được nhiều loại việc: bốc xếp, đóng gói, sắp xếp, vệ sinh khu vực",
     ],
     process: [
-      { step: "Xác định nhu cầu", detail: "Số người, khung giờ, tính chất công việc và thời gian thuê." },
-      { step: "Báo giá & hợp đồng", detail: "Chốt đơn giá và điều kiện làm việc, ký hợp đồng nếu thuê dài hạn." },
-      { step: "Điều người", detail: "Đội tới đúng giờ, nhận bàn giao công việc từ người phụ trách." },
-      { step: "Theo dõi & điều chỉnh", detail: "Tăng giảm nhân sự theo thực tế, báo cáo theo ngày hoặc theo tuần." },
+      {
+        step: "Xác định nhu cầu",
+        detail: "Số người, khung giờ, tính chất công việc và thời gian thuê.",
+      },
+      {
+        step: "Báo giá & hợp đồng",
+        detail: "Chốt đơn giá và điều kiện làm việc, ký hợp đồng nếu thuê dài hạn.",
+      },
+      {
+        step: "Điều người",
+        detail: "Đội tới đúng giờ, nhận bàn giao công việc từ người phụ trách.",
+      },
+      {
+        step: "Theo dõi & điều chỉnh",
+        detail: "Tăng giảm nhân sự theo thực tế, báo cáo theo ngày hoặc theo tuần.",
+      },
     ],
     pros: [
       "Linh hoạt số lượng, không ràng buộc dài hạn nếu không cần",
@@ -399,12 +577,30 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Công việc đặc thù cần đào tạo ngắn tại chỗ trước khi vào việc",
     ],
     faqs: [
-      { q: "Có thể thuê nhân công cho một việc ngắn không?", a: `${minimumHireNote()}. Gửi lượng hàng, thao tác cần làm và giờ mong muốn để xác nhận đội cùng cách tính công cho lượt thuê của bạn.` },
-      { q: "Thuê theo tháng có lợi gì?", a: "Đội làm thường xuyên có điều kiện làm quen quy trình và lịch hàng của bạn. Hiệu quả chi phí cần so sánh trên số ca thực tế, phạm vi công việc và yêu cầu quản lý, không mặc định thuê tháng luôn rẻ hơn thuê theo ca." },
-      { q: "Có thay người nếu không phù hợp?", a: "Bạn phản hồi với đội trưởng hoặc đầu mối điều phối, nêu rõ thao tác hoặc yêu cầu chưa đáp ứng. Phương án và thời điểm thay người được xác nhận theo tình hình đội, nội quy ra vào và điều kiện đã thỏa thuận." },
-      { q: "Nhân công có bảo hộ lao động?", a: "Có đồng phục, găng tay, giày bảo hộ và tuân thủ nội quy nơi làm việc." },
-      { q: "Làm ngoài TP.HCM được không?", a: "Được, chúng tôi nhận việc tại Bình Dương, Đồng Nai, Long An và các tỉnh lân cận." },
-      { q: "Thanh toán thế nào?", a: "Theo ca cho việc lẻ, theo tuần hoặc theo tháng với khách có hợp đồng." },
+      {
+        q: "Có thể thuê nhân công cho một việc ngắn không?",
+        a: `${minimumHireNote()}. Gửi lượng hàng, thao tác cần làm và giờ mong muốn để xác nhận đội cùng cách tính công cho lượt thuê của bạn.`,
+      },
+      {
+        q: "Thuê theo tháng có lợi gì?",
+        a: "Đội làm thường xuyên có điều kiện làm quen quy trình và lịch hàng của bạn. Hiệu quả chi phí cần so sánh trên số ca thực tế, phạm vi công việc và yêu cầu quản lý, không mặc định thuê tháng luôn rẻ hơn thuê theo ca.",
+      },
+      {
+        q: "Có thay người nếu không phù hợp?",
+        a: "Bạn phản hồi với đội trưởng hoặc đầu mối điều phối, nêu rõ thao tác hoặc yêu cầu chưa đáp ứng. Phương án và thời điểm thay người được xác nhận theo tình hình đội, nội quy ra vào và điều kiện đã thỏa thuận.",
+      },
+      {
+        q: "Nhân công có bảo hộ lao động?",
+        a: "Có đồng phục, găng tay, giày bảo hộ và tuân thủ nội quy nơi làm việc.",
+      },
+      {
+        q: "Làm ngoài TP.HCM được không?",
+        a: "Được, chúng tôi nhận việc tại Bình Dương, Đồng Nai, Long An và các tỉnh lân cận.",
+      },
+      {
+        q: "Thanh toán thế nào?",
+        a: "Theo ca cho việc lẻ, theo tuần hoặc theo tháng với khách có hợp đồng.",
+      },
     ],
     related: ["boc-xep-kho-hang", "boc-hang-theo-gio", "boc-xep-theo-thang"],
   },
@@ -431,10 +627,16 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Lên pallet, ràng dây, dán nhãn và ký hiệu cảnh báo",
     ],
     process: [
-      { step: "Đánh giá hàng hóa", detail: "Kích thước, trọng lượng, độ nhạy cảm và phương thức vận chuyển." },
+      {
+        step: "Đánh giá hàng hóa",
+        detail: "Kích thước, trọng lượng, độ nhạy cảm và phương thức vận chuyển.",
+      },
       { step: "Chọn vật liệu", detail: "Đề xuất vật liệu và quy cách đóng gói phù hợp chi phí." },
       { step: "Thi công", detail: "Đóng gói tại kho của bạn hoặc tại điểm tập kết." },
-      { step: "Dán nhãn & bàn giao", detail: "Ghi nhận số kiện, dán nhãn và bàn giao kèm danh sách." },
+      {
+        step: "Dán nhãn & bàn giao",
+        detail: "Ghi nhận số kiện, dán nhãn và bàn giao kèm danh sách.",
+      },
     ],
     pros: [
       "Giảm rủi ro hư hỏng, móp méo khi vận chuyển",
@@ -446,12 +648,30 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Vật liệu đóng gói tính riêng theo thực tế sử dụng",
     ],
     faqs: [
-      { q: "Có làm đóng gói tại kho khách?", a: "Có, chúng tôi mang vật liệu và nhân công tới kho của bạn." },
-      { q: "Đóng thùng gỗ mất bao lâu?", a: "Tùy kích thước và số lượng kiện; kiện tiêu chuẩn có thể hoàn thành trong ngày." },
-      { q: "Hàng xuất khẩu cần lưu ý gì?", a: "Cần đúng quy cách của tuyến vận chuyển và quy định về vật liệu gỗ của nước nhập khẩu; chúng tôi tư vấn theo yêu cầu của bạn hoặc forwarder." },
-      { q: "Chi phí gồm vật liệu chưa?", a: "Báo giá tách phần nhân công và vật liệu để bạn dễ kiểm soát." },
-      { q: "Có nhận hàng dễ vỡ như kính, gốm?", a: "Có, dùng nhiều lớp chèn lót và cố định góc, dán ký hiệu cảnh báo." },
-      { q: "Có kết hợp bốc xếp lên xe?", a: "Có, thường làm liền mạch trong cùng ca để tiết kiệm chi phí." },
+      {
+        q: "Có làm đóng gói tại kho khách?",
+        a: "Có, chúng tôi mang vật liệu và nhân công tới kho của bạn.",
+      },
+      {
+        q: "Đóng thùng gỗ mất bao lâu?",
+        a: "Tùy kích thước và số lượng kiện; kiện tiêu chuẩn có thể hoàn thành trong ngày.",
+      },
+      {
+        q: "Hàng xuất khẩu cần lưu ý gì?",
+        a: "Cần đúng quy cách của tuyến vận chuyển và quy định về vật liệu gỗ của nước nhập khẩu; chúng tôi tư vấn theo yêu cầu của bạn hoặc forwarder.",
+      },
+      {
+        q: "Chi phí gồm vật liệu chưa?",
+        a: "Báo giá tách phần nhân công và vật liệu để bạn dễ kiểm soát.",
+      },
+      {
+        q: "Có nhận hàng dễ vỡ như kính, gốm?",
+        a: "Có, dùng nhiều lớp chèn lót và cố định góc, dán ký hiệu cảnh báo.",
+      },
+      {
+        q: "Có kết hợp bốc xếp lên xe?",
+        a: "Có, thường làm liền mạch trong cùng ca để tiết kiệm chi phí.",
+      },
     ],
     related: ["boc-xep-container", "chuyen-nha", "chuyen-van-phong"],
   },
@@ -478,10 +698,19 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Kiểm đếm, bàn giao kèm danh sách vị trí hàng",
     ],
     process: [
-      { step: "Khảo sát hai đầu", detail: "Đo lối đi, kiểm tra cửa, thang, mặt bằng kho cũ và kho mới." },
-      { step: "Lập kế hoạch theo giai đoạn", detail: "Chia đợt để hoạt động xuất nhập vẫn diễn ra bình thường." },
+      {
+        step: "Khảo sát hai đầu",
+        detail: "Đo lối đi, kiểm tra cửa, thang, mặt bằng kho cũ và kho mới.",
+      },
+      {
+        step: "Lập kế hoạch theo giai đoạn",
+        detail: "Chia đợt để hoạt động xuất nhập vẫn diễn ra bình thường.",
+      },
       { step: "Thi công", detail: "Chuyển theo nhóm hàng, dán nhãn để dễ định vị tại kho mới." },
-      { step: "Sắp xếp kho mới", detail: "Bố trí theo sơ đồ và tần suất xuất hàng do bạn cung cấp." },
+      {
+        step: "Sắp xếp kho mới",
+        detail: "Bố trí theo sơ đồ và tần suất xuất hàng do bạn cung cấp.",
+      },
       { step: "Bàn giao", detail: "Kiểm đếm, chốt danh sách vị trí và nghiệm thu." },
     ],
     pros: [
@@ -494,10 +723,19 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Kho có kệ cao cần thiết bị chuyên dụng, phải khảo sát",
     ],
     faqs: [
-      { q: "Chuyển kho mất bao lâu?", a: "Tùy khối lượng, khoảng cách và số lượng nhân sự. Sau khảo sát chúng tôi đưa ra kế hoạch theo ngày hoặc theo đợt." },
-      { q: "Có cần dừng hoạt động kho?", a: "Không nhất thiết. Chúng tôi thường chia đợt và làm ngoài giờ để duy trì xuất nhập." },
+      {
+        q: "Chuyển kho mất bao lâu?",
+        a: "Tùy khối lượng, khoảng cách và số lượng nhân sự. Sau khảo sát chúng tôi đưa ra kế hoạch theo ngày hoặc theo đợt.",
+      },
+      {
+        q: "Có cần dừng hoạt động kho?",
+        a: "Không nhất thiết. Chúng tôi thường chia đợt và làm ngoài giờ để duy trì xuất nhập.",
+      },
       { q: "Có hỗ trợ tháo lắp kệ kho?", a: "Có, tùy loại kệ và độ cao, cần khảo sát trước." },
-      { q: "Chi phí gồm những gì?", a: "Nhân công, vật liệu đóng gói, thiết bị hỗ trợ và vận chuyển nếu bạn cần trọn gói." },
+      {
+        q: "Chi phí gồm những gì?",
+        a: "Nhân công, vật liệu đóng gói, thiết bị hỗ trợ và vận chuyển nếu bạn cần trọn gói.",
+      },
       { q: "Có kiểm đếm khi chuyển?", a: "Có, kiểm đếm và ghi nhận theo danh sách hai đầu." },
       { q: "Có ký hợp đồng?", a: "Có hợp đồng, biên bản nghiệm thu và hóa đơn." },
     ],
@@ -526,10 +764,19 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Sắp xếp lại theo sơ đồ chỗ ngồi mới, dọn dẹp sau khi xong",
     ],
     process: [
-      { step: "Khảo sát", detail: "Kiểm tra thang máy, lối vào, khung giờ toà nhà cho phép thi công." },
+      {
+        step: "Khảo sát",
+        detail: "Kiểm tra thang máy, lối vào, khung giờ toà nhà cho phép thi công.",
+      },
       { step: "Chuẩn bị vật liệu", detail: "Thùng, màng PE, nhãn dán theo phòng ban." },
-      { step: "Thi công ngoài giờ", detail: "Thường làm buổi tối hoặc cuối tuần để không ảnh hưởng công việc." },
-      { step: "Lắp đặt & bàn giao", detail: "Lắp lại bàn ghế, đặt thiết bị đúng vị trí, dọn dẹp và nghiệm thu." },
+      {
+        step: "Thi công ngoài giờ",
+        detail: "Thường làm buổi tối hoặc cuối tuần để không ảnh hưởng công việc.",
+      },
+      {
+        step: "Lắp đặt & bàn giao",
+        detail: "Lắp lại bàn ghế, đặt thiết bị đúng vị trí, dọn dẹp và nghiệm thu.",
+      },
     ],
     pros: [
       "Có thể bố trí ngoài giờ theo lịch tòa nhà và người phụ trách để hạn chế ảnh hưởng công việc",
@@ -541,12 +788,27 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Sơ đồ chỗ ngồi mới nên chốt trước ngày chuyển",
     ],
     faqs: [
-      { q: "Chuyển văn phòng vào cuối tuần được không?", a: "Được, đây là lựa chọn phổ biến nhất." },
-      { q: "Có tháo lắp bàn ghế, vách ngăn?", a: "Có, tùy loại kết cấu; hạng mục phức tạp cần khảo sát." },
-      { q: "Server và thiết bị mạng xử lý thế nào?", a: "Chúng tôi bọc chống sốc và di chuyển; phần đấu nối, cấu hình do bộ phận IT của bạn hoặc nhà cung cấp thực hiện." },
-      { q: "Chi phí tính theo gì?", a: "Theo khối lượng đồ đạc, số tầng, điều kiện thang máy và thời gian thi công." },
+      {
+        q: "Chuyển văn phòng vào cuối tuần được không?",
+        a: "Được, đây là lựa chọn phổ biến nhất.",
+      },
+      {
+        q: "Có tháo lắp bàn ghế, vách ngăn?",
+        a: "Có, tùy loại kết cấu; hạng mục phức tạp cần khảo sát.",
+      },
+      {
+        q: "Server và thiết bị mạng xử lý thế nào?",
+        a: "Chúng tôi bọc chống sốc và di chuyển; phần đấu nối, cấu hình do bộ phận IT của bạn hoặc nhà cung cấp thực hiện.",
+      },
+      {
+        q: "Chi phí tính theo gì?",
+        a: "Theo khối lượng đồ đạc, số tầng, điều kiện thang máy và thời gian thi công.",
+      },
       { q: "Có cung cấp thùng đóng gói?", a: "Có, tính theo số thùng thực dùng." },
-      { q: "Có bảo hiểm hàng giá trị cao?", a: "Với hạng mục giá trị cao, chúng tôi thống nhất phương án trách nhiệm cụ thể trong hợp đồng trước khi thi công." },
+      {
+        q: "Có bảo hiểm hàng giá trị cao?",
+        a: "Với hạng mục giá trị cao, chúng tôi thống nhất phương án trách nhiệm cụ thể trong hợp đồng trước khi thi công.",
+      },
     ],
     related: ["chuyen-nha", "dong-goi-hang-hoa", "thue-nhan-cong-boc-xep"],
   },
@@ -573,11 +835,17 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Lắp đặt lại, dọn dẹp rác đóng gói",
     ],
     process: [
-      { step: "Khảo sát hoặc báo qua ảnh", detail: "Xác định khối lượng đồ, tầng, thang máy, lối vào." },
+      {
+        step: "Khảo sát hoặc báo qua ảnh",
+        detail: "Xác định khối lượng đồ, tầng, thang máy, lối vào.",
+      },
       { step: "Báo giá", detail: "Nêu rõ hạng mục, số người, số chuyến xe và vật liệu." },
       { step: "Đóng gói", detail: "Có thể làm trước một ngày với nhà nhiều đồ." },
       { step: "Vận chuyển", detail: "Cố định đồ trên xe, đi theo lộ trình đã thống nhất." },
-      { step: "Lắp đặt & dọn dẹp", detail: "Đặt đồ đúng phòng, lắp lại nội thất, thu gom vật liệu." },
+      {
+        step: "Lắp đặt & dọn dẹp",
+        detail: "Đặt đồ đúng phòng, lắp lại nội thất, thu gom vật liệu.",
+      },
     ],
     pros: [
       "Không phải tự khuân, giảm rủi ro hỏng đồ và chấn thương",
@@ -589,12 +857,27 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Đồ quá khổ như tủ lớn, đàn piano cần khảo sát riêng",
     ],
     faqs: [
-      { q: "Chuyển nhà cần đặt trước bao lâu?", a: "Nên liên hệ khi đã có ngày chuyển và điều kiện bàn giao hai nhà. Với chung cư, cần chốt lịch thang hàng trước; đội điều phối xác nhận thời điểm có thể nhận việc theo lượng đồ và lịch đội, không áp một số ngày đặt trước cho mọi trường hợp." },
-      { q: "Có nhận chuyển ít đồ?", a: "Có thể chọn chỉ thuê nhân công nếu bạn đã có xe và đồ đóng sẵn. Gửi ảnh, lượng đồ và điều kiện tầng hoặc cầu thang để xác nhận số người phù hợp, thay vì đặt một đội mẫu cho mọi lượt chuyển nhỏ." },
-      { q: "Có tháo lắp máy lạnh?", a: "Hạng mục điện lạnh do kỹ thuật chuyên môn thực hiện; chúng tôi hỗ trợ kết nối hoặc phối hợp theo yêu cầu của bạn." },
-      { q: "Chi phí phụ thuộc điều gì?", a: "Khối lượng đồ, tầng và thang máy, khoảng cách, số người và số chuyến xe." },
+      {
+        q: "Chuyển nhà cần đặt trước bao lâu?",
+        a: "Nên liên hệ khi đã có ngày chuyển và điều kiện bàn giao hai nhà. Với chung cư, cần chốt lịch thang hàng trước; đội điều phối xác nhận thời điểm có thể nhận việc theo lượng đồ và lịch đội, không áp một số ngày đặt trước cho mọi trường hợp.",
+      },
+      {
+        q: "Có nhận chuyển ít đồ?",
+        a: "Có thể chọn chỉ thuê nhân công nếu bạn đã có xe và đồ đóng sẵn. Gửi ảnh, lượng đồ và điều kiện tầng hoặc cầu thang để xác nhận số người phù hợp, thay vì đặt một đội mẫu cho mọi lượt chuyển nhỏ.",
+      },
+      {
+        q: "Có tháo lắp máy lạnh?",
+        a: "Hạng mục điện lạnh do kỹ thuật chuyên môn thực hiện; chúng tôi hỗ trợ kết nối hoặc phối hợp theo yêu cầu của bạn.",
+      },
+      {
+        q: "Chi phí phụ thuộc điều gì?",
+        a: "Khối lượng đồ, tầng và thang máy, khoảng cách, số người và số chuyến xe.",
+      },
       { q: "Có cung cấp thùng carton?", a: "Có, tính theo số lượng thực dùng." },
-      { q: "Nếu đồ bị hỏng thì sao?", a: "Đội trưởng lập biên bản tại chỗ; phần lỗi do thao tác của nhân công, chúng tôi chịu trách nhiệm theo thỏa thuận đã ký." },
+      {
+        q: "Nếu đồ bị hỏng thì sao?",
+        a: "Đội trưởng lập biên bản tại chỗ; phần lỗi do thao tác của nhân công, chúng tôi chịu trách nhiệm theo thỏa thuận đã ký.",
+      },
     ],
     related: ["chuyen-van-phong", "dong-goi-hang-hoa", "boc-hang-theo-gio"],
   },
@@ -636,12 +919,27 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Hàng nặng cần thiết bị hỗ trợ, thống nhất trước khi làm",
     ],
     faqs: [
-      { q: "Có nhận việc theo chuyến lẻ?", a: `${minimumHireNote()}. Với chuyến xe lẻ, cần nêu lượng hàng và điểm bàn giao để thống nhất tính theo công việc hoặc theo thời gian phù hợp.` },
-      { q: "Bao nhiêu người cho một xe tải 8 tấn?", a: "Tùy loại hàng; hàng thùng carton thường cần ít người hơn hàng bao rời. Chúng tôi đề xuất sau khi biết loại hàng." },
+      {
+        q: "Có nhận việc theo chuyến lẻ?",
+        a: `${minimumHireNote()}. Với chuyến xe lẻ, cần nêu lượng hàng và điểm bàn giao để thống nhất tính theo công việc hoặc theo thời gian phù hợp.`,
+      },
+      {
+        q: "Bao nhiêu người cho một xe tải 8 tấn?",
+        a: "Tùy loại hàng; hàng thùng carton thường cần ít người hơn hàng bao rời. Chúng tôi đề xuất sau khi biết loại hàng.",
+      },
       { q: "Có làm đêm không?", a: "Có, nhiều tuyến xe chỉ vào nội thành được vào ban đêm." },
-      { q: "Có xe nâng, xe đẩy?", a: "Chúng tôi mang xe đẩy, ván trượt; xe nâng thu xếp theo yêu cầu và tính riêng." },
-      { q: "Giá có thay đổi khi phát sinh?", a: "Chỉ thay đổi khi khối lượng công việc khác thỏa thuận ban đầu và được bạn đồng ý trước." },
-      { q: "Có làm ở tỉnh lân cận?", a: "Có, Bình Dương, Đồng Nai, Long An và khu vực gần TP.HCM." },
+      {
+        q: "Có xe nâng, xe đẩy?",
+        a: "Chúng tôi mang xe đẩy, ván trượt; xe nâng thu xếp theo yêu cầu và tính riêng.",
+      },
+      {
+        q: "Giá có thay đổi khi phát sinh?",
+        a: "Chỉ thay đổi khi khối lượng công việc khác thỏa thuận ban đầu và được bạn đồng ý trước.",
+      },
+      {
+        q: "Có làm ở tỉnh lân cận?",
+        a: "Có, Bình Dương, Đồng Nai, Long An và khu vực gần TP.HCM.",
+      },
     ],
     related: ["boc-xep-container", "boc-hang-theo-gio", "boc-xep-cang"],
   },
@@ -668,9 +966,16 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     ],
     process: [
       { step: "Gọi hotline", detail: "Mô tả việc, địa chỉ, số người và thời gian bắt đầu." },
-      { step: "Chốt giá theo giờ", detail: "Xác nhận đơn giá, thời lượng cần thuê và cách ghi nhận giờ làm theo công việc trước khi điều người." },
+      {
+        step: "Chốt giá theo giờ",
+        detail:
+          "Xác nhận đơn giá, thời lượng cần thuê và cách ghi nhận giờ làm theo công việc trước khi điều người.",
+      },
       { step: "Điều đội gần nhất", detail: "Ưu tiên đội thuộc chi nhánh gần địa điểm của bạn." },
-      { step: "Chốt giờ thực tế", detail: "Tính theo giờ làm thực tế, thanh toán sau khi hoàn thành." },
+      {
+        step: "Chốt giờ thực tế",
+        detail: "Tính theo giờ làm thực tế, thanh toán sau khi hoàn thành.",
+      },
     ],
     pros: [
       "Dễ kiểm soát công cho việc ngắn khi phạm vi và cách tính thời gian đã rõ",
@@ -682,11 +987,26 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Việc kéo dài hơn dự kiến sẽ tính thêm theo giờ đã thống nhất",
     ],
     faqs: [
-      { q: "Tối thiểu bao nhiêu giờ?", a: `${minimumHireNote()}. Thời gian cần thuê và cách ghi nhận giờ làm được thống nhất theo từng công việc trước khi điều đội, không buộc mọi lượt phải thuê đủ một số giờ chung.` },
-      { q: "Có phụ phí ngoài giờ?", a: "Ca đêm, ngày lễ có thể áp dụng đơn giá khác, chúng tôi báo rõ trước khi bạn xác nhận." },
-      { q: "Bao lâu có người tới?", a: "Tùy khu vực và thời điểm; hãy gọi hotline để được xác nhận thời gian cụ thể." },
-      { q: "Thanh toán bằng chuyển khoản được không?", a: "Được, chuyển khoản hoặc tiền mặt sau khi hoàn thành." },
-      { q: "Có xuất hóa đơn cho việc lẻ?", a: "Có, nếu bạn cần hóa đơn hãy thông báo khi đặt dịch vụ." },
+      {
+        q: "Tối thiểu bao nhiêu giờ?",
+        a: `${minimumHireNote()}. Thời gian cần thuê và cách ghi nhận giờ làm được thống nhất theo từng công việc trước khi điều đội, không buộc mọi lượt phải thuê đủ một số giờ chung.`,
+      },
+      {
+        q: "Có phụ phí ngoài giờ?",
+        a: "Ca đêm, ngày lễ có thể áp dụng đơn giá khác, chúng tôi báo rõ trước khi bạn xác nhận.",
+      },
+      {
+        q: "Bao lâu có người tới?",
+        a: "Tùy khu vực và thời điểm; hãy gọi hotline để được xác nhận thời gian cụ thể.",
+      },
+      {
+        q: "Thanh toán bằng chuyển khoản được không?",
+        a: "Được, chuyển khoản hoặc tiền mặt sau khi hoàn thành.",
+      },
+      {
+        q: "Có xuất hóa đơn cho việc lẻ?",
+        a: "Có, nếu bạn cần hóa đơn hãy thông báo khi đặt dịch vụ.",
+      },
       { q: "Có nhận việc ban đêm?", a: "Có, tổng đài nhận yêu cầu và điều phối theo ca." },
     ],
     related: ["thue-nhan-cong-boc-xep", "xep-do-hang-hoa", "boc-xep-kho-hang"],
@@ -716,8 +1036,14 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     process: [
       { step: "Xác định định biên", detail: "Số người mỗi ca, số ca mỗi tuần, phạm vi công việc." },
       { step: "Ký hợp đồng", detail: "Thống nhất đơn giá, SLA, quy định an toàn và cách báo cáo." },
-      { step: "Bàn giao & đào tạo tại chỗ", detail: "Đội làm quen quy trình kho trong những ngày đầu." },
-      { step: "Vận hành & báo cáo", detail: "Chấm công, báo sản lượng hằng tuần, họp đánh giá định kỳ." },
+      {
+        step: "Bàn giao & đào tạo tại chỗ",
+        detail: "Đội làm quen quy trình kho trong những ngày đầu.",
+      },
+      {
+        step: "Vận hành & báo cáo",
+        detail: "Chấm công, báo sản lượng hằng tuần, họp đánh giá định kỳ.",
+      },
     ],
     pros: [
       "Chủ động lập ngân sách theo lịch ca và phạm vi công việc đã thống nhất",
@@ -729,12 +1055,24 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Thay đổi định biên lớn nên thông báo trước để chuẩn bị nhân sự",
     ],
     faqs: [
-      { q: "Thuê tối thiểu bao nhiêu người theo tháng?", a: "Không có mức cứng; phổ biến là từ vài người trở lên cho một ca. Chúng tôi tư vấn định biên sau khi biết khối lượng công việc." },
-      { q: "Nếu nhân sự nghỉ thì sao?", a: "Chúng tôi bố trí người thay để đủ định biên trong ca." },
+      {
+        q: "Thuê tối thiểu bao nhiêu người theo tháng?",
+        a: "Không có mức cứng; phổ biến là từ vài người trở lên cho một ca. Chúng tôi tư vấn định biên sau khi biết khối lượng công việc.",
+      },
+      {
+        q: "Nếu nhân sự nghỉ thì sao?",
+        a: "Chúng tôi bố trí người thay để đủ định biên trong ca.",
+      },
       { q: "Có báo cáo sản lượng?", a: "Có, báo cáo hằng tuần hoặc theo tần suất bạn yêu cầu." },
       { q: "Có tăng người vào mùa cao điểm?", a: "Có, bổ sung theo ca hoặc theo tuần." },
-      { q: "Thanh toán theo kỳ nào?", a: "Thường theo tháng, đối chiếu chấm công trước khi xuất hóa đơn." },
-      { q: "Có cam kết chất lượng?", a: "Có, các tiêu chí về sản lượng, an toàn và thái độ làm việc được ghi trong hợp đồng." },
+      {
+        q: "Thanh toán theo kỳ nào?",
+        a: "Thường theo tháng, đối chiếu chấm công trước khi xuất hóa đơn.",
+      },
+      {
+        q: "Có cam kết chất lượng?",
+        a: "Có, các tiêu chí về sản lượng, an toàn và thái độ làm việc được ghi trong hợp đồng.",
+      },
     ],
     related: ["boc-xep-hop-dong", "thue-nhan-cong-boc-xep", "boc-xep-kho-hang"],
   },
@@ -746,7 +1084,11 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     seoDescription:
       "Hợp đồng bốc xếp dài hạn cho doanh nghiệp tại TPHCM: cam kết SLA, định biên nhân công, báo cáo định kỳ và hóa đơn VAT. Gọi 0888.997.822.",
     keyword: "bốc xếp hợp đồng",
-    subKeywords: ["hợp đồng bốc xếp dài hạn", "thuê ngoài nhân công bốc xếp", "dịch vụ bốc xếp doanh nghiệp"],
+    subKeywords: [
+      "hợp đồng bốc xếp dài hạn",
+      "thuê ngoài nhân công bốc xếp",
+      "dịch vụ bốc xếp doanh nghiệp",
+    ],
     intro:
       "Với doanh nghiệp, điều quan trọng không chỉ là giá mà là sự ổn định: đủ người, đúng giờ, có người chịu trách nhiệm và có chứng từ hợp lệ.",
     forWho: [
@@ -761,11 +1103,17 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Xuất hóa đơn VAT theo kỳ thanh toán",
     ],
     process: [
-      { step: "Trao đổi nhu cầu", detail: "Phạm vi công việc, khối lượng, địa điểm và yêu cầu đặc thù." },
+      {
+        step: "Trao đổi nhu cầu",
+        detail: "Phạm vi công việc, khối lượng, địa điểm và yêu cầu đặc thù.",
+      },
       { step: "Đề xuất phương án", detail: "Định biên, đơn giá, SLA và cách đo lường chất lượng." },
       { step: "Ký hợp đồng", detail: "Thống nhất điều khoản trách nhiệm, an toàn và thanh toán." },
       { step: "Triển khai", detail: "Bàn giao, đào tạo tại chỗ, vận hành theo lịch." },
-      { step: "Đánh giá & cải tiến", detail: "Rà soát định kỳ, điều chỉnh định biên và quy trình." },
+      {
+        step: "Đánh giá & cải tiến",
+        detail: "Rà soát định kỳ, điều chỉnh định biên và quy trình.",
+      },
     ],
     pros: [
       "Chi phí dự đoán được, dễ lập ngân sách",
@@ -777,12 +1125,27 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
       "Yêu cầu đặc thù (hàng nguy hiểm, kho lạnh) cần đánh giá riêng",
     ],
     faqs: [
-      { q: "Hợp đồng tối thiểu bao lâu?", a: "Linh hoạt theo nhu cầu, phổ biến là theo tháng hoặc theo năm với điều khoản điều chỉnh định biên." },
-      { q: "SLA gồm những gì?", a: "Thường gồm tỷ lệ đủ người mỗi ca, thời gian phản hồi yêu cầu phát sinh và các tiêu chí an toàn." },
+      {
+        q: "Hợp đồng tối thiểu bao lâu?",
+        a: "Linh hoạt theo nhu cầu, phổ biến là theo tháng hoặc theo năm với điều khoản điều chỉnh định biên.",
+      },
+      {
+        q: "SLA gồm những gì?",
+        a: "Thường gồm tỷ lệ đủ người mỗi ca, thời gian phản hồi yêu cầu phát sinh và các tiêu chí an toàn.",
+      },
       { q: "Có xuất hóa đơn VAT?", a: "Có, theo kỳ thanh toán đã thống nhất." },
-      { q: "Có làm nhiều địa điểm cùng lúc?", a: "Có, chúng tôi phân đội theo khu vực dựa trên hệ thống chi nhánh." },
-      { q: "Trách nhiệm khi xảy ra hư hỏng?", a: "Được quy định cụ thể trong hợp đồng, kèm quy trình lập biên bản và xử lý." },
-      { q: "Có thể thử trước khi ký dài hạn?", a: "Có, nhiều khách bắt đầu bằng vài ca theo giờ hoặc theo tháng trước khi ký hợp đồng." },
+      {
+        q: "Có làm nhiều địa điểm cùng lúc?",
+        a: "Có, chúng tôi phân đội theo khu vực dựa trên hệ thống chi nhánh.",
+      },
+      {
+        q: "Trách nhiệm khi xảy ra hư hỏng?",
+        a: "Được quy định cụ thể trong hợp đồng, kèm quy trình lập biên bản và xử lý.",
+      },
+      {
+        q: "Có thể thử trước khi ký dài hạn?",
+        a: "Có, nhiều khách bắt đầu bằng vài ca theo giờ hoặc theo tháng trước khi ký hợp đồng.",
+      },
     ],
     related: ["boc-xep-theo-thang", "boc-xep-nha-may", "boc-xep-kho-hang"],
   },

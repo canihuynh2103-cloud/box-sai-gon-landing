@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowUp, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { EMAIL, HOTLINE_TEL, MAPS_LINK, ZALO_LINK } from "@/data/site";
 import { QuoteButton } from "@/components/site/QuoteButton";
+import { Button } from "@/components/ui/button";
 
 export function FloatingButtons() {
   const [show, setShow] = useState(false);
@@ -14,10 +15,13 @@ export function FloatingButtons() {
   }, []);
 
   const base =
-    "cta-press flex size-13 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
+    "cta-press flex size-11 shrink-0 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 lg:size-13";
 
   return (
-    <div className="fixed bottom-5 right-4 z-40 flex flex-col gap-3 sm:right-5">
+    <nav
+      aria-label="Liên hệ Saigon Handling"
+      className="contact-dock fixed inset-x-0 bottom-0 z-40 flex h-18 items-center justify-evenly gap-1 border-t border-border bg-background/95 px-2 pt-2 backdrop-blur lg:inset-x-auto lg:bottom-5 lg:right-5 lg:h-auto lg:flex-col lg:gap-3 lg:border-0 lg:bg-transparent lg:p-0"
+    >
       <a
         href={`tel:${HOTLINE_TEL}`}
         aria-label="Gọi hotline 0888.997.822"
@@ -30,7 +34,7 @@ export function FloatingButtons() {
         href={ZALO_LINK}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat Zalo với Bốc Xếp Sài Gòn"
+        aria-label="Chat Zalo với Saigon Handling"
         className={`cta-attention bg-secondary font-display text-sm font-bold text-secondary-foreground shadow-[var(--shadow-lift)] ${base}`}
       >
         Zalo
@@ -46,7 +50,7 @@ export function FloatingButtons() {
       </a>
       <a
         href={`mailto:${EMAIL}?subject=Y%C3%AAu%20c%E1%BA%A7u%20b%C3%A1o%20gi%C3%A1%20b%E1%BB%91c%20x%E1%BA%BFp`}
-        aria-label="Gửi email cho Bốc Xếp Sài Gòn"
+        aria-label="Gửi email cho Saigon Handling"
         className={`border border-border bg-card text-foreground shadow-[var(--shadow-card)] ${base}`}
       >
         <Mail className="size-5" />
@@ -58,15 +62,17 @@ export function FloatingButtons() {
         <MessageCircle className="size-5" />
       </QuoteButton>
       {show && (
-        <button
+        <Button
+          variant="outline"
+          size="icon"
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Lên đầu trang"
-          className={`border border-border bg-card text-foreground shadow-[var(--shadow-card)] ${base}`}
+          className={`hidden border border-border bg-card text-foreground shadow-[var(--shadow-card)] lg:flex ${base}`}
         >
           <ArrowUp className="size-5" />
-        </button>
+        </Button>
       )}
-    </div>
+    </nav>
   );
 }

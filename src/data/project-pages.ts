@@ -46,7 +46,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   {
     slug: "chuyen-kho-tong-unilever-vsip-1",
     serviceSlug: "chuyen-kho",
-    seoTitle: "Chuyển kho tổng 6.000m² tại KCN Vsip 1 | Dự án Bốc Xếp Sài Gòn",
+    seoTitle: "Chuyển kho tổng 6.000m² tại KCN Vsip 1 | Dự án Saigon Handling",
     seoDescription:
       "Case study chuyển kho tổng 6.000m² tại KCN Vsip 1, Bình Dương: cách chia đợt di dời hơn 9.000 pallet, kiểm đếm hai lớp và sắp xếp lại theo sơ đồ kho mới trong 12 ngày.",
     overview: [
@@ -69,17 +69,44 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Mỗi đợt xe chạy đều đi kèm phiếu ghi số pallet và mã khu vực. Đội nhận hàng ở kho mới đối chiếu phiếu trước khi cho hàng vào vị trí, nên chênh lệch nếu có được phát hiện ngay trong ngày thay vì đợi đến lúc kiểm kê cuối kỳ.",
     ],
     process: [
-      { step: "Khảo sát và lập kế hoạch", detail: "Đi thực tế hai kho, chốt trình tự di dời và số nhân sự mỗi ca." },
-      { step: "Chuẩn bị", detail: "Bố trí dụng cụ, màng PE, khu vực tập kết và lối di chuyển an toàn." },
-      { step: "Bốc xếp và vận chuyển", detail: "Làm theo 3 ca liên tục để hạn chế gián đoạn hoạt động kho." },
-      { step: "Kiểm đếm hai lớp", detail: "Đếm khi xuất kho cũ và khi nhập kho mới, đối chiếu số liệu." },
-      { step: "Sắp xếp và bàn giao", detail: "Xếp hàng đúng vị trí theo sơ đồ, bàn giao và nghiệm thu." },
+      {
+        step: "Khảo sát và lập kế hoạch",
+        detail: "Đi thực tế hai kho, chốt trình tự di dời và số nhân sự mỗi ca.",
+      },
+      {
+        step: "Chuẩn bị",
+        detail: "Bố trí dụng cụ, màng PE, khu vực tập kết và lối di chuyển an toàn.",
+      },
+      {
+        step: "Bốc xếp và vận chuyển",
+        detail: "Làm theo 3 ca liên tục để hạn chế gián đoạn hoạt động kho.",
+      },
+      {
+        step: "Kiểm đếm hai lớp",
+        detail: "Đếm khi xuất kho cũ và khi nhập kho mới, đối chiếu số liệu.",
+      },
+      {
+        step: "Sắp xếp và bàn giao",
+        detail: "Xếp hàng đúng vị trí theo sơ đồ, bàn giao và nghiệm thu.",
+      },
     ],
     deliverables: [
-      { title: "Hạ và gom pallet theo khu vực", detail: "Pallet được hạ khỏi kệ, gom về khu tập kết của từng khu vực trước khi lên xe." },
-      { title: "Bọc lót và cố định hàng", detail: "Quấn màng PE cho các pallet có thùng xếp cao hoặc hàng dễ xô lệch khi xe chạy." },
-      { title: "Kiểm đếm hai đầu", detail: "Đếm tại kho cũ khi xuất và đếm lại tại kho mới khi nhập, ghi vào cùng một phiếu." },
-      { title: "Xếp hàng theo sơ đồ kho mới", detail: "Đưa pallet vào đúng dãy, đúng tầng kệ theo bản đồ vị trí khách hàng cung cấp." },
+      {
+        title: "Hạ và gom pallet theo khu vực",
+        detail: "Pallet được hạ khỏi kệ, gom về khu tập kết của từng khu vực trước khi lên xe.",
+      },
+      {
+        title: "Bọc lót và cố định hàng",
+        detail: "Quấn màng PE cho các pallet có thùng xếp cao hoặc hàng dễ xô lệch khi xe chạy.",
+      },
+      {
+        title: "Kiểm đếm hai đầu",
+        detail: "Đếm tại kho cũ khi xuất và đếm lại tại kho mới khi nhập, ghi vào cùng một phiếu.",
+      },
+      {
+        title: "Xếp hàng theo sơ đồ kho mới",
+        detail: "Đưa pallet vào đúng dãy, đúng tầng kệ theo bản đồ vị trí khách hàng cung cấp.",
+      },
     ],
     personnel: "45 nhân công chia 3 ca, có đội trưởng giám sát từng ca.",
     results: [
@@ -109,7 +136,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   {
     slug: "rut-ruot-container-cat-lai",
     serviceSlug: "boc-xep-container",
-    seoTitle: "Rút ruột 120 container tại cảng Cát Lái | Dự án Bốc Xếp Sài Gòn",
+    seoTitle: "Rút ruột 120 container tại cảng Cát Lái | Dự án Saigon Handling",
     seoDescription:
       "Case study rút ruột 120 container hàng bao kiện tại cảng Cát Lái: tổ chức nhân công có thẻ ra vào cảng theo dây chuyền, giữ nhịp trung bình 7 container mỗi ngày trong 18 ngày.",
     overview: [
@@ -132,23 +159,47 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Kiện hàng có dấu hiệu rách, ướt hoặc bẹp được tách riêng và ghi nhận ngay lúc rút, tránh tranh cãi về trách nhiệm sau khi hàng đã vào kho.",
     ],
     process: [
-      { step: "Đăng ký ra vào cảng", detail: "Nhân sự có thẻ ra vào cảng, làm việc theo quy định khu vực bãi." },
+      {
+        step: "Đăng ký ra vào cảng",
+        detail: "Nhân sự có thẻ ra vào cảng, làm việc theo quy định khu vực bãi.",
+      },
       { step: "Nhận lệnh và vị trí cont", detail: "Bố trí đội theo số cont cần rút trong ngày." },
-      { step: "Rút hàng theo dây chuyền", detail: "Chia nhóm trong cont, nhóm trung chuyển và nhóm xếp hàng." },
-      { step: "Kiểm đếm và bàn giao", detail: "Đếm kiện, ghi nhận hàng hư hỏng nếu có, ký biên bản." },
+      {
+        step: "Rút hàng theo dây chuyền",
+        detail: "Chia nhóm trong cont, nhóm trung chuyển và nhóm xếp hàng.",
+      },
+      {
+        step: "Kiểm đếm và bàn giao",
+        detail: "Đếm kiện, ghi nhận hàng hư hỏng nếu có, ký biên bản.",
+      },
     ],
     deliverables: [
-      { title: "Rút hàng khỏi container", detail: "Chuyền kiện từ trong lòng cont ra cửa theo lớp, không kéo lê làm rách bao." },
-      { title: "Sang hàng theo chỉ định", detail: "Xếp lên xe tải hoặc đưa vào kho tùy lệnh điều phối trong ngày." },
-      { title: "Ghi nhận hàng bất thường", detail: "Tách riêng kiện rách, ướt, bẹp và ghi vào biên bản khi bàn giao." },
-      { title: "Dọn và trả cont", detail: "Quét dọn lòng cont sau khi rút để trả rỗng đúng tình trạng." },
+      {
+        title: "Rút hàng khỏi container",
+        detail: "Chuyền kiện từ trong lòng cont ra cửa theo lớp, không kéo lê làm rách bao.",
+      },
+      {
+        title: "Sang hàng theo chỉ định",
+        detail: "Xếp lên xe tải hoặc đưa vào kho tùy lệnh điều phối trong ngày.",
+      },
+      {
+        title: "Ghi nhận hàng bất thường",
+        detail: "Tách riêng kiện rách, ướt, bẹp và ghi vào biên bản khi bàn giao.",
+      },
+      {
+        title: "Dọn và trả cont",
+        detail: "Quét dọn lòng cont sau khi rút để trả rỗng đúng tình trạng.",
+      },
     ],
     personnel: "30 nhân công có thẻ ra vào cảng.",
     results: [
       "Rút ruột 120 container trong 18 ngày",
       "Duy trì tiến độ giải phóng bãi, tránh phát sinh phí lưu cont",
     ],
-    highlights: ["Nhân sự đã có thẻ ra vào cảng", "Tổ chức theo dây chuyền để giữ năng suất ổn định"],
+    highlights: [
+      "Nhân sự đã có thẻ ra vào cảng",
+      "Tổ chức theo dây chuyền để giữ năng suất ổn định",
+    ],
     notes: [
       "Vị trí cont trên bãi ảnh hưởng trực tiếp tới sản lượng ngày: cont nằm rải rác thì thời gian di chuyển chiếm phần đáng kể trong ca.",
       "Nên chốt trước điểm nhận hàng (lên xe hay vào kho) vì hai phương án cần cách bố trí người khác nhau.",
@@ -167,7 +218,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   {
     slug: "chuyen-van-phong-deutsches-haus",
     serviceSlug: "chuyen-van-phong",
-    seoTitle: "Chuyển văn phòng 14 tầng tại Quận 1 trong 3 đêm | Bốc Xếp Sài Gòn",
+    seoTitle: "Chuyển văn phòng 14 tầng tại Quận 1 trong 3 đêm | Saigon Handling",
     seoDescription:
       "Case study di dời văn phòng 14 tầng tại Quận 1: đóng gói theo phòng ban, thi công ngoài giờ từ 20h đến 5h, di dời 320 bộ bàn ghế và hệ thống máy chủ, sáng hôm sau làm việc bình thường.",
     overview: [
@@ -192,21 +243,39 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     ],
     process: [
       { step: "Khảo sát và dán nhãn", detail: "Đánh dấu theo phòng ban, lập sơ đồ chỗ ngồi mới." },
-      { step: "Thi công ngoài giờ", detail: "Làm từ 20h đến 5h sáng để không ảnh hưởng giờ hành chính." },
+      {
+        step: "Thi công ngoài giờ",
+        detail: "Làm từ 20h đến 5h sáng để không ảnh hưởng giờ hành chính.",
+      },
       { step: "Lắp đặt lại", detail: "Bố trí bàn ghế đúng sơ đồ, kết nối lại thiết bị." },
-      { step: "Kiểm tra và bàn giao", detail: "Cùng khách hàng kiểm tra từng khu vực trước khi kết thúc ca." },
+      {
+        step: "Kiểm tra và bàn giao",
+        detail: "Cùng khách hàng kiểm tra từng khu vực trước khi kết thúc ca.",
+      },
     ],
     deliverables: [
-      { title: "Đóng gói theo phòng ban", detail: "Thùng tài liệu và thiết bị được dán nhãn theo màu của từng bộ phận." },
-      { title: "Tháo lắp bàn ghế, vách ngăn", detail: "Tháo rời tại nơi cũ và lắp lại đúng cấu hình tại nơi mới." },
-      { title: "Di dời thiết bị máy chủ", detail: "Thực hiện theo hướng dẫn và lịch của bộ phận IT khách hàng." },
-      { title: "Dọn dẹp trước giờ làm việc", detail: "Thu gom vật tư đóng gói, trả lại mặt bằng sạch trước 5h sáng." },
+      {
+        title: "Đóng gói theo phòng ban",
+        detail: "Thùng tài liệu và thiết bị được dán nhãn theo màu của từng bộ phận.",
+      },
+      {
+        title: "Tháo lắp bàn ghế, vách ngăn",
+        detail: "Tháo rời tại nơi cũ và lắp lại đúng cấu hình tại nơi mới.",
+      },
+      {
+        title: "Di dời thiết bị máy chủ",
+        detail: "Thực hiện theo hướng dẫn và lịch của bộ phận IT khách hàng.",
+      },
+      {
+        title: "Dọn dẹp trước giờ làm việc",
+        detail: "Thu gom vật tư đóng gói, trả lại mặt bằng sạch trước 5h sáng.",
+      },
     ],
-    results: [
-      "Hoàn tất trong 3 đêm",
-      "Nhân sự khách hàng làm việc bình thường vào sáng hôm sau",
+    results: ["Hoàn tất trong 3 đêm", "Nhân sự khách hàng làm việc bình thường vào sáng hôm sau"],
+    highlights: [
+      "Thi công hoàn toàn ngoài giờ hành chính",
+      "Di dời thiết bị máy chủ có phối hợp với bộ phận IT",
     ],
-    highlights: ["Thi công hoàn toàn ngoài giờ hành chính", "Di dời thiết bị máy chủ có phối hợp với bộ phận IT"],
     notes: [
       "Cần đăng ký giờ dùng thang máy và lối vận chuyển với ban quản lý tòa nhà trước ngày thi công.",
       "Sơ đồ chỗ ngồi mới nên chốt trước ít nhất một ngày, vì mọi việc lắp đặt lại đều dựa vào nó.",
@@ -225,7 +294,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   {
     slug: "di-doi-day-chuyen-samsung",
     serviceSlug: "boc-xep-nha-may",
-    seoTitle: "Di dời dây chuyền sản xuất tại KCN Sóng Thần | Bốc Xếp Sài Gòn",
+    seoTitle: "Di dời dây chuyền sản xuất tại KCN Sóng Thần | Saigon Handling",
     seoDescription:
       "Case study di dời 14 cụm máy nặng trong nhà máy tại KCN Sóng Thần: phối hợp kỹ sư tháo dỡ, đóng kiện gỗ, dùng xe nâng 5 tấn và pa lăng chuyên dụng, hoàn tất trong 21 ngày.",
     overview: [
@@ -249,20 +318,47 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Khi đưa máy vào vị trí mới, đội dùng con lăn và pa lăng để căn từng chút một theo dấu đã kẻ trên nền, sau đó kỹ sư nhà máy kiểm tra cân chỉnh trước khi nghiệm thu.",
     ],
     process: [
-      { step: "Khảo sát cùng kỹ sư", detail: "Chốt phương án tháo dỡ, đường di chuyển và điểm kê máy." },
+      {
+        step: "Khảo sát cùng kỹ sư",
+        detail: "Chốt phương án tháo dỡ, đường di chuyển và điểm kê máy.",
+      },
       { step: "Tháo dỡ và đóng kiện", detail: "Đóng kiện gỗ theo kích thước từng cụm máy." },
-      { step: "Di chuyển máy", detail: "Dùng xe nâng và pa lăng chuyên dụng, đi theo tuyến đã khảo sát." },
-      { step: "Lắp đặt và nghiệm thu", detail: "Đưa máy vào vị trí, hỗ trợ kỹ sư căn chỉnh và nghiệm thu." },
+      {
+        step: "Di chuyển máy",
+        detail: "Dùng xe nâng và pa lăng chuyên dụng, đi theo tuyến đã khảo sát.",
+      },
+      {
+        step: "Lắp đặt và nghiệm thu",
+        detail: "Đưa máy vào vị trí, hỗ trợ kỹ sư căn chỉnh và nghiệm thu.",
+      },
     ],
     deliverables: [
-      { title: "Hỗ trợ tháo dỡ cụm máy", detail: "Làm theo trình tự và hướng dẫn của kỹ sư nhà máy, có chụp ảnh hiện trạng." },
-      { title: "Đóng kiện và chèn lót", detail: "Đóng kiện gỗ theo kích thước thực tế, chèn lót tại các điểm chịu lực." },
-      { title: "Nâng hạ và vận chuyển", detail: "Dùng xe nâng, pa lăng và con lăn theo tuyến đã khảo sát trong xưởng." },
-      { title: "Đưa máy vào vị trí mới", detail: "Căn chỉnh theo dấu trên nền, bàn giao cho kỹ sư kiểm tra." },
+      {
+        title: "Hỗ trợ tháo dỡ cụm máy",
+        detail: "Làm theo trình tự và hướng dẫn của kỹ sư nhà máy, có chụp ảnh hiện trạng.",
+      },
+      {
+        title: "Đóng kiện và chèn lót",
+        detail: "Đóng kiện gỗ theo kích thước thực tế, chèn lót tại các điểm chịu lực.",
+      },
+      {
+        title: "Nâng hạ và vận chuyển",
+        detail: "Dùng xe nâng, pa lăng và con lăn theo tuyến đã khảo sát trong xưởng.",
+      },
+      {
+        title: "Đưa máy vào vị trí mới",
+        detail: "Căn chỉnh theo dấu trên nền, bàn giao cho kỹ sư kiểm tra.",
+      },
     ],
     equipment: ["Xe nâng 5 tấn", "Pa lăng chuyên dụng", "Kiện gỗ, con lăn, dây chằng"],
-    results: ["Hoàn tất di dời 14 cụm máy trong 21 ngày", "Không xảy ra sự cố trong quá trình thi công"],
-    highlights: ["Phối hợp trực tiếp với kỹ sư nhà máy", "Sử dụng thiết bị nâng hạ phù hợp cho máy nặng"],
+    results: [
+      "Hoàn tất di dời 14 cụm máy trong 21 ngày",
+      "Không xảy ra sự cố trong quá trình thi công",
+    ],
+    highlights: [
+      "Phối hợp trực tiếp với kỹ sư nhà máy",
+      "Sử dụng thiết bị nâng hạ phù hợp cho máy nặng",
+    ],
     notes: [
       "Tuyến di chuyển trong xưởng cần được dọn trống và kiểm tra tải nền trước khi đưa máy nặng đi qua.",
       "Các chi tiết tháo rời nên đóng thùng và dán nhãn theo tên cụm máy ngay tại chỗ, không gom chung.",
@@ -281,7 +377,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   {
     slug: "chuyen-nha-tron-goi-thao-dien",
     serviceSlug: "chuyen-nha",
-    seoTitle: "Chuyển nhà trọn gói biệt thự 3 tầng khu Thảo Điền | Bốc Xếp Sài Gòn",
+    seoTitle: "Chuyển nhà trọn gói biệt thự 3 tầng khu Thảo Điền | Saigon Handling",
     seoDescription:
       "Case study chuyển nhà trọn gói biệt thự 3 tầng tại Thảo Điền: đóng gói piano, tranh và tủ rượu, tháo lắp nội thất lớn và sắp xếp lại tại nơi ở mới trong 2 ngày.",
     overview: [
@@ -304,16 +400,31 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Khi xếp lên xe, thứ tự xếp được tính ngược theo thứ tự dỡ: món cần lắp trước ở nơi mới thì xếp sau cùng để lấy ra đầu tiên. Đồ giá trị cao được đặt ở vị trí cố định, có chèn lót xung quanh và không chất đồ khác lên trên.",
     ],
     process: [
-      { step: "Khảo sát và báo giá", detail: "Ghi nhận danh mục đồ đạc, nhóm hàng cần bảo hiểm giá trị cao." },
+      {
+        step: "Khảo sát và báo giá",
+        detail: "Ghi nhận danh mục đồ đạc, nhóm hàng cần bảo hiểm giá trị cao.",
+      },
       { step: "Đóng gói", detail: "Bọc lót nhiều lớp cho piano, tranh và đồ thủy tinh." },
       { step: "Vận chuyển", detail: "Xếp hàng theo thứ tự dỡ, cố định trong thùng xe." },
       { step: "Lắp đặt lại", detail: "Lắp giường tủ, kê đồ theo yêu cầu của gia chủ." },
     ],
     deliverables: [
-      { title: "Đóng gói đồ dễ vỡ", detail: "Bọc lót nhiều lớp cho piano, tranh nghệ thuật và đồ thủy tinh trong tủ rượu." },
-      { title: "Tháo lắp nội thất lớn", detail: "Tháo giường, tủ, kệ và gom ốc vít theo từng món để lắp lại nhanh." },
-      { title: "Vận chuyển có cố định", detail: "Xếp theo thứ tự dỡ, chèn lót và cố định trong thùng xe." },
-      { title: "Kê đặt tại nơi ở mới", detail: "Lắp lại và kê đồ theo vị trí gia chủ chỉ định trước khi bàn giao." },
+      {
+        title: "Đóng gói đồ dễ vỡ",
+        detail: "Bọc lót nhiều lớp cho piano, tranh nghệ thuật và đồ thủy tinh trong tủ rượu.",
+      },
+      {
+        title: "Tháo lắp nội thất lớn",
+        detail: "Tháo giường, tủ, kệ và gom ốc vít theo từng món để lắp lại nhanh.",
+      },
+      {
+        title: "Vận chuyển có cố định",
+        detail: "Xếp theo thứ tự dỡ, chèn lót và cố định trong thùng xe.",
+      },
+      {
+        title: "Kê đặt tại nơi ở mới",
+        detail: "Lắp lại và kê đồ theo vị trí gia chủ chỉ định trước khi bàn giao.",
+      },
     ],
     results: ["Hoàn tất trong 2 ngày", "Hàng dễ vỡ được bảo hiểm giá trị cao"],
     highlights: ["Xử lý riêng nhóm hàng giá trị cao", "Đóng gói nhiều lớp cho piano và tranh"],
@@ -335,7 +446,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   {
     slug: "dong-goi-hang-xuat-khau-tan-binh",
     serviceSlug: "dong-goi-hang-hoa",
-    seoTitle: "Đóng gói 4.000 kiện hàng xuất khẩu tại KCN Tân Bình | Bốc Xếp Sài Gòn",
+    seoTitle: "Đóng gói 4.000 kiện hàng xuất khẩu tại KCN Tân Bình | Saigon Handling",
     seoDescription:
       "Case study đóng gói 4.000 kiện hàng xuất khẩu: đóng thùng carton 5 lớp, quấn màng PE lên pallet và dán nhãn barcode theo tiêu chuẩn EU, hoàn tất trong 10 ngày.",
     overview: [
@@ -358,15 +469,33 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Hàng đóng xong được kiểm mẫu theo lô trước khi nhập kho chờ xuất; lô nào có kiện chưa đạt thì làm lại tại chỗ, không đẩy sang khâu sau.",
     ],
     process: [
-      { step: "Chuẩn bị vật tư", detail: "Kiểm tra thùng, màng PE, nhãn theo yêu cầu của khách hàng." },
-      { step: "Đóng gói theo dây chuyền", detail: "Chia công đoạn đóng thùng - quấn màng - dán nhãn." },
+      {
+        step: "Chuẩn bị vật tư",
+        detail: "Kiểm tra thùng, màng PE, nhãn theo yêu cầu của khách hàng.",
+      },
+      {
+        step: "Đóng gói theo dây chuyền",
+        detail: "Chia công đoạn đóng thùng - quấn màng - dán nhãn.",
+      },
       { step: "Kiểm tra đầu ra", detail: "Kiểm mẫu theo lô trước khi nhập kho chờ xuất." },
     ],
     deliverables: [
-      { title: "Đóng thùng carton 5 lớp", detail: "Đóng theo quy cách thống nhất với khách hàng, dán băng keo chắc các mép chịu lực." },
-      { title: "Lên pallet và quấn màng PE", detail: "Xếp kiện thành khối vuông vức rồi quấn màng để cả pallet đi được đường dài." },
-      { title: "Dán nhãn barcode", detail: "Dán đúng vị trí theo tiêu chuẩn xuất khẩu EU và quét kiểm tra khả năng đọc." },
-      { title: "Kiểm mẫu theo lô", detail: "Lấy mẫu kiểm tra từng lô trước khi cho nhập kho chờ xuất." },
+      {
+        title: "Đóng thùng carton 5 lớp",
+        detail: "Đóng theo quy cách thống nhất với khách hàng, dán băng keo chắc các mép chịu lực.",
+      },
+      {
+        title: "Lên pallet và quấn màng PE",
+        detail: "Xếp kiện thành khối vuông vức rồi quấn màng để cả pallet đi được đường dài.",
+      },
+      {
+        title: "Dán nhãn barcode",
+        detail: "Dán đúng vị trí theo tiêu chuẩn xuất khẩu EU và quét kiểm tra khả năng đọc.",
+      },
+      {
+        title: "Kiểm mẫu theo lô",
+        detail: "Lấy mẫu kiểm tra từng lô trước khi cho nhập kho chờ xuất.",
+      },
     ],
     results: ["Hoàn tất 4.000 kiện trong 10 ngày", "Tỉ lệ hàng lỗi khi kiểm tra đầu ra bằng 0"],
     highlights: ["Đóng gói theo tiêu chuẩn xuất khẩu EU", "Có bước kiểm tra đầu ra theo lô"],
@@ -388,7 +517,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   {
     slug: "xep-do-hang-roi-hiep-phuoc",
     serviceSlug: "xep-do-hang-hoa",
-    seoTitle: "Đội xếp dỡ hàng rời cố định tại kho Hiệp Phước | Bốc Xếp Sài Gòn",
+    seoTitle: "Đội xếp dỡ hàng rời cố định tại kho Hiệp Phước | Saigon Handling",
     seoDescription:
       "Case study cung ứng đội xếp dỡ cố định 20 người tại kho Hiệp Phước, Nhà Bè: xử lý trung bình 60 tấn nguyên liệu mỗi ngày, báo cáo sản lượng và chấm công điện tử hằng tuần.",
     overview: [
@@ -411,18 +540,39 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Cuối tuần, sản lượng và dữ liệu chấm công được tổng hợp gửi khách hàng để đối chiếu với khối lượng thực tế đã xử lý.",
     ],
     process: [
-      { step: "Định biên đội cố định", detail: "Bố trí 20 nhân sự trực tại kho theo lịch làm việc." },
-      { step: "Vận hành hằng ngày", detail: "Nhận kế hoạch xuất nhập, xếp dỡ theo yêu cầu quản lý kho." },
+      {
+        step: "Định biên đội cố định",
+        detail: "Bố trí 20 nhân sự trực tại kho theo lịch làm việc.",
+      },
+      {
+        step: "Vận hành hằng ngày",
+        detail: "Nhận kế hoạch xuất nhập, xếp dỡ theo yêu cầu quản lý kho.",
+      },
       { step: "Báo cáo", detail: "Gửi sản lượng và dữ liệu chấm công hằng tuần cho khách hàng." },
     ],
     deliverables: [
-      { title: "Xếp dỡ lên xuống xe", detail: "Xử lý hàng bao và hàng rời theo kế hoạch xuất nhập trong ngày." },
-      { title: "Đảo hàng trong kho", detail: "Sắp xếp lại theo khu vực, giữ lối đi và chiều cao chồng hàng an toàn." },
-      { title: "Báo cáo sản lượng", detail: "Tổng hợp khối lượng đã xử lý gửi khách hàng theo tuần." },
-      { title: "Chấm công điện tử", detail: "Ghi nhận công của đội cố định để khách hàng đối chiếu chi phí." },
+      {
+        title: "Xếp dỡ lên xuống xe",
+        detail: "Xử lý hàng bao và hàng rời theo kế hoạch xuất nhập trong ngày.",
+      },
+      {
+        title: "Đảo hàng trong kho",
+        detail: "Sắp xếp lại theo khu vực, giữ lối đi và chiều cao chồng hàng an toàn.",
+      },
+      {
+        title: "Báo cáo sản lượng",
+        detail: "Tổng hợp khối lượng đã xử lý gửi khách hàng theo tuần.",
+      },
+      {
+        title: "Chấm công điện tử",
+        detail: "Ghi nhận công của đội cố định để khách hàng đối chiếu chi phí.",
+      },
     ],
     personnel: "Đội cố định 20 người trực tại kho.",
-    results: ["Duy trì sản lượng trung bình 60 tấn/ngày", "Có báo cáo sản lượng và chấm công điện tử hằng tuần"],
+    results: [
+      "Duy trì sản lượng trung bình 60 tấn/ngày",
+      "Có báo cáo sản lượng và chấm công điện tử hằng tuần",
+    ],
     highlights: ["Đội cố định, hạn chế thay đổi nhân sự", "Số liệu công việc minh bạch theo tuần"],
     notes: [
       "Kế hoạch xuất nhập gửi từ chiều hôm trước giúp bố trí người sát nhu cầu hơn là báo vào đầu ca.",
@@ -442,7 +592,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   {
     slug: "hang-air-cargo-tan-son-nhat",
     serviceSlug: "boc-xep-san-bay",
-    seoTitle: "Xử lý hàng air cargo tại Tân Sơn Nhất | Dự án Bốc Xếp Sài Gòn",
+    seoTitle: "Xử lý hàng air cargo tại Tân Sơn Nhất | Dự án Saigon Handling",
     seoDescription:
       "Case study cung ứng nhân công xử lý hàng air cargo tại Tân Sơn Nhất: build-up và break-down pallet, làm theo ca sát giờ cắt máng, hợp tác 6 tháng với đối tác forwarder.",
     overview: [
@@ -465,15 +615,30 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Kiện có dấu hiệu móp, rách được tách và báo cho đối tác forwarder ngay tại thời điểm phát hiện, thay vì để phát sinh khiếu nại về sau.",
     ],
     process: [
-      { step: "Kiểm tra an ninh nhân sự", detail: "Nhân công được kiểm tra an ninh hàng không trước khi vào khu vực làm việc." },
+      {
+        step: "Kiểm tra an ninh nhân sự",
+        detail: "Nhân công được kiểm tra an ninh hàng không trước khi vào khu vực làm việc.",
+      },
       { step: "Làm theo ca", detail: "Bố trí ca theo giờ cắt máng của từng chuyến." },
       { step: "Bàn giao", detail: "Bàn giao hàng theo lô cho đối tác forwarder." },
     ],
     deliverables: [
-      { title: "Build-up pallet hàng xuất", detail: "Xếp kiện theo đường bao pallet air, phủ lưới và cố định trước giờ cắt máng." },
-      { title: "Break-down hàng nhập", detail: "Dỡ pallet và tách hàng theo từng lô để khớp với chứng từ." },
-      { title: "Sang xe theo lô", detail: "Chuyển hàng lên phương tiện của đối tác, giữ nguyên phân lô." },
-      { title: "Ghi nhận kiện bất thường", detail: "Tách riêng và báo ngay các kiện móp, rách khi phát hiện." },
+      {
+        title: "Build-up pallet hàng xuất",
+        detail: "Xếp kiện theo đường bao pallet air, phủ lưới và cố định trước giờ cắt máng.",
+      },
+      {
+        title: "Break-down hàng nhập",
+        detail: "Dỡ pallet và tách hàng theo từng lô để khớp với chứng từ.",
+      },
+      {
+        title: "Sang xe theo lô",
+        detail: "Chuyển hàng lên phương tiện của đối tác, giữ nguyên phân lô.",
+      },
+      {
+        title: "Ghi nhận kiện bất thường",
+        detail: "Tách riêng và báo ngay các kiện móp, rách khi phát hiện.",
+      },
     ],
     personnel: "Nhân công đã qua kiểm tra an ninh hàng không.",
     results: ["Cung ứng nhân sự liên tục trong 6 tháng cho đối tác forwarder quốc tế"],

@@ -12,7 +12,7 @@ import { absUrl, breadcrumbLd, metaFor } from "@/lib/seo";
 
 const TITLE = "Tất Cả Dịch Vụ Bốc Xếp, Chuyển Nhà, Chuyển Văn Phòng TPHCM";
 const DESC =
-  "Tổng hợp toàn bộ dịch vụ bốc xếp của Bốc Xếp Sài Gòn: bốc xếp kho hàng, container, nhà máy, cảng, sân bay, thuê nhân công, đóng gói, chuyển kho, chuyển nhà và văn phòng.";
+  "Tổng hợp toàn bộ dịch vụ bốc xếp của Saigon Handling: bốc xếp kho hàng, container, nhà máy, cảng, sân bay, thuê nhân công, đóng gói, chuyển kho, chuyển nhà và văn phòng.";
 
 export const Route = createFileRoute("/dich-vu/")({
   head: () => {
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/dich-vu/")({
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ItemList",
-            name: "Dịch vụ bốc xếp Bốc Xếp Sài Gòn",
+            name: "Dịch vụ bốc xếp Saigon Handling",
             itemListElement: SERVICE_PAGES.map((s, i) => ({
               "@type": "ListItem",
               position: i + 1,
@@ -66,21 +66,17 @@ function ServiceHub() {
           Dịch Vụ Bốc Xếp Hàng Hóa Tại TP.HCM
         </h1>
         <p className="mt-3 max-w-3xl text-muted-foreground">
-          Bốc Xếp Sài Gòn cung ứng nhân công và dịch vụ bốc xếp cho kho hàng, nhà máy, cảng, depot,
+          Saigon Handling cung ứng nhân công và dịch vụ bốc xếp cho kho hàng, nhà máy, cảng, depot,
           sân bay và hộ gia đình tại TP.HCM cùng các tỉnh phía Nam. Chọn dịch vụ bên dưới để xem
           phạm vi công việc, quy trình và câu hỏi thường gặp.
         </p>
         <p className="mt-3 max-w-3xl text-muted-foreground">
           Nếu bạn đang tìm dịch vụ bốc xếp tại TP.HCM, hãy xem{" "}
-          <Link
-            to="/dich-vu-boc-xep-tphcm"
-            className="font-semibold text-primary hover:underline"
-          >
+          <Link to="/dich-vu-boc-xep-tphcm" className="font-semibold text-primary hover:underline">
             tổng quan dịch vụ bốc xếp TP.HCM
           </Link>{" "}
-          của Bốc Xếp Sài Gòn.
+          của Saigon Handling.
         </p>
-
 
         <div className="mt-4 flex flex-wrap gap-3">
           <Button asChild size="lg">
@@ -106,7 +102,8 @@ function ServiceHub() {
                   params={{ slug: s.slug }}
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
                 >
-                  {s.name} <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
+                  {s.name}{" "}
+                  <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
                 </Link>
               </CardContent>
             </Card>

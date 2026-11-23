@@ -1,5 +1,14 @@
 # Technical SEO audit độc lập
 
+## Saigon Handling — 23/11/2026 (chỉ code và preview)
+- [x] Audit thương hiệu tĩnh và lập danh sách bản ghi dữ liệu cần chủ rà soát; không ghi database.
+- [x] Đồng bộ thương hiệu; giữ keyword dịch vụ, URL, liên hệ, số liệu, hình logo và tracking.
+- [x] Tối ưu ảnh hero, chiều cao ổn định và các nút liên hệ mobile; kiểm tra trang/form/navigation.
+- [x] Kiểm thử, lint file sửa, kiểm tra build tự động và báo cáo file sửa/phạm vi giữ nguyên; không publish.
+- [ ] Đồng bộ tên trong 60 bài viết, 1 FAQ và 47 bản ghi kế hoạch SEO — chờ chủ duyệt danh sách; không ghi đè dữ liệu.
+
+Các công việc cũ bên dưới là phạm vi lịch sử, không được publish hoặc mở rộng trong lượt này.
+
 ## Ultra SEO — 21/11/2026
 - [x] Kiểm tra 88 URL production và 88 URL preview; xuất Keyword-to-URL Mapping và 29 ảnh.
 - [x] Phân nhóm 62 seed A–G, 229 bản ghi quản trị; bổ sung 5 bài có sẵn vào 14 cluster.

@@ -9,8 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-const TITLE = "Đặt Lại Mật Khẩu — Bốc Xếp Sài Gòn";
-const DESC = "Đặt lại mật khẩu tài khoản quản trị website Bốc Xếp Sài Gòn.";
+const TITLE = "Đặt Lại Mật Khẩu — Saigon Handling";
+const DESC = "Đặt lại mật khẩu tài khoản quản trị website Saigon Handling.";
 
 export const Route = createFileRoute("/reset-password")({
   ssr: false,
@@ -76,8 +76,8 @@ function ResetPasswordPage() {
         <CardContent className="space-y-3">
           {!ready ? (
             <p className="text-sm text-muted-foreground">
-              Liên kết đặt lại mật khẩu không hợp lệ hoặc đã hết hạn. Hãy quay lại trang đăng nhập và
-              gửi lại email đặt lại mật khẩu.
+              Liên kết đặt lại mật khẩu không hợp lệ hoặc đã hết hạn. Hãy quay lại trang đăng nhập
+              và gửi lại email đặt lại mật khẩu.
             </p>
           ) : null}
           <div className="space-y-2">

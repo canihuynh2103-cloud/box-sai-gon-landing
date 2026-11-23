@@ -24,6 +24,9 @@
 - Service-specific operational guidance lives in service-guidance.ts and extends the existing service data; why: keep each page's advice distinct while preserving its URL, metadata, media and shared layout.
 - Booking duration copy derives from booking-policy.ts; why: keep FAQs and pricing notes consistent with the business policy.
 - Router dehydration restores the per-request Query cache before hydration; why: the initial HTML and client must show the same database-backed content and links.
+- Header height is reserved in CSS at mobile/desktop breakpoints, without post-hydration measurement; why: the fixed header must not shift the hero when fonts or client state arrive.
+- The homepage uses a bundled WebP derivative of the existing hero and no scroll-driven React parallax; why: reduce image bytes and scroll renders without changing the original image or asset manifests.
+- Mobile contact actions share a bottom dock with a reserved page gutter; why: retain all contact destinations without a vertical stack obscuring article content.
 
 ## Content security
 - Sanitize rich HTML through the shared safe-html allowlist before public rendering, preview, editor insertion and saving; why: stored content must never execute scripts in visitor or administrator sessions.

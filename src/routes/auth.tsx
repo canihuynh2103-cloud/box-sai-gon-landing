@@ -11,8 +11,8 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-const TITLE = "Đăng Nhập Quản Trị — Bốc Xếp Sài Gòn";
-const DESC = "Trang đăng nhập dành cho quản trị viên website Bốc Xếp Sài Gòn.";
+const TITLE = "Đăng Nhập Quản Trị — Saigon Handling";
+const DESC = "Trang đăng nhập dành cho quản trị viên website Saigon Handling.";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -65,7 +65,6 @@ function AuthPage() {
   };
 
   const signUp = async () => {
-
     setLoading(true);
     const { error } = await supabase.auth.signUp({
       email,
@@ -103,7 +102,7 @@ function AuthPage() {
             <Lock className="h-5 w-5" />
           </div>
           <CardTitle className="font-heading text-2xl">Quản Trị Website</CardTitle>
-          <CardDescription>Bốc Xếp Sài Gòn — khu vực dành cho quản trị viên</CardDescription>
+          <CardDescription>Saigon Handling — khu vực dành cho quản trị viên</CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="signin">
@@ -115,7 +114,12 @@ function AuthPage() {
             <TabsContent value="signin" className="mt-4 space-y-3">
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="password">Mật khẩu</Label>
@@ -140,8 +144,6 @@ function AuthPage() {
               >
                 Quên mật khẩu? Gửi email đặt lại
               </Button>
-
-
             </TabsContent>
 
             <TabsContent value="signup" className="mt-4 space-y-3">
@@ -151,7 +153,12 @@ function AuthPage() {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email2">Email</Label>
-                <Input id="email2" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Input
+                  id="email2"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="password2">Mật khẩu</Label>

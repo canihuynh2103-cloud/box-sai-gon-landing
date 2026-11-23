@@ -3,7 +3,6 @@ import { HandHeart, Gauge, ScrollText, ShieldCheck } from "lucide-react";
 import teamAsset from "@/assets/team-group.jpg.asset.json";
 import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 
-
 const teamImage = teamAsset.url;
 import { STATS } from "@/data/site";
 
@@ -93,7 +92,7 @@ export function About() {
             <WatermarkedImage
               wrapperClassName="rounded-2xl shadow-[var(--shadow-lift)]"
               src={teamImage}
-              alt="Đội ngũ hơn 20 nhân công Bốc Xếp Sài Gòn đội mũ bảo hộ, mặc áo phản quang trong nhà xưởng"
+              alt="Đội ngũ hơn 20 nhân công Saigon Handling đội mũ bảo hộ, mặc áo phản quang trong nhà xưởng"
               loading="lazy"
               width={1456}
               height={1092}
@@ -114,14 +113,14 @@ export function About() {
               Đồng hành cùng doanh nghiệp từ năm 2015
             </h2>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              Bốc Xếp Sài Gòn được thành lập năm 2015, khởi đầu từ một tổ đội nhỏ tại khu vực
-              Thủ Đức. Đến nay chúng tôi có hơn 80 nhân công chính thức, trụ sở chính tại 234
-              Tô Ngọc Vân (Thủ Đức) cùng chi nhánh Tân Bình và Bình Tân, phục vụ hàng trăm kho
-              bãi, nhà máy và doanh nghiệp logistics trên khắp TP.HCM.
+              Saigon Handling được thành lập năm 2015, khởi đầu từ một tổ đội nhỏ tại khu vực Thủ
+              Đức. Đến nay chúng tôi có hơn 80 nhân công chính thức, trụ sở chính tại 234 Tô Ngọc
+              Vân (Thủ Đức) cùng chi nhánh Tân Bình và Bình Tân, phục vụ hàng trăm kho bãi, nhà máy
+              và doanh nghiệp logistics trên khắp TP.HCM.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Sứ mệnh của chúng tôi rất đơn giản: giúp khách hàng không còn phải lo về nhân
-              công. Đúng người, đúng giờ, đúng giá — và hàng hóa luôn nguyên vẹn.
+              Sứ mệnh của chúng tôi rất đơn giản: giúp khách hàng không còn phải lo về nhân công.
+              Đúng người, đúng giờ, đúng giá — và hàng hóa luôn nguyên vẹn.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">

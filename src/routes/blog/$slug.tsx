@@ -31,10 +31,13 @@ export const Route = createFileRoute("/blog/$slug")({
     if (!post) {
       return {
         meta: [
-          { title: "Bài viết không khả dụng — Bốc Xếp Sài Gòn" },
-          { name: "description", content: "Bài viết hiện không khả dụng trên Bốc Xếp Sài Gòn." },
-          { property: "og:title", content: "Bài viết không khả dụng — Bốc Xếp Sài Gòn" },
-          { property: "og:description", content: "Bài viết hiện không khả dụng trên Bốc Xếp Sài Gòn." },
+          { title: "Bài viết không khả dụng — Saigon Handling" },
+          { name: "description", content: "Bài viết hiện không khả dụng trên Saigon Handling." },
+          { property: "og:title", content: "Bài viết không khả dụng — Saigon Handling" },
+          {
+            property: "og:description",
+            content: "Bài viết hiện không khả dụng trên Saigon Handling.",
+          },
           { property: "og:type", content: "article" },
           { name: "twitter:card", content: "summary" },
           { name: "robots", content: "noindex, follow" },
@@ -43,12 +46,12 @@ export const Route = createFileRoute("/blog/$slug")({
     }
     const url = absUrl(`/blog/${params.slug}`);
     const title = post
-      ? post.seo_title || `${post.title} — Bốc Xếp Sài Gòn`
-      : `${params.slug.replace(/-/g, " ")} — Bốc Xếp Sài Gòn`;
+      ? post.seo_title || `${post.title} — Saigon Handling`
+      : `${params.slug.replace(/-/g, " ")} — Saigon Handling`;
     const desc =
       post?.seo_description ||
       post?.excerpt ||
-      "Bài viết kiến thức bốc xếp và logistics từ Bốc Xếp Sài Gòn.";
+      "Bài viết kiến thức bốc xếp và logistics từ Saigon Handling.";
     const image = post?.og_image || post?.cover_image || "";
     const meta: Array<Record<string, string>> = [
       { title },
@@ -60,12 +63,17 @@ export const Route = createFileRoute("/blog/$slug")({
       { name: "twitter:card", content: "summary_large_image" },
     ];
     if (image.startsWith("https://")) {
-      meta.push({ property: "og:image", content: image }, { name: "twitter:image", content: image });
+      meta.push(
+        { property: "og:image", content: image },
+        { name: "twitter:image", content: image },
+      );
     }
     return {
       meta,
       links: [{ rel: "canonical", href: url }],
-      scripts: post ? [{ type: "application/ld+json", children: buildJsonLd(post, params.slug) }] : [],
+      scripts: post
+        ? [{ type: "application/ld+json", children: buildJsonLd(post, params.slug) }]
+        : [],
     };
   },
   component: PostPage,
@@ -146,7 +154,6 @@ function PostPage() {
           <ArrowLeft className="h-4 w-4" /> Tất cả bài viết
         </Link>
 
-
         {isLoading ? (
           <div className="space-y-3">
             <Skeleton className="h-10 w-3/4" />
@@ -188,7 +195,11 @@ function PostPage() {
                 wrapperClassName="mt-5 rounded-lg"
                 src={data.cover_image}
                 alt={data.cover_image_alt || data.title}
-                className="w-full object-cover"
+                width={1200}
+                height={675}
+                loading="eager"
+                fetchPriority="high"
+                className="aspect-video w-full object-cover"
               />
             ) : null}
             {data.excerpt ? (
@@ -217,7 +228,6 @@ function PostPage() {
       </main>
       <Footer />
       <FloatingButtons />
-
     </div>
   );
 }
@@ -236,10 +246,17 @@ function PillarServiceLink({ slug }: { slug: string }) {
   const project = PROJECTS.length ? PROJECTS[idx % PROJECTS.length] : null;
 
   return (
-    <nav aria-label="Dịch vụ liên quan" className="mt-12 rounded-xl border border-border bg-card p-5">
+    <nav
+      aria-label="Dịch vụ liên quan"
+      className="mt-12 rounded-xl border border-border bg-card p-5"
+    >
       <p className="text-sm text-muted-foreground">
         Bài viết thuộc chuyên mục{" "}
-        <Link to="/dich-vu/$slug" params={{ slug: pillar.slug }} className="font-semibold text-primary hover:underline">
+        <Link
+          to="/dich-vu/$slug"
+          params={{ slug: pillar.slug }}
+          className="font-semibold text-primary hover:underline"
+        >
           {pillar.name}
         </Link>
         . Xem thêm{" "}
@@ -250,11 +267,16 @@ function PillarServiceLink({ slug }: { slug: string }) {
         <Link to="/dich-vu" className="font-semibold text-primary hover:underline">
           toàn bộ dịch vụ bốc xếp
         </Link>{" "}
-        của Bốc Xếp Sài Gòn.
+        của Saigon Handling.
         {project ? (
           <>
-            {" "}Tham khảo dự án thực tế:{" "}
-            <Link to="/du-an/$slug" params={{ slug: project.slug }} className="font-semibold text-primary hover:underline">
+            {" "}
+            Tham khảo dự án thực tế:{" "}
+            <Link
+              to="/du-an/$slug"
+              params={{ slug: project.slug }}
+              className="font-semibold text-primary hover:underline"
+            >
               {project.name}
             </Link>
             , hoặc{" "}

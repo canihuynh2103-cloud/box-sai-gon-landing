@@ -7,9 +7,9 @@ import { EMAIL } from "@/data/site";
 import { breadcrumbLd, metaFor } from "@/lib/seo";
 import { ADS_ID, POLICY_PATH } from "@/lib/consent";
 
-const TITLE = "Chính Sách Bảo Mật — Bốc Xếp Sài Gòn";
+const TITLE = "Chính Sách Bảo Mật — Saigon Handling";
 const DESC =
-  "Chính sách bảo mật và xử lý cookie của Bốc Xếp Sài Gòn: dữ liệu thu thập, Google Ads, mục đích đo lường quảng cáo, quyền đồng ý và cách rút lại đồng ý.";
+  "Chính sách bảo mật và xử lý cookie của Saigon Handling: dữ liệu thu thập, Google Ads, mục đích đo lường quảng cáo, quyền đồng ý và cách rút lại đồng ý.";
 
 export const Route = createFileRoute("/chinh-sach-bao-mat")({
   head: () => {
@@ -33,7 +33,9 @@ export const Route = createFileRoute("/chinh-sach-bao-mat")({
 });
 
 function H2({ children }: { children: ReactNode }) {
-  return <h2 className="mt-8 font-heading text-xl font-bold uppercase tracking-tight">{children}</h2>;
+  return (
+    <h2 className="mt-8 font-heading text-xl font-bold uppercase tracking-tight">{children}</h2>
+  );
 }
 
 function P({ children }: { children: ReactNode }) {
@@ -62,45 +64,44 @@ function PrivacyPolicyPage() {
 
         <H2>1. Dữ liệu chúng tôi xử lý</H2>
         <P>
-          Khi bạn truy cập website, một số dữ liệu kỹ thuật và cookie có thể được lưu hoặc
-          đọc trên thiết bị của bạn: nhận diện phiên truy cập, thời gian truy cập, trang bạn
-          xem và dữ liệu quảng cáo (như việc bạn từng bấm vào quảng cáo nào). Chúng tôi không
-          thu thập dữ liệu nhạy cảm và không bán dữ liệu cá nhân.
+          Khi bạn truy cập website, một số dữ liệu kỹ thuật và cookie có thể được lưu hoặc đọc trên
+          thiết bị của bạn: nhận diện phiên truy cập, thời gian truy cập, trang bạn xem và dữ liệu
+          quảng cáo (như việc bạn từng bấm vào quảng cáo nào). Chúng tôi không thu thập dữ liệu nhạy
+          cảm và không bán dữ liệu cá nhân.
         </P>
 
         <H2>2. Cookie quảng cáo và Google Ads</H2>
         <P>
-          Website cài Google Ads tag (mã đo lường {ADS_ID}) do Google Ireland Limited và các
-          công ty liên kết của Google cung cấp. Cookie của Google Ads giúp đo lường hiệu quả
-          quảng cáo (lượt nhấp, lượt hiển thị) và — khi bạn đồng ý — đo lường và tối ưu các
-          chuyển đổi như yêu cầu báo giá hoặc gọi điện qua nút hotline.
+          Website cài Google Ads tag (mã đo lường {ADS_ID}) do Google Ireland Limited và các công ty
+          liên kết của Google cung cấp. Cookie của Google Ads giúp đo lường hiệu quả quảng cáo (lượt
+          nhấp, lượt hiển thị) và — khi bạn đồng ý — đo lường và tối ưu các chuyển đổi như yêu cầu
+          báo giá hoặc gọi điện qua nút hotline.
         </P>
         <P>
-          Ở các khu vực pháp luật yêu cầu sự đồng ý (bao gồm Việt Nam, EEA, Vương quốc Anh
-          và Thụy Sĩ) hoặc khi không xác định được khu vực, website không tải thẻ Google Ads
-          và không gửi dữ liệu đo lường quảng cáo tới Google.
+          Ở các khu vực pháp luật yêu cầu sự đồng ý (bao gồm Việt Nam, EEA, Vương quốc Anh và Thụy
+          Sĩ) hoặc khi không xác định được khu vực, website không tải thẻ Google Ads và không gửi dữ
+          liệu đo lường quảng cáo tới Google.
         </P>
 
         <H2>3. Mục đích sử dụng dữ liệu</H2>
         <P>
-          - Đo lường lượt truy cập và hiệu quả quảng cáo. - Tối ưu chiến dịch quảng cáo của
-          chúng tôi. - Xử lý yêu cầu báo giá mà bạn gửi qua form (email, số điện thoại, nội
-          dung yêu cầu) để liên hệ tư vấn.
+          - Đo lường lượt truy cập và hiệu quả quảng cáo. - Tối ưu chiến dịch quảng cáo của chúng
+          tôi. - Xử lý yêu cầu báo giá mà bạn gửi qua form (email, số điện thoại, nội dung yêu cầu)
+          để liên hệ tư vấn.
         </P>
 
         <H2>4. Quyền của bạn và cách từ chối</H2>
         <P>
-          Bạn có thể chặn hoặc xoá cookie trong cài đặt trình duyệt, hoặc tắt quảng cáo được
-          cá nhân hoá tại trang Cài đặt quảng cáo của Google (adssettings.google.com). Việc
-          này không ảnh hưởng tới việc bạn sử dụng các chức năng của website.
+          Bạn có thể chặn hoặc xoá cookie trong cài đặt trình duyệt, hoặc tắt quảng cáo được cá nhân
+          hoá tại trang Cài đặt quảng cáo của Google (adssettings.google.com). Việc này không ảnh
+          hưởng tới việc bạn sử dụng các chức năng của website.
         </P>
 
         <H2>5. Lưu trữ và liên hệ</H2>
         <P>
-          Lựa chọn cookie được lưu trên trình duyệt của bạn cho đến khi bạn xoá dữ liệu
-          trình duyệt. Dữ liệu yêu cầu báo giá chỉ được dùng để phản hồi yêu cầu của bạn.
-          Mọi câu hỏi về bảo mật dữ liệu, vui lòng liên hệ {EMAIL} hoặc hotline
-          0888.997.822.
+          Lựa chọn cookie được lưu trên trình duyệt của bạn cho đến khi bạn xoá dữ liệu trình duyệt.
+          Dữ liệu yêu cầu báo giá chỉ được dùng để phản hồi yêu cầu của bạn. Mọi câu hỏi về bảo mật
+          dữ liệu, vui lòng liên hệ {EMAIL} hoặc hotline 0888.997.822.
         </P>
       </main>
       <Footer />
