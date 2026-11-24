@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Phone, Search } from "lucide-react";
 import { HOTLINE, HOTLINE_TEL, NAV_ITEMS } from "@/data/site";
-import logoAsset from "@/assets/logo-header.png.asset.json";
+import logoAsset from "@/assets/logo-header.webp.asset.json";
 import { NavLink } from "@/components/site/NavLink";
 import { QuoteButton } from "@/components/site/QuoteButton";
 import { cn } from "@/lib/utils";
@@ -34,8 +34,8 @@ export function Header() {
           <img
             src={logoAsset.url}
             alt="Logo Saigon Handling"
-            width={884}
-            height={200}
+            width={354}
+            height={80}
             className="h-7 w-auto max-w-full object-contain sm:h-8 lg:h-9"
           />
           <span className="text-sm font-bold leading-none">Saigon Handling</span>

@@ -1,5 +1,6 @@
 import { ChevronDown, Phone, ShieldCheck } from "lucide-react";
 import heroImage from "@/assets/hero-warehouse.webp";
+import heroImageSmall from "@/assets/hero-warehouse-768.webp";
 import { HOTLINE, HOTLINE_TEL, STATS } from "@/data/site";
 import { useHeroBanner } from "@/hooks/use-content";
 import { QuoteButton } from "@/components/site/QuoteButton";
@@ -12,6 +13,8 @@ export function Hero() {
       <div className="absolute inset-0">
         <img
           src={banner?.image || heroImage}
+          srcSet={banner?.image ? undefined : `${heroImageSmall} 768w, ${heroImage} 1376w`}
+          sizes="100vw"
           alt="Đội bốc xếp hàng hóa tại kho bãi container ở TP.HCM"
           width={1376}
           height={768}
