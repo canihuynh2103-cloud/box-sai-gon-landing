@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMemo } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
@@ -12,7 +11,7 @@ import { FloatingButtons } from "@/components/site/FloatingButtons";
 import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { absUrl, breadcrumbLd, SITE_NAME } from "@/lib/seo";
+import { absUrl, breadcrumbLd, SITE_NAME, normalizeBrandSuffix } from "@/lib/seo";
 import { BUSINESS_ID } from "@/lib/seo";
 import { ALL_TOPICS } from "@/data/content-plan";
 import { SERVICE_PAGES } from "@/data/service-pages";
@@ -47,7 +46,7 @@ export const Route = createFileRoute("/blog/$slug")({
     }
     const url = absUrl(`/blog/${params.slug}`);
     const title = post
-      ? post.seo_title || `${post.title} — Saigon Handling`
+      ? normalizeBrandSuffix(post.seo_title || `${post.title} — Saigon Handling`)
       : `${params.slug.replace(/-/g, " ")} — Saigon Handling`;
     const desc =
       post?.seo_description ||
@@ -57,7 +56,10 @@ export const Route = createFileRoute("/blog/$slug")({
     const meta: Array<Record<string, string>> = [
       { title },
       { name: "description", content: desc },
-      { property: "og:title", content: post?.og_title || title },
+      {
+        property: "og:title",
+        content: post?.og_title ? normalizeBrandSuffix(post.og_title) : title,
+      },
       { property: "og:description", content: post?.og_description || desc },
       { property: "og:type", content: "article" },
       { property: "og:url", content: url },

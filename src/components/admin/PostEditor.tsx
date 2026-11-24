@@ -56,7 +56,10 @@ const str = (value: unknown): string => {
 };
 
 export const readingTimeOf = (html: unknown) => {
-  const text = str(html).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  const text = str(html)
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
   const words = text ? text.split(" ").length : 0;
   return Math.max(1, Math.round(words / 200));
 };
@@ -65,7 +68,12 @@ function Counter({ value, min, max }: { value?: string | null; min: number; max:
   const n = str(value).length;
   const ok = n >= min && n <= max;
   return (
-    <p className={cn("text-xs", n === 0 ? "text-muted-foreground" : ok ? "text-emerald-600" : "text-destructive")}>
+    <p
+      className={cn(
+        "text-xs",
+        n === 0 ? "text-muted-foreground" : ok ? "text-emerald-600" : "text-destructive",
+      )}
+    >
       {n}/{max} ký tự {n === 0 ? "" : ok ? "— tốt" : `— nên trong khoảng ${min}-${max}`}
     </p>
   );
@@ -133,7 +141,10 @@ export function PostEditor({ post, onClose }: Props) {
     const publishedIso = fromLocalInput(publishedAt);
     return {
       title: String(values.title ?? "").trim() || "Bài viết chưa có tiêu đề",
-      slug: String(values.slug ?? "").trim() || slugify(String(values.title ?? "")) || `bai-viet-${Date.now()}`,
+      slug:
+        String(values.slug ?? "").trim() ||
+        slugify(String(values.title ?? "")) ||
+        `bai-viet-${Date.now()}`,
       category: values.category || null,
       excerpt: values.excerpt || null,
       content: safePostHtml(String(values.content ?? "")),
@@ -152,7 +163,8 @@ export function PostEditor({ post, onClose }: Props) {
       author: values.author || null,
       tags,
       reading_time: readingTimeOf(String(values.content ?? "")),
-      published_at: publishedIso ?? (values.status === "published" ? new Date().toISOString() : null),
+      published_at:
+        publishedIso ?? (values.status === "published" ? new Date().toISOString() : null),
       scheduled_at: scheduledIso,
     };
   }, [values, publishedAt, scheduledAt]);
@@ -222,7 +234,9 @@ export function PostEditor({ post, onClose }: Props) {
   const seoTitle = String(values.seo_title || values.title || "");
   const seoDesc = String(values.seo_description || values.excerpt || "");
   const slug = String(values.slug ?? "");
-  const focus = String(values.focus_keyword ?? "").toLowerCase().trim();
+  const focus = String(values.focus_keyword ?? "")
+    .toLowerCase()
+    .trim();
   const focusChecks = focus
     ? [
         { label: "Có trong tiêu đề", ok: seoTitle.toLowerCase().includes(focus) },
@@ -230,7 +244,9 @@ export function PostEditor({ post, onClose }: Props) {
         { label: "Có trong mô tả", ok: seoDesc.toLowerCase().includes(focus) },
         {
           label: "Có trong nội dung",
-          ok: String(values.content ?? "").toLowerCase().includes(focus),
+          ok: String(values.content ?? "")
+            .toLowerCase()
+            .includes(focus),
         },
       ]
     : [];
@@ -334,7 +350,10 @@ export function PostEditor({ post, onClose }: Props) {
               <div className="space-y-4 rounded-lg border bg-card p-4">
                 <div className="space-y-2">
                   <Label>Trạng thái</Label>
-                  <Select value={str(values.status) || "draft"} onValueChange={(v) => set("status", v)}>
+                  <Select
+                    value={str(values.status) || "draft"}
+                    onValueChange={(v) => set("status", v)}
+                  >
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
@@ -349,7 +368,7 @@ export function PostEditor({ post, onClose }: Props) {
                   <Input
                     value={str(values.author)}
                     onChange={(e) => set("author", e.target.value)}
-                    placeholder="Bốc Xếp Sài Gòn"
+                    placeholder="Saigon Handling"
                   />
                 </div>
                 <div className="space-y-2">
@@ -429,7 +448,10 @@ export function PostEditor({ post, onClose }: Props) {
 
               <div className="space-y-3 rounded-lg border bg-card p-4">
                 <Label>Ảnh bìa</Label>
-                <ImageUpload value={typeof values.cover_image === "string" ? values.cover_image : null} onChange={(url) => set("cover_image", url)} />
+                <ImageUpload
+                  value={typeof values.cover_image === "string" ? values.cover_image : null}
+                  onChange={(url) => set("cover_image", url)}
+                />
                 <div className="space-y-2">
                   <Label>Alt text của ảnh</Label>
                   <Input
@@ -575,7 +597,7 @@ export function PostEditor({ post, onClose }: Props) {
               {values.title || "Chưa có tiêu đề"}
             </h1>
             <p className="text-xs text-muted-foreground">
-              {values.author || "Bốc Xếp Sài Gòn"} ·{" "}
+              {values.author || "Saigon Handling"} ·{" "}
               {publishedAt ? new Date(publishedAt).toLocaleDateString("vi-VN") : "Chưa xuất bản"} ·{" "}
               {readingTime} phút đọc
             </p>

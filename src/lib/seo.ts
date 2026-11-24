@@ -66,3 +66,11 @@ export function breadcrumbLd(items: { name: string; path: string }[]) {
     })),
   };
 }
+
+/** Replaces a trailing legacy brand suffix (e.g. "| Bốc Xếp Sài Gòn") in stored titles with the official brand. */
+export function normalizeBrandSuffix(title: string): string {
+  return title.replace(
+    /\s*([|–—-])\s*Bốc Xếp Sài Gòn\s*$/iu,
+    (_m, sep: string) => ` ${sep} Saigon Handling`,
+  );
+}
