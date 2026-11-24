@@ -38,7 +38,7 @@ export function Header() {
             height={80}
             className="h-7 w-auto max-w-full object-contain sm:h-8 lg:h-9"
           />
-          <span className="font-display text-sm font-black uppercase italic leading-none tracking-wide sm:text-base">SAIGON HANDLING</span>
+          <span className="font-display text-[17px] font-black uppercase italic leading-none tracking-wide sm:text-[19px]">SAIGON HANDLING</span>
         </Link>
 
         <nav aria-label="Điều hướng chính" className="ml-auto hidden items-center gap-1 lg:flex">
