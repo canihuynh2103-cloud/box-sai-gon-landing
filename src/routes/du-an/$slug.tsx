@@ -19,6 +19,7 @@ import { findProjectDetail, relatedProjects, type ProjectDetail } from "@/data/p
 import { findServicePage } from "@/data/service-pages";
 import { HOTLINE, HOTLINE_TEL, EMAIL, ZALO_LINK, ADDRESS, type Project } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor, SITE_NAME } from "@/lib/seo";
+import { businessRef } from "@/lib/seo";
 
 export const Route = createFileRoute("/du-an/$slug")({
   loader: ({ params }): { project: Project; detail: ProjectDetail } => {
@@ -66,14 +67,7 @@ export const Route = createFileRoute("/du-an/$slug")({
             description,
             url: absUrl(`/du-an/${project.slug}`),
             locationCreated: { "@type": "Place", name: project.location },
-            provider: {
-              "@type": "LocalBusiness",
-              name: SITE_NAME,
-              telephone: HOTLINE,
-              email: EMAIL,
-              address: { "@type": "PostalAddress", streetAddress: ADDRESS, addressCountry: "VN" },
-              url: absUrl("/"),
-            },
+            provider: businessRef,
           }),
         },
         ...(faqs.length

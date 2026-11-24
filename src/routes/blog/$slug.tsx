@@ -13,6 +13,7 @@ import { WatermarkedImage } from "@/components/site/WatermarkedImage";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { absUrl, breadcrumbLd, SITE_NAME } from "@/lib/seo";
+import { BUSINESS_ID } from "@/lib/seo";
 import { ALL_TOPICS } from "@/data/content-plan";
 import { SERVICE_PAGES } from "@/data/service-pages";
 import { safePostHtml } from "@/lib/safe-html";
@@ -109,8 +110,8 @@ function buildJsonLd(data: Post, slug: string) {
       keywords: data.tags?.join(", ") || undefined,
       author: data.author
         ? { "@type": "Person", name: data.author }
-        : { "@type": "Organization", name: SITE_NAME, url: absUrl("/") },
-      publisher: { "@type": "Organization", name: SITE_NAME, url: absUrl("/") },
+        : { "@id": BUSINESS_ID, name: SITE_NAME },
+      publisher: { "@id": BUSINESS_ID, name: SITE_NAME },
     },
   ]);
 }

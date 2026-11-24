@@ -14,6 +14,7 @@
 - www.bocxepsaigon.vn redirects 301 to bocxepsaigon.vn via request middleware in src/start.ts; why: one canonical host for SEO.
 
 ## Technical SEO
+- JSON-LD declares one LocalBusiness in the root head under the shared BUSINESS_ID; other pages reference it by @id. Why: avoid duplicate business entities and keep NAP consistent.
 - Public search uses the shared Vietnamese normalization and Fuse matching; service suggestions precede articles without creating search URLs. Why: retain crawlable existing routes while supporting accented, unaccented and mistyped queries.
 - SEO keyword records live in an admin-only table and never modify public page metadata automatically. Why: keep editorial planning and measured evidence separate from published content.
 - Search Console refresh revalidates the chosen verified property and admin role before saving query/page snapshots; public requests only use existing content. Why: prevent credential exposure and keep provider traffic out of visitor rendering.

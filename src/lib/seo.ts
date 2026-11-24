@@ -1,6 +1,12 @@
 export const SITE_URL = "https://bocxepsaigon.vn";
 export const SITE_NAME = "Saigon Handling";
 
+/** Single stable entity id for the business across every JSON-LD block. */
+export const BUSINESS_ID = `${SITE_URL}/#business`;
+
+/** Reference to the one LocalBusiness entity declared in the root head. */
+export const businessRef = { "@id": BUSINESS_ID } as const;
+
 /** Minimum staffing confirmed by the business owner; shared with structured data. */
 export const workforceLd = { "@type": "QuantitativeValue", minValue: 80 } as const;
 

@@ -17,12 +17,13 @@ import {
 } from "@/components/ui/accordion";
 import { SERVICES, HOTLINE, HOTLINE_TEL, EMAIL, ADDRESS } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { businessRef } from "@/lib/seo";
 import containerAsset from "@/assets/svc-container.jpg.asset.json";
 
 const PATH = "/dich-vu-boc-xep-tphcm";
-const TITLE = "Bốc Xếp TPHCM – Thuê Bốc Xếp Tận Nơi 24/7 | Saigon Handling";
+const TITLE = "Dịch Vụ Bốc Xếp TP.HCM – Thuê Bốc Xếp Tận Nơi | Saigon Handling";
 const DESC =
-  "Cần bốc xếp ở TPHCM? Đội bốc xếp đến tận kho, nhà máy, container và xe tải tại các quận, huyện. Thuê theo giờ, ngày hoặc dài hạn, báo giá nhanh qua 0888.997.822.";
+  "Dịch vụ bốc xếp TP.HCM của Saigon Handling: đội nhân công đến tận kho, nhà máy, container và xe tải tại các quận, huyện. Thuê theo giờ, ngày hoặc dài hạn, báo giá trước.";
 
 /** Ảnh thực tế có sẵn trên site, dùng làm og:image (URL tuyệt đối). */
 const OG_IMAGE = `${SITE_URL}${containerAsset.url}`;
@@ -254,14 +255,7 @@ export const Route = createFileRoute("/dich-vu-boc-xep-tphcm")({
               { "@type": "AdministrativeArea", name: "Đồng Nai" },
               { "@type": "AdministrativeArea", name: "Long An" },
             ],
-            provider: {
-              "@type": "LocalBusiness",
-              name: SITE_NAME,
-              telephone: HOTLINE,
-              email: EMAIL,
-              url: absUrl("/"),
-              address: { "@type": "PostalAddress", streetAddress: ADDRESS, addressCountry: "VN" },
-            },
+            provider: businessRef,
           }),
         },
         {
@@ -309,13 +303,14 @@ function HcmcLandingPage() {
             <div>
               <span className="section-eyebrow">Saigon Handling</span>
               <h1 className="mt-4 font-display text-3xl font-bold uppercase leading-tight md:text-5xl">
-                Dịch Vụ Bốc Xếp TP.HCM Chuyên Nghiệp 24/7
+                Dịch Vụ Bốc Xếp TP.HCM – Thuê Đội Bốc Xếp Tận Nơi
               </h1>
               <p className="mt-4 text-lg text-muted-foreground">
                 Saigon Handling là đơn vị cung cấp dịch vụ bốc xếp hàng hóa tại TP.HCM, phục vụ kho
                 hàng, nhà máy, container, xe tải, văn phòng, cửa hàng và các nhu cầu xếp dỡ hàng hóa
                 khác. Bạn cần thêm người cho một ca nhập hàng gấp hay một đội cố định làm việc mỗi
-                ngày, chúng tôi bố trí nhân công đúng giờ và báo giá trước khi bắt đầu.
+                ngày, chỉ cần gửi địa chỉ, loại hàng và khung giờ để thuê bốc xếp tại TP.HCM; chúng
+                tôi bố trí nhân công đúng giờ và báo giá trước khi bắt đầu.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">

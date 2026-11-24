@@ -20,6 +20,7 @@ import { findProjectDetail } from "@/data/project-pages";
 import { usePosts } from "@/hooks/use-content";
 import { HOTLINE, HOTLINE_TEL, ADDRESS, EMAIL, SERVICES } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor, SITE_NAME } from "@/lib/seo";
+import { businessRef } from "@/lib/seo";
 
 export const Route = createFileRoute("/dich-vu/$slug")({
   loader: ({ params }): { page: ServicePage } => {
@@ -59,14 +60,7 @@ export const Route = createFileRoute("/dich-vu/$slug")({
             description: page.seoDescription,
             url: absUrl(`/dich-vu/${page.slug}`),
             areaServed: [{ "@type": "City", name: "Thành phố Hồ Chí Minh" }],
-            provider: {
-              "@type": "LocalBusiness",
-              name: SITE_NAME,
-              telephone: HOTLINE,
-              email: EMAIL,
-              address: { "@type": "PostalAddress", streetAddress: ADDRESS, addressCountry: "VN" },
-              url: absUrl("/"),
-            },
+            provider: businessRef,
           }),
         },
         {

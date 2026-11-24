@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ADDRESS, BRANCHES, EMAIL, HOTLINE, HOTLINE_TEL, WORK_HOURS } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor, SITE_NAME, workforceLd } from "@/lib/seo";
+import { BUSINESS_ID } from "@/lib/seo";
 
 const TITLE = "Hồ Sơ Năng Lực Saigon Handling — Kinh Nghiệm & Cam Kết";
 const DESC =
@@ -105,7 +106,8 @@ export const Route = createFileRoute("/ho-so-nang-luc")({
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Organization",
+            "@type": "LocalBusiness",
+            "@id": BUSINESS_ID,
             name: SITE_NAME,
             url: absUrl("/"),
             email: EMAIL,

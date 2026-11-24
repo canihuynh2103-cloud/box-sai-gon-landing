@@ -10,7 +10,7 @@ import { SERVICE_PAGES } from "@/data/service-pages";
 import { HOTLINE, HOTLINE_TEL } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor } from "@/lib/seo";
 
-const TITLE = "Tất Cả Dịch Vụ Bốc Xếp, Chuyển Nhà, Chuyển Văn Phòng TPHCM";
+const TITLE = "Danh Mục Dịch Vụ Saigon Handling – Bốc Xếp, Chuyển Kho, Chuyển Nhà";
 const DESC =
   "Tổng hợp toàn bộ dịch vụ bốc xếp của Saigon Handling: bốc xếp kho hàng, container, nhà máy, cảng, sân bay, thuê nhân công, đóng gói, chuyển kho, chuyển nhà và văn phòng.";
 
@@ -63,7 +63,7 @@ function ServiceHub() {
         </nav>
 
         <h1 className="font-heading text-3xl font-bold uppercase tracking-tight md:text-4xl">
-          Dịch Vụ Bốc Xếp Hàng Hóa Tại TP.HCM
+          Danh Mục Dịch Vụ Bốc Xếp &amp; Chuyển Dời Hàng Hóa
         </h1>
         <p className="mt-3 max-w-3xl text-muted-foreground">
           Saigon Handling cung ứng nhân công và dịch vụ bốc xếp cho kho hàng, nhà máy, cảng, depot,

@@ -140,7 +140,7 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "boc-xep-container",
     name: "Bốc Xếp Container",
     h1: "Dịch Vụ Bốc Xếp Container — Rút Ruột & Đóng Hàng",
-    seoTitle: "Bốc Xếp Container TPHCM – Rút Ruột, Đóng Hàng Cont 24/7",
+    seoTitle: "Bốc Xếp Container 20/40ft TPHCM – Rút Ruột, Đóng Hàng Cont",
     seoDescription:
       "Dịch vụ bốc xếp container, rút ruột và đóng hàng cont tại cảng, depot, kho riêng ở TPHCM. Đội bốc vác làm theo lịch tàu, hạn chế phí lưu cont. Gọi 0888.997.822.",
     keyword: "bốc xếp container",
@@ -947,7 +947,7 @@ const BASE_SERVICE_PAGES: ServicePage[] = [
     slug: "boc-hang-theo-gio",
     name: "Bốc Hàng Theo Giờ",
     h1: "Bốc Hàng Theo Giờ — Điều Động Nhanh Tại TP.HCM",
-    seoTitle: "Thuê Bốc Xếp Theo Giờ TPHCM – Bốc Công, Bốc Vác Gọi Là Có",
+    seoTitle: "Thuê Bốc Xếp Theo Giờ TPHCM – Điều Động Nhân Công Nhanh",
     seoDescription:
       "Thuê bốc xếp, bốc công theo giờ tại TPHCM, không có mức thuê tối thiểu cố định. Tư vấn số người và cách tính công theo nhu cầu. Hotline 24/7: 0888.997.822.",
     keyword: "bốc hàng theo giờ",
