@@ -27,7 +27,7 @@
 - Router dehydration restores the per-request Query cache before hydration; why: the initial HTML and client must show the same database-backed content and links.
 - Header height is reserved in CSS at mobile/desktop breakpoints, without post-hydration measurement; why: the fixed header must not shift the hero when fonts or client state arrive.
 - The homepage uses a bundled WebP derivative of the existing hero and no scroll-driven React parallax; why: reduce image bytes and scroll renders without changing the original image or asset manifests.
-- Mobile contact actions share a bottom dock with a reserved page gutter; why: retain all contact destinations without a vertical stack obscuring article content.
+- Contact actions are one vertical right-edge column offset by safe-area insets; the consent panel opens only from the footer settings link (defaults stay denied); why: owner rejected the bottom bar and auto-opening popup.
 
 ## Content security
 - Sanitize rich HTML through the shared safe-html allowlist before public rendering, preview, editor insertion and saving; why: stored content must never execute scripts in visitor or administrator sessions.

@@ -15,12 +15,12 @@ export function FloatingButtons() {
   }, []);
 
   const base =
-    "cta-press flex size-11 shrink-0 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 lg:size-13";
+    "cta-press flex size-10 shrink-0 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 lg:size-12";
 
   return (
     <nav
       aria-label="Liên hệ Saigon Handling"
-      className="contact-dock fixed inset-x-0 bottom-0 z-40 flex h-18 items-center justify-evenly gap-1 border-t border-border bg-background/95 px-2 pt-2 backdrop-blur lg:inset-x-auto lg:bottom-5 lg:right-5 lg:h-auto lg:flex-col lg:gap-3 lg:border-0 lg:bg-transparent lg:p-0"
+      className="contact-dock fixed z-40 flex flex-col items-center gap-2 lg:gap-3"
     >
       <a
         href={`tel:${HOTLINE_TEL}`}
@@ -68,7 +68,7 @@ export function FloatingButtons() {
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Lên đầu trang"
-          className={`hidden border border-border bg-card text-foreground shadow-[var(--shadow-card)] lg:flex ${base}`}
+          className={`border border-border bg-card text-foreground shadow-[var(--shadow-card)] ${base}`}
         >
           <ArrowUp className="size-5" />
         </Button>

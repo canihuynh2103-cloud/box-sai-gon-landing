@@ -32,11 +32,8 @@ export function Hero() {
             Dịch vụ bốc xếp chuyên nghiệp tại TP.HCM
           </span>
 
-          <p className="mt-5 max-w-3xl font-display text-4xl font-bold leading-tight text-secondary-foreground sm:text-7xl lg:text-8xl">
-            Saigon Handling
-          </p>
-          <h1 className="mt-3 max-w-3xl font-display text-2xl font-semibold uppercase leading-tight text-secondary-foreground sm:text-3xl">
-            Công Ty Bốc Xếp Hàng Hóa Chuyên Nghiệp 24/7
+          <h1 className="mt-5 max-w-4xl font-display text-3xl font-bold uppercase leading-tight text-secondary-foreground sm:text-5xl lg:text-6xl">
+            Công Ty Bốc Xếp Hàng Hóa Chuyên Nghiệp 24/7 Tại TP.HCM
           </h1>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-secondary-foreground/80 sm:text-lg">
             {banner?.subtitle ??

@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { onConsentChange } from "@/lib/consent";
-import { choiceFor, privacySignal, saveSiteChoices, shouldShowBanner } from "@/lib/google-ads";
+import { choiceFor, privacySignal, saveSiteChoices } from "@/lib/google-ads";
 
 export function CookieConsent() {
   const [open, setOpen] = useState(false);
@@ -19,7 +19,6 @@ export function CookieConsent() {
       setAnalytics(choiceFor("analytics") === "granted");
       setAdvertising(choiceFor("advertising") === "granted");
       setGpc(privacySignal());
-      setOpen(shouldShowBanner());
     };
     const showSettings = () => {
       previousFocus.current =
