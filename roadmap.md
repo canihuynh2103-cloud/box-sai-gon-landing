@@ -1,5 +1,11 @@
 # Technical SEO audit độc lập
 
+## UI chốt cuối — 24/11/2026 (đã xuất bản)
+- [x] Chữ "SAIGON HANDLING" dưới logo tăng 17px mobile / 19px desktop (từ 14/16), vẫn in hoa đậm nghiêng.
+- [x] H1 trang chủ đổi thành "DỊCH VỤ BỐC XẾP HÀNG HÓA CHUYÊN NGHIỆP 24/7", 36px mobile / 60px desktop, một H1.
+- [x] 36 tests đạt, typecheck sạch, production build OK; preview 320/375/1280 không tràn ngang, cột nút phải, cookie không tự bật, không có request Google trước consent.
+- [x] Xuất bản xong; bocxepsaigon.vn và box-sai-gon-landing.lovable.app đều trả đúng H1/chữ mới, kiểm lại bằng trình duyệt.
+
 ## Consent — 23/11/2026 (chỉ code và preview, không publish)
 - [x] Thêm banner và cài đặt cookie; mặc định denied toàn cầu, lưu phiên bản/thời gian, hỗ trợ rút lại.
 - [x] Giữ ID/tag duy nhất và điều kiện chuyển đổi sau backend success; chỉ đổi import Contact, không sửa backend/form.
