@@ -62,7 +62,7 @@
 }
 
 :root {
-  --header-h: 177px;
+  --header-h: 97px;
   --hero-overlay: linear-gradient(
     105deg,
     oklch(0.14 0.005 20 / 0.92) 0%,
