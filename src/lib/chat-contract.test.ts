@@ -29,3 +29,36 @@ test("assistant knowledge preserves company founding year and no fixed minimum",
   assert.ok(prompt.includes("Năm thành lập 2015"));
   assert.ok(prompt.includes("Không có mức thuê tối thiểu cố định"));
 });
+
+test("chat accepts 80 messages and rejects an 81st message", () => {
+  const messages = Array.from({ length: 80 }, () => ({ role: "user", content: "Tư vấn" }));
+  assert.equal(chatRequestSchema.safeParse({ messages }).success, true);
+  assert.equal(
+    chatRequestSchema.safeParse({ messages: [...messages, { role: "user", content: "Thêm" }] })
+      .success,
+    false,
+  );
+});
+
+test("chat accepts 32000 total characters and rejects 32001", () => {
+  const messages = Array.from({ length: 16 }, () => ({
+    role: "user",
+    content: "x".repeat(2000),
+  }));
+  assert.equal(chatRequestSchema.safeParse({ messages }).success, true);
+  assert.equal(
+    chatRequestSchema.safeParse({ messages: [...messages, { role: "user", content: "x" }] })
+      .success,
+    false,
+  );
+});
+
+test("chat rejects empty history and requests ending in an assistant turn", () => {
+  assert.equal(chatRequestSchema.safeParse({ messages: [] }).success, false);
+  assert.equal(
+    chatRequestSchema.safeParse({
+      messages: [{ role: "assistant", content: "Tư vấn" }],
+    }).success,
+    false,
+  );
+});
