@@ -30,5 +30,6 @@
 - Contact actions are one vertical right-edge column offset by safe-area insets; the consent panel opens only from the footer settings link (defaults stay denied); why: owner rejected the bottom bar and auto-opening popup.
 
 ## Content security
+- The customer assistant uses a lazy session-only widget and a same-origin streaming route with public FAQ/static service knowledge; it hands off to the existing quote form without writing leads or emitting conversions. Why: isolate AI from private records and preserve the established submission/consent boundary.
 - Sanitize rich HTML through the shared safe-html allowlist before public rendering, preview, editor insertion and saving; why: stored content must never execute scripts in visitor or administrator sessions.
 - Signup only creates a profile and never grants administrator roles automatically; why: privileges must require an existing administrator's explicit decision.

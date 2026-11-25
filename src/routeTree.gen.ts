@@ -18,6 +18,7 @@ import { Route as HoSoNangLucRouteImport } from './routes/ho-so-nang-luc'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as AuthenticatedAdminRouteRouteImport } from './routes/_authenticated/admin/route'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as DichVuIndexRouteImport } from './routes/dich-vu/index'
@@ -77,6 +78,11 @@ const AuthenticatedAdminRouteRoute = AuthenticatedAdminRouteRouteImport.update({
   id: '/admin',
   path: '/admin',
   getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
@@ -169,6 +175,7 @@ export interface FileRoutesByFullPath {
   '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin': typeof AuthenticatedAdminRouteRouteWithChildren
+  '/api/chat': typeof ApiChatRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/dich-vu/$slug': typeof DichVuSlugRoute
   '/du-an/$slug': typeof DuAnSlugRoute
@@ -193,6 +200,7 @@ export interface FileRoutesByTo {
   '/ho-so-nang-luc': typeof HoSoNangLucRoute
   '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/chat': typeof ApiChatRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/dich-vu/$slug': typeof DichVuSlugRoute
   '/du-an/$slug': typeof DuAnSlugRoute
@@ -220,6 +228,7 @@ export interface FileRoutesById {
   '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteRouteWithChildren
+  '/api/chat': typeof ApiChatRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/dich-vu/$slug': typeof DichVuSlugRoute
   '/du-an/$slug': typeof DuAnSlugRoute
@@ -247,6 +256,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/sitemap.xml'
     | '/admin'
+    | '/api/chat'
     | '/blog/$slug'
     | '/dich-vu/$slug'
     | '/du-an/$slug'
@@ -271,6 +281,7 @@ export interface FileRouteTypes {
     | '/ho-so-nang-luc'
     | '/reset-password'
     | '/sitemap.xml'
+    | '/api/chat'
     | '/blog/$slug'
     | '/dich-vu/$slug'
     | '/du-an/$slug'
@@ -297,6 +308,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/sitemap.xml'
     | '/_authenticated/admin'
+    | '/api/chat'
     | '/blog/$slug'
     | '/dich-vu/$slug'
     | '/du-an/$slug'
@@ -323,6 +335,7 @@ export interface RootRouteChildren {
   HoSoNangLucRoute: typeof HoSoNangLucRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ApiChatRoute: typeof ApiChatRoute
   BlogSlugRoute: typeof BlogSlugRoute
   DichVuSlugRoute: typeof DichVuSlugRoute
   DuAnSlugRoute: typeof DuAnSlugRoute
@@ -394,6 +407,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin'
       preLoaderRoute: typeof AuthenticatedAdminRouteRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/blog/': {
       id: '/blog/'
@@ -555,6 +575,7 @@ const rootRouteChildren: RootRouteChildren = {
   HoSoNangLucRoute: HoSoNangLucRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ApiChatRoute: ApiChatRoute,
   BlogSlugRoute: BlogSlugRoute,
   DichVuSlugRoute: DichVuSlugRoute,
   DuAnSlugRoute: DuAnSlugRoute,

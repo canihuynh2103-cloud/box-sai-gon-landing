@@ -16,6 +16,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Toaster } from "@/components/ui/sonner";
 import { GTAG_SNIPPET, initConsent, initClickTracking } from "@/lib/google-ads";
 import { CookieConsent } from "@/components/site/CookieConsent";
+import { ChatLauncher } from "@/components/site/ChatLauncher";
 
 function NotFoundComponent() {
   return (
@@ -200,6 +201,7 @@ function RootComponent() {
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
       <CookieConsent />
+      <ChatLauncher />
       <Toaster richColors position="top-right" />
     </QueryClientProvider>
   );

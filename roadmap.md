@@ -1,5 +1,11 @@
 # Technical SEO audit độc lập
 
+## Trợ lý AI — 25/11/2026 (preview, không tự publish)
+- [x] Widget hội thoại một phiên, AI streaming từ nguồn dịch vụ/FAQ và liên hệ hiện có.
+- [x] Chuyển khách sang form thật để xác nhận gửi; không tự lưu hay phát conversion.
+- [x] Kiểm tra AI thật, lỗi, mobile/desktop, CTA, tests và bản xem trước.
+- [ ] Bảo vệ tần suất phía máy chủ — nền tảng chưa có cơ chế chuẩn; cần chủ đồng ý giải pháp tạm trước khi thêm.
+
 ## UI chốt cuối — 24/11/2026 (đã xuất bản)
 - [x] Chữ "SAIGON HANDLING" dưới logo tăng 17px mobile / 19px desktop (từ 14/16), vẫn in hoa đậm nghiêng.
 - [x] H1 trang chủ đổi thành "DỊCH VỤ BỐC XẾP HÀNG HÓA CHUYÊN NGHIỆP 24/7", 36px mobile / 60px desktop, một H1.

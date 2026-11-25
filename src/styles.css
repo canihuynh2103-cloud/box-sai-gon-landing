@@ -223,6 +223,34 @@
   pointer-events: auto;
 }
 
+.chat-launcher {
+  right: max(0.5rem, env(safe-area-inset-right));
+  bottom: max(0.75rem, calc(env(safe-area-inset-bottom) + 0.5rem));
+}
+.chat-panel, .chat-loading {
+  right: max(3.75rem, calc(env(safe-area-inset-right) + 3.5rem));
+  bottom: max(0.75rem, calc(env(safe-area-inset-bottom) + 0.5rem));
+  width: min(400px, calc(100vw - 4.5rem - env(safe-area-inset-right)));
+}
+.chat-panel {
+  height: min(680px, calc(100dvh - var(--header-h) - 2rem - env(safe-area-inset-bottom)));
+  animation: chat-enter 160ms ease-out;
+}
+@keyframes chat-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (min-width: 1024px) {
+  .chat-launcher { right: max(1.25rem, env(safe-area-inset-right)); }
+  .chat-panel, .chat-loading { right: max(5rem, calc(env(safe-area-inset-right) + 4rem)); }
+}
+@media (max-height: 560px) {
+  .chat-launcher { right: max(3.75rem, calc(env(safe-area-inset-right) + 3.5rem)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chat-panel { animation: none; }
+}
+
 @media (min-width: 1024px) {
   .contact-dock {
     right: max(1.25rem, env(safe-area-inset-right));
