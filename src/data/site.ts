@@ -488,7 +488,7 @@ export const REVIEWS = [
     name: "Lê Thị Bích Ngọc",
     role: "Quản lý sản xuất, nhà máy KCN Sóng Thần",
     content:
-      "Đợt di dời dây chuyền của chúng tôi rất gấp, bên Bốc Xếp Sài Gòn huy động thêm người chỉ trong một buổi chiều. Rất chuyên nghiệp.",
+      "Đợt di dời dây chuyền của chúng tôi rất gấp, bên Saigon Handling huy động thêm người chỉ trong một buổi chiều. Rất chuyên nghiệp.",
   },
   {
     name: "Phạm Văn Cường",

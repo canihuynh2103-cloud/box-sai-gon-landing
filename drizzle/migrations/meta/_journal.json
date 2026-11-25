@@ -22,6 +22,13 @@
       "when": 1795262931607,
       "tag": "0002_seo_search_console_snapshots",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1795599734497,
+      "tag": "0003_brand_sync_saigon_handling",
+      "breakpoints": true
     }
   ]
 }
