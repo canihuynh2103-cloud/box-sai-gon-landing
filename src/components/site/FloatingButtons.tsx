@@ -20,7 +20,7 @@ export function FloatingButtons() {
   return (
     <nav
       aria-label="Liên hệ Saigon Handling"
-      className="contact-dock fixed z-40 flex flex-col items-center gap-2 lg:gap-3"
+      className="contact-dock fixed z-40 flex flex-col items-center gap-3.5 lg:gap-4"
     >
       <a
         href={`tel:${HOTLINE_TEL}`}

@@ -201,14 +201,40 @@
   background-image: var(--hero-overlay);
 }
 
+/* Vertical contact dock: centred on the viewport, clamped clear of the fixed
+   header and the bottom safe area. The strip itself is click-through so it can
+   never block the hero CTAs sitting under it. */
 .contact-dock {
+  top: 0;
+  bottom: 0;
   right: max(0.5rem, env(safe-area-inset-right));
-  bottom: max(1rem, calc(env(safe-area-inset-bottom) + 0.75rem));
+  padding-top: calc(var(--header-h) + 1rem);
+  padding-bottom: max(
+    1rem,
+    calc(var(--header-h) - 1rem + env(safe-area-inset-bottom))
+  );
+  justify-content: center;
+  pointer-events: none;
 }
+
+.contact-dock > * {
+  pointer-events: auto;
+}
+
 @media (min-width: 1024px) {
   .contact-dock {
     right: max(1.25rem, env(safe-area-inset-right));
-    bottom: max(1.25rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Very short viewports (landscape phones): fall back to the bottom edge. */
+@media (max-height: 560px) {
+  .contact-dock {
+    top: auto;
+    bottom: max(1rem, calc(env(safe-area-inset-bottom) + 0.75rem));
+    padding-top: 0;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    justify-content: flex-end;
   }
 }
 
