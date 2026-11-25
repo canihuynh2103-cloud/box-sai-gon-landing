@@ -19,7 +19,7 @@ import { FloatingButtons } from "@/components/site/FloatingButtons";
 
 const TITLE = "Saigon Handling – Công Ty Bốc Xếp Hàng Hóa, Bốc Vác 24/7";
 const DESC =
-  "Saigon Handling là công ty bốc xếp hàng hóa cho kho, container, nhà máy, cảng và chuyển kho. Đội nhân công theo giờ, ngày hoặc tháng, báo giá theo khối lượng thực tế.";
+  "Saigon Handling là công ty bốc xếp hàng hóa cho kho, container, nhà máy, cảng, chuyển kho. Nhân công theo giờ, ngày hoặc tháng, báo giá theo khối lượng thực tế.";
 
 export const Route = createFileRoute("/")({
   loader: ({ context }) => context.queryClient.prefetchQuery(postsListQuery()),

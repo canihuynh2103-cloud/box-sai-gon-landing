@@ -48,7 +48,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     serviceSlug: "chuyen-kho",
     seoTitle: "Chuyển kho tổng 6.000m² tại KCN Vsip 1 | Dự án Saigon Handling",
     seoDescription:
-      "Case study chuyển kho tổng 6.000m² tại KCN Vsip 1, Bình Dương: cách chia đợt di dời hơn 9.000 pallet, kiểm đếm hai lớp và sắp xếp lại theo sơ đồ kho mới trong 12 ngày.",
+      "Case study chuyển kho tổng 6.000m² tại KCN Vsip 1, Bình Dương: chia đợt di dời hơn 9.000 pallet, kiểm đếm hai lớp và sắp xếp lại theo sơ đồ kho mới trong 12 ngày.",
     overview: [
       "Đây là dạng công việc mà khối lượng không phải phần khó nhất. Cái khó nằm ở chỗ kho vẫn phải xuất hàng trong lúc di dời, nên mỗi pallet rời khỏi vị trí cũ đều phải biết trước nó sẽ nằm ở đâu trong kho mới và ai là người xác nhận.",
       "Toàn bộ công việc được chia theo khu vực kho thay vì chuyển theo kiểu cuốn chiếu từ cửa vào. Cách chia này giúp bộ phận kho của khách hàng luôn biết khu nào đã đóng, khu nào còn lấy hàng được, và tránh tình trạng một mã hàng bị tách ra nằm ở hai kho cùng lúc.",
@@ -138,7 +138,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     serviceSlug: "boc-xep-container",
     seoTitle: "Rút ruột 120 container tại cảng Cát Lái | Dự án Saigon Handling",
     seoDescription:
-      "Case study rút ruột 120 container hàng bao kiện tại cảng Cát Lái: tổ chức nhân công có thẻ ra vào cảng theo dây chuyền, giữ nhịp trung bình 7 container mỗi ngày trong 18 ngày.",
+      "Case study rút ruột 120 container hàng bao kiện tại cảng Cát Lái: nhân công có thẻ vào cảng, làm dây chuyền, giữ nhịp trung bình 7 container mỗi ngày trong 18 ngày.",
     overview: [
       "Rút ruột container ở cảng là công việc bị ràng buộc bởi thời gian nhiều hơn bởi sức người. Cont nằm bãi thêm ngày nào là phát sinh chi phí ngày đó, nên tiến độ mỗi ngày quan trọng hơn tốc độ của một ca riêng lẻ.",
       "Điểm khác biệt so với rút hàng tại kho là nhân sự phải đủ điều kiện ra vào khu vực bãi và làm việc theo quy định của cảng. Việc này quyết định đội có vào được đúng giờ hay không, và vì vậy được chuẩn bị trước khi bàn tới chuyện năng suất.",
@@ -220,7 +220,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     serviceSlug: "chuyen-van-phong",
     seoTitle: "Chuyển văn phòng 14 tầng tại Quận 1 trong 3 đêm | Saigon Handling",
     seoDescription:
-      "Case study di dời văn phòng 14 tầng tại Quận 1: đóng gói theo phòng ban, thi công ngoài giờ từ 20h đến 5h, di dời 320 bộ bàn ghế và hệ thống máy chủ, sáng hôm sau làm việc bình thường.",
+      "Case study di dời văn phòng 14 tầng tại Quận 1: đóng gói theo phòng ban, làm ngoài giờ 20h–5h, di dời 320 bộ bàn ghế và máy chủ, sáng hôm sau làm việc bình thường.",
     overview: [
       "Chuyển văn phòng trong tòa nhà cao tầng bị giới hạn bởi ba thứ: thang máy, giờ được phép thi công và thời điểm nhân viên quay lại làm việc. Khối lượng đồ đạc thường không lớn bằng kho hàng, nhưng sai một chi tiết là sáng hôm sau có người không có chỗ ngồi hoặc không tìm ra hồ sơ.",
       "Vì vậy phần lớn công sức nằm ở khâu dán nhãn và sơ đồ chỗ ngồi, làm trước khi bất kỳ món đồ nào được tháo ra.",
@@ -296,7 +296,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     serviceSlug: "boc-xep-nha-may",
     seoTitle: "Di dời dây chuyền sản xuất tại KCN Sóng Thần | Saigon Handling",
     seoDescription:
-      "Case study di dời 14 cụm máy nặng trong nhà máy tại KCN Sóng Thần: phối hợp kỹ sư tháo dỡ, đóng kiện gỗ, dùng xe nâng 5 tấn và pa lăng chuyên dụng, hoàn tất trong 21 ngày.",
+      "Case study di dời 14 cụm máy nặng trong nhà máy tại KCN Sóng Thần: phối hợp kỹ sư, đóng kiện gỗ, dùng xe nâng 5 tấn và pa lăng chuyên dụng, hoàn tất trong 21 ngày.",
     overview: [
       "Di dời máy móc trong nhà máy khác hẳn việc chuyển hàng hóa: mỗi cụm máy có tâm nặng riêng, có điểm được phép móc cáp và có bộ phận không được chịu lực. Sai điểm kê hoặc sai điểm móc là hỏng thiết bị, không phải chỉ trầy xước.",
       "Vì vậy toàn bộ phương án tháo dỡ và di chuyển đều bám theo hướng dẫn của kỹ sư nhà máy. Đội bốc xếp đảm nhận phần cơ bắp và thiết bị nâng hạ, phần quyết định kỹ thuật thuộc về bộ phận kỹ thuật của khách hàng.",
@@ -377,7 +377,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   {
     slug: "chuyen-nha-tron-goi-thao-dien",
     serviceSlug: "chuyen-nha",
-    seoTitle: "Chuyển nhà trọn gói biệt thự 3 tầng khu Thảo Điền | Saigon Handling",
+    seoTitle: "Chuyển nhà trọn gói biệt thự 3 tầng khu Thảo Điền | Dự án",
     seoDescription:
       "Case study chuyển nhà trọn gói biệt thự 3 tầng tại Thảo Điền: đóng gói piano, tranh và tủ rượu, tháo lắp nội thất lớn và sắp xếp lại tại nơi ở mới trong 2 ngày.",
     overview: [
@@ -446,7 +446,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   {
     slug: "dong-goi-hang-xuat-khau-tan-binh",
     serviceSlug: "dong-goi-hang-hoa",
-    seoTitle: "Đóng gói 4.000 kiện hàng xuất khẩu tại KCN Tân Bình | Saigon Handling",
+    seoTitle: "Đóng gói 4.000 kiện hàng xuất khẩu tại Tân Bình | Saigon Handling",
     seoDescription:
       "Case study đóng gói 4.000 kiện hàng xuất khẩu: đóng thùng carton 5 lớp, quấn màng PE lên pallet và dán nhãn barcode theo tiêu chuẩn EU, hoàn tất trong 10 ngày.",
     overview: [
@@ -519,7 +519,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     serviceSlug: "xep-do-hang-hoa",
     seoTitle: "Đội xếp dỡ hàng rời cố định tại kho Hiệp Phước | Saigon Handling",
     seoDescription:
-      "Case study cung ứng đội xếp dỡ cố định 20 người tại kho Hiệp Phước, Nhà Bè: xử lý trung bình 60 tấn nguyên liệu mỗi ngày, báo cáo sản lượng và chấm công điện tử hằng tuần.",
+      "Case study cung ứng đội xếp dỡ cố định 20 người tại kho Hiệp Phước, Nhà Bè: trung bình 60 tấn nguyên liệu mỗi ngày, báo cáo sản lượng và chấm công điện tử hằng tuần.",
     overview: [
       "Khi khối lượng xếp dỡ phát sinh mỗi ngày, thuê lẻ theo từng đợt gây ra hai vấn đề: người mới không quen sơ đồ kho, và chi phí khó đối chiếu vì mỗi lần một mức. Đội cố định giải quyết cả hai.",
       "Điểm mấu chốt của mô hình theo tháng không nằm ở tốc độ một ngày, mà ở việc duy trì được cùng một nhóm người và có số liệu để khách hàng kiểm tra chi phí hằng tuần.",
@@ -594,7 +594,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     serviceSlug: "boc-xep-san-bay",
     seoTitle: "Xử lý hàng air cargo tại Tân Sơn Nhất | Dự án Saigon Handling",
     seoDescription:
-      "Case study cung ứng nhân công xử lý hàng air cargo tại Tân Sơn Nhất: build-up và break-down pallet, làm theo ca sát giờ cắt máng, hợp tác 6 tháng với đối tác forwarder.",
+      "Case study cung ứng nhân công xử lý hàng air cargo tại Tân Sơn Nhất: build-up, break-down pallet theo ca sát giờ cắt máng, hợp tác 6 tháng với đối tác forwarder.",
     overview: [
       "Hàng air chạy theo giờ cắt máng của từng chuyến, nên công việc không dàn đều trong ngày mà dồn vào những khung giờ nhất định. Đội phải có mặt đúng khung đó, chậm là hàng rớt chuyến.",
       "Điều kiện tiên quyết là nhân sự phải qua kiểm tra an ninh hàng không mới vào được khu vực làm việc. Đây là lý do mô hình hợp tác dài hạn phù hợp hơn việc điều động nhân công lẻ theo từng ngày.",

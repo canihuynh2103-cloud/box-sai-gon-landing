@@ -10,9 +10,9 @@ import { SERVICE_PAGES } from "@/data/service-pages";
 import { HOTLINE, HOTLINE_TEL } from "@/data/site";
 import { absUrl, breadcrumbLd, metaFor } from "@/lib/seo";
 
-const TITLE = "Danh Mục Dịch Vụ Saigon Handling – Bốc Xếp, Chuyển Kho, Chuyển Nhà";
+const TITLE = "Dịch Vụ Saigon Handling – Bốc Xếp, Chuyển Kho, Chuyển Nhà";
 const DESC =
-  "Tổng hợp toàn bộ dịch vụ bốc xếp của Saigon Handling: bốc xếp kho hàng, container, nhà máy, cảng, sân bay, thuê nhân công, đóng gói, chuyển kho, chuyển nhà và văn phòng.";
+  "Tổng hợp dịch vụ bốc xếp của Saigon Handling: bốc xếp kho hàng, container, nhà máy, cảng, sân bay, thuê nhân công, đóng gói, chuyển kho, chuyển nhà và văn phòng.";
 
 export const Route = createFileRoute("/dich-vu/")({
   head: () => {
