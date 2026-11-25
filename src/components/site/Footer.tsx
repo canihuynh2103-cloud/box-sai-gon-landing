@@ -212,7 +212,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-secondary-foreground/55 sm:flex-row">
-          <p>© {new Date().getFullYear()} Saigon Handling. Bảo lưu mọi quyền.</p>
+          <p>© {new Date().getFullYear()} CÔNG TY TNHH SAIGON HANDLING. Bảo lưu mọi quyền.</p>
           <div className="flex flex-wrap gap-5">
             <Link to="/ho-so-nang-luc" className="hover:text-primary">
               Hồ sơ năng lực
