@@ -215,6 +215,8 @@
   );
   justify-content: center;
   pointer-events: none;
+  /* Đặt tâm cụm nút quanh ~61% chiều cao viewport (hơi thấp hơn giữa màn hình). */
+  transform: translateY(10vh);
 }
 
 .contact-dock > * {
@@ -235,6 +237,7 @@
     padding-top: 0;
     padding-bottom: calc(1rem + env(safe-area-inset-bottom));
     justify-content: flex-end;
+    transform: none;
   }
 }
 

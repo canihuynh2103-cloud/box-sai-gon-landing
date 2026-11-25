@@ -56,7 +56,7 @@ export function Footer() {
                   className="h-full w-full object-contain"
                 />
               </span>
-              <span className="font-display text-xl font-bold leading-[1.4]">Saigon Handling</span>
+              <span className="font-display text-xl font-bold uppercase leading-[1.4]">Saigon Handling</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-secondary-foreground/70">
               Đơn vị cung cấp nhân công bốc xếp và di dời hàng hóa chuyên nghiệp tại TP.HCM từ năm
