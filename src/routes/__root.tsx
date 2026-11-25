@@ -104,7 +104,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "LocalBusiness",
           "@id": "https://bocxepsaigon.vn/#business",
           name: "Saigon Handling",
-          alternateName: ["Bốc Xếp Sài Gòn", "Sai Gon Cargo Handling"],
+          alternateName: ["Sai Gon Cargo Handling"],
           url: "https://bocxepsaigon.vn",
           telephone: "+84888997822",
           email: "saigonhandling@gmail.com",

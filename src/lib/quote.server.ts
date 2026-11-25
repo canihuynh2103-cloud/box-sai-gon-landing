@@ -2,7 +2,7 @@
 export const QUOTE_INBOX = "saigonhandling@gmail.com";
 
 /** Địa chỉ gửi mặc định — domain đã verify trên Resend. */
-const DEFAULT_FROM = "Bốc Xếp Sài Gòn <contact@bocxepsaigon.vn>";
+const DEFAULT_FROM = "Saigon Handling <contact@bocxepsaigon.vn>";
 
 export type QuotePayload = {
   name: string;
@@ -76,12 +76,12 @@ const shell = (inner: string) =>
 <div style="background:#ffffff;border:1px solid #e5e7eb;border-top:0;border-radius:0 0 10px 10px;padding:24px">
 ${inner}
 </div>
-<p style="margin:14px 0 0;text-align:center;font-size:12px;color:#6b7280">Bốc Xếp Sài Gòn · Hotline 0888.997.822 · bocxepsaigon.vn</p>
+<p style="margin:14px 0 0;text-align:center;font-size:12px;color:#6b7280">Saigon Handling · Hotline 0888.997.822 · bocxepsaigon.vn</p>
 </div></body></html>`;
 
 export function buildQuoteEmail(p: QuotePayload) {
   const groups = buildGroups(p);
-  const subject = `Yêu cầu báo giá mới - Bốc Xếp Sài Gòn (${p.name} - ${p.phone})`;
+  const subject = `Yêu cầu báo giá mới - Saigon Handling (${p.name} - ${p.phone})`;
   const text = groups
     .map((g) => `${g.heading.toUpperCase()}\n${g.rows.map(([k, v]) => `- ${k}: ${v}`).join("\n")}`)
     .join("\n\n");
@@ -120,7 +120,7 @@ ${body}
 }
 
 export function buildCustomerEmail(p: QuotePayload) {
-  const subject = "Bốc Xếp Sài Gòn đã nhận yêu cầu của bạn";
+  const subject = "Saigon Handling đã nhận yêu cầu của bạn";
   const info: [string, string][] = [
     ["Dịch vụ", p.service || NA],
     ["Địa điểm", p.address || NA],
@@ -128,7 +128,7 @@ export function buildCustomerEmail(p: QuotePayload) {
     ["Số lượng nhân công", p.workersCount || NA],
     ["Loại hàng hóa", p.cargoType || NA],
   ];
-  const text = `Chào ${p.name},\n\nBốc Xếp Sài Gòn đã nhận được yêu cầu của bạn.\n\nThông tin yêu cầu:\n${info
+  const text = `Chào ${p.name},\n\nSaigon Handling đã nhận được yêu cầu của bạn.\n\nThông tin yêu cầu:\n${info
     .map(([k, v]) => `- ${k}: ${v}`)
     .join(
       "\n",
@@ -136,7 +136,7 @@ export function buildCustomerEmail(p: QuotePayload) {
 
   const html = shell(
     `<h1 style="margin:0;font-size:20px">Chào ${esc(p.name)},</h1>
-<p style="margin:10px 0 0;font-size:14px;line-height:1.65">Bốc Xếp Sài Gòn đã nhận được yêu cầu của bạn. Bộ phận điều phối sẽ liên hệ lại trong thời gian sớm nhất.</p>
+<p style="margin:10px 0 0;font-size:14px;line-height:1.65">Saigon Handling đã nhận được yêu cầu của bạn. Bộ phận điều phối sẽ liên hệ lại trong thời gian sớm nhất.</p>
 <h2 style="margin:22px 0 8px;font-size:14px;color:#dc2626;letter-spacing:1px;text-transform:uppercase">Thông tin yêu cầu</h2>
 <table role="presentation" style="width:100%;border-collapse:collapse;font-size:14px">
 ${info
